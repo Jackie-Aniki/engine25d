@@ -1,13 +1,16 @@
 import {
   Euler,
+  LinearSRGBColorSpace,
   Matrix4,
   MeshBasicMaterial,
+  NearestFilter,
+  NearestMipMapLinearFilter,
   Quaternion,
   Vector2,
   Vector3
 } from 'three';
 import { Material } from './model';
-import { textures } from './state';
+import { loader, textures } from './state';
 
 export const randomOf = (array: any[]) =>
   array[Math.floor(Math.random() * array.length)];
@@ -44,4 +47,34 @@ export const createMaterial = (textureName: string) => {
 
     return {} as Material;
   }
+};
+
+export const getTextureNameFromPath = (path: string) => {
+  const fileName = path.split('/').pop()?.split('.')[0];
+  if (!fileName) {
+    return '';
+  }
+
+  return fileName
+    .split('-')
+    .map((word, index) =>
+      index === 0 ? word : word.charAt(0).toUpperCase() + word.slice(1)
+    )
+    .join('');
+};
+
+export const loadTextures = async (texturePaths: string[]) => {
+  const promises = texturePaths.map((texturePath) => loader.load(texturePath));
+  const resolved = await Promise.all(promises);
+
+  texturePaths.forEach((texturePath, index) => {
+    const textureName = getTextureNameFromPath(texturePath);
+    const texture = resolved[index];
+
+    texture.minFilter = NearestMipMapLinearFilter;
+    texture.magFilter = NearestFilter;
+    texture.colorSpace = LinearSRGBColorSpace;
+
+    textures[textureName] = texture;
+  });
 };
