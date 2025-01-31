@@ -10,8 +10,8 @@ import { Camera } from './camera';
 
 export class Renderer extends WebGLRenderer {
   now = Date.now();
-  scene: Scene = new Scene();
-  camera: Camera = new Camera();
+  scene = new Scene();
+  camera = new Camera();
   animations: Array<(time: number) => void> = [];
   light?: DirectionalLight;
 
@@ -45,9 +45,11 @@ export class Renderer extends WebGLRenderer {
   }
 
   resize() {
-    this.camera.aspect = innerWidth / innerHeight;
-    this.camera.updateProjectionMatrix();
-
     this.setSize(innerWidth, innerHeight);
+
+    this.camera.aspect = innerWidth / innerHeight;
+    this.camera.distance = innerHeight / 300;
+    this.camera.setPosition();
+    this.camera.updateProjectionMatrix();
   }
 }

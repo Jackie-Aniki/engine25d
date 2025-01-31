@@ -20,23 +20,12 @@ export class Player extends TexturedBillboard {
 
     this.setDirection();
 
-    const x = Math.sin(-state.direction) * renderer.camera.distance;
-    const y = Math.cos(-state.direction) * renderer.camera.distance;
+    const { camera } = renderer;
+    const targetX = this.body.x - Math.sin(-state.direction) * camera.distance;
+    const targetY = this.body.y - Math.cos(-state.direction) * camera.distance;
 
-    renderer.camera.position.lerp(
-      new Vector3(
-        Math.max(1, Math.min(this.level.size - 2, this.body.x - x)),
-        Math.max(1, Math.min(this.level.size - 2, this.body.y - y)),
-        0.5 + renderer.camera.distance * 0.67
-      ),
-      ms / 250
-    );
-
-    const position = new Vector3(this.body.x, this.body.y, this.z).add(
-      new Vector3(0, 0, 1)
-    );
-
-    renderer.camera.lookAt(position);
+    camera.position.lerp(camera.getPosition(targetX, targetY), ms / 250);
+    camera.lookAt(new Vector3(this.body.x, this.body.y, this.z + 1));
   }
 
   protected setDirection() {
