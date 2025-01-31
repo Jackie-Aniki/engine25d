@@ -1,11 +1,10 @@
 {
-  "name": "@pietal.dev/engine25d",
+  "name": "engine25d",
   "description": "threejs based game engine",
   "version": "0.0.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "get-vendor": "mkdir -p src/vendor && ln -s ../../node_modules/three/examples/jsm/loaders src/vendor/three-loaders",
     "start": "chef-express docs --port 3000",
     "docs": "yarn build && yarn start",
     "prebuild": "rm -rf dist",

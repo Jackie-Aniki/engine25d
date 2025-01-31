@@ -1,6 +1,6 @@
 import { LoadingManager, Texture, TextureLoader } from 'three';
-import { FBXLoader } from './vendor/three-loaders/FBXLoader';
-import { TGALoader } from './vendor/three-loaders/TGALoader';
+import { FBXLoader } from 'three-loaders/FBXLoader';
+import { TGALoader } from 'three-loaders/TGALoader';
 
 export class Loader extends LoadingManager {
   textureLoader: TextureLoader;

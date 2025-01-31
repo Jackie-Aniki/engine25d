@@ -2,8 +2,8 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 exports.Loader = void 0;
 const three_1 = require('three');
-const FBXLoader_1 = require('./vendor/three-loaders/FBXLoader');
-const TGALoader_1 = require('./vendor/three-loaders/TGALoader');
+const FBXLoader_1 = require('three-loaders/FBXLoader');
+const TGALoader_1 = require('three-loaders/TGALoader');
 class Loader extends three_1.LoadingManager {
   constructor(onLoad, onProgress, onError) {
     super(onLoad, onProgress, onError);
