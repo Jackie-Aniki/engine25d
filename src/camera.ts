@@ -3,8 +3,8 @@ import { PerspectiveCamera, Vector3 } from 'three';
 export class Camera extends PerspectiveCamera {
   distance: number;
   levelSize: number;
-  targetX: number;
-  targetY: number;
+  targetX!: number;
+  targetY!: number;
 
   constructor(levelSize = 32, distance = 3) {
     super(70, innerWidth / innerHeight, 0.2, levelSize * 1.33);
@@ -23,7 +23,7 @@ export class Camera extends PerspectiveCamera {
     return new Vector3(
       Math.max(1, Math.min(this.levelSize - 2, this.targetX)),
       Math.max(1, Math.min(this.levelSize - 2, this.targetY)),
-      0.5 + this.distance * 0.67
+      (this.distance + 1) / 2
     );
   }
 
