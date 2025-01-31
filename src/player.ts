@@ -1,0 +1,57 @@
+import { Vector3 } from 'three';
+import { renderer, state } from './state';
+import {
+  TexturedBillboard,
+  TexturedBillboardProps
+} from './textured-billboard';
+
+export class Player extends TexturedBillboard {
+  readonly isPlayer = true;
+
+  protected direction = 'up';
+
+  constructor(props: TexturedBillboardProps) {
+    super(props);
+
+    this.body.r = 0.33;
+  }
+
+  protected update(ms: number) {
+    super.update(ms);
+
+    this.setDirection();
+
+    const x = Math.sin(-state.direction) * renderer.camera.distance;
+    const y = Math.cos(-state.direction) * renderer.camera.distance;
+
+    renderer.camera.position.lerp(
+      new Vector3(
+        Math.max(1, Math.min(this.level.size - 2, this.body.x - x)),
+        Math.max(1, Math.min(this.level.size - 2, this.body.y - y)),
+        0.5 + renderer.camera.distance * 0.67
+      ),
+      ms / 250
+    );
+
+    const position = new Vector3(this.body.x, this.body.y, this.z).add(
+      new Vector3(0, 0, 1)
+    );
+
+    renderer.camera.lookAt(position);
+    renderer.camera.up = new Vector3(0, 0, 1);
+  }
+
+  protected setDirection() {
+    TexturedBillboard.directions.some((direction) => {
+      if (state.keys[direction]) {
+        this.direction = direction;
+
+        return true;
+      }
+    });
+  }
+
+  protected getDirection() {
+    return this.direction;
+  }
+}
