@@ -7,6 +7,7 @@ import {
   WebGLRenderer
 } from 'three';
 import { Camera } from './camera';
+import { pixelate } from './utils';
 
 export class Renderer extends WebGLRenderer {
   now = Date.now();
@@ -26,6 +27,7 @@ export class Renderer extends WebGLRenderer {
     const loader = new CubeTextureLoader();
     const skyBox = loader.load(Array.from({ length: 6 }, () => 'skybox.jpg'));
 
+    pixelate(skyBox);
     this.scene.background = skyBox;
 
     document.body.appendChild(this.domElement);

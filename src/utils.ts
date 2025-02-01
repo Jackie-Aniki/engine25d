@@ -6,6 +6,7 @@ import {
   NearestFilter,
   NearestMipMapLinearFilter,
   Quaternion,
+  Texture,
   Vector2,
   Vector3
 } from 'three';
@@ -64,6 +65,12 @@ export const getTextureNameFromPath = (path: string) => {
     .join('');
 };
 
+export const pixelate = (texture: Texture) => {
+  texture.minFilter = NearestMipMapLinearFilter;
+  texture.magFilter = NearestFilter;
+  texture.colorSpace = LinearSRGBColorSpace;
+};
+
 export const loadTextures = async (texturePaths: string[]) => {
   const promises = texturePaths.map((texturePath) => loader.load(texturePath));
   const resolved = await Promise.all(promises);
@@ -72,10 +79,7 @@ export const loadTextures = async (texturePaths: string[]) => {
     const textureName = getTextureNameFromPath(texturePath);
     const texture = resolved[index];
 
-    texture.minFilter = NearestMipMapLinearFilter;
-    texture.magFilter = NearestFilter;
-    texture.colorSpace = LinearSRGBColorSpace;
-
+    pixelate(texture);
     textures[textureName] = texture;
   });
 };
