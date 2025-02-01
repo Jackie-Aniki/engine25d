@@ -4,21 +4,15 @@ export const onPointerMove = (event: MouseEvent | TouchEvent) => {
   const pointer = event instanceof TouchEvent ? event.touches[0] : event;
 
   if (pointer && state.player) {
-    const CENTER_Y = 0.65;
-    const MARGIN_Y = 0.05;
+    const CENTER_Y = 0.75;
+    const MARGIN_Y = 0.1;
 
     mouse.x = (pointer.pageX / innerWidth) * 2 - 1;
     mouse.y = pointer.pageY / innerHeight - CENTER_Y;
 
-    const ratio = mouse.y
-      ? (mouse.x * innerWidth) / -Math.abs(mouse.y * innerHeight)
-      : Infinity;
-
     if (state.mouseDown) {
-      keys.up = mouse.y < -MARGIN_Y && Math.abs(ratio) < 2;
-      keys.down = mouse.y > MARGIN_Y && Math.abs(ratio) < 2;
-      keys.left = ratio > 0.5;
-      keys.right = ratio < -0.5;
+      keys.up = mouse.y < -MARGIN_Y;
+      keys.down = mouse.y > MARGIN_Y;
     }
   }
 };

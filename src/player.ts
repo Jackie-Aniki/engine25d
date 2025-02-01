@@ -26,8 +26,9 @@ export class Player extends TexturedBillboard {
     this.setDirection();
 
     const { camera } = renderer;
-    const targetX = this.body.x - Math.sin(-state.direction) * Camera.distance;
-    const targetY = this.body.y - Math.cos(-state.direction) * Camera.distance;
+    const scale = Camera.distance / camera.aspect;
+    const targetX = this.body.x - Math.sin(-state.direction) * scale;
+    const targetY = this.body.y - Math.cos(-state.direction) * scale;
     const target = camera.getPosition(targetX, targetY);
 
     camera.position.lerp(target, ms * Player.cameraLerpRatio);

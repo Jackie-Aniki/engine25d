@@ -5,8 +5,6 @@ import { floors, physics, renderer } from './state';
 import { getMatrix } from './utils';
 
 export class ViewLevel extends Level {
-  static readonly waterBoxHeight = Level.maxHeight + 2;
-
   constructor(textures: Texture[]) {
     super();
 

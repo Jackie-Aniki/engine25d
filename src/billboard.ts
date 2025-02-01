@@ -1,5 +1,5 @@
 import { Circle } from 'detect-collisions';
-import { Mesh, PlaneGeometry, Vector3 } from 'three';
+import { Mesh, PlaneGeometry, Vector2, Vector3 } from 'three';
 import { Level } from './level';
 import { Material, State } from './model';
 import { floors, physics, renderer } from './state';
@@ -20,9 +20,9 @@ export class Billboard {
   body: Circle;
   scale: Vector3;
   state: State = {
-    direction: Math.random() * 2 * Math.PI,
     keys: {},
-    mouse: {}
+    mouse: new Vector2(),
+    direction: Math.random() * 2 * Math.PI
   };
 
   protected _gear = 0;
@@ -93,12 +93,19 @@ export class Billboard {
     const moveSpeed = gear * Billboard.moveSpeed * deltaTime;
 
     if (this.z > 0) {
-      if (this.state.keys.right) {
-        this.state.direction -= rotateGear * Billboard.rotateSpeed * deltaTime;
-      }
+      if (
+        this.state.keys.left ||
+        this.state.keys.right ||
+        (this.state.mouseDown && this.state.mouse.x)
+      ) {
+        const scale = this.state.keys.left
+          ? 1
+          : this.state.keys.right
+            ? -1
+            : Math.max(-1, Math.min(1, -this.state.mouse.x * 2));
 
-      if (this.state.keys.left) {
-        this.state.direction += rotateGear * Billboard.rotateSpeed * deltaTime;
+        this.state.direction +=
+          rotateGear * Billboard.rotateSpeed * deltaTime * scale;
       }
     }
 

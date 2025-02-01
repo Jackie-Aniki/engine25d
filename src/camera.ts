@@ -3,7 +3,7 @@ import { Level } from './level';
 import { Player } from './player';
 
 export class Camera extends PerspectiveCamera {
-  static readonly distance = 2;
+  static readonly distance = 1;
   static fov = 90;
   static near = 0.1;
   static far = 100;

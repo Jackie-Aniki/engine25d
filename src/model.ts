@@ -6,7 +6,7 @@ export type Key = 'left' | 'right' | 'up' | 'down' | 'space';
 
 export interface State extends Record<string, any> {
   keys: Record<string, boolean>;
-  mouse: Partial<Vector2>;
+  mouse: Vector2;
   direction: number;
 }
 
