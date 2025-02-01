@@ -57,7 +57,7 @@ export class TexturedBillboard extends Billboard {
       TexturedBillboard.directions.find(findByAngle) ||
       TexturedBillboard.directions[0];
 
-    return this.gear === -1
+    return this.getGear() === -1
       ? TexturedBillboard.reverseDirections[direction]
       : direction;
   }

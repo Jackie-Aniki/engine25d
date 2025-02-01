@@ -4,29 +4,46 @@ import { Player } from './player';
 
 export class Camera extends PerspectiveCamera {
   static readonly distance = 2;
+  static fov = 90;
+  static near = 0.1;
+  static far = 100;
 
-  levelSize: number;
-  targetX!: number;
-  targetY!: number;
+  targetX = 0;
+  targetY = 0;
   level?: Level;
   player?: Player;
 
-  constructor(levelSize = 32, fov = 60) {
-    super(fov, innerWidth / innerHeight, 0.2, levelSize * 1.33);
+  get idle() {
+    return !this.level || !this.player;
+  }
 
-    this.levelSize = levelSize;
-    this.updatePosition();
+  constructor(fov = Camera.fov, near = Camera.near, far = Camera.far) {
+    super(fov, innerWidth / innerHeight, near, far);
   }
 
   setLevel(level: Level) {
     this.level = level;
+
+    if (!this.idle) {
+      this.updatePosition(
+        this.player!.mesh.position.x,
+        this.player!.mesh.position.y
+      );
+    }
   }
 
   setPlayer(player: Player) {
     this.player = player;
+
+    if (!this.idle) {
+      this.updatePosition(
+        this.player!.mesh.position.x,
+        this.player!.mesh.position.y
+      );
+    }
   }
 
-  getPosition(targetX = this.levelSize / 2, targetY = this.levelSize / 2) {
+  getPosition(targetX?: number, targetY?: number) {
     if (typeof targetX !== 'undefined' && typeof targetY !== 'undefined') {
       this.targetX = targetX;
       this.targetY = targetY;
@@ -40,11 +57,11 @@ export class Camera extends PerspectiveCamera {
     return new Vector3(
       this.targetX,
       this.targetY,
-      1 + Math.max(playerFloor, levelFloor) / 2
+      1 + Math.max(playerFloor, levelFloor)
     );
   }
 
-  updatePosition(targetX = this.targetX, targetY = this.targetY) {
+  updatePosition(targetX?: number, targetY?: number) {
     const { x, y, z } = this.getPosition(targetX, targetY);
 
     this.position.set(x, y, z);

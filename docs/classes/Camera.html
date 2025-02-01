@@ -69,7 +69,7 @@
           </ul>
           <h1>Class Camera</h1>
         </div>
-        <section class="tsd-panel tsd-hierarchy" data-refl="313">
+        <section class="tsd-panel tsd-hierarchy" data-refl="317">
           <h4>Hierarchy</h4>
           <ul class="tsd-hierarchy">
             <li class="tsd-hierarchy-item">
@@ -253,11 +253,6 @@
                       ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
                         <use href="../assets/icons.svg#icon-1024"></use></svg
                       ><span>level?</span></a
-                    >
-                    <a href="Camera.html#levelsize" class="tsd-index-link"
-                      ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                        <use href="../assets/icons.svg#icon-1024"></use></svg
-                      ><span>level<wbr />Size</span></a
                     >
                     <a
                       href="Camera.html#matrix"
@@ -496,6 +491,31 @@
                       ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
                         <use href="../assets/icons.svg#icon-1024"></use></svg
                       ><span>distance</span></a
+                    >
+                    <a href="Camera.html#far-1" class="tsd-index-link"
+                      ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
+                        <use href="../assets/icons.svg#icon-1024"></use></svg
+                      ><span>far</span></a
+                    >
+                    <a href="Camera.html#fov-1" class="tsd-index-link"
+                      ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
+                        <use href="../assets/icons.svg#icon-1024"></use></svg
+                      ><span>fov</span></a
+                    >
+                    <a href="Camera.html#near-1" class="tsd-index-link"
+                      ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
+                        <use href="../assets/icons.svg#icon-1024"></use></svg
+                      ><span>near</span></a
+                    >
+                  </div>
+                </section>
+                <section class="tsd-index-section">
+                  <h3 class="tsd-index-heading">Accessors</h3>
+                  <div class="tsd-index-list">
+                    <a href="Camera.html#idle" class="tsd-index-link"
+                      ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
+                        <use href="../assets/icons.svg#icon-262144"></use></svg
+                      ><span>idle</span></a
                     >
                   </div>
                 </section>
@@ -985,11 +1005,15 @@
                   ><span class="tsd-signature-keyword">new</span>
                   <span class="tsd-kind-constructor-signature">Camera</span
                   ><span class="tsd-signature-symbol">(</span
-                  ><span class="tsd-kind-parameter">levelSize</span
+                  ><span class="tsd-kind-parameter">fov</span
                   ><span class="tsd-signature-symbol">?:</span>
                   <span class="tsd-signature-type">number</span
                   ><span class="tsd-signature-symbol">,</span>
-                  <span class="tsd-kind-parameter">fov</span
+                  <span class="tsd-kind-parameter">near</span
+                  ><span class="tsd-signature-symbol">?:</span>
+                  <span class="tsd-signature-type">number</span
+                  ><span class="tsd-signature-symbol">,</span>
+                  <span class="tsd-kind-parameter">far</span
                   ><span class="tsd-signature-symbol">?:</span>
                   <span class="tsd-signature-type">number</span
                   ><span class="tsd-signature-symbol">)</span
@@ -1012,16 +1036,29 @@
                     <ul class="tsd-parameter-list">
                       <li>
                         <span
-                          ><span class="tsd-kind-parameter">levelSize</span>:
+                          ><span class="tsd-kind-parameter">fov</span>:
                           <span class="tsd-signature-type">number</span
-                          ><span class="tsd-signature-symbol"> = 32</span></span
+                          ><span class="tsd-signature-symbol">
+                            = Camera.fov</span
+                          ></span
                         >
                       </li>
                       <li>
                         <span
-                          ><span class="tsd-kind-parameter">fov</span>:
+                          ><span class="tsd-kind-parameter">near</span>:
                           <span class="tsd-signature-type">number</span
-                          ><span class="tsd-signature-symbol"> = 60</span></span
+                          ><span class="tsd-signature-symbol">
+                            = Camera.near</span
+                          ></span
+                        >
+                      </li>
+                      <li>
+                        <span
+                          ><span class="tsd-kind-parameter">far</span>:
+                          <span class="tsd-signature-type">number</span
+                          ><span class="tsd-signature-symbol">
+                            = Camera.far</span
+                          ></span
                         >
                       </li>
                     </ul>
@@ -1040,8 +1077,8 @@
                       <li>
                         Defined in
                         <a
-                          href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L14"
-                          >src/camera.ts:14</a
+                          href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L20"
+                          >src/camera.ts:20</a
                         >
                       </li>
                     </ul>
@@ -2124,37 +2161,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L11"
-                      >src/camera.ts:11</a
-                    >
-                  </li>
-                </ul>
-              </aside>
-            </section>
-            <section class="tsd-panel tsd-member">
-              <a id="levelsize" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
-                <span>level<wbr />Size</span
-                ><a
-                  href="#levelsize"
-                  aria-label="Permalink"
-                  class="tsd-anchor-icon"
-                  ><svg viewBox="0 0 24 24">
-                    <use href="../assets/icons.svg#icon-anchor"></use></svg
-                ></a>
-              </h3>
-              <div class="tsd-signature">
-                <span class="tsd-kind-property">levelSize</span
-                ><span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">number</span>
-              </div>
-              <aside class="tsd-sources">
-                <ul>
-                  <li>
-                    Defined in
-                    <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L8"
-                      >src/camera.ts:8</a
+                      href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L13"
+                      >src/camera.ts:13</a
                     >
                   </li>
                 </ul>
@@ -2795,8 +2803,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L12"
-                      >src/camera.ts:12</a
+                      href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L14"
+                      >src/camera.ts:14</a
                     >
                   </li>
                 </ul>
@@ -3230,15 +3238,16 @@
               <div class="tsd-signature">
                 <span class="tsd-kind-property">targetX</span
                 ><span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">number</span>
+                <span class="tsd-signature-type">number</span
+                ><span class="tsd-signature-symbol"> = 0</span>
               </div>
               <aside class="tsd-sources">
                 <ul>
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L9"
-                      >src/camera.ts:9</a
+                      href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L11"
+                      >src/camera.ts:11</a
                     >
                   </li>
                 </ul>
@@ -3259,15 +3268,16 @@
               <div class="tsd-signature">
                 <span class="tsd-kind-property">targetY</span
                 ><span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">number</span>
+                <span class="tsd-signature-type">number</span
+                ><span class="tsd-signature-symbol"> = 0</span>
               </div>
               <aside class="tsd-sources">
                 <ul>
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L10"
-                      >src/camera.ts:10</a
+                      href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L12"
+                      >src/camera.ts:12</a
                     >
                   </li>
                 </ul>
@@ -3901,6 +3911,137 @@
                   </li>
                 </ul>
               </aside>
+            </section>
+            <section class="tsd-panel tsd-member">
+              <a id="far-1" class="tsd-anchor"></a>
+              <h3 class="tsd-anchor-link">
+                <code class="tsd-tag">Static</code><span>far</span
+                ><a href="#far-1" aria-label="Permalink" class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24">
+                    <use href="../assets/icons.svg#icon-anchor"></use></svg
+                ></a>
+              </h3>
+              <div class="tsd-signature">
+                <span class="tsd-kind-property">far</span
+                ><span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">number</span
+                ><span class="tsd-signature-symbol"> = 100</span>
+              </div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L9"
+                      >src/camera.ts:9</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+            </section>
+            <section class="tsd-panel tsd-member">
+              <a id="fov-1" class="tsd-anchor"></a>
+              <h3 class="tsd-anchor-link">
+                <code class="tsd-tag">Static</code><span>fov</span
+                ><a href="#fov-1" aria-label="Permalink" class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24">
+                    <use href="../assets/icons.svg#icon-anchor"></use></svg
+                ></a>
+              </h3>
+              <div class="tsd-signature">
+                <span class="tsd-kind-property">fov</span
+                ><span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">number</span
+                ><span class="tsd-signature-symbol"> = 90</span>
+              </div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L7"
+                      >src/camera.ts:7</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+            </section>
+            <section class="tsd-panel tsd-member">
+              <a id="near-1" class="tsd-anchor"></a>
+              <h3 class="tsd-anchor-link">
+                <code class="tsd-tag">Static</code><span>near</span
+                ><a
+                  href="#near-1"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24">
+                    <use href="../assets/icons.svg#icon-anchor"></use></svg
+                ></a>
+              </h3>
+              <div class="tsd-signature">
+                <span class="tsd-kind-property">near</span
+                ><span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">number</span
+                ><span class="tsd-signature-symbol"> = 0.1</span>
+              </div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L8"
+                      >src/camera.ts:8</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+            </section>
+          </section>
+        </details>
+        <details class="tsd-panel-group tsd-member-group tsd-accordion" open>
+          <summary class="tsd-accordion-summary" data-key="section-Accessors">
+            <h2>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <use href="../assets/icons.svg#icon-chevronDown"></use>
+              </svg>
+              Accessors
+            </h2>
+          </summary>
+          <section>
+            <section class="tsd-panel tsd-member">
+              <a id="idle" class="tsd-anchor"></a>
+              <h3 class="tsd-anchor-link">
+                <span>idle</span
+                ><a href="#idle" aria-label="Permalink" class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24">
+                    <use href="../assets/icons.svg#icon-anchor"></use></svg
+                ></a>
+              </h3>
+              <ul class="tsd-signatures">
+                <li class="tsd-signature" id="idle-1">
+                  <span class="tsd-signature-keyword">get</span>
+                  <span class="tsd-kind-get-signature">idle</span
+                  ><span class="tsd-signature-symbol">()</span
+                  ><span class="tsd-signature-symbol">:</span>
+                  <span class="tsd-signature-type">boolean</span>
+                </li>
+                <li class="tsd-description">
+                  <h4 class="tsd-returns-title">
+                    Returns <span class="tsd-signature-type">boolean</span>
+                  </h4>
+                  <aside class="tsd-sources">
+                    <ul>
+                      <li>
+                        Defined in
+                        <a
+                          href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L16"
+                          >src/camera.ts:16</a
+                        >
+                      </li>
+                    </ul>
+                  </aside>
+                </li>
+              </ul>
             </section>
           </section>
         </details>
@@ -5546,20 +5687,16 @@
                     <ul class="tsd-parameter-list">
                       <li>
                         <span
+                          ><code class="tsd-tag">Optional</code
                           ><span class="tsd-kind-parameter">targetX</span>:
-                          <span class="tsd-signature-type">number</span
-                          ><span class="tsd-signature-symbol">
-                            = ...</span
-                          ></span
+                          <span class="tsd-signature-type">number</span></span
                         >
                       </li>
                       <li>
                         <span
+                          ><code class="tsd-tag">Optional</code
                           ><span class="tsd-kind-parameter">targetY</span>:
-                          <span class="tsd-signature-type">number</span
-                          ><span class="tsd-signature-symbol">
-                            = ...</span
-                          ></span
+                          <span class="tsd-signature-type">number</span></span
                         >
                       </li>
                     </ul>
@@ -5572,8 +5709,8 @@
                       <li>
                         Defined in
                         <a
-                          href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L29"
-                          >src/camera.ts:29</a
+                          href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L46"
+                          >src/camera.ts:46</a
                         >
                       </li>
                     </ul>
@@ -8210,8 +8347,8 @@
                       <li>
                         Defined in
                         <a
-                          href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L21"
-                          >src/camera.ts:21</a
+                          href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L24"
+                          >src/camera.ts:24</a
                         >
                       </li>
                     </ul>
@@ -8277,8 +8414,8 @@
                       <li>
                         Defined in
                         <a
-                          href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L25"
-                          >src/camera.ts:25</a
+                          href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L35"
+                          >src/camera.ts:35</a
                         >
                       </li>
                     </ul>
@@ -9745,20 +9882,16 @@
                     <ul class="tsd-parameter-list">
                       <li>
                         <span
+                          ><code class="tsd-tag">Optional</code
                           ><span class="tsd-kind-parameter">targetX</span>:
-                          <span class="tsd-signature-type">number</span
-                          ><span class="tsd-signature-symbol">
-                            = ...</span
-                          ></span
+                          <span class="tsd-signature-type">number</span></span
                         >
                       </li>
                       <li>
                         <span
+                          ><code class="tsd-tag">Optional</code
                           ><span class="tsd-kind-parameter">targetY</span>:
-                          <span class="tsd-signature-type">number</span
-                          ><span class="tsd-signature-symbol">
-                            = ...</span
-                          ></span
+                          <span class="tsd-signature-type">number</span></span
                         >
                       </li>
                     </ul>
@@ -9771,8 +9904,8 @@
                       <li>
                         Defined in
                         <a
-                          href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L47"
-                          >src/camera.ts:47</a
+                          href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L64"
+                          >src/camera.ts:64</a
                         >
                       </li>
                     </ul>
@@ -10264,10 +10397,6 @@
                     ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>level</span></a
-                  ><a href="#levelsize" class=""
-                    ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                      <use href="../assets/icons.svg#icon-1024"></use></svg
-                    ><span>level<wbr />Size</span></a
                   ><a href="#matrix" class="tsd-is-inherited tsd-is-external"
                     ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
                       <use href="../assets/icons.svg#icon-1024"></use></svg
@@ -10438,6 +10567,35 @@
                     ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>distance</span></a
+                  ><a href="#far-1" class=""
+                    ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
+                      <use href="../assets/icons.svg#icon-1024"></use></svg
+                    ><span>far</span></a
+                  ><a href="#fov-1" class=""
+                    ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
+                      <use href="../assets/icons.svg#icon-1024"></use></svg
+                    ><span>fov</span></a
+                  ><a href="#near-1" class=""
+                    ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
+                      <use href="../assets/icons.svg#icon-1024"></use></svg
+                    ><span>near</span></a
+                  >
+                </div>
+              </details>
+              <details open class="tsd-accordion tsd-page-navigation-section">
+                <summary
+                  class="tsd-accordion-summary"
+                  data-key="section-Accessors"
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <use href="../assets/icons.svg#icon-chevronDown"></use></svg
+                  >Accessors
+                </summary>
+                <div>
+                  <a href="#idle" class=""
+                    ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
+                      <use href="../assets/icons.svg#icon-262144"></use></svg
+                    ><span>idle</span></a
                   >
                 </div>
               </details>

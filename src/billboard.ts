@@ -25,19 +25,7 @@ export class Billboard {
     mouse: {}
   };
 
-  get gear() {
-    let gear = 0;
-
-    if (this.state.keys.up) {
-      gear++;
-    }
-
-    if (this.state.keys.down) {
-      gear--;
-    }
-
-    return gear;
-  }
+  protected _gear = 0;
 
   constructor(material: Material) {
     this.body = physics.createCircle({}, 0.25, { group: floors[0] });
@@ -53,6 +41,24 @@ export class Billboard {
     renderer.animations.push((time: number) => {
       this.update(time);
     });
+  }
+
+  protected getGear() {
+    return this._gear;
+  }
+
+  protected updateGear() {
+    let gear = 0;
+
+    if (this.state.keys.up) {
+      gear++;
+    }
+
+    if (this.state.keys.down) {
+      gear--;
+    }
+
+    this._gear = gear;
   }
 
   protected init(level: Level) {
@@ -77,16 +83,23 @@ export class Billboard {
   }
 
   protected update(ms: number) {
-    const deltaTime = ms / 1000;
-    const rotateGear = this.gear || 1;
-    const moveSpeed = this.gear * Billboard.moveSpeed * deltaTime;
-
-    if (this.state.keys.right) {
-      this.state.direction -= rotateGear * Billboard.rotateSpeed * deltaTime;
+    if (this.z > 0) {
+      this.updateGear();
     }
 
-    if (this.state.keys.left) {
-      this.state.direction += rotateGear * Billboard.rotateSpeed * deltaTime;
+    const gear = this.getGear();
+    const deltaTime = ms / 1000;
+    const rotateGear = gear || 1;
+    const moveSpeed = gear * Billboard.moveSpeed * deltaTime;
+
+    if (this.z > 0) {
+      if (this.state.keys.right) {
+        this.state.direction -= rotateGear * Billboard.rotateSpeed * deltaTime;
+      }
+
+      if (this.state.keys.left) {
+        this.state.direction += rotateGear * Billboard.rotateSpeed * deltaTime;
+      }
     }
 
     const jump = deltaTime * Billboard.jumpSpeed * this.velocity;
@@ -100,7 +113,18 @@ export class Billboard {
       this.velocity -= this.tireRate * ms;
     }
 
-    this.z = Math.max(levelFloorHeight, this.z + jump);
+    if (this.z < 0) {
+      if (!this.velocity) {
+        this.velocity = -0.1;
+      } else {
+        this._gear *= (1000 - Math.min(1000, ms)) / 1000;
+      }
+    }
+
+    this.z =
+      levelFloorHeight && this.z > 0
+        ? Math.max(levelFloorHeight, this.z + jump)
+        : this.z + jump;
 
     const playerFloor = Math.floor((this.z + 0.25) * 2);
 
@@ -115,7 +139,7 @@ export class Billboard {
       this.z + Billboard.offsetZ
     );
     this.mesh.lookAt(renderer.camera.position);
-    this.mesh.up = new Vector3(0, 0, 1);
+    this.mesh.up = renderer.camera.up;
     this.mesh.scale.set(this.scale.x, this.scale.y, this.scale.z);
   }
 }

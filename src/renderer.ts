@@ -41,7 +41,9 @@ export class Renderer extends WebGLRenderer {
     this.now = Date.now();
     this.animations.forEach((animation) => animation(time));
 
-    this.render(this.scene, this.camera);
+    if (!this.camera.idle) {
+      this.render(this.scene, this.camera);
+    }
   }
 
   resize() {

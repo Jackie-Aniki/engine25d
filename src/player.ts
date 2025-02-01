@@ -6,7 +6,7 @@ import { TexturedBillboard } from './textured-billboard';
 import { Camera } from './camera';
 
 export class Player extends TexturedBillboard {
-  static readonly cameraLerpRatio = 0.025;
+  static readonly cameraLerpRatio = 0.003;
 
   readonly isPlayer = true;
   readonly state = state;
@@ -30,7 +30,6 @@ export class Player extends TexturedBillboard {
     const targetY = this.body.y - Math.cos(-state.direction) * Camera.distance;
     const target = camera.getPosition(targetX, targetY);
 
-    camera.position.set(target.x, target.y, camera.position.z);
     camera.position.lerp(target, ms * Player.cameraLerpRatio);
     camera.lookAt(new Vector3(this.body.x, this.body.y, this.z + 1));
   }

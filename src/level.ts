@@ -3,26 +3,33 @@ import Cellular from 'rot-js/lib/map/cellular';
 import { renderer } from './state';
 
 export class Level {
-  static readonly maxHeight = 4;
+  static readonly fill = 0.5;
+  static readonly maxHeight = 36;
+  static readonly waterLevel = 18;
 
   readonly size: number;
 
   heights: number[][] = [];
   map!: Cellular;
 
-  constructor(levelSize = 32, idle = false) {
+  constructor(levelSize: number, idle = false) {
     this.size = levelSize;
+
     this.heights = Array.from({ length: Level.maxHeight }, () =>
       this.createMap()
-    ).reduce(
-      (arrays, array) =>
-        array.map(
-          (column, x) =>
-            column.map((value, y) => (arrays[x]?.[y] || 0) + value),
-          []
-        ),
-      []
-    );
+    )
+      .reduce(
+        (arrays, array) =>
+          array.map(
+            (column, x) =>
+              column.map(
+                (value, y) => (arrays[x]?.[y] ?? -Level.waterLevel) + value
+              ),
+            []
+          ),
+        []
+      )
+      .map((arrays) => arrays.map((value) => Math.max(0, value)));
 
     if (!idle) {
       renderer.camera.setLevel(this);
@@ -34,7 +41,7 @@ export class Level {
   }
 
   protected createMap(
-    fill = 0.525,
+    fill = Level.fill,
     cols = this.size,
     rows = this.size,
     iterations = Level.maxHeight

@@ -7,10 +7,10 @@ import { getMatrix } from './utils';
 export class ViewLevel extends Level {
   static readonly waterBoxHeight = Level.maxHeight + 2;
 
-  constructor(textures: Texture[], levelSize = 32) {
+  constructor(textures: Texture[], levelSize = 128) {
     super(levelSize);
 
-    const mesh = new Box(this.size * this.size, textures);
+    const mesh = new Box(textures, this.size);
     const forEachHeight = this.forEachHeight(mesh);
 
     this.heights.forEach(forEachHeight);
@@ -39,18 +39,16 @@ export class ViewLevel extends Level {
             (angle * Math.PI) / 180
           );
 
+          const euler = new Euler();
+          euler.setFromQuaternion(quaternion);
+
+          mesh.setMatrixAt(
+            y * this.size + x,
+            getMatrix(new Vector3(x, y, z / 2), euler, new Vector3(1, 1, z))
+          );
+
           this.createBox(x, y, height);
-        } else {
-          quaternion.setFromAxisAngle(new Vector3(0, 1, 0), Math.PI);
         }
-
-        const euler = new Euler();
-        euler.setFromQuaternion(quaternion);
-
-        mesh.setMatrixAt(
-          y * this.size + x,
-          getMatrix(new Vector3(x, y, z / 2), euler, new Vector3(1, 1, z))
-        );
       });
     };
   }

@@ -1,7 +1,7 @@
 import { BoxGeometry, InstancedMesh, MeshBasicMaterial, Texture } from 'three';
 
 export class Box extends InstancedMesh {
-  constructor(count: number, textures: Texture[]) {
+  constructor(textures: Texture[], cols: number, rows = cols) {
     const geometry = new BoxGeometry(1, 1, 1);
     const materials = textures.map(
       (texture) =>
@@ -12,6 +12,6 @@ export class Box extends InstancedMesh {
         })
     );
 
-    super(geometry, materials, count);
+    super(geometry, materials, cols * rows);
   }
 }
