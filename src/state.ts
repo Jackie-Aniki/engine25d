@@ -1,7 +1,7 @@
 import { groupBits, System } from 'detect-collisions';
 import { Texture, Vector2 } from 'three';
 import { Loader } from './loader';
-import { Key, State } from './model';
+import { Direction, Key, State } from './model';
 import { Renderer } from './renderer';
 
 export const minLevelHeight = 3;
@@ -31,11 +31,12 @@ export const floors = Array.from(
 
 export const state: State = {
   keys,
-  mouse,
-  direction: Math.random() * 2 * Math.PI
+  mouse
 };
 
 export const meshProps = {
   transparent: true,
   alphaTest: 0.2
 };
+
+export const directions: Direction[] = ['up', 'right', 'down', 'left'];

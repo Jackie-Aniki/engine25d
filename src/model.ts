@@ -7,7 +7,6 @@ export type Key = 'left' | 'right' | 'up' | 'down' | 'space';
 export interface State extends Record<string, any> {
   keys: Record<string, boolean>;
   mouse: Vector2;
-  direction: number;
 }
 
 export enum MaskBits {

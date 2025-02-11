@@ -1,8 +1,8 @@
 import { Mesh, PlaneGeometry, Vector2, Vector3 } from 'three';
-import { Level } from './level';
-import { Material, State } from './model';
-import { floors, physics, renderer, waterZ } from './state';
 import { BillboardBody } from './billboard-body';
+import { Level } from './level';
+import { Direction, Material, State } from './model';
+import { directions, floors, physics, renderer, waterZ } from './state';
 
 export class Billboard {
   static readonly moveSpeed = 2.5;
@@ -12,18 +12,19 @@ export class Billboard {
 
   readonly isPlayer: boolean = false;
 
+  z = 0;
+  velocity = 0;
   body = new BillboardBody();
-  mesh: Mesh;
-  scale: Vector3;
+  direction: Direction = 'up';
   state: State = {
     keys: {},
     mouse: new Vector2(),
     direction: Math.random() * 2 * Math.PI
   };
 
+  mesh: Mesh;
+  scale: Vector3;
   level?: Level;
-  z = 0;
-  velocity = 0;
 
   constructor(material: Material) {
     this.mesh = new Mesh(new PlaneGeometry(1, 1, 1, 1), material);
@@ -78,7 +79,15 @@ export class Billboard {
     return this.level ? this.level.getFloor(x, y) / 2 : 0;
   }
 
-  protected updateDirection(deltaTime: number) {
+  protected updateDirectionFromKeys() {
+    directions.forEach((direction) => {
+      if (this.state.keys[direction]) {
+        this.direction = direction;
+      }
+    });
+  }
+
+  protected updateAngle(deltaTime = 0) {
     const rotateGear = this.gear || 1;
 
     if (
@@ -92,8 +101,9 @@ export class Billboard {
           ? 1
           : this.state.mouse.x;
 
-      this.state.direction +=
-        rotateGear * Billboard.rotateSpeed * deltaTime * scale;
+      this.body.angle = this.normalize(
+        this.body.angle + rotateGear * Billboard.rotateSpeed * deltaTime * scale
+      );
     }
   }
 
@@ -127,9 +137,9 @@ export class Billboard {
     this.updateVelocity(floorZ, deltaTime);
     this.updateZ(floorZ, deltaTime);
     this.updateGroup();
-    this.updateDirection(deltaTime);
+    this.updateDirectionFromKeys();
+    this.updateAngle(deltaTime);
 
-    this.body.angle = this.state.direction + Math.PI / 2;
     this.body.move(moveSpeed);
     this.body.system?.separateBody(this.body);
 

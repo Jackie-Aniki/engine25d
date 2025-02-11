@@ -6,16 +6,17 @@ import {
   Material,
   TexturedBillboardProps
 } from './model';
-import { state } from './state';
+import { directions, state } from './state';
 import { createMaterial } from './utils';
 
 export class TexturedBillboard extends Billboard {
-  static directions: Direction[] = ['down', 'right', 'up', 'left'];
-  static reverseDirections: Direction[] = ['up', 'left', 'down', 'right'];
-
-  static findByAngle =
-    (angle: number) => (_animation: unknown, index: number) =>
-      angle >= (Math.PI / 2) * index && angle < (Math.PI / 2) * (index + 1);
+  static anglesMap = Array.from(
+    { length: 4 },
+    (_: unknown, index: number) => (index * Math.PI) / 2
+  ).reduce(
+    (total, value, i) => ({ ...total, [directions[i]]: value }),
+    {} as Record<Direction, number>
+  );
 
   readonly isPlayer: boolean = false;
 
@@ -24,6 +25,7 @@ export class TexturedBillboard extends Billboard {
   totalFrames: number;
   cols: number;
   rows: number;
+  direction: Direction = 'up';
   directionsToRows: DirectionsToRows;
 
   static createMaterial(textureName: string, cols: number, rows: number) {
@@ -52,15 +54,15 @@ export class TexturedBillboard extends Billboard {
   }
 
   protected getDirection() {
-    const angle = this.normalize(this.body.angle - state.player.angle);
-    const findByAngle = TexturedBillboard.findByAngle(angle);
+    const angle = this.normalize(this.body.angle - state.player.body.angle);
     const direction =
-      TexturedBillboard.directions.find(findByAngle) ||
-      TexturedBillboard.directions[0];
+      TexturedBillboard.anglesMap[Math.floor((4 * angle) / (2 * Math.PI))];
 
-    return this.gear < 0
-      ? TexturedBillboard.reverseDirections[direction]
-      : direction;
+    if (!direction && this.isPlayer) {
+      console.log(angle);
+    }
+
+    return direction;
   }
 
   protected getRow(direction: Direction) {
@@ -79,8 +81,7 @@ export class TexturedBillboard extends Billboard {
     }
 
     const frame = Math.floor(this.frame);
-    const direction = this.getDirection();
-    const row = this.getRow(direction);
+    const row = this.getRow(this.direction);
     const x = frame % this.cols;
     const y = Math.floor(frame / this.cols) + row;
 
@@ -88,7 +89,8 @@ export class TexturedBillboard extends Billboard {
     if (material instanceof MeshBasicMaterial) {
       material.map?.offset.set(x / this.cols, y / this.rows);
 
-      this.scale.x = (direction === 'left' ? -1 : 1) * Math.abs(this.scale.x);
+      this.scale.x =
+        (this.direction === 'left' ? -1 : 1) * Math.abs(this.scale.x);
     }
   }
 }
