@@ -105,52 +105,12 @@ export class Billboard {
     });
   }
 
-  protected updateAngle(deltaTime = 0) {
-    const rotateGear = this.gear || 1;
-
-    if (
-      this.state.keys.left ||
-      this.state.keys.right ||
-      (this.state.mouseDown && this.state.mouse.x)
-    ) {
-      const scale = this.state.keys.left
-        ? -1
-        : this.state.keys.right
-          ? 1
-          : this.state.mouse.x;
-
-      this.body.angle = normalizeAngle(
-        this.body.angle + rotateGear * Billboard.rotateSpeed * deltaTime * scale
-      );
-    }
-  }
-
-  updateVelocity(floorZ: number, deltaTime = 0) {
-    if (this.z > floorZ) {
-      this.velocity -= Billboard.gravity * deltaTime;
-    }
-
-    if (this.z === floorZ) {
-      this.velocity = this.state.keys.space ? Billboard.jumpSpeed : 0;
-    }
-  }
-
-  updateZ(floorZ: number, deltaTime = 0) {
-    const jump = deltaTime * Billboard.jumpSpeed * this.velocity;
-
-    this.z = Math.max(this.z + jump, floorZ, 0);
-  }
-
-  updateGroup() {
-    const floor = Math.floor(this.z * 2 + 0.5);
-
-    this.body.group = floors[floor];
-  }
   protected update(ms: number) {
     const deltaTime = ms / 1000;
     const floorZ = this.getFloorZ(); // Obliczamy raz
+    const gear = this.gear;
 
-    let moveSpeed = this.gear * Billboard.moveSpeed * deltaTime;
+    let moveSpeed = gear * Billboard.moveSpeed * deltaTime;
     if (this.z < waterZ) moveSpeed *= 0.5; // Optymalizacja: zamiast /= 2
 
     if (this.z > floorZ) {
@@ -184,7 +144,7 @@ export class Billboard {
       if (scale !== 0) {
         this.body.angle = normalizeAngle(
           this.body.angle +
-            this.gear * Billboard.rotateSpeed * deltaTime * scale
+            (gear || 1) * Billboard.rotateSpeed * deltaTime * scale
         );
       }
     }
@@ -196,6 +156,7 @@ export class Billboard {
 
     this.mesh.position.set(this.body.x, this.z, this.body.y);
     this.mesh.quaternion.copy(renderer.camera.quaternion);
+    this.mesh.up = renderer.camera.up;
 
     // Aktualizujemy skalę tylko wtedy, gdy się zmieniła
     this.scaleChanged = this.mesh.scale.x !== this.scale.x;
