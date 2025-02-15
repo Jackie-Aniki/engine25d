@@ -7,7 +7,7 @@ import {
   Vector3
 } from 'three';
 import { Level } from './level';
-import { Math_Half_PI, meshProps, renderer } from './state';
+import { Math_Half_PI, materialProps, renderer } from './state';
 
 export class Ocean {
   static readonly scale = 4;
@@ -72,7 +72,7 @@ export class Ocean {
     const geometry = new CircleGeometry(radius);
 
     const material = new ShaderMaterial({
-      ...meshProps,
+      ...materialProps,
       uniforms: {
         time: { value: (index * Math.PI) / 2 },
         waveForward: { value: waveForward },

@@ -3,6 +3,7 @@ import {
   AmbientLight,
   Color,
   DirectionalLight,
+  Fog,
   LinearSRGBColorSpace,
   Scene,
   WebGLRenderer
@@ -11,6 +12,8 @@ import { Camera } from './camera';
 import { queryParams } from './query-params';
 
 export class Renderer extends WebGLRenderer {
+  static backgroundColor = 0xa0e8f0;
+
   now = Date.now();
   scene = new Scene();
   camera = new Camera();
@@ -25,9 +28,9 @@ export class Renderer extends WebGLRenderer {
     this.outputColorSpace = LinearSRGBColorSpace;
 
     this.scene.add(new AmbientLight(0xffeecc, 0.5));
-    this.scene.background = new Color(0x99eeff);
-
+    this.scene.background = new Color(Renderer.backgroundColor);
     this.onResize();
+
     window.addEventListener('resize', () => this.onResize());
     document.body.appendChild(this.domElement);
 
@@ -48,5 +51,10 @@ export class Renderer extends WebGLRenderer {
   onResize() {
     this.setSize(innerWidth, innerHeight);
     this.camera.onResize(innerWidth, innerHeight);
+    this.scene.fog = new Fog(
+      Renderer.backgroundColor,
+      this.camera.far * 0.33,
+      this.camera.far * 0.67
+    );
   }
 }

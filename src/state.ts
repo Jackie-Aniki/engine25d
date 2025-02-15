@@ -34,7 +34,7 @@ export const state: State = {
   mouse
 };
 
-export const meshProps = {
+export const materialProps = {
   transparent: true,
   alphaTest: 0.5
 };

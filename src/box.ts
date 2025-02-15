@@ -1,5 +1,5 @@
 import { BoxGeometry, InstancedMesh, MeshBasicMaterial, Texture } from 'three';
-import { meshProps } from './state';
+import { materialProps } from './state';
 
 export class Box extends InstancedMesh {
   constructor(textures: Texture[], cols: number, rows = cols) {
@@ -7,7 +7,7 @@ export class Box extends InstancedMesh {
     const materials = textures.map(
       (texture) =>
         new MeshBasicMaterial({
-          ...meshProps,
+          ...materialProps,
           map: texture
         })
     );

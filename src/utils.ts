@@ -10,7 +10,7 @@ import {
   Vector3
 } from 'three';
 import { CubeDirections, Material } from './model';
-import { loader, meshProps, textures } from './state';
+import { loader, materialProps, textures } from './state';
 
 export const randomOf = (array: any[]) =>
   array[Math.floor(Math.random() * array.length)];
@@ -30,7 +30,7 @@ export const createMaterial = (textureName: string, cols = 1, rows = 1) => {
     const texture = textures[textureName].clone();
     const image: HTMLImageElement = texture.image;
     const material: Material = new MeshBasicMaterial({
-      ...meshProps,
+      ...materialProps,
       map: texture
     });
 
