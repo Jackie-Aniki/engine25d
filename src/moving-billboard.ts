@@ -4,6 +4,7 @@ import { DynamicBody } from './billboard-body';
 import { State, TexturedBillboardProps } from './model';
 import { physics } from './state';
 import { normalizeAngle } from './utils';
+import { Level } from './level';
 
 export class MovingBillboard extends Billboard {
   static readonly moveSpeed = 3;
@@ -143,5 +144,10 @@ export class MovingBillboard extends Billboard {
     const body = new DynamicBody(x, y);
     physics.insert(body);
     return body;
+  }
+
+  protected spawn(level: Level, x?: number, y?: number) {
+    super.spawn(level, x, y);
+    this.body.system?.separateBody(this.body);
   }
 }

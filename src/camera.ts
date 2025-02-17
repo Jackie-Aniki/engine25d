@@ -78,9 +78,9 @@ export class Camera extends PerspectiveCamera {
     if (ms) {
       const distance = this.getDistanceTo(targetPosition);
       const lerp = ms * Camera.lerpRatio;
-      this.position.lerp(targetPosition, lerp * distance);
+      this.position.lerp(targetPosition, Math.min(1, lerp * distance));
       Camera.tempQuaternion.setFromEuler(Camera.tempEuler);
-      Camera.tempQuaternion.slerp(mesh.quaternion, lerp);
+      Camera.tempQuaternion.slerp(mesh.quaternion, Math.min(1, lerp));
       this.rotation.setFromQuaternion(Camera.tempQuaternion);
     } else {
       this.position.copy(targetPosition);
