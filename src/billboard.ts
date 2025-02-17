@@ -89,6 +89,10 @@ export class Billboard {
     }
   }
 
+  getScreenPosition() {
+    return renderer.camera.getScreenPosition(this.mesh);
+  }
+
   protected createBody(x: number, y: number) {
     return new StaticBody(x, y);
   }

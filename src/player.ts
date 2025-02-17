@@ -3,6 +3,7 @@ import { TexturedBillboardProps } from './model';
 import { directions, renderer, state } from './state';
 import { MovingBillboard } from './moving-billboard';
 import { ViewLevel } from './view-level';
+import { updateMouseXY } from './events';
 
 export class Player extends MovingBillboard {
   readonly isPlayer = true;
@@ -16,6 +17,11 @@ export class Player extends MovingBillboard {
       renderer.camera.ready({ level, ref: this });
       renderer.scene.add(level.mesh);
     }
+  }
+
+  update(ms: number) {
+    updateMouseXY();
+    super.update(ms);
   }
 
   protected getDirection() {

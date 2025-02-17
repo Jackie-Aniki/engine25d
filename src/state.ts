@@ -16,7 +16,12 @@ export const keys: Partial<Record<Key, boolean>> = {};
 
 export const textures: Record<string, Texture> = {};
 
-export const mouse = new Vector2();
+class Mouse extends Vector2 {
+  pageX = innerWidth / 2;
+  pageY = innerWidth / 2;
+}
+
+export const mouse = new Mouse();
 
 export const physics = new System();
 

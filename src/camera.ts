@@ -1,11 +1,11 @@
-import { Euler, PerspectiveCamera, Quaternion, Vector3 } from 'three';
+import { Euler, Mesh, PerspectiveCamera, Quaternion, Vector3 } from 'three';
 import { Level } from './level';
 import { Player } from './player';
 import { Math_Half_PI } from './state';
 import { ViewLevel } from './view-level';
 
 export class Camera extends PerspectiveCamera {
-  static readonly distance = 1.3;
+  static readonly distance = 1.33;
   static readonly height = 0.75;
   static readonly lerpRatio = 0.0033;
 
@@ -53,19 +53,27 @@ export class Camera extends PerspectiveCamera {
 
   update(ms = 0) {
     if (!this.ref) return;
-
     const { body, z, mesh } = this.ref;
     const angle = -body.angle + Math_Half_PI;
-    const cameraX = body.x - Math.sin(angle) * this.distance;
-    const cameraY = body.y - Math.cos(angle) * this.distance;
+
+    // Przesunięcie kamery względem gracza
+    const offsetX = Math.sin(angle) * this.distance;
+    const offsetY = Math.cos(angle) * this.distance;
+    const cameraX = body.x - offsetX;
+    const cameraY = body.y - offsetY;
+
+    // Wyliczenie wysokości kamery
     const cameraHeight = this.getFloor(cameraX, cameraY) / 3;
     const cameraZ = Math.max(cameraHeight, z);
 
+    // Pozycja docelowa kamery
     const targetPosition = Camera.targetVector.set(
       cameraX,
       Camera.height + cameraZ,
       cameraY
     );
+
+    // Punkt, na który kamera patrzy (trochę niżej niż środek gracza)
     const lookAtPosition = Camera.lookAtVector.set(
       body.x,
       Camera.height + z * 0.5,
@@ -76,17 +84,39 @@ export class Camera extends PerspectiveCamera {
 
     if (ms) {
       const distance = this.getDistanceTo(targetPosition);
-      const lerp = ms * Camera.lerpRatio;
-      this.position.lerp(targetPosition, Math.min(1, lerp * distance));
+      const lerpFactor = Math.min(1, ms * Camera.lerpRatio * distance);
+
+      // Płynne przesunięcie pozycji kamery
+      this.position.lerp(targetPosition, lerpFactor);
+
+      // Płynna interpolacja rotacji
       Camera.tempQuaternion.setFromEuler(Camera.tempEuler);
-      Camera.tempQuaternion.slerp(mesh.quaternion, Math.min(1, lerp));
+      Camera.tempQuaternion.slerp(mesh.quaternion, lerpFactor);
       this.rotation.setFromQuaternion(Camera.tempQuaternion);
     } else {
       this.position.copy(targetPosition);
       this.rotation.copy(Camera.tempEuler);
     }
 
+    // Ustawienie kierunku patrzenia kamery
     this.lookAt(lookAtPosition);
+  }
+
+  getScreenPosition(target: Mesh) {
+    // Pobranie pozycji gracza w świecie
+    target.getWorldPosition(Camera.targetVector);
+
+    // Przekształcenie na współrzędne NDC (od -1 do 1)
+    Camera.targetVector.project(this);
+
+    // Przekształcenie na współrzędne ekranu (piksele)
+    const halfWidth = innerWidth / 2;
+    const halfHeight = innerHeight / 2;
+
+    const screenX = Camera.targetVector.x * halfWidth + halfWidth;
+    const screenY = -Camera.targetVector.y * halfHeight + halfHeight; // Inwersja Y, bo w WebGL (0,0) jest w środku
+
+    return { x: screenX, y: screenY };
   }
 
   protected getDistanceTo(position: Vector3) {
