@@ -40,15 +40,14 @@ export class DynamicBody extends Circle {
     super({ x, y }, radius, { group: floors[0], padding });
   }
 
-  separate() {
-    this.system?.checkOne(this, ({ b: wall, overlapV: { x, y } }) => {
-      if (wall.isStatic) {
-        this.setPosition(this.x - x, this.y - y);
-      } else {
-        const offsetX = x * 0.5;
-        const offsetY = y * 0.5;
-        this.setPosition(this.x - offsetX, this.y - offsetY);
-        wall.setPosition(wall.x + offsetX, wall.y + offsetY);
+  separate(timeScale: number) {
+    const factor = 0.33 * timeScale;
+    this.system?.checkOne(this, ({ b, overlapV: { x, y } }) => {
+      const offsetX = x * factor;
+      const offsetY = y * factor;
+      this.setPosition(this.x - offsetX, this.y - offsetY);
+      if (!b.isStatic) {
+        b.setPosition(b.x + offsetX, b.y + offsetY);
       }
     });
   }

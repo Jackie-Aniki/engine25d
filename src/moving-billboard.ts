@@ -7,10 +7,10 @@ import { physics } from './state';
 import { normalizeAngle } from './utils';
 
 export class MovingBillboard extends Billboard {
-  static readonly moveSpeed = 3;
+  static readonly moveSpeed = 0.05;
   static readonly rotateSpeed = 3;
-  static readonly gravity = 16;
-  static readonly jumpSpeed = 4.4;
+  static readonly gravity = 0.012;
+  static readonly jumpSpeed = 0.12;
 
   velocity = 0;
   state: State;
@@ -51,16 +51,16 @@ export class MovingBillboard extends Billboard {
     const gear = this.gear;
 
     this.updateAngle(deltaTime, gear);
-    this.updateZ(deltaTime);
 
-    const moveSpeed =
-      (mouseGear || gear) * MovingBillboard.moveSpeed * deltaTime;
-
-    if (moveSpeed) {
-      this.body.move(moveSpeed);
+    const moveSpeed = (mouseGear || gear) * MovingBillboard.moveSpeed;
+    let timeLeft = deltaTime * 60;
+    while (timeLeft > 0) {
+      const timeScale = Math.min(1, timeLeft);
+      this.body.move(moveSpeed * timeScale);
+      this.body.separate(timeScale);
+      this.updateZ(timeScale);
+      timeLeft -= timeScale;
     }
-
-    this.body.separate();
 
     if (mouseGear) {
       this.updateFrame(ms);
@@ -76,22 +76,24 @@ export class MovingBillboard extends Billboard {
     super.update(ms);
   }
 
-  protected updateZ(deltaTime: number) {
+  protected updateZ(timeScale: number) {
     const floorZ = this.getFloorZ();
-    const above = this.z > floorZ;
     const standing = this.z === floorZ;
+    const above = this.z > floorZ;
 
-    if (above || standing) {
-      if (this.state.keys.space && standing) {
-        this.velocity = MovingBillboard.jumpSpeed;
-      } else if (above) {
-        this.velocity -= MovingBillboard.gravity * deltaTime;
-      }
+    if (standing && this.state.keys.space) {
+      this.velocity = MovingBillboard.jumpSpeed;
+      this.z += this.velocity * timeScale;
+    }
 
-      this.z += this.velocity * deltaTime;
-    } else {
-      this.z = floorZ;
+    if (above) {
+      this.velocity -= timeScale * MovingBillboard.gravity;
+      this.z += this.velocity * timeScale;
+    }
+
+    if (this.z <= floorZ) {
       this.velocity = 0;
+      this.z = floorZ;
     }
   }
 
