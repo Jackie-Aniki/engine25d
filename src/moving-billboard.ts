@@ -143,6 +143,7 @@ export class MovingBillboard extends Billboard {
   protected createBody(x: number, y: number) {
     const body = new DynamicBody(x, y);
     physics.insert(body);
+
     return body;
   }
 

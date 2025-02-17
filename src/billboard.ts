@@ -123,7 +123,8 @@ export class Billboard {
   }
 
   protected getDirection() {
-    const angle = normalizeAngle(this.body.angle - state.player.body.angle);
+    const cameraAngle = state.player?.body.angle || renderer.camera.rotation.y;
+    const angle = normalizeAngle(this.body.angle - cameraAngle);
     const directionIndex = Math.floor((2 * angle) / Math.PI);
 
     return directions[directionIndex];

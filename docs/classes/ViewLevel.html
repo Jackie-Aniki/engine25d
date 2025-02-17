@@ -81,7 +81,7 @@
           </ul>
           <h1>Class ViewLevel</h1>
         </div>
-        <section class="tsd-panel tsd-hierarchy" data-refl="1634">
+        <section class="tsd-panel tsd-hierarchy" data-refl="1646">
           <h4>
             Hierarchy (<a href="../hierarchy.html#ViewLevel">View Summary</a>)
           </h4>
@@ -270,7 +270,18 @@
                       ><span>create<wbr />Box</span></a
                     >
                     <a
-                      href="ViewLevel.html#createmap"
+                      href="ViewLevel.html#createboxcollider"
+                      class="tsd-index-link tsd-is-inherited"
+                      ><svg
+                        class="tsd-kind-icon"
+                        viewBox="0 0 24 24"
+                        aria-label="Method"
+                      >
+                        <use href="../assets/icons.svg#icon-2048"></use></svg
+                      ><span>create<wbr />Box<wbr />Collider</span></a
+                    >
+                    <a
+                      href="ViewLevel.html#createheights"
                       class="tsd-index-link tsd-is-protected tsd-is-inherited"
                       ><svg
                         class="tsd-kind-icon"
@@ -278,7 +289,7 @@
                         aria-label="Method"
                       >
                         <use href="../assets/icons.svg#icon-2048"></use></svg
-                      ><span>create<wbr />Map</span></a
+                      ><span>create<wbr />Heights</span></a
                     >
                     <a href="ViewLevel.html#createmesh" class="tsd-index-link"
                       ><svg
@@ -288,6 +299,17 @@
                       >
                         <use href="../assets/icons.svg#icon-2048"></use></svg
                       ><span>create<wbr />Mesh</span></a
+                    >
+                    <a
+                      href="ViewLevel.html#foreachheight"
+                      class="tsd-index-link tsd-is-inherited"
+                      ><svg
+                        class="tsd-kind-icon"
+                        viewBox="0 0 24 24"
+                        aria-label="Method"
+                      >
+                        <use href="../assets/icons.svg#icon-2048"></use></svg
+                      ><span>for<wbr />Each<wbr />Height</span></a
                     >
                     <a
                       href="ViewLevel.html#getfloor"
@@ -786,6 +808,77 @@
                     <a id="createbox-1" class="tsd-anchor"></a
                     ><span class="tsd-kind-call-signature">createBox</span
                     ><span class="tsd-signature-symbol">(</span
+                    ><span class="tsd-kind-parameter">textures</span
+                    ><span class="tsd-signature-symbol">:</span>
+                    <span class="tsd-signature-type">Texture</span
+                    ><span class="tsd-signature-symbol">[]</span
+                    ><span class="tsd-signature-symbol">)</span
+                    ><span class="tsd-signature-symbol">:</span>
+                    <a href="Box.html" class="tsd-signature-type tsd-kind-class"
+                      >Box</a
+                    ><a
+                      href="#createbox-1"
+                      aria-label="Permalink"
+                      class="tsd-anchor-icon"
+                      ><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <use href="../assets/icons.svg#icon-anchor"></use></svg
+                    ></a>
+                  </div>
+                  <div class="tsd-description">
+                    <div class="tsd-parameters">
+                      <h4 class="tsd-parameters-title">Parameters</h4>
+                      <ul class="tsd-parameter-list">
+                        <li>
+                          <span
+                            ><span class="tsd-kind-parameter">textures</span>:
+                            <span class="tsd-signature-type">Texture</span
+                            ><span class="tsd-signature-symbol">[]</span></span
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <h4 class="tsd-returns-title">
+                      Returns
+                      <a
+                        href="Box.html"
+                        class="tsd-signature-type tsd-kind-class"
+                        >Box</a
+                      >
+                    </h4>
+                    <aside class="tsd-sources">
+                      <ul>
+                        <li>
+                          Defined in
+                          <a
+                            href="https://github.com/Prozi/engine25d/blob/main/src/view-level.ts#L23"
+                            >src/view-level.ts:23</a
+                          >
+                        </li>
+                      </ul>
+                    </aside>
+                  </div>
+                </li>
+              </ul>
+            </section>
+            <section class="tsd-panel tsd-member tsd-is-inherited">
+              <a id="createboxcollider" class="tsd-anchor"></a>
+              <h3 class="tsd-anchor-link">
+                <span>create<wbr />Box<wbr />Collider</span
+                ><a
+                  href="#createboxcollider"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="../assets/icons.svg#icon-anchor"></use></svg
+                ></a>
+              </h3>
+              <ul class="tsd-signatures tsd-is-inherited">
+                <li class="tsd-is-inherited">
+                  <div class="tsd-signature tsd-anchor-link">
+                    <a id="createboxcollider-1" class="tsd-anchor"></a
+                    ><span class="tsd-kind-call-signature"
+                      >createBoxCollider</span
+                    ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">x</span
                     ><span class="tsd-signature-symbol">:</span>
                     <span class="tsd-signature-type">number</span
@@ -801,7 +894,7 @@
                     ><span class="tsd-signature-symbol">:</span>
                     <span class="tsd-signature-type">void</span
                     ><a
-                      href="#createbox-1"
+                      href="#createboxcollider-1"
                       aria-label="Permalink"
                       class="tsd-anchor-icon"
                       ><svg viewBox="0 0 24 24" aria-hidden="true">
@@ -836,12 +929,18 @@
                       Returns <span class="tsd-signature-type">void</span>
                     </h4>
                     <aside class="tsd-sources">
+                      <p>
+                        Inherited from <a href="Level.html">Level</a>.<a
+                          href="Level.html#createboxcollider"
+                          >createBoxCollider</a
+                        >
+                      </p>
                       <ul>
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/view-level.ts#L23"
-                            >src/view-level.ts:23</a
+                            href="https://github.com/Prozi/engine25d/blob/main/src/level.ts#L30"
+                            >src/level.ts:30</a
                           >
                         </li>
                       </ul>
@@ -853,12 +952,12 @@
             <section
               class="tsd-panel tsd-member tsd-is-protected tsd-is-inherited"
             >
-              <a id="createmap" class="tsd-anchor"></a>
+              <a id="createheights" class="tsd-anchor"></a>
               <h3 class="tsd-anchor-link">
                 <code class="tsd-tag">Protected</code
-                ><span>create<wbr />Map</span
+                ><span>create<wbr />Heights</span
                 ><a
-                  href="#createmap"
+                  href="#createheights"
                   aria-label="Permalink"
                   class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24" aria-hidden="true">
@@ -868,8 +967,8 @@
               <ul class="tsd-signatures tsd-is-protected tsd-is-inherited">
                 <li class="tsd-is-inherited">
                   <div class="tsd-signature tsd-anchor-link">
-                    <a id="createmap-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">createMap</span
+                    <a id="createheights-1" class="tsd-anchor"></a
+                    ><span class="tsd-kind-call-signature">createHeights</span
                     ><span class="tsd-signature-symbol">(</span><br />    <span
                       class="tsd-kind-parameter"
                       >cols</span
@@ -898,7 +997,7 @@
                     ><span class="tsd-signature-symbol">[]</span
                     ><span class="tsd-signature-symbol">[]</span
                     ><a
-                      href="#createmap-1"
+                      href="#createheights-1"
                       aria-label="Permalink"
                       class="tsd-anchor-icon"
                       ><svg viewBox="0 0 24 24" aria-hidden="true">
@@ -955,16 +1054,16 @@
                     <aside class="tsd-sources">
                       <p>
                         Inherited from <a href="Level.html">Level</a>.<a
-                          href="Level.html#createmap"
-                          >createMap</a
+                          href="Level.html#createheights"
+                          >createHeights</a
                         >
                       </p>
                       <ul>
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/level.ts#L38"
-                            >src/level.ts:38</a
+                            href="https://github.com/Prozi/engine25d/blob/main/src/level.ts#L63"
+                            >src/level.ts:63</a
                           >
                         </li>
                       </ul>
@@ -1033,8 +1132,120 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/view-level.ts#L32"
-                            >src/view-level.ts:32</a
+                            href="https://github.com/Prozi/engine25d/blob/main/src/view-level.ts#L31"
+                            >src/view-level.ts:31</a
+                          >
+                        </li>
+                      </ul>
+                    </aside>
+                  </div>
+                </li>
+              </ul>
+            </section>
+            <section class="tsd-panel tsd-member tsd-is-inherited">
+              <a id="foreachheight" class="tsd-anchor"></a>
+              <h3 class="tsd-anchor-link">
+                <span>for<wbr />Each<wbr />Height</span
+                ><a
+                  href="#foreachheight"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="../assets/icons.svg#icon-anchor"></use></svg
+                ></a>
+              </h3>
+              <ul class="tsd-signatures tsd-is-inherited">
+                <li class="tsd-is-inherited">
+                  <div class="tsd-signature tsd-anchor-link">
+                    <a id="foreachheight-1" class="tsd-anchor"></a
+                    ><span class="tsd-kind-call-signature">forEachHeight</span
+                    ><span class="tsd-signature-symbol">(</span><br />    <span
+                      class="tsd-kind-parameter"
+                      >heights</span
+                    ><span class="tsd-signature-symbol">?:</span>
+                    <span class="tsd-signature-type">number</span
+                    ><span class="tsd-signature-symbol">[]</span
+                    ><span class="tsd-signature-symbol">[]</span
+                    ><span class="tsd-signature-symbol">,</span><br />    <span
+                      class="tsd-kind-parameter"
+                      >iterator</span
+                    ><span class="tsd-signature-symbol">:</span>
+                    <span class="tsd-signature-symbol">(</span
+                    ><span class="tsd-kind-parameter">__namedParameters</span
+                    ><span class="tsd-signature-symbol">:</span>
+                    <span class="tsd-signature-type">Record</span
+                    ><span class="tsd-signature-symbol">&lt;</span
+                    ><span class="tsd-signature-type">string</span
+                    ><span class="tsd-signature-symbol">,</span>
+                    <span class="tsd-signature-type">number</span
+                    ><span class="tsd-signature-symbol">&gt;</span
+                    ><span class="tsd-signature-symbol">)</span>
+                    <span class="tsd-signature-symbol">=&gt;</span>
+                    <span class="tsd-signature-type">void</span
+                    ><span class="tsd-signature-symbol">,</span><br /><span
+                      class="tsd-signature-symbol"
+                      >)</span
+                    ><span class="tsd-signature-symbol">:</span>
+                    <span class="tsd-signature-type">void</span
+                    ><a
+                      href="#foreachheight-1"
+                      aria-label="Permalink"
+                      class="tsd-anchor-icon"
+                      ><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <use href="../assets/icons.svg#icon-anchor"></use></svg
+                    ></a>
+                  </div>
+                  <div class="tsd-description">
+                    <div class="tsd-parameters">
+                      <h4 class="tsd-parameters-title">Parameters</h4>
+                      <ul class="tsd-parameter-list">
+                        <li>
+                          <span
+                            ><span class="tsd-kind-parameter">heights</span>:
+                            <span class="tsd-signature-type">number</span
+                            ><span class="tsd-signature-symbol">[]</span
+                            ><span class="tsd-signature-symbol">[]</span
+                            ><span class="tsd-signature-symbol">
+                              = ...</span
+                            ></span
+                          >
+                        </li>
+                        <li>
+                          <span
+                            ><span class="tsd-kind-parameter">iterator</span>:
+                            <span class="tsd-signature-symbol">(</span
+                            ><span class="tsd-kind-parameter"
+                              >__namedParameters</span
+                            ><span class="tsd-signature-symbol">:</span>
+                            <span class="tsd-signature-type">Record</span
+                            ><span class="tsd-signature-symbol">&lt;</span
+                            ><span class="tsd-signature-type">string</span
+                            ><span class="tsd-signature-symbol">,</span>
+                            <span class="tsd-signature-type">number</span
+                            ><span class="tsd-signature-symbol">&gt;</span
+                            ><span class="tsd-signature-symbol">)</span>
+                            <span class="tsd-signature-symbol">=&gt;</span>
+                            <span class="tsd-signature-type">void</span></span
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <h4 class="tsd-returns-title">
+                      Returns <span class="tsd-signature-type">void</span>
+                    </h4>
+                    <aside class="tsd-sources">
+                      <p>
+                        Inherited from <a href="Level.html">Level</a>.<a
+                          href="Level.html#foreachheight"
+                          >forEachHeight</a
+                        >
+                      </p>
+                      <ul>
+                        <li>
+                          Defined in
+                          <a
+                            href="https://github.com/Prozi/engine25d/blob/main/src/level.ts#L39"
+                            >src/level.ts:39</a
                           >
                         </li>
                       </ul>
@@ -1111,8 +1322,8 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/level.ts#L30"
-                            >src/level.ts:30</a
+                            href="https://github.com/Prozi/engine25d/blob/main/src/level.ts#L55"
+                            >src/level.ts:55</a
                           >
                         </li>
                       </ul>
@@ -1420,8 +1631,16 @@
                     >
                       <use href="../assets/icons.svg#icon-2048"></use></svg
                     ><span>create<wbr />Box</span></a
+                  ><a href="#createboxcollider" class="tsd-is-inherited"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Method"
+                    >
+                      <use href="../assets/icons.svg#icon-2048"></use></svg
+                    ><span>create<wbr />Box<wbr />Collider</span></a
                   ><a
-                    href="#createmap"
+                    href="#createheights"
                     class="tsd-is-protected tsd-is-inherited"
                     ><svg
                       class="tsd-kind-icon"
@@ -1429,7 +1648,7 @@
                       aria-label="Method"
                     >
                       <use href="../assets/icons.svg#icon-2048"></use></svg
-                    ><span>create<wbr />Map</span></a
+                    ><span>create<wbr />Heights</span></a
                   ><a href="#createmesh" class=""
                     ><svg
                       class="tsd-kind-icon"
@@ -1438,6 +1657,14 @@
                     >
                       <use href="../assets/icons.svg#icon-2048"></use></svg
                     ><span>create<wbr />Mesh</span></a
+                  ><a href="#foreachheight" class="tsd-is-inherited"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Method"
+                    >
+                      <use href="../assets/icons.svg#icon-2048"></use></svg
+                    ><span>for<wbr />Each<wbr />Height</span></a
                   ><a href="#getfloor" class="tsd-is-inherited"
                     ><svg
                       class="tsd-kind-icon"

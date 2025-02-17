@@ -1,5 +1,5 @@
 import { Map } from 'rot-js';
-import { maxLevelHeight, minLevelHeight } from './state';
+import { floors, maxLevelHeight, minLevelHeight, physics } from './state';
 
 export class Level {
   static readonly fill = 0.5;
@@ -11,7 +11,7 @@ export class Level {
 
   constructor() {
     this.heights = Array.from({ length: maxLevelHeight + minLevelHeight }, () =>
-      this.createMap()
+      this.createHeights()
     )
       .reduce(
         (arrays, array) =>
@@ -27,15 +27,39 @@ export class Level {
       .map((arrays) => arrays.map((value) => Math.max(0, value)));
   }
 
-  getFloor(x: number, y: number) {
-    return (
-      this.heights[Math.floor(x + Level.cols / 2)]?.[
-        Math.floor(y + Level.rows / 2)
-      ] || 0
-    );
+  createBoxCollider(x: number, y: number, height: number) {
+    for (let floor = 0; floor < height; floor++) {
+      physics.createBox({ x, y }, 1, 1, {
+        isStatic: true,
+        group: floors[floor]
+      });
+    }
   }
 
-  protected createMap(
+  forEachHeight(
+    heights = this.heights,
+    iterator: ({ col, row, x, y, height }: Record<string, number>) => void
+  ) {
+    heights.forEach((rows: number[], col: number) => {
+      rows.forEach((height: number, row: number) => {
+        if (height) {
+          const x = col - Level.cols / 2;
+          const y = row - Level.rows / 2;
+
+          iterator({ col, row, x, y, height });
+        }
+      });
+    });
+  }
+
+  getFloor(x: number, y: number) {
+    const posX = Math.floor(x + Level.cols / 2);
+    const posY = Math.floor(y + Level.rows / 2);
+
+    return this.heights[posX]?.[posY] || 0;
+  }
+
+  protected createHeights(
     cols = Level.cols,
     rows = Level.rows,
     fill = Level.fill,

@@ -1,7 +1,7 @@
 import { Texture, Vector3 } from 'three';
 import { Box } from './box';
 import { Level } from './level';
-import { floors, maxLevelHeight, physics } from './state';
+import { maxLevelHeight } from './state';
 import { getMatrix } from './utils';
 import { Cactus } from './cactus';
 import { Palm } from './palm';
@@ -20,65 +20,55 @@ export class ViewLevel extends Level {
     this.mesh = this.createMesh(textures);
   }
 
-  createBox(x: number, y: number, height: number) {
-    for (let floor = 0; floor < height; floor++) {
-      physics.createBox({ x, y }, 1, 1, {
-        isStatic: true,
-        group: floors[floor]
-      });
-    }
+  createBox(textures: Texture[]) {
+    const box = new Box(textures, Level.cols, Level.rows);
+    box.position.set(-Level.cols / 2, 0, -Level.rows / 2);
+
+    return box;
   }
 
   createMesh(textures: Texture[]) {
-    const flora = this.createMap(
+    const box = this.createBox(textures);
+
+    this.forEachHeight(this.heights, ({ col, row, x, y, height }) => {
+      box.setMatrixAt(
+        row * Level.rows + col,
+        getMatrix(
+          new Vector3(col, height / 4 - 0.75, row),
+          new Vector3(1, height / 2, 1)
+        )
+      );
+
+      this.createBoxCollider(x, y, height);
+
+      if (
+        height >= ViewLevel.minHeightForPalm &&
+        Math.random() < ViewLevel.palmSurviceChance
+      ) {
+        new Palm(this, x + 0.5, y + 0.5);
+      }
+    });
+
+    const flora = this.createHeights(
       Level.cols * 2,
       Level.rows * 2,
       ViewLevel.floraFill
     );
-    const mesh = new Box(textures, Level.cols, Level.rows);
-    mesh.position.set(-Level.cols / 2, 0, -Level.rows / 2);
 
-    this.heights.forEach((row: number[], x: number) => {
-      row.forEach((height: number, y: number) => {
-        if (height) {
-          mesh.setMatrixAt(
-            y * Level.rows + x,
-            getMatrix(
-              new Vector3(x, height / 4 - 0.75, y),
-              new Vector3(1, height / 2, 1)
-            )
-          );
+    this.forEachHeight(flora, ({ col, row }) => {
+      const height = this.heights[Math.floor(col / 2)][Math.floor(row / 2)];
 
-          const realX = x - Level.cols / 2;
-          const realY = y - Level.rows / 2;
-          this.createBox(realX, realY, height);
-
-          if (
-            height >= ViewLevel.minHeightForPalm &&
-            Math.random() < ViewLevel.palmSurviceChance
-          ) {
-            new Palm(this, realX + 0.5, realY + 0.5);
-          }
-        }
-      });
+      if (
+        height &&
+        height < ViewLevel.minHeightForPalm &&
+        Math.random() < ViewLevel.cactusSurviveChance
+      ) {
+        const x = col / 2 - Level.cols / 2 + 0.25;
+        const y = row / 2 - Level.rows / 2 + 0.25;
+        new Cactus(this, x, y);
+      }
     });
 
-    flora.forEach((row: number[], x: number) => {
-      row.forEach((value: number, y: number) => {
-        const height = this.heights[Math.floor(x / 2)][Math.floor(y / 2)];
-        if (
-          value &&
-          height &&
-          height < ViewLevel.minHeightForPalm &&
-          Math.random() < ViewLevel.cactusSurviveChance
-        ) {
-          const realX = x / 2 - Level.cols / 2 + 0.25;
-          const realY = y / 2 - Level.rows / 2 + 0.25;
-          new Cactus(this, realX, realY);
-        }
-      });
-    });
-
-    return mesh;
+    return box;
   }
 }
