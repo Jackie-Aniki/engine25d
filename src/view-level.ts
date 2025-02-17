@@ -9,9 +9,9 @@ import { maxLevelHeight, renderer } from './state';
 import { getMatrix } from './utils';
 
 export class ViewLevel extends Level {
-  static readonly floraFill = Level.fill * 0.85;
-  static readonly cactusSurviveChance = 0.24;
-  static readonly palmSurviceChance = 0.12;
+  static readonly floraFill = Level.fill * 0.8;
+  static readonly cactusSurviveChance = 0.25;
+  static readonly palmSurviceChance = 0.1;
   static readonly minHeightForPalm = maxLevelHeight - 3;
 
   mesh: Box;
@@ -43,7 +43,7 @@ export class ViewLevel extends Level {
   createMesh(textures: Texture[]) {
     const box = this.createBox(textures);
 
-    this.forEachHeight(this.heights, ({ col, row, height }) => {
+    this.forEachHeight(this.heights, (col, row, height) => {
       box.setMatrixAt(
         row * Level.rows + col,
         getMatrix(
@@ -70,12 +70,12 @@ export class ViewLevel extends Level {
       ViewLevel.floraFill
     );
 
-    this.forEachHeight(flora, ({ col, row }) => {
+    this.forEachHeight(flora, (col, row, chance) => {
       const height = this.heights[Math.floor(col / 2)][Math.floor(row / 2)];
 
       if (
         height &&
-        height < ViewLevel.minHeightForPalm &&
+        chance * height < 2 * ViewLevel.minHeightForPalm &&
         Math.random() < ViewLevel.cactusSurviveChance
       ) {
         const x = col / 2 - Level.cols / 2 + 0.25;
