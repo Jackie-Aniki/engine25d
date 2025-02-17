@@ -17,9 +17,10 @@ export interface State extends Record<string, any> {
 
 export interface TexturedBillboardProps {
   textureName: string;
-  cols: number;
-  rows: number;
-  totalFrames: number;
+  cols?: number;
+  rows?: number;
+  totalFrames?: number;
   frameDuration?: number;
   directionsToRows?: DirectionsToRows;
+  scale?: number;
 }

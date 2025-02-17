@@ -1,53 +1,50 @@
-import { Mesh, PlaneGeometry, Vector2, Vector3 } from 'three';
+import { Mesh, PlaneGeometry, Vector3 } from 'three';
 import { BillboardBody } from './billboard-body';
 import { Level } from './level';
-import { Direction, Material, State } from './model';
-import { directions, floors, physics, renderer, state, waterZ } from './state';
-import { normalizeAngle } from './utils';
+import {
+  Direction,
+  DirectionsToRows,
+  Material,
+  TexturedBillboardProps
+} from './model';
+import { directions, physics, renderer, state } from './state';
+import { createMaterial, normalizeAngle } from './utils';
 
 export class Billboard {
-  static readonly moveSpeed = 3;
-  static readonly rotateSpeed = 4;
-  static readonly gravity = 9.1;
-  static readonly jumpSpeed = 2.1;
-
-  readonly isPlayer: boolean = false;
-
   z = 0;
-  velocity = 0;
-  body = new BillboardBody();
+  frame = 0;
   direction: Direction = 'up';
-  state: State = {
-    keys: {},
-    mouse: new Vector2()
-  };
-
+  material: Material;
   mesh: Mesh;
+  body: BillboardBody;
   scale: Vector3;
+  cols: number;
+  rows: number;
+  frameDuration: number;
+  invCols: number;
+  invRows: number;
+  invFrameDuration: number;
+  totalFrames: number;
+  directionsToRows: DirectionsToRows;
   level?: Level;
 
-  get gear() {
-    let gear = 0;
+  constructor(props: TexturedBillboardProps) {
+    this.material = createMaterial(props.textureName, props.cols, props.rows);
+    this.mesh = new Mesh(new PlaneGeometry(1, 1), this.material);
+    this.cols = props.cols || 1;
+    this.rows = props.rows || 1;
+    this.frameDuration = props.frameDuration || 120;
+    this.invCols = 1 / this.cols;
+    this.invRows = 1 / this.rows;
+    this.invFrameDuration = 1 / this.frameDuration;
+    this.totalFrames = props.totalFrames || 1;
+    this.directionsToRows = props.directionsToRows || { default: 0 };
+    this.body = new BillboardBody();
 
-    if (this.state.keys.up) {
-      gear++;
-    }
-
-    if (this.state.keys.down) {
-      gear--;
-    }
-
-    return gear;
-  }
-
-  constructor(material: Material) {
-    this.mesh = new Mesh(new PlaneGeometry(1, 1, 1, 1), material);
-    this.scale = material.scale ? material.scale.clone() : new Vector3(1, 1, 1);
-
-    if (material.size) {
-      this.scale.x *= material.size.x / 64;
-      this.scale.y *= material.size.y / 64;
-    }
+    const w = this.material.map!.image.width / this.cols;
+    const h = this.material.map!.image.height / this.rows;
+    const m = Math.max(w, h) / (props.scale || 1);
+    this.scale = new Vector3(w / m, h / m, 1);
 
     renderer.scene.add(this.mesh);
     renderer.animations.push((ms: number) => {
@@ -55,9 +52,17 @@ export class Billboard {
     });
   }
 
+  update(_ms: number): void {
+    this.mesh.position.set(this.body.x, this.z, this.body.y);
+    this.mesh.quaternion.copy(renderer.camera.quaternion);
+    this.mesh.up = renderer.camera.up;
+    this.direction = this.getDirection();
+    this.updateTexture();
+  }
+
   protected spawn(level: Level) {
-    const x = Math.random() * (Level.cols / 2 - 2) + 1;
-    const y = Math.random() * (Level.rows / 2 - 2) + 1;
+    const x = (Math.random() * Level.cols) / 2;
+    const y = (Math.random() * Level.rows) / 2;
 
     this.level = level;
     this.body.setPosition(x, y);
@@ -71,6 +76,28 @@ export class Billboard {
     return this.level ? this.level.getFloor(x, y) / 2 : 0;
   }
 
+  protected updateTexture() {
+    const frameIndex = Math.floor(this.frame);
+    const row = this.getRow(this.direction);
+    const x = frameIndex % this.cols;
+    const y = Math.floor(frameIndex * this.invCols) + row;
+    const { map } = this.mesh.material as any;
+
+    map?.offset.set(x * this.invCols, y * this.invRows);
+
+    if (this.direction === 'left') {
+      this.scale.x = -Math.abs(this.scale.x);
+    }
+
+    if (this.direction === 'right') {
+      this.scale.x = Math.abs(this.scale.x);
+    }
+
+    if (this.mesh.scale.x !== this.scale.x) {
+      this.mesh.scale.copy(this.scale);
+    }
+  }
+
   protected getDirection() {
     const angle = normalizeAngle(this.body.angle - state.player.body.angle);
     const directionIndex = Math.floor((2 * angle) / Math.PI); // Szybsze (4 * angle) / (2 * Math.PI)
@@ -78,60 +105,11 @@ export class Billboard {
     return directions[directionIndex];
   }
 
-  protected update(ms = 0) {
-    const deltaTime = ms * 0.001;
-    const floorZ = this.getFloorZ(); // Obliczamy raz
-    const gear = this.gear;
-
-    let moveSpeed = gear * Billboard.moveSpeed * deltaTime;
-    if (this.z < waterZ) moveSpeed *= 0.5; // Optymalizacja: zamiast /= 2
-
-    if (this.z > floorZ) {
-      this.velocity -= Billboard.gravity * deltaTime;
-    } else {
-      this.velocity = this.state.keys.space ? Billboard.jumpSpeed : 0;
-    }
-
-    if (this.velocity !== 0 || this.z !== floorZ) {
-      this.z = Math.max(
-        this.z + deltaTime * Billboard.jumpSpeed * this.velocity,
-        floorZ,
-        0
-      );
-    }
-
-    this.body.group = floors[Math.floor(this.z * 2 + 0.5)];
-    this.direction = this.getDirection();
-
-    if (
-      this.state.keys.left ||
-      this.state.keys.right ||
-      (this.state.mouseDown && this.state.mouse.x !== 0)
-    ) {
-      const scale = this.state.keys.left
-        ? -1
-        : this.state.keys.right
-          ? 1
-          : this.state.mouse.x;
-      if (scale !== 0) {
-        this.body.angle = normalizeAngle(
-          this.body.angle +
-            (gear || 1) * Billboard.rotateSpeed * deltaTime * scale
-        );
-      }
-    }
-
-    if (moveSpeed !== 0) {
-      this.body.move(moveSpeed);
-      if (this.body.system) this.body.system.separateBody(this.body);
-    }
-
-    this.mesh.position.set(this.body.x, this.z, this.body.y);
-    this.mesh.quaternion.copy(renderer.camera.quaternion);
-    this.mesh.up = renderer.camera.up;
-
-    if (this.scale.x !== this.mesh.scale.x) {
-      this.mesh.scale.set(this.scale.x, this.scale.y, this.scale.z);
-    }
+  protected getRow(direction: Direction) {
+    return (
+      this.rows -
+      this.totalFrames * this.invCols -
+      ((this.directionsToRows[direction] ?? this.directionsToRows.default) || 0)
+    );
   }
 }

@@ -13,6 +13,6 @@ export * from './query-params';
 export * from './renderer';
 export * from './skybox';
 export * from './state';
-export * from './textured-billboard';
+export * from './moving-billboard';
 export * from './utils';
 export * from './view-level';

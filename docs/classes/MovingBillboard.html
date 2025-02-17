@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="IE=edge" />
-    <title>TexturedBillboard | engine25d</title>
+    <title>MovingBillboard | engine25d</title>
     <meta name="description" content="Documentation for engine25d" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../assets/style.css" />
@@ -77,13 +77,13 @@
         <div class="tsd-page-title">
           <ul class="tsd-breadcrumb">
             <li><a href="../modules.html">engine25d</a></li>
-            <li><a href="TexturedBillboard.html">TexturedBillboard</a></li>
+            <li><a href="MovingBillboard.html">MovingBillboard</a></li>
           </ul>
-          <h1>Class TexturedBillboard</h1>
+          <h1>Class MovingBillboard</h1>
         </div>
-        <section class="tsd-panel tsd-hierarchy" data-refl="1264">
+        <section class="tsd-panel tsd-hierarchy" data-refl="1279">
           <h4>
-            Hierarchy (<a href="../hierarchy.html#TexturedBillboard"
+            Hierarchy (<a href="../hierarchy.html#MovingBillboard"
               >View Summary</a
             >)
           </h4>
@@ -94,7 +94,7 @@
               >
               <ul class="tsd-hierarchy">
                 <li class="tsd-hierarchy-item">
-                  <span class="tsd-hierarchy-target">TexturedBillboard</span>
+                  <span class="tsd-hierarchy-target">MovingBillboard</span>
                   <ul class="tsd-hierarchy">
                     <li class="tsd-hierarchy-item">
                       <a
@@ -121,8 +121,8 @@
             <li>
               Defined in
               <a
-                href="https://github.com/Prozi/engine25d/blob/main/src/textured-billboard.ts#L6"
-                >src/textured-billboard.ts:6</a
+                href="https://github.com/Prozi/engine25d/blob/main/src/moving-billboard.ts#L7"
+                >src/moving-billboard.ts:7</a
               >
             </li>
           </ul>
@@ -154,7 +154,7 @@
                   <h3 class="tsd-index-heading">Constructors</h3>
                   <div class="tsd-index-list">
                     <a
-                      href="TexturedBillboard.html#constructor"
+                      href="MovingBillboard.html#constructor"
                       class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
@@ -170,7 +170,7 @@
                   <h3 class="tsd-index-heading">Properties</h3>
                   <div class="tsd-index-list">
                     <a
-                      href="TexturedBillboard.html#body"
+                      href="MovingBillboard.html#body"
                       class="tsd-index-link tsd-is-inherited"
                       ><svg
                         class="tsd-kind-icon"
@@ -180,7 +180,9 @@
                         <use href="../assets/icons.svg#icon-1024"></use></svg
                       ><span>body</span></a
                     >
-                    <a href="TexturedBillboard.html#cols" class="tsd-index-link"
+                    <a
+                      href="MovingBillboard.html#cols"
+                      class="tsd-index-link tsd-is-inherited"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -190,7 +192,7 @@
                       ><span>cols</span></a
                     >
                     <a
-                      href="TexturedBillboard.html#direction"
+                      href="MovingBillboard.html#direction"
                       class="tsd-index-link tsd-is-inherited"
                       ><svg
                         class="tsd-kind-icon"
@@ -201,8 +203,8 @@
                       ><span>direction</span></a
                     >
                     <a
-                      href="TexturedBillboard.html#directionstorows"
-                      class="tsd-index-link"
+                      href="MovingBillboard.html#directionstorows"
+                      class="tsd-index-link tsd-is-inherited"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -212,8 +214,8 @@
                       ><span>directions<wbr />To<wbr />Rows</span></a
                     >
                     <a
-                      href="TexturedBillboard.html#frame"
-                      class="tsd-index-link"
+                      href="MovingBillboard.html#frame"
+                      class="tsd-index-link tsd-is-inherited"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -223,8 +225,19 @@
                       ><span>frame</span></a
                     >
                     <a
-                      href="TexturedBillboard.html#invcols"
-                      class="tsd-index-link tsd-is-protected"
+                      href="MovingBillboard.html#frameduration"
+                      class="tsd-index-link tsd-is-inherited"
+                      ><svg
+                        class="tsd-kind-icon"
+                        viewBox="0 0 24 24"
+                        aria-label="Property"
+                      >
+                        <use href="../assets/icons.svg#icon-1024"></use></svg
+                      ><span>frame<wbr />Duration</span></a
+                    >
+                    <a
+                      href="MovingBillboard.html#invcols"
+                      class="tsd-index-link tsd-is-inherited"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -234,8 +247,8 @@
                       ><span>inv<wbr />Cols</span></a
                     >
                     <a
-                      href="TexturedBillboard.html#invframeduration"
-                      class="tsd-index-link"
+                      href="MovingBillboard.html#invframeduration"
+                      class="tsd-index-link tsd-is-inherited"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -245,8 +258,8 @@
                       ><span>inv<wbr />Frame<wbr />Duration</span></a
                     >
                     <a
-                      href="TexturedBillboard.html#invrows"
-                      class="tsd-index-link tsd-is-protected"
+                      href="MovingBillboard.html#invrows"
+                      class="tsd-index-link tsd-is-inherited"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -256,18 +269,7 @@
                       ><span>inv<wbr />Rows</span></a
                     >
                     <a
-                      href="TexturedBillboard.html#isplayer"
-                      class="tsd-index-link"
-                      ><svg
-                        class="tsd-kind-icon"
-                        viewBox="0 0 24 24"
-                        aria-label="Property"
-                      >
-                        <use href="../assets/icons.svg#icon-1024"></use></svg
-                      ><span>is<wbr />Player</span></a
-                    >
-                    <a
-                      href="TexturedBillboard.html#level"
+                      href="MovingBillboard.html#level"
                       class="tsd-index-link tsd-is-inherited"
                       ><svg
                         class="tsd-kind-icon"
@@ -278,7 +280,18 @@
                       ><span>level?</span></a
                     >
                     <a
-                      href="TexturedBillboard.html#mesh"
+                      href="MovingBillboard.html#material"
+                      class="tsd-index-link tsd-is-inherited"
+                      ><svg
+                        class="tsd-kind-icon"
+                        viewBox="0 0 24 24"
+                        aria-label="Property"
+                      >
+                        <use href="../assets/icons.svg#icon-1024"></use></svg
+                      ><span>material</span></a
+                    >
+                    <a
+                      href="MovingBillboard.html#mesh"
                       class="tsd-index-link tsd-is-inherited"
                       ><svg
                         class="tsd-kind-icon"
@@ -288,7 +301,9 @@
                         <use href="../assets/icons.svg#icon-1024"></use></svg
                       ><span>mesh</span></a
                     >
-                    <a href="TexturedBillboard.html#rows" class="tsd-index-link"
+                    <a
+                      href="MovingBillboard.html#rows"
+                      class="tsd-index-link tsd-is-inherited"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -298,7 +313,7 @@
                       ><span>rows</span></a
                     >
                     <a
-                      href="TexturedBillboard.html#scale"
+                      href="MovingBillboard.html#scale"
                       class="tsd-index-link tsd-is-inherited"
                       ><svg
                         class="tsd-kind-icon"
@@ -308,9 +323,7 @@
                         <use href="../assets/icons.svg#icon-1024"></use></svg
                       ><span>scale</span></a
                     >
-                    <a
-                      href="TexturedBillboard.html#state"
-                      class="tsd-index-link tsd-is-inherited"
+                    <a href="MovingBillboard.html#state" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -320,8 +333,8 @@
                       ><span>state</span></a
                     >
                     <a
-                      href="TexturedBillboard.html#totalframes"
-                      class="tsd-index-link"
+                      href="MovingBillboard.html#totalframes"
+                      class="tsd-index-link tsd-is-inherited"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -331,8 +344,8 @@
                       ><span>total<wbr />Frames</span></a
                     >
                     <a
-                      href="TexturedBillboard.html#velocity"
-                      class="tsd-index-link tsd-is-inherited"
+                      href="MovingBillboard.html#velocity"
+                      class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -342,7 +355,7 @@
                       ><span>velocity</span></a
                     >
                     <a
-                      href="TexturedBillboard.html#z"
+                      href="MovingBillboard.html#z"
                       class="tsd-index-link tsd-is-inherited"
                       ><svg
                         class="tsd-kind-icon"
@@ -353,8 +366,8 @@
                       ><span>z</span></a
                     >
                     <a
-                      href="TexturedBillboard.html#gravity"
-                      class="tsd-index-link tsd-is-inherited"
+                      href="MovingBillboard.html#gravity"
+                      class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -364,8 +377,8 @@
                       ><span>gravity</span></a
                     >
                     <a
-                      href="TexturedBillboard.html#jumpspeed"
-                      class="tsd-index-link tsd-is-inherited"
+                      href="MovingBillboard.html#jumpspeed"
+                      class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -375,8 +388,8 @@
                       ><span>jump<wbr />Speed</span></a
                     >
                     <a
-                      href="TexturedBillboard.html#movespeed"
-                      class="tsd-index-link tsd-is-inherited"
+                      href="MovingBillboard.html#movespeed"
+                      class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -386,8 +399,8 @@
                       ><span>move<wbr />Speed</span></a
                     >
                     <a
-                      href="TexturedBillboard.html#rotatespeed"
-                      class="tsd-index-link tsd-is-inherited"
+                      href="MovingBillboard.html#rotatespeed"
+                      class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -401,9 +414,7 @@
                 <section class="tsd-index-section">
                   <h3 class="tsd-index-heading">Accessors</h3>
                   <div class="tsd-index-list">
-                    <a
-                      href="TexturedBillboard.html#gear"
-                      class="tsd-index-link tsd-is-inherited"
+                    <a href="MovingBillboard.html#gear" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -418,7 +429,7 @@
                   <h3 class="tsd-index-heading">Methods</h3>
                   <div class="tsd-index-list">
                     <a
-                      href="TexturedBillboard.html#getdirection"
+                      href="MovingBillboard.html#getdirection"
                       class="tsd-index-link tsd-is-protected tsd-is-inherited"
                       ><svg
                         class="tsd-kind-icon"
@@ -429,7 +440,7 @@
                       ><span>get<wbr />Direction</span></a
                     >
                     <a
-                      href="TexturedBillboard.html#getfloorz"
+                      href="MovingBillboard.html#getfloorz"
                       class="tsd-index-link tsd-is-protected tsd-is-inherited"
                       ><svg
                         class="tsd-kind-icon"
@@ -440,8 +451,8 @@
                       ><span>get<wbr />FloorZ</span></a
                     >
                     <a
-                      href="TexturedBillboard.html#getrow"
-                      class="tsd-index-link tsd-is-protected"
+                      href="MovingBillboard.html#getrow"
+                      class="tsd-index-link tsd-is-protected tsd-is-inherited"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -451,7 +462,7 @@
                       ><span>get<wbr />Row</span></a
                     >
                     <a
-                      href="TexturedBillboard.html#spawn"
+                      href="MovingBillboard.html#spawn"
                       class="tsd-index-link tsd-is-protected tsd-is-inherited"
                       ><svg
                         class="tsd-kind-icon"
@@ -461,9 +472,7 @@
                         <use href="../assets/icons.svg#icon-2048"></use></svg
                       ><span>spawn</span></a
                     >
-                    <a
-                      href="TexturedBillboard.html#update"
-                      class="tsd-index-link tsd-is-protected"
+                    <a href="MovingBillboard.html#update" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -471,6 +480,17 @@
                       >
                         <use href="../assets/icons.svg#icon-2048"></use></svg
                       ><span>update</span></a
+                    >
+                    <a
+                      href="MovingBillboard.html#updatetexture"
+                      class="tsd-index-link tsd-is-protected tsd-is-inherited"
+                      ><svg
+                        class="tsd-kind-icon"
+                        viewBox="0 0 24 24"
+                        aria-label="Method"
+                      >
+                        <use href="../assets/icons.svg#icon-2048"></use></svg
+                      ><span>update<wbr />Texture</span></a
                     >
                   </div>
                 </section>
@@ -512,28 +532,36 @@
               <ul class="tsd-signatures">
                 <li class="">
                   <div class="tsd-signature tsd-anchor-link">
-                    <a id="constructortexturedbillboard" class="tsd-anchor"></a
+                    <a id="constructormovingbillboard" class="tsd-anchor"></a
                     ><span class="tsd-signature-keyword">new</span>
                     <span class="tsd-kind-constructor-signature"
-                      >TexturedBillboard</span
+                      >MovingBillboard</span
                     ><span class="tsd-signature-symbol">(</span><br />    <span
                       class="tsd-kind-parameter"
-                      >__namedParameters</span
+                      >props</span
                     ><span class="tsd-signature-symbol">:</span>
                     <a
                       href="../interfaces/TexturedBillboardProps.html"
                       class="tsd-signature-type tsd-kind-interface"
                       >TexturedBillboardProps</a
+                    ><span class="tsd-signature-symbol">,</span><br />    <span
+                      class="tsd-kind-parameter"
+                      >state</span
+                    ><span class="tsd-signature-symbol">?:</span>
+                    <a
+                      href="../interfaces/State.html"
+                      class="tsd-signature-type tsd-kind-interface"
+                      >State</a
                     ><span class="tsd-signature-symbol">,</span><br /><span
                       class="tsd-signature-symbol"
                       >)</span
                     ><span class="tsd-signature-symbol">:</span>
                     <a
-                      href="TexturedBillboard.html"
+                      href="MovingBillboard.html"
                       class="tsd-signature-type tsd-kind-class"
-                      >TexturedBillboard</a
+                      >MovingBillboard</a
                     ><a
-                      href="#constructortexturedbillboard"
+                      href="#constructormovingbillboard"
                       aria-label="Permalink"
                       class="tsd-anchor-icon"
                       ><svg viewBox="0 0 24 24" aria-hidden="true">
@@ -546,13 +574,23 @@
                       <ul class="tsd-parameter-list">
                         <li>
                           <span
-                            ><span class="tsd-kind-parameter"
-                              >__namedParameters</span
-                            >:
+                            ><span class="tsd-kind-parameter">props</span>:
                             <a
                               href="../interfaces/TexturedBillboardProps.html"
                               class="tsd-signature-type tsd-kind-interface"
                               >TexturedBillboardProps</a
+                            ></span
+                          >
+                        </li>
+                        <li>
+                          <span
+                            ><span class="tsd-kind-parameter">state</span>:
+                            <a
+                              href="../interfaces/State.html"
+                              class="tsd-signature-type tsd-kind-interface"
+                              >State</a
+                            ><span class="tsd-signature-symbol">
+                              = ...</span
                             ></span
                           >
                         </li>
@@ -561,9 +599,9 @@
                     <h4 class="tsd-returns-title">
                       Returns
                       <a
-                        href="TexturedBillboard.html"
+                        href="MovingBillboard.html"
                         class="tsd-signature-type tsd-kind-class"
-                        >TexturedBillboard</a
+                        >MovingBillboard</a
                       >
                     </h4>
                     <aside class="tsd-sources">
@@ -577,8 +615,8 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/textured-billboard.ts#L19"
-                            >src/textured-billboard.ts:19</a
+                            href="https://github.com/Prozi/engine25d/blob/main/src/moving-billboard.ts#L30"
+                            >src/moving-billboard.ts:30</a
                           >
                         </li>
                       </ul>
@@ -621,7 +659,7 @@
                   href="BillboardBody.html"
                   class="tsd-signature-type tsd-kind-class"
                   >BillboardBody</a
-                ><span class="tsd-signature-symbol"> = ...</span>
+                >
               </div>
               <aside class="tsd-sources">
                 <p>
@@ -634,14 +672,14 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L18"
-                      >src/billboard.ts:18</a
+                      href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L19"
+                      >src/billboard.ts:19</a
                     >
                   </li>
                 </ul>
               </aside>
             </section>
-            <section class="tsd-panel tsd-member">
+            <section class="tsd-panel tsd-member tsd-is-inherited">
               <a id="cols" class="tsd-anchor"></a>
               <h3 class="tsd-anchor-link">
                 <span>cols</span
@@ -656,12 +694,18 @@
                 <span class="tsd-signature-type">number</span>
               </div>
               <aside class="tsd-sources">
+                <p>
+                  Inherited from <a href="Billboard.html">Billboard</a>.<a
+                    href="Billboard.html#cols"
+                    >cols</a
+                  >
+                </p>
                 <ul>
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/textured-billboard.ts#L12"
-                      >src/textured-billboard.ts:12</a
+                      href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L21"
+                      >src/billboard.ts:21</a
                     >
                   </li>
                 </ul>
@@ -699,14 +743,14 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L19"
-                      >src/billboard.ts:19</a
+                      href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L16"
+                      >src/billboard.ts:16</a
                     >
                   </li>
                 </ul>
               </aside>
             </section>
-            <section class="tsd-panel tsd-member">
+            <section class="tsd-panel tsd-member tsd-is-inherited">
               <a id="directionstorows" class="tsd-anchor"></a>
               <h3 class="tsd-anchor-link">
                 <span>directions<wbr />To<wbr />Rows</span
@@ -724,18 +768,24 @@
                 <span class="tsd-signature-type">Partial</span>
               </div>
               <aside class="tsd-sources">
+                <p>
+                  Inherited from <a href="Billboard.html">Billboard</a>.<a
+                    href="Billboard.html#directionstorows"
+                    >directionsToRows</a
+                  >
+                </p>
                 <ul>
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/textured-billboard.ts#L14"
-                      >src/textured-billboard.ts:14</a
+                      href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L28"
+                      >src/billboard.ts:28</a
                     >
                   </li>
                 </ul>
               </aside>
             </section>
-            <section class="tsd-panel tsd-member">
+            <section class="tsd-panel tsd-member tsd-is-inherited">
               <a id="frame" class="tsd-anchor"></a>
               <h3 class="tsd-anchor-link">
                 <span>frame</span
@@ -751,21 +801,62 @@
                 ><span class="tsd-signature-symbol"> = 0</span>
               </div>
               <aside class="tsd-sources">
+                <p>
+                  Inherited from <a href="Billboard.html">Billboard</a>.<a
+                    href="Billboard.html#frame"
+                    >frame</a
+                  >
+                </p>
                 <ul>
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/textured-billboard.ts#L9"
-                      >src/textured-billboard.ts:9</a
+                      href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L15"
+                      >src/billboard.ts:15</a
                     >
                   </li>
                 </ul>
               </aside>
             </section>
-            <section class="tsd-panel tsd-member tsd-is-protected">
+            <section class="tsd-panel tsd-member tsd-is-inherited">
+              <a id="frameduration" class="tsd-anchor"></a>
+              <h3 class="tsd-anchor-link">
+                <span>frame<wbr />Duration</span
+                ><a
+                  href="#frameduration"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="../assets/icons.svg#icon-anchor"></use></svg
+                ></a>
+              </h3>
+              <div class="tsd-signature">
+                <span class="tsd-kind-property">frameDuration</span
+                ><span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">number</span>
+              </div>
+              <aside class="tsd-sources">
+                <p>
+                  Inherited from <a href="Billboard.html">Billboard</a>.<a
+                    href="Billboard.html#frameduration"
+                    >frameDuration</a
+                  >
+                </p>
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L23"
+                      >src/billboard.ts:23</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+            </section>
+            <section class="tsd-panel tsd-member tsd-is-inherited">
               <a id="invcols" class="tsd-anchor"></a>
               <h3 class="tsd-anchor-link">
-                <code class="tsd-tag">Protected</code><span>inv<wbr />Cols</span
+                <span>inv<wbr />Cols</span
                 ><a
                   href="#invcols"
                   aria-label="Permalink"
@@ -780,18 +871,24 @@
                 <span class="tsd-signature-type">number</span>
               </div>
               <aside class="tsd-sources">
+                <p>
+                  Inherited from <a href="Billboard.html">Billboard</a>.<a
+                    href="Billboard.html#invcols"
+                    >invCols</a
+                  >
+                </p>
                 <ul>
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/textured-billboard.ts#L16"
-                      >src/textured-billboard.ts:16</a
+                      href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L24"
+                      >src/billboard.ts:24</a
                     >
                   </li>
                 </ul>
               </aside>
             </section>
-            <section class="tsd-panel tsd-member">
+            <section class="tsd-panel tsd-member tsd-is-inherited">
               <a id="invframeduration" class="tsd-anchor"></a>
               <h3 class="tsd-anchor-link">
                 <span>inv<wbr />Frame<wbr />Duration</span
@@ -809,21 +906,27 @@
                 <span class="tsd-signature-type">number</span>
               </div>
               <aside class="tsd-sources">
+                <p>
+                  Inherited from <a href="Billboard.html">Billboard</a>.<a
+                    href="Billboard.html#invframeduration"
+                    >invFrameDuration</a
+                  >
+                </p>
                 <ul>
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/textured-billboard.ts#L10"
-                      >src/textured-billboard.ts:10</a
+                      href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L26"
+                      >src/billboard.ts:26</a
                     >
                   </li>
                 </ul>
               </aside>
             </section>
-            <section class="tsd-panel tsd-member tsd-is-protected">
+            <section class="tsd-panel tsd-member tsd-is-inherited">
               <a id="invrows" class="tsd-anchor"></a>
               <h3 class="tsd-anchor-link">
-                <code class="tsd-tag">Protected</code><span>inv<wbr />Rows</span
+                <span>inv<wbr />Rows</span
                 ><a
                   href="#invrows"
                   aria-label="Permalink"
@@ -838,48 +941,18 @@
                 <span class="tsd-signature-type">number</span>
               </div>
               <aside class="tsd-sources">
-                <ul>
-                  <li>
-                    Defined in
-                    <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/textured-billboard.ts#L17"
-                      >src/textured-billboard.ts:17</a
-                    >
-                  </li>
-                </ul>
-              </aside>
-            </section>
-            <section class="tsd-panel tsd-member">
-              <a id="isplayer" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
-                <code class="tsd-tag">Readonly</code><span>is<wbr />Player</span
-                ><a
-                  href="#isplayer"
-                  aria-label="Permalink"
-                  class="tsd-anchor-icon"
-                  ><svg viewBox="0 0 24 24" aria-hidden="true">
-                    <use href="../assets/icons.svg#icon-anchor"></use></svg
-                ></a>
-              </h3>
-              <div class="tsd-signature">
-                <span class="tsd-kind-property">isPlayer</span
-                ><span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">boolean</span
-                ><span class="tsd-signature-symbol"> = false</span>
-              </div>
-              <aside class="tsd-sources">
                 <p>
-                  Overrides <a href="Billboard.html">Billboard</a>.<a
-                    href="Billboard.html#isplayer"
-                    >isPlayer</a
+                  Inherited from <a href="Billboard.html">Billboard</a>.<a
+                    href="Billboard.html#invrows"
+                    >invRows</a
                   >
                 </p>
                 <ul>
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/textured-billboard.ts#L7"
-                      >src/textured-billboard.ts:7</a
+                      href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L25"
+                      >src/billboard.ts:25</a
                     >
                   </li>
                 </ul>
@@ -912,8 +985,47 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L27"
-                      >src/billboard.ts:27</a
+                      href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L29"
+                      >src/billboard.ts:29</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+            </section>
+            <section class="tsd-panel tsd-member tsd-is-inherited">
+              <a id="material" class="tsd-anchor"></a>
+              <h3 class="tsd-anchor-link">
+                <span>material</span
+                ><a
+                  href="#material"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="../assets/icons.svg#icon-anchor"></use></svg
+                ></a>
+              </h3>
+              <div class="tsd-signature">
+                <span class="tsd-kind-property">material</span
+                ><span class="tsd-signature-symbol">:</span>
+                <a
+                  href="../types/Material.html"
+                  class="tsd-signature-type tsd-kind-type-alias"
+                  >Material</a
+                >
+              </div>
+              <aside class="tsd-sources">
+                <p>
+                  Inherited from <a href="Billboard.html">Billboard</a>.<a
+                    href="Billboard.html#material"
+                    >material</a
+                  >
+                </p>
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L17"
+                      >src/billboard.ts:17</a
                     >
                   </li>
                 </ul>
@@ -944,14 +1056,14 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L25"
-                      >src/billboard.ts:25</a
+                      href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L18"
+                      >src/billboard.ts:18</a
                     >
                   </li>
                 </ul>
               </aside>
             </section>
-            <section class="tsd-panel tsd-member">
+            <section class="tsd-panel tsd-member tsd-is-inherited">
               <a id="rows" class="tsd-anchor"></a>
               <h3 class="tsd-anchor-link">
                 <span>rows</span
@@ -966,12 +1078,18 @@
                 <span class="tsd-signature-type">number</span>
               </div>
               <aside class="tsd-sources">
+                <p>
+                  Inherited from <a href="Billboard.html">Billboard</a>.<a
+                    href="Billboard.html#rows"
+                    >rows</a
+                  >
+                </p>
                 <ul>
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/textured-billboard.ts#L13"
-                      >src/textured-billboard.ts:13</a
+                      href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L22"
+                      >src/billboard.ts:22</a
                     >
                   </li>
                 </ul>
@@ -1002,14 +1120,14 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L26"
-                      >src/billboard.ts:26</a
+                      href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L20"
+                      >src/billboard.ts:20</a
                     >
                   </li>
                 </ul>
               </aside>
             </section>
-            <section class="tsd-panel tsd-member tsd-is-inherited">
+            <section class="tsd-panel tsd-member">
               <a id="state" class="tsd-anchor"></a>
               <h3 class="tsd-anchor-link">
                 <span>state</span
@@ -1025,27 +1143,21 @@
                   href="../interfaces/State.html"
                   class="tsd-signature-type tsd-kind-interface"
                   >State</a
-                ><span class="tsd-signature-symbol"> = ...</span>
+                >
               </div>
               <aside class="tsd-sources">
-                <p>
-                  Inherited from <a href="Billboard.html">Billboard</a>.<a
-                    href="Billboard.html#state"
-                    >state</a
-                  >
-                </p>
                 <ul>
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L20"
-                      >src/billboard.ts:20</a
+                      href="https://github.com/Prozi/engine25d/blob/main/src/moving-billboard.ts#L14"
+                      >src/moving-billboard.ts:14</a
                     >
                   </li>
                 </ul>
               </aside>
             </section>
-            <section class="tsd-panel tsd-member">
+            <section class="tsd-panel tsd-member tsd-is-inherited">
               <a id="totalframes" class="tsd-anchor"></a>
               <h3 class="tsd-anchor-link">
                 <span>total<wbr />Frames</span
@@ -1063,18 +1175,24 @@
                 <span class="tsd-signature-type">number</span>
               </div>
               <aside class="tsd-sources">
+                <p>
+                  Inherited from <a href="Billboard.html">Billboard</a>.<a
+                    href="Billboard.html#totalframes"
+                    >totalFrames</a
+                  >
+                </p>
                 <ul>
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/textured-billboard.ts#L11"
-                      >src/textured-billboard.ts:11</a
+                      href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L27"
+                      >src/billboard.ts:27</a
                     >
                   </li>
                 </ul>
               </aside>
             </section>
-            <section class="tsd-panel tsd-member tsd-is-inherited">
+            <section class="tsd-panel tsd-member">
               <a id="velocity" class="tsd-anchor"></a>
               <h3 class="tsd-anchor-link">
                 <span>velocity</span
@@ -1093,18 +1211,12 @@
                 ><span class="tsd-signature-symbol"> = 0</span>
               </div>
               <aside class="tsd-sources">
-                <p>
-                  Inherited from <a href="Billboard.html">Billboard</a>.<a
-                    href="Billboard.html#velocity"
-                    >velocity</a
-                  >
-                </p>
                 <ul>
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L17"
-                      >src/billboard.ts:17</a
+                      href="https://github.com/Prozi/engine25d/blob/main/src/moving-billboard.ts#L13"
+                      >src/moving-billboard.ts:13</a
                     >
                   </li>
                 </ul>
@@ -1136,14 +1248,14 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L16"
-                      >src/billboard.ts:16</a
+                      href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L14"
+                      >src/billboard.ts:14</a
                     >
                   </li>
                 </ul>
               </aside>
             </section>
-            <section class="tsd-panel tsd-member tsd-is-inherited">
+            <section class="tsd-panel tsd-member">
               <a id="gravity" class="tsd-anchor"></a>
               <h3 class="tsd-anchor-link">
                 <code class="tsd-tag">Static</code>
@@ -1162,24 +1274,18 @@
                 <span class="tsd-signature-type">9.1</span>
               </div>
               <aside class="tsd-sources">
-                <p>
-                  Inherited from <a href="Billboard.html">Billboard</a>.<a
-                    href="Billboard.html#gravity"
-                    >gravity</a
-                  >
-                </p>
                 <ul>
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L11"
-                      >src/billboard.ts:11</a
+                      href="https://github.com/Prozi/engine25d/blob/main/src/moving-billboard.ts#L10"
+                      >src/moving-billboard.ts:10</a
                     >
                   </li>
                 </ul>
               </aside>
             </section>
-            <section class="tsd-panel tsd-member tsd-is-inherited">
+            <section class="tsd-panel tsd-member">
               <a id="jumpspeed" class="tsd-anchor"></a>
               <h3 class="tsd-anchor-link">
                 <code class="tsd-tag">Static</code>
@@ -1199,24 +1305,18 @@
                 <span class="tsd-signature-type">2.1</span>
               </div>
               <aside class="tsd-sources">
-                <p>
-                  Inherited from <a href="Billboard.html">Billboard</a>.<a
-                    href="Billboard.html#jumpspeed"
-                    >jumpSpeed</a
-                  >
-                </p>
                 <ul>
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L12"
-                      >src/billboard.ts:12</a
+                      href="https://github.com/Prozi/engine25d/blob/main/src/moving-billboard.ts#L11"
+                      >src/moving-billboard.ts:11</a
                     >
                   </li>
                 </ul>
               </aside>
             </section>
-            <section class="tsd-panel tsd-member tsd-is-inherited">
+            <section class="tsd-panel tsd-member">
               <a id="movespeed" class="tsd-anchor"></a>
               <h3 class="tsd-anchor-link">
                 <code class="tsd-tag">Static</code>
@@ -1236,24 +1336,18 @@
                 <span class="tsd-signature-type">3</span>
               </div>
               <aside class="tsd-sources">
-                <p>
-                  Inherited from <a href="Billboard.html">Billboard</a>.<a
-                    href="Billboard.html#movespeed"
-                    >moveSpeed</a
-                  >
-                </p>
                 <ul>
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L9"
-                      >src/billboard.ts:9</a
+                      href="https://github.com/Prozi/engine25d/blob/main/src/moving-billboard.ts#L8"
+                      >src/moving-billboard.ts:8</a
                     >
                   </li>
                 </ul>
               </aside>
             </section>
-            <section class="tsd-panel tsd-member tsd-is-inherited">
+            <section class="tsd-panel tsd-member">
               <a id="rotatespeed" class="tsd-anchor"></a>
               <h3 class="tsd-anchor-link">
                 <code class="tsd-tag">Static</code>
@@ -1273,18 +1367,12 @@
                 <span class="tsd-signature-type">4</span>
               </div>
               <aside class="tsd-sources">
-                <p>
-                  Inherited from <a href="Billboard.html">Billboard</a>.<a
-                    href="Billboard.html#rotatespeed"
-                    >rotateSpeed</a
-                  >
-                </p>
                 <ul>
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L10"
-                      >src/billboard.ts:10</a
+                      href="https://github.com/Prozi/engine25d/blob/main/src/moving-billboard.ts#L9"
+                      >src/moving-billboard.ts:9</a
                     >
                   </li>
                 </ul>
@@ -1308,7 +1396,7 @@
             </h2>
           </summary>
           <section>
-            <section class="tsd-panel tsd-member tsd-is-inherited">
+            <section class="tsd-panel tsd-member">
               <a id="gear" class="tsd-anchor"></a>
               <h3 class="tsd-anchor-link">
                 <span>gear</span
@@ -1317,8 +1405,8 @@
                     <use href="../assets/icons.svg#icon-anchor"></use></svg
                 ></a>
               </h3>
-              <ul class="tsd-signatures tsd-is-inherited">
-                <li class="tsd-is-inherited">
+              <ul class="tsd-signatures">
+                <li class="">
                   <div class="tsd-signature" id="gear-1">
                     <span class="tsd-signature-keyword">get</span>
                     <span class="tsd-kind-get-signature">gear</span
@@ -1331,13 +1419,12 @@
                       Returns <span class="tsd-signature-type">number</span>
                     </h4>
                     <aside class="tsd-sources">
-                      <p>Inherited from Billboard.gear</p>
                       <ul>
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L29"
-                            >src/billboard.ts:29</a
+                            href="https://github.com/Prozi/engine25d/blob/main/src/moving-billboard.ts#L16"
+                            >src/moving-billboard.ts:16</a
                           >
                         </li>
                       </ul>
@@ -1418,8 +1505,8 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L74"
-                            >src/billboard.ts:74</a
+                            href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L101"
+                            >src/billboard.ts:101</a
                           >
                         </li>
                       </ul>
@@ -1500,8 +1587,8 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L70"
-                            >src/billboard.ts:70</a
+                            href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L75"
+                            >src/billboard.ts:75</a
                           >
                         </li>
                       </ul>
@@ -1510,7 +1597,9 @@
                 </li>
               </ul>
             </section>
-            <section class="tsd-panel tsd-member tsd-is-protected">
+            <section
+              class="tsd-panel tsd-member tsd-is-protected tsd-is-inherited"
+            >
               <a id="getrow" class="tsd-anchor"></a>
               <h3 class="tsd-anchor-link">
                 <code class="tsd-tag">Protected</code><span>get<wbr />Row</span
@@ -1522,8 +1611,8 @@
                     <use href="../assets/icons.svg#icon-anchor"></use></svg
                 ></a>
               </h3>
-              <ul class="tsd-signatures tsd-is-protected">
-                <li class="">
+              <ul class="tsd-signatures tsd-is-protected tsd-is-inherited">
+                <li class="tsd-is-inherited">
                   <div class="tsd-signature tsd-anchor-link">
                     <a id="getrow-1" class="tsd-anchor"></a
                     ><span class="tsd-kind-call-signature">getRow</span
@@ -1565,12 +1654,18 @@
                       Returns <span class="tsd-signature-type">number</span>
                     </h4>
                     <aside class="tsd-sources">
+                      <p>
+                        Inherited from <a href="Billboard.html">Billboard</a>.<a
+                          href="Billboard.html#getrow"
+                          >getRow</a
+                        >
+                      </p>
                       <ul>
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/textured-billboard.ts#L38"
-                            >src/textured-billboard.ts:38</a
+                            href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L108"
+                            >src/billboard.ts:108</a
                           >
                         </li>
                       </ul>
@@ -1643,8 +1738,8 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L58"
-                            >src/billboard.ts:58</a
+                            href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L63"
+                            >src/billboard.ts:63</a
                           >
                         </li>
                       </ul>
@@ -1653,10 +1748,10 @@
                 </li>
               </ul>
             </section>
-            <section class="tsd-panel tsd-member tsd-is-protected">
+            <section class="tsd-panel tsd-member">
               <a id="update" class="tsd-anchor"></a>
               <h3 class="tsd-anchor-link">
-                <code class="tsd-tag">Protected</code><span>update</span
+                <span>update</span
                 ><a
                   href="#update"
                   aria-label="Permalink"
@@ -1665,14 +1760,14 @@
                     <use href="../assets/icons.svg#icon-anchor"></use></svg
                 ></a>
               </h3>
-              <ul class="tsd-signatures tsd-is-protected">
+              <ul class="tsd-signatures">
                 <li class="">
                   <div class="tsd-signature tsd-anchor-link">
                     <a id="update-1" class="tsd-anchor"></a
                     ><span class="tsd-kind-call-signature">update</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">ms</span
-                    ><span class="tsd-signature-symbol">?:</span>
+                    ><span class="tsd-signature-symbol">:</span>
                     <span class="tsd-signature-type">number</span
                     ><span class="tsd-signature-symbol">)</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -1692,10 +1787,7 @@
                         <li>
                           <span
                             ><span class="tsd-kind-parameter">ms</span>:
-                            <span class="tsd-signature-type">number</span
-                            ><span class="tsd-signature-symbol">
-                              = 0</span
-                            ></span
+                            <span class="tsd-signature-type">number</span></span
                           >
                         </li>
                       </ul>
@@ -1714,8 +1806,64 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/textured-billboard.ts#L46"
-                            >src/textured-billboard.ts:46</a
+                            href="https://github.com/Prozi/engine25d/blob/main/src/moving-billboard.ts#L41"
+                            >src/moving-billboard.ts:41</a
+                          >
+                        </li>
+                      </ul>
+                    </aside>
+                  </div>
+                </li>
+              </ul>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-is-protected tsd-is-inherited"
+            >
+              <a id="updatetexture" class="tsd-anchor"></a>
+              <h3 class="tsd-anchor-link">
+                <code class="tsd-tag">Protected</code
+                ><span>update<wbr />Texture</span
+                ><a
+                  href="#updatetexture"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="../assets/icons.svg#icon-anchor"></use></svg
+                ></a>
+              </h3>
+              <ul class="tsd-signatures tsd-is-protected tsd-is-inherited">
+                <li class="tsd-is-inherited">
+                  <div class="tsd-signature tsd-anchor-link">
+                    <a id="updatetexture-1" class="tsd-anchor"></a
+                    ><span class="tsd-kind-call-signature">updateTexture</span
+                    ><span class="tsd-signature-symbol">()</span
+                    ><span class="tsd-signature-symbol">:</span>
+                    <span class="tsd-signature-type">void</span
+                    ><a
+                      href="#updatetexture-1"
+                      aria-label="Permalink"
+                      class="tsd-anchor-icon"
+                      ><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <use href="../assets/icons.svg#icon-anchor"></use></svg
+                    ></a>
+                  </div>
+                  <div class="tsd-description">
+                    <h4 class="tsd-returns-title">
+                      Returns <span class="tsd-signature-type">void</span>
+                    </h4>
+                    <aside class="tsd-sources">
+                      <p>
+                        Inherited from <a href="Billboard.html">Billboard</a>.<a
+                          href="Billboard.html#updatetexture"
+                          >updateTexture</a
+                        >
+                      </p>
+                      <ul>
+                        <li>
+                          Defined in
+                          <a
+                            href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L79"
+                            >src/billboard.ts:79</a
                           >
                         </li>
                       </ul>
@@ -1924,7 +2072,7 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>body</span></a
-                  ><a href="#cols" class=""
+                  ><a href="#cols" class="tsd-is-inherited"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -1940,7 +2088,7 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>direction</span></a
-                  ><a href="#directionstorows" class=""
+                  ><a href="#directionstorows" class="tsd-is-inherited"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -1948,7 +2096,7 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>directions<wbr />To<wbr />Rows</span></a
-                  ><a href="#frame" class=""
+                  ><a href="#frame" class="tsd-is-inherited"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -1956,7 +2104,15 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>frame</span></a
-                  ><a href="#invcols" class="tsd-is-protected"
+                  ><a href="#frameduration" class="tsd-is-inherited"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Property"
+                    >
+                      <use href="../assets/icons.svg#icon-1024"></use></svg
+                    ><span>frame<wbr />Duration</span></a
+                  ><a href="#invcols" class="tsd-is-inherited"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -1964,7 +2120,7 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>inv<wbr />Cols</span></a
-                  ><a href="#invframeduration" class=""
+                  ><a href="#invframeduration" class="tsd-is-inherited"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -1972,7 +2128,7 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>inv<wbr />Frame<wbr />Duration</span></a
-                  ><a href="#invrows" class="tsd-is-protected"
+                  ><a href="#invrows" class="tsd-is-inherited"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -1980,14 +2136,6 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>inv<wbr />Rows</span></a
-                  ><a href="#isplayer" class=""
-                    ><svg
-                      class="tsd-kind-icon"
-                      viewBox="0 0 24 24"
-                      aria-label="Property"
-                    >
-                      <use href="../assets/icons.svg#icon-1024"></use></svg
-                    ><span>is<wbr />Player</span></a
                   ><a href="#level" class="tsd-is-inherited"
                     ><svg
                       class="tsd-kind-icon"
@@ -1996,6 +2144,14 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>level</span></a
+                  ><a href="#material" class="tsd-is-inherited"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Property"
+                    >
+                      <use href="../assets/icons.svg#icon-1024"></use></svg
+                    ><span>material</span></a
                   ><a href="#mesh" class="tsd-is-inherited"
                     ><svg
                       class="tsd-kind-icon"
@@ -2004,7 +2160,7 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>mesh</span></a
-                  ><a href="#rows" class=""
+                  ><a href="#rows" class="tsd-is-inherited"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -2020,7 +2176,7 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>scale</span></a
-                  ><a href="#state" class="tsd-is-inherited"
+                  ><a href="#state" class=""
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -2028,7 +2184,7 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>state</span></a
-                  ><a href="#totalframes" class=""
+                  ><a href="#totalframes" class="tsd-is-inherited"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -2036,7 +2192,7 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>total<wbr />Frames</span></a
-                  ><a href="#velocity" class="tsd-is-inherited"
+                  ><a href="#velocity" class=""
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -2052,7 +2208,7 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>z</span></a
-                  ><a href="#gravity" class="tsd-is-inherited"
+                  ><a href="#gravity" class=""
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -2060,7 +2216,7 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>gravity</span></a
-                  ><a href="#jumpspeed" class="tsd-is-inherited"
+                  ><a href="#jumpspeed" class=""
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -2068,7 +2224,7 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>jump<wbr />Speed</span></a
-                  ><a href="#movespeed" class="tsd-is-inherited"
+                  ><a href="#movespeed" class=""
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -2076,7 +2232,7 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>move<wbr />Speed</span></a
-                  ><a href="#rotatespeed" class="tsd-is-inherited"
+                  ><a href="#rotatespeed" class=""
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -2103,7 +2259,7 @@
                   >Accessors
                 </summary>
                 <div>
-                  <a href="#gear" class="tsd-is-inherited"
+                  <a href="#gear" class=""
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -2150,7 +2306,7 @@
                     >
                       <use href="../assets/icons.svg#icon-2048"></use></svg
                     ><span>get<wbr />FloorZ</span></a
-                  ><a href="#getrow" class="tsd-is-protected"
+                  ><a href="#getrow" class="tsd-is-protected tsd-is-inherited"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -2166,7 +2322,7 @@
                     >
                       <use href="../assets/icons.svg#icon-2048"></use></svg
                     ><span>spawn</span></a
-                  ><a href="#update" class="tsd-is-protected"
+                  ><a href="#update" class=""
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -2174,6 +2330,16 @@
                     >
                       <use href="../assets/icons.svg#icon-2048"></use></svg
                     ><span>update</span></a
+                  ><a
+                    href="#updatetexture"
+                    class="tsd-is-protected tsd-is-inherited"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Method"
+                    >
+                      <use href="../assets/icons.svg#icon-2048"></use></svg
+                    ><span>update<wbr />Texture</span></a
                   >
                 </div>
               </details>

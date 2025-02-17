@@ -1,15 +1,16 @@
 import { Level } from './level';
 import { TexturedBillboardProps } from './model';
 import { directions, renderer, state } from './state';
-import { TexturedBillboard } from './textured-billboard';
+import { MovingBillboard } from './moving-billboard';
 import { ViewLevel } from './view-level';
 
-export class Player extends TexturedBillboard {
+export class Player extends MovingBillboard {
   readonly isPlayer = true;
   readonly state = state;
 
   constructor(level: Level, props: TexturedBillboardProps) {
-    super(props);
+    super(props, state);
+
     this.spawn(level);
 
     if (level instanceof ViewLevel) {
