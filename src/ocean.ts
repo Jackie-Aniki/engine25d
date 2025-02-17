@@ -16,12 +16,12 @@ export class Ocean {
   static readonly scale = 4;
   static readonly waveDetail = 16;
   static readonly textureRepeat = 8;
+  static readonly deepWaterZ = -0.25;
   static readonly shallowWater = {
     opacity: 0.5,
-    z: 0.125,
     scale: 1,
-    waveForward: 0.02,
-    waveHeight: 0.06,
+    waveTime: 0.16,
+    waveHeight: 0.16,
     wavingSpeed: 2,
     renderOrder: 1
   };
@@ -54,7 +54,7 @@ export class Ocean {
     if (!renderer.camera.ref) return;
 
     const { x, y } = renderer.camera.ref.body;
-    this.mesh.position.set(x, -0.25, y);
+    this.mesh.position.set(x, Ocean.deepWaterZ, y);
     this.animations.forEach((animation) => animation(ms));
   }
 
@@ -82,22 +82,18 @@ export class Ocean {
     mesh.renderOrder = 0;
 
     this.animations.push(() => {
-      map.offset.set(this.mesh.position.x * 0.7, -this.mesh.position.z * 0.7);
+      map.offset.set(
+        (this.mesh.position.x * 0.7) % 1,
+        1 - ((this.mesh.position.z * 0.7) % 1)
+      );
     });
 
     return mesh;
   }
 
   protected createShallowWater(texture: Texture) {
-    const {
-      opacity,
-      scale,
-      z,
-      renderOrder,
-      waveForward,
-      wavingSpeed,
-      waveHeight
-    } = Ocean.shallowWater;
+    const { opacity, scale, renderOrder, waveTime, wavingSpeed, waveHeight } =
+      Ocean.shallowWater;
     const size = 2 / Ocean.textureRepeat;
     const radius = Math.hypot(this.cols, this.rows) / 2;
     const geometry = new CircleGeometry(radius);
@@ -111,7 +107,7 @@ export class Ocean {
         textureRepeat: { value: Ocean.textureRepeat / scale },
         wavingSpeed: { value: wavingSpeed },
         waveHeight: { value: waveHeight },
-        waveForward: { value: waveForward },
+        waveTime: { value: waveTime },
         map: { value: map },
         opacity: { value: opacity }
       },
@@ -127,13 +123,10 @@ export class Ocean {
         varying float wave;
       
         void main() {
-          vUv = uv * textureRepeat + vec2(cameraX, cameraY); // Powtarzanie tekstury
-          
           vec3 pos = position;
-          float x = pos.x + cameraX;
-          float y = pos.z + cameraY;
-          float wave1 = sin(x * 3.0 + time * wavingSpeed);
-          float wave2 = cos(y * 1.5 + time * wavingSpeed * 1.5);
+          vUv = uv * textureRepeat + vec2(cameraX, cameraY); // Powtarzanie tekstury          
+          float wave1 = sin(pos.x * 3.0 + time * wavingSpeed);
+          float wave2 = cos(pos.y * 1.5 + time * wavingSpeed * 1.5);
           
           wave = (wave1 + wave2) * 0.5;
           pos.z = wave * waveHeight; // Nowe wysokości fal
@@ -144,14 +137,15 @@ export class Ocean {
       fragmentShader: `
         uniform sampler2D map;
         uniform float time;
-        uniform float waveForward;
+        uniform float waveTime;
         uniform float opacity;
-      
+        uniform float cameraY;
+
         varying vec2 vUv;
         varying float wave;
       
         void main() {
-          vec2 repeatedUV = fract(vUv + vec2(0.0, (wave + time) * waveForward)); // Powtarzanie + lekkie przesuwanie
+          vec2 repeatedUV = mod(vUv + vec2(0, (wave + time) * waveTime), 1.0);
           vec4 color = texture2D(map, repeatedUV);
       
           gl_FragColor = vec4(color.rgb, opacity);
@@ -161,11 +155,12 @@ export class Ocean {
 
     const mesh = new Mesh(geometry, material);
     mesh.setRotationFromAxisAngle(new Vector3(1, 0, 0), -Math_Half_PI);
-    mesh.position.set(0, z, 0);
+    mesh.position.set(0, Ocean.shallowWater.waveHeight, 0);
     mesh.renderOrder = renderOrder;
 
     this.animations.push((ms: number) => {
-      material.uniforms.time.value += ms * 0.001;
+      material.uniforms.time.value =
+        (material.uniforms.time.value + ms * 0.0001) % 1_000;
       material.uniforms.cameraX.value = this.mesh.position.x * size;
       material.uniforms.cameraY.value = -this.mesh.position.z * size;
     });

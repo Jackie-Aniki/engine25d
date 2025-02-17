@@ -13,7 +13,6 @@ export class Camera extends PerspectiveCamera {
   protected static lookAtVector = new Vector3();
   protected static tempQuaternion = new Quaternion();
   protected static tempEuler = new Euler();
-  protected static invFullHD = 1 / Math.hypot(1440, 1080);
 
   static fov = 90;
   static near = 0.001;
@@ -22,11 +21,7 @@ export class Camera extends PerspectiveCamera {
   ref?: Player;
   distance = Camera.distance;
 
-  static getFar() {
-    return Camera.far * Math.hypot(innerWidth, innerHeight) * Camera.invFullHD;
-  }
-
-  constructor(fov = Camera.fov, near = Camera.near, far = Camera.getFar()) {
+  constructor(fov = Camera.fov, near = Camera.near, far = Camera.far) {
     super(fov, innerWidth / innerHeight, near, far);
 
     this.up = new Vector3(0, 1, 0);
@@ -42,7 +37,6 @@ export class Camera extends PerspectiveCamera {
     this.aspect = width / height;
     this.distance = Camera.distance / this.aspect;
     this.updateProjectionMatrix();
-    this.far = Camera.getFar();
   }
 
   getFloor(_x: number, _y: number) {
@@ -61,8 +55,6 @@ export class Camera extends PerspectiveCamera {
     if (!this.ref) return;
 
     const { body, z, mesh } = this.ref;
-
-    // Przechowujemy wartości, żeby nie obliczać ich co klatkę
     const angle = -body.angle + Math_Half_PI;
     const offsetX = Math.sin(angle) * this.distance;
     const offsetY = Math.cos(angle) * this.distance;
