@@ -91,3 +91,5 @@ export const mapCubeTextures = <T>({
   front,
   back
 }: Record<CubeDirections, T>): T[] => [left, right, up, down, front, back];
+
+export const normalize = (n: number) => Math.min(1, Math.max(-1, n));

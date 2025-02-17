@@ -1,12 +1,14 @@
 import { doubleClickTime, keys, mouse, state } from './state';
+import { normalize } from './utils';
 
 export const onPointerMove = (event: MouseEvent | TouchEvent) => {
   const pointer = event instanceof TouchEvent ? event.touches[0] : event;
+  const max = 1 / Math.max(innerWidth, innerHeight);
 
   if (pointer && state.player) {
     event.preventDefault();
-    mouse.x = (pointer.pageX / innerWidth) * 2 - 1;
-    mouse.y = (pointer.pageY / innerHeight) * 2 - 1;
+    mouse.x = normalize(2 * max * (pointer.pageX - innerWidth / 2));
+    mouse.y = normalize(3 * max * (pointer.pageY - innerHeight * 0.8));
   }
 };
 

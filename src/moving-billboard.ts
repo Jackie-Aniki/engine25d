@@ -7,7 +7,7 @@ import { normalizeAngle } from './utils';
 
 export class MovingBillboard extends Billboard {
   static readonly moveSpeed = 3;
-  static readonly rotateSpeed = 4;
+  static readonly rotateSpeed = 3;
   static readonly gravity = 9.1;
   static readonly jumpSpeed = 2.1;
 
@@ -29,6 +29,10 @@ export class MovingBillboard extends Billboard {
     return gear;
   }
 
+  get mouseGear() {
+    return this.state.mouseDown ? -this.state.mouse.y : 0;
+  }
+
   constructor(
     props: TexturedBillboardProps,
     state: State = {
@@ -42,11 +46,11 @@ export class MovingBillboard extends Billboard {
 
   update(ms: number): void {
     const deltaTime = ms * 0.001;
+    const mouseGear = this.mouseGear;
     const gear = this.gear;
 
     this.updateAngle(deltaTime, gear);
 
-    const mouseGear = this.getMouseGear();
     const moveSpeed =
       (mouseGear || gear) * MovingBillboard.moveSpeed * deltaTime;
 
@@ -98,7 +102,7 @@ export class MovingBillboard extends Billboard {
         ? -1
         : this.state.keys.right
           ? 1
-          : Math.min(1, Math.max(-1, this.state.mouse.x * 2));
+          : this.state.mouse.x;
       if (scale !== 0) {
         this.body.angle = normalizeAngle(
           this.body.angle +
@@ -139,11 +143,5 @@ export class MovingBillboard extends Billboard {
     const body = new DynamicBody(x, y);
     physics.insert(body);
     return body;
-  }
-
-  protected getMouseGear() {
-    return this.state.mouseDown
-      ? Math.min(1, Math.max(-1, -this.state.mouse.y * 2))
-      : 0;
   }
 }

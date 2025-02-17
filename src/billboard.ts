@@ -77,10 +77,11 @@ export class Billboard {
     );
 
     this.mesh.lookAt(
-      Billboard.tempVector
-        .copy(renderer.camera.position)
-        .add(this.mesh.position)
-        .divide(Billboard.tempVectorDivide)
+      Billboard.tempVector.set(
+        renderer.camera.position.x,
+        this.mesh.position.y,
+        renderer.camera.position.z
+      )
     );
 
     if (this.totalFrames > 1) {

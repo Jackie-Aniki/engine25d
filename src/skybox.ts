@@ -6,12 +6,12 @@ import { CubeDirections } from './model';
 export class Skybox {
   constructor(
     textures: Record<CubeDirections, string> = {
-      left: 'skybox/posy.webp',
-      right: 'skybox/negy.webp',
+      front: 'skybox/posy.webp',
+      back: 'skybox/negy.webp',
       up: 'skybox/posz.webp',
       down: 'skybox/negz.webp',
-      front: 'skybox/posx.webp',
-      back: 'skybox/negx.webp'
+      right: 'skybox/posx.webp',
+      left: 'skybox/negx.webp'
     }
   ) {
     const loader = new THREE.CubeTextureLoader(loadingManager);
