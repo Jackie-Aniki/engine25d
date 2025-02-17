@@ -17,11 +17,10 @@ export class Camera extends PerspectiveCamera {
 
   static fov = 90;
   static near = 0.001;
-  static far = 40;
+  static far = 20;
 
   ref?: Player;
-
-  protected normalizedDistance!: number;
+  distance = Camera.distance;
 
   static getFar() {
     return Camera.far * Math.hypot(innerWidth, innerHeight) * Camera.invFullHD;
@@ -41,7 +40,7 @@ export class Camera extends PerspectiveCamera {
 
   onResize(width: number, height: number) {
     this.aspect = width / height;
-    this.normalizedDistance = Camera.distance / this.aspect;
+    this.distance = Camera.distance / this.aspect;
     this.updateProjectionMatrix();
     this.far = Camera.getFar();
   }
@@ -65,8 +64,8 @@ export class Camera extends PerspectiveCamera {
 
     // Przechowujemy wartości, żeby nie obliczać ich co klatkę
     const angle = -body.angle + Math_Half_PI;
-    const offsetX = Math.sin(angle) * this.normalizedDistance;
-    const offsetY = Math.cos(angle) * this.normalizedDistance;
+    const offsetX = Math.sin(angle) * this.distance;
+    const offsetY = Math.cos(angle) * this.distance;
     const cameraX = body.x - offsetX;
     const cameraY = body.y - offsetY;
     const cameraHeight = this.getFloor(cameraX, cameraY) / 2;

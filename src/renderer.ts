@@ -2,18 +2,17 @@ import { Stats } from 'pixi-stats';
 import {
   AmbientLight,
   Color,
-  DirectionalLight,
   Fog,
   LinearSRGBColorSpace,
   Scene,
   WebGLRenderer
 } from 'three';
 import { Camera } from './camera';
-import { queryParams } from './query-params';
 import { Ocean } from './ocean';
+import { queryParams } from './query-params';
 
 export class Renderer extends WebGLRenderer {
-  static backgroundColor = 0xa0e8f0;
+  static backgroundColor = 0xbbf0ff;
 
   now = Date.now();
   scene = new Scene();
@@ -60,10 +59,12 @@ export class Renderer extends WebGLRenderer {
   onResize() {
     this.setSize(innerWidth, innerHeight);
     this.camera.onResize(innerWidth, innerHeight);
-    this.scene.fog = new Fog(
-      Renderer.backgroundColor,
-      this.camera.far * 0.33,
-      this.camera.far * 0.67
-    );
+    this.ocean?.onResize();
+    this.scene.fog = this.createFog();
+  }
+
+  protected createFog() {
+    const far = this.camera.far - this.camera.distance;
+    return new Fog(Renderer.backgroundColor, far * 0.8, far);
   }
 }

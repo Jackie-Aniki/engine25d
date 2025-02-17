@@ -222,6 +222,15 @@
                         <use href="../assets/icons.svg#icon-1024"></use></svg
                       ><span>custom<wbr />Distance<wbr />Material?</span></a
                     >
+                    <a href="Camera.html#distance" class="tsd-index-link"
+                      ><svg
+                        class="tsd-kind-icon"
+                        viewBox="0 0 24 24"
+                        aria-label="Property"
+                      >
+                        <use href="../assets/icons.svg#icon-1024"></use></svg
+                      ><span>distance</span></a
+                    >
                     <a
                       href="Camera.html#far"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
@@ -445,17 +454,6 @@
                       >
                         <use href="../assets/icons.svg#icon-1024"></use></svg
                       ><span>near</span></a
-                    >
-                    <a
-                      href="Camera.html#normalizeddistance"
-                      class="tsd-index-link tsd-is-protected"
-                      ><svg
-                        class="tsd-kind-icon"
-                        viewBox="0 0 24 24"
-                        aria-label="Property"
-                      >
-                        <use href="../assets/icons.svg#icon-1024"></use></svg
-                      ><span>normalized<wbr />Distance</span></a
                     >
                     <a
                       href="Camera.html#normalmatrix"
@@ -701,7 +699,7 @@
                         <use href="../assets/icons.svg#icon-1024"></use></svg
                       ><span>DEFAULT_<wbr />UP</span></a
                     >
-                    <a href="Camera.html#distance" class="tsd-index-link"
+                    <a href="Camera.html#distance-1" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -1660,8 +1658,8 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L30"
-                            >src/camera.ts:30</a
+                            href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L29"
+                            >src/camera.ts:29</a
                           >
                         </li>
                       </ul>
@@ -2059,6 +2057,36 @@
                   <li>
                     Defined in
                     node_modules/@types/three/src/core/Object3D.d.ts:288
+                  </li>
+                </ul>
+              </aside>
+            </section>
+            <section class="tsd-panel tsd-member">
+              <a id="distance" class="tsd-anchor"></a>
+              <h3 class="tsd-anchor-link">
+                <span>distance</span
+                ><a
+                  href="#distance"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="../assets/icons.svg#icon-anchor"></use></svg
+                ></a>
+              </h3>
+              <div class="tsd-signature">
+                <span class="tsd-kind-property">distance</span
+                ><span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">number</span
+                ><span class="tsd-signature-symbol"> = Camera.distance</span>
+              </div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L23"
+                      >src/camera.ts:23</a
+                    >
                   </li>
                 </ul>
               </aside>
@@ -3239,36 +3267,6 @@
                 </ul>
               </aside>
             </section>
-            <section class="tsd-panel tsd-member tsd-is-protected">
-              <a id="normalizeddistance" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
-                <code class="tsd-tag">Protected</code
-                ><span>normalized<wbr />Distance</span
-                ><a
-                  href="#normalizeddistance"
-                  aria-label="Permalink"
-                  class="tsd-anchor-icon"
-                  ><svg viewBox="0 0 24 24" aria-hidden="true">
-                    <use href="../assets/icons.svg#icon-anchor"></use></svg
-                ></a>
-              </h3>
-              <div class="tsd-signature">
-                <span class="tsd-kind-property">normalizedDistance</span
-                ><span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">number</span>
-              </div>
-              <aside class="tsd-sources">
-                <ul>
-                  <li>
-                    Defined in
-                    <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L24"
-                      >src/camera.ts:24</a
-                    >
-                  </li>
-                </ul>
-              </aside>
-            </section>
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
@@ -4430,12 +4428,12 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member">
-              <a id="distance" class="tsd-anchor"></a>
+              <a id="distance-1" class="tsd-anchor"></a>
               <h3 class="tsd-anchor-link">
                 <code class="tsd-tag">Static</code>
                 <code class="tsd-tag">Readonly</code><span>distance</span
                 ><a
-                  href="#distance"
+                  href="#distance-1"
                   aria-label="Permalink"
                   class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24" aria-hidden="true">
@@ -4472,7 +4470,7 @@
                 <span class="tsd-kind-property">far</span
                 ><span class="tsd-signature-symbol">:</span>
                 <span class="tsd-signature-type">number</span
-                ><span class="tsd-signature-symbol"> = 40</span>
+                ><span class="tsd-signature-symbol"> = 20</span>
               </div>
               <aside class="tsd-sources">
                 <ul>
@@ -6014,8 +6012,8 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L49"
-                            >src/camera.ts:49</a
+                            href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L48"
+                            >src/camera.ts:48</a
                           >
                         </li>
                       </ul>
@@ -8209,8 +8207,8 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L42"
-                            >src/camera.ts:42</a
+                            href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L41"
+                            >src/camera.ts:41</a
                           >
                         </li>
                       </ul>
@@ -8449,8 +8447,8 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L36"
-                            >src/camera.ts:36</a
+                            href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L35"
+                            >src/camera.ts:35</a
                           >
                         </li>
                       </ul>
@@ -9466,8 +9464,8 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L53"
-                            >src/camera.ts:53</a
+                            href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L52"
+                            >src/camera.ts:52</a
                           >
                         </li>
                       </ul>
@@ -9535,8 +9533,8 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L57"
-                            >src/camera.ts:57</a
+                            href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L56"
+                            >src/camera.ts:56</a
                           >
                         </li>
                       </ul>
@@ -10919,8 +10917,8 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L61"
-                            >src/camera.ts:61</a
+                            href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L60"
+                            >src/camera.ts:60</a
                           >
                         </li>
                       </ul>
@@ -11366,8 +11364,8 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L26"
-                            >src/camera.ts:26</a
+                            href="https://github.com/Prozi/engine25d/blob/main/src/camera.ts#L25"
+                            >src/camera.ts:25</a
                           >
                         </li>
                       </ul>
@@ -11632,6 +11630,14 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>custom<wbr />Distance<wbr />Material</span></a
+                  ><a href="#distance" class=""
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Property"
+                    >
+                      <use href="../assets/icons.svg#icon-1024"></use></svg
+                    ><span>distance</span></a
                   ><a href="#far" class="tsd-is-inherited tsd-is-external"
                     ><svg
                       class="tsd-kind-icon"
@@ -11812,14 +11818,6 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>near</span></a
-                  ><a href="#normalizeddistance" class="tsd-is-protected"
-                    ><svg
-                      class="tsd-kind-icon"
-                      viewBox="0 0 24 24"
-                      aria-label="Property"
-                    >
-                      <use href="../assets/icons.svg#icon-1024"></use></svg
-                    ><span>normalized<wbr />Distance</span></a
                   ><a
                     href="#normalmatrix"
                     class="tsd-is-inherited tsd-is-external"
@@ -12018,7 +12016,7 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>DEFAULT_<wbr />UP</span></a
-                  ><a href="#distance" class=""
+                  ><a href="#distance-1" class=""
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
