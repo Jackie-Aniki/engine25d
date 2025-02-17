@@ -1,12 +1,15 @@
 import { Texture, Vector3 } from 'three';
 import { Box } from './box';
 import { Level } from './level';
-import { floors, physics } from './state';
+import { floors, maxLevelHeight, physics } from './state';
 import { getMatrix } from './utils';
 import { Cactus } from './cactus';
+import { Palm } from './palm';
 
 export class ViewLevel extends Level {
-  static readonly cactusChance = 0.2;
+  static readonly cactusSurviveChance = 0.1;
+  static readonly palmSurviceChance = 0.15;
+  static readonly minHeightForPalm = maxLevelHeight - 3;
 
   mesh: Box;
 
@@ -26,7 +29,9 @@ export class ViewLevel extends Level {
   }
 
   createMesh(textures: Texture[]) {
+    const flora = this.createMap(Level.cols * 2, Level.rows * 2);
     const mesh = new Box(textures, Level.cols, Level.rows);
+    mesh.position.set(-Level.cols / 2, 0, -Level.rows / 2);
 
     this.heights.forEach((row: number[], x: number) => {
       row.forEach((height: number, y: number) => {
@@ -42,14 +47,32 @@ export class ViewLevel extends Level {
           const realX = x - Level.cols / 2;
           const realY = y - Level.rows / 2;
           this.createBox(realX, realY, height);
-          if (Math.random() < ViewLevel.cactusChance) {
-            new Cactus(this, realX + 0.5, realY + 0.5);
+
+          if (
+            height >= ViewLevel.minHeightForPalm &&
+            Math.random() < ViewLevel.palmSurviceChance
+          ) {
+            new Palm(this, realX + 0.5, realY + 0.5);
           }
         }
       });
     });
 
-    mesh.position.set(-Level.cols / 2, 0, -Level.rows / 2);
+    flora.forEach((row: number[], x: number) => {
+      row.forEach((value: number, y: number) => {
+        const height = this.heights[Math.floor(x / 2)][Math.floor(y / 2)];
+        if (
+          value &&
+          height &&
+          height < ViewLevel.minHeightForPalm &&
+          Math.random() < ViewLevel.cactusSurviveChance
+        ) {
+          const realX = x / 2 - Level.cols / 2 + 0.25;
+          const realY = y / 2 - Level.rows / 2 + 0.25;
+          new Cactus(this, realX, realY);
+        }
+      });
+    });
 
     return mesh;
   }

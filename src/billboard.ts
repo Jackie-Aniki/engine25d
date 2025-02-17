@@ -50,7 +50,7 @@ export class Billboard {
     this.directionsToRows = props.directionsToRows || { default: 0 };
 
     this.scale = (props.scale || 1) / 2;
-    this.centerOffset = (this.scale - 0.75) / 4;
+    this.centerOffset = -0.25 + this.scale / 3; // this.scale / 4;
     this.material = createMaterial(props.textureName, props.cols, props.rows);
     const w = this.material.map!.image.width / this.cols;
     const h = this.material.map!.image.height / this.rows;

@@ -35,8 +35,13 @@ export class Level {
     );
   }
 
-  protected createMap(fill = Level.fill, iterations = Level.mapIterations) {
-    const map = new Map.Cellular(Level.cols, Level.rows);
+  protected createMap(
+    cols = Level.cols,
+    rows = Level.rows,
+    fill = Level.fill,
+    iterations = Level.mapIterations
+  ) {
+    const map = new Map.Cellular(cols, rows);
 
     map.randomize(fill);
     for (let i = 0; i < iterations; i++) {
