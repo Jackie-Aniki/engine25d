@@ -20,7 +20,7 @@ export class Ocean {
       scale: 1.2,
       waveForward: -0.02,
       waveFrequency: 0.01,
-      waveHeight: 0.2,
+      waveHeight: 0.15,
       wavingSpeed: 1.25,
       renderOrder: 2
     },

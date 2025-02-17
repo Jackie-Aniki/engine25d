@@ -5,15 +5,17 @@ export interface BodyLike {
   x: number;
   y: number;
   group: number;
-  angle: number;
   setPosition: (x: number, y: number) => void;
 }
 
 export class StaticBody implements BodyLike {
-  x = 0;
-  y = 0;
+  x!: number;
+  y!: number;
   group = floors[0];
-  angle = 0;
+
+  constructor(x: number, y: number) {
+    this.setPosition(x, y);
+  }
 
   setPosition(x: number, y: number) {
     this.x = x;
@@ -27,7 +29,12 @@ export class DynamicBody extends Circle {
 
   angle = Math.random() * Math.PI * 2;
 
-  constructor(radius = DynamicBody.radius, padding = DynamicBody.padding) {
-    super({}, radius, { group: floors[0], padding });
+  constructor(
+    x: number,
+    y: number,
+    radius = DynamicBody.radius,
+    padding = DynamicBody.padding
+  ) {
+    super({ x, y }, radius, { group: floors[0], padding });
   }
 }

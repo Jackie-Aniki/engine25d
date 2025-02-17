@@ -94,8 +94,8 @@ export class MovingBillboard extends Billboard {
     super.update(ms);
   }
 
-  protected createBody() {
-    const body = new DynamicBody();
+  protected createBody(x: number, y: number) {
+    const body = new DynamicBody(x, y);
     physics.insert(body);
     return body;
   }
@@ -103,11 +103,19 @@ export class MovingBillboard extends Billboard {
   protected updateTexture() {
     super.updateTexture();
 
+    const noLeft = !('left' in this.directionsToRows);
+    const noRight = !('right' in this.directionsToRows);
+    if (!noLeft && !noRight) return;
+
     const sign = Math.sign(this.mesh.scale.x);
     if (this.direction === 'left' && sign > 0) {
-      this.mesh.scale.set(-1, 1, 1);
+      this.mesh.scale.set(noLeft ? -1 : 1, 1, 1);
     } else if (this.direction === 'right' && sign < 0) {
-      this.mesh.scale.set(1, 1, 1);
+      this.mesh.scale.set(noLeft ? 1 : -1, 1, 1);
     }
+  }
+
+  protected getAngle() {
+    return this.body.angle;
   }
 }

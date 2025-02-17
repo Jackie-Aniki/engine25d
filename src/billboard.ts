@@ -1,4 +1,4 @@
-import { Mesh, PlaneGeometry, Vector3 } from 'three';
+import { Mesh, PlaneGeometry } from 'three';
 import { BodyLike, StaticBody } from './billboard-body';
 import { Level } from './level';
 import {
@@ -11,8 +11,6 @@ import { directions, floors, renderer, state } from './state';
 import { createMaterial, normalizeAngle } from './utils';
 
 export class Billboard {
-  static up = new Vector3(0, 1, 0);
-
   frame = 0;
   direction: Direction = 'up';
   material: Material;
@@ -64,21 +62,20 @@ export class Billboard {
   update(_ms: number): void {
     this.mesh.position.set(this.body.x, this.z, this.body.y);
     this.mesh.quaternion.copy(renderer.camera.quaternion);
-    this.mesh.up = Billboard.up;
+    this.mesh.up = renderer.camera.up;
     this.direction = this.getDirection();
     this.updateTexture();
   }
 
-  protected createBody() {
-    return new StaticBody();
+  protected createBody(x: number, y: number) {
+    return new StaticBody(x, y);
   }
 
   protected spawn(level: Level) {
     const x = (Math.random() * Level.cols) / 2;
     const y = (Math.random() * Level.rows) / 2;
 
-    this.body = this.createBody();
-    this.body.setPosition(x, y);
+    this.body = this.createBody(x, y);
     this.level = level;
     this.z = this.getFloorZ();
     this.mesh.position.set(x, this.z, y);
@@ -98,8 +95,12 @@ export class Billboard {
     map?.offset.set(x * this.invCols, y * this.invRows);
   }
 
+  protected getAngle() {
+    return 0;
+  }
+
   protected getDirection() {
-    const angle = normalizeAngle(this.body.angle - state.player.body.angle);
+    const angle = normalizeAngle(this.getAngle() - state.player.body.angle);
     const directionIndex = Math.floor((2 * angle) / Math.PI); // Szybsze (4 * angle) / (2 * Math.PI)
 
     return directions[directionIndex];
