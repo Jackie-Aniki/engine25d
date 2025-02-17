@@ -12,6 +12,7 @@ import { createMaterial, normalizeAngle } from './utils';
 
 export class Billboard {
   static billboards: Billboard[] = [];
+  static compensateGroupZ = 0.5;
 
   protected static tempVector = new Vector3();
   protected static tempVectorDivide = new Vector3(2, 2, 2);
@@ -40,7 +41,7 @@ export class Billboard {
 
   set z(z: number) {
     this._z = z;
-    this.body.group = floors[Math.round(z * 2 - 0.25)];
+    this.updateGroup();
   }
 
   protected _z = 0;
@@ -96,6 +97,11 @@ export class Billboard {
 
   getScreenPosition() {
     return renderer.camera.getScreenPosition(this.mesh);
+  }
+
+  protected updateGroup() {
+    this.body.group =
+      floors[Math.round(this.z * 2 - Billboard.compensateGroupZ)];
   }
 
   protected createBody(x: number, y: number) {

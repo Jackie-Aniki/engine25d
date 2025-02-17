@@ -1,5 +1,6 @@
 import { Circle } from 'detect-collisions';
 import { floors, Math_Double_PI } from './state';
+import { MovingBillboard } from './moving-billboard';
 
 export interface BodyLike {
   x: number;
@@ -40,15 +41,13 @@ export class DynamicBody extends Circle {
     super({ x, y }, radius, { group: floors[0], padding });
   }
 
-  separate(timeScale: number) {
-    const factor = 0.33 * timeScale;
-    this.system?.checkOne(this, ({ b, overlapV: { x, y } }) => {
-      const offsetX = x * factor;
-      const offsetY = y * factor;
-      this.setPosition(this.x - offsetX, this.y - offsetY);
-      if (!b.isStatic) {
-        b.setPosition(b.x + offsetX, b.y + offsetY);
+  separate(parent: MovingBillboard, timeScale = 1) {
+    this.system?.separateBody(this, ({ b: { isStatic } }) => {
+      if (!isStatic) {
+        parent.velocity *= 0.99 * timeScale;
       }
+
+      return true;
     });
   }
 }

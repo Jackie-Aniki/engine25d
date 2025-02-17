@@ -9,8 +9,8 @@ import { normalizeAngle } from './utils';
 export class MovingBillboard extends Billboard {
   static readonly moveSpeed = 0.05;
   static readonly rotateSpeed = 3;
-  static readonly gravity = 0.012;
-  static readonly jumpSpeed = 0.12;
+  static readonly gravity = 0.005;
+  static readonly jumpSpeed = 0.075;
 
   velocity = 0;
   state: State;
@@ -49,15 +49,15 @@ export class MovingBillboard extends Billboard {
     const deltaTime = ms * 0.001;
     const mouseGear = this.mouseGear;
     const gear = this.gear;
+    const moveSpeed = (mouseGear || gear) * MovingBillboard.moveSpeed;
 
     this.updateAngle(deltaTime, gear);
 
-    const moveSpeed = (mouseGear || gear) * MovingBillboard.moveSpeed;
     let timeLeft = deltaTime * 60;
     while (timeLeft > 0) {
       const timeScale = Math.min(1, timeLeft);
       this.body.move(moveSpeed * timeScale);
-      this.body.separate(timeScale);
+      this.body.separate(this, timeScale);
       this.updateZ(timeScale);
       timeLeft -= timeScale;
     }
@@ -78,7 +78,7 @@ export class MovingBillboard extends Billboard {
 
   protected updateZ(timeScale: number) {
     const floorZ = this.getFloorZ();
-    const standing = this.z === floorZ;
+    const standing = this.z === floorZ || this.velocity === 0;
     const above = this.z > floorZ;
 
     if (standing && this.state.keys.space) {
@@ -145,6 +145,6 @@ export class MovingBillboard extends Billboard {
 
   protected spawn(level: Level, x?: number, y?: number) {
     super.spawn(level, x, y);
-    this.body.system?.separateBody(this.body);
+    this.body.separate(this);
   }
 }
