@@ -5,7 +5,8 @@ import {
   Fog,
   LinearSRGBColorSpace,
   Scene,
-  WebGLRenderer
+  WebGLRenderer,
+  WebGLRendererParameters
 } from 'three';
 import { Billboard } from './billboard';
 import { Camera } from './camera';
@@ -26,11 +27,17 @@ export class Renderer extends WebGLRenderer {
   ocean?: Ocean;
   skybox?: Skybox;
 
-  constructor() {
-    super({
+  constructor(canvas?: HTMLCanvasElement) {
+    const props: WebGLRendererParameters = {
       antialias: DeviceDetector.HIGH_END,
-      powerPreference: 'high-performance'
-    });
+      powerPreference: 'high-performance' as const
+    };
+
+    if (canvas) {
+      props.canvas = canvas;
+    }
+
+    super(props);
     this.outputColorSpace = LinearSRGBColorSpace;
 
     const animationFrame = () => this.animation();
@@ -44,12 +51,14 @@ export class Renderer extends WebGLRenderer {
     this.scene.add(this.light);
     this.scene.background = new Color(Renderer.backgroundColor);
     this.onResize();
-
     window.addEventListener('resize', () => this.onResize());
-    document.body.appendChild(this.domElement);
 
     if ('fps' in queryParams) {
       this.stats = new Stats(this);
+    }
+
+    if (!this.domElement.parentElement) {
+      document.body.appendChild(this.domElement);
     }
   }
 

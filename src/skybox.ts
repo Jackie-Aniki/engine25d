@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { loader as loadingManager, renderer } from './state';
+import { loader as loadingManager, state } from './state';
 import { mapCubeTextures, pixelate } from './utils';
 import { CubeDirections } from './model';
 
@@ -18,7 +18,7 @@ export class Skybox {
     const skyboxTextures = mapCubeTextures(textures);
     const skyBox = loader.load(skyboxTextures, () => {
       pixelate(skyBox);
-      renderer.scene.background = skyBox;
+      state.renderer.scene.background = skyBox;
     });
   }
 }

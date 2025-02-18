@@ -1,7 +1,7 @@
 import { Level } from './level';
 import { Direction, TexturedBillboardProps } from './model';
 import { MovingBillboard } from './moving-billboard';
-import { renderer, state } from './state';
+import { state } from './state';
 import { ViewLevel } from './view-level';
 
 export class Player extends MovingBillboard {
@@ -15,8 +15,8 @@ export class Player extends MovingBillboard {
     this.spawn(level);
 
     if (level instanceof ViewLevel) {
-      renderer.camera.ready({ level, ref: this });
-      renderer.scene.add(level.mesh);
+      state.renderer.camera.ready({ level, ref: this });
+      state.renderer.scene.add(level.mesh);
     }
   }
 

@@ -5,7 +5,6 @@ import { Loader } from './loader';
 import { Direction, Key, State } from './model';
 import { Mouse } from './mouse';
 import { queryParams } from './query-params';
-import { Renderer } from './renderer';
 
 export const minLevelHeight = 2;
 
@@ -22,8 +21,6 @@ export const textures: Record<string, Texture> = {};
 export const mouse = new Mouse();
 
 export const physics = new System();
-
-export const renderer = new Renderer();
 
 export const loader = new Loader();
 

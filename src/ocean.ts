@@ -14,7 +14,7 @@ import {
   Math_Half_PI,
   alphaMaterialProps,
   materialProps,
-  renderer
+  state
 } from './state';
 
 export class Ocean {
@@ -47,7 +47,7 @@ export class Ocean {
     this.mesh.add(this.createDeepWater(texture));
     this.onResize();
 
-    renderer.scene.add(this.mesh);
+    state.renderer.scene.add(this.mesh);
 
     setTimeout(() => {
       this.mesh.add(this.createShallowWater(texture));
@@ -55,15 +55,15 @@ export class Ocean {
   }
 
   update(ms = 0) {
-    if (!renderer.camera.ref) return;
+    if (!state.renderer.camera.ref) return;
 
-    const { x, y } = renderer.camera.ref.body;
+    const { x, y } = state.renderer.camera.ref.body;
     this.mesh.position.set(x, Ocean.DEEP_WATER_Z, y);
     this.animations.forEach((animation) => animation(ms));
   }
 
   onResize() {
-    const scale = renderer.camera.far / Camera.far;
+    const scale = state.renderer.camera.far / Camera.far;
     this.mesh.scale.set(scale, scale, scale);
   }
 

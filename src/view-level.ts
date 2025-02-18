@@ -5,8 +5,9 @@ import { Level } from './level';
 import { Ocean } from './ocean';
 import { Palm } from './palm';
 import { Skybox } from './skybox';
-import { renderer } from './state';
 import { getMatrix } from './utils';
+import { Renderer } from './renderer';
+import { state } from './state';
 
 export class ViewLevel extends Level {
   static readonly FLORA_FILL = Level.FILL * 0.9;
@@ -21,17 +22,21 @@ export class ViewLevel extends Level {
     textures: Texture[],
     {
       ocean,
-      skybox
+      skybox,
+      canvas
     }: {
       ocean?: () => Ocean;
       skybox?: () => Skybox;
+      canvas?: HTMLCanvasElement;
     }
   ) {
     super();
-    this.mesh = this.createMesh(textures);
 
-    renderer.ocean = ocean?.();
-    renderer.skybox = skybox?.();
+    state.renderer = new Renderer(canvas);
+    state.renderer.ocean = ocean?.();
+    state.renderer.skybox = skybox?.();
+
+    this.mesh = this.createMesh(textures);
   }
 
   createBox(textures: Texture[]) {

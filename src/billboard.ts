@@ -7,7 +7,7 @@ import {
   Material,
   TexturedBillboardProps
 } from './model';
-import { directions, floors, renderer, state } from './state';
+import { directions, floors, state } from './state';
 import { createMaterial, normalizeAngle } from './utils';
 
 export class Billboard {
@@ -69,7 +69,7 @@ export class Billboard {
       this.material
     );
 
-    renderer.scene.add(this.mesh);
+    state.renderer.scene.add(this.mesh);
     Billboard.billboards.push(this);
   }
 
@@ -84,9 +84,9 @@ export class Billboard {
 
     this.mesh.lookAt(
       Billboard.tempVector.set(
-        renderer.camera.position.x,
+        state.renderer.camera.position.x,
         this.mesh.position.y,
-        renderer.camera.position.z
+        state.renderer.camera.position.z
       )
     );
 
@@ -96,7 +96,7 @@ export class Billboard {
   }
 
   getScreenPosition() {
-    return renderer.camera.getScreenPosition(this.mesh);
+    return state.renderer.camera.getScreenPosition(this.mesh);
   }
 
   protected updateGroup() {
@@ -134,7 +134,8 @@ export class Billboard {
   }
 
   protected getDirection() {
-    const cameraAngle = state.player?.body.angle || renderer.camera.rotation.y;
+    const cameraAngle =
+      state.player?.body.angle || state.renderer.camera.rotation.y;
     const angle = normalizeAngle(this.body.angle - cameraAngle);
     const directionIndex = Math.floor((2 * angle) / Math.PI);
 
