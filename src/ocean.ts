@@ -10,7 +10,12 @@ import {
 } from 'three';
 import { Camera } from './camera';
 import { Level } from './level';
-import { Math_Half_PI, materialProps, renderer } from './state';
+import {
+  Math_Half_PI,
+  alphaMaterialProps,
+  materialProps,
+  renderer
+} from './state';
 
 export class Ocean {
   static readonly DEEP_WATER_Z = -0.25;
@@ -97,7 +102,7 @@ export class Ocean {
     const geometry = new CircleGeometry(radius);
     const map = texture.clone();
     const material = new ShaderMaterial({
-      ...materialProps,
+      ...alphaMaterialProps,
       uniforms: {
         time: { value: 0 },
         cameraX: { value: 0 },

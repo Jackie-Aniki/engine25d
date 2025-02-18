@@ -8,9 +8,9 @@ import {
   Texture,
   Vector3
 } from 'three';
-import { CubeDirections, Material } from './model';
-import { loader, materialProps, Math_Double_PI, textures } from './state';
 import { DeviceDetector } from './detect';
+import { CubeDirections, Material } from './model';
+import { alphaMaterialProps, loader, Math_Double_PI, textures } from './state';
 
 export const randomOf = (array: any[]) =>
   array[Math.floor(Math.random() * array.length)];
@@ -29,7 +29,7 @@ export const createMaterial = (textureName: string, cols = 1, rows = 1) => {
   try {
     const texture = textures[textureName].clone();
     const material: Material = new MeshBasicMaterial({
-      ...materialProps,
+      ...alphaMaterialProps,
       map: texture
     });
 
@@ -38,7 +38,8 @@ export const createMaterial = (textureName: string, cols = 1, rows = 1) => {
     }
 
     return material;
-  } catch (missing: any) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  } catch (_error: unknown) {
     console.error(
       `texture: "${textureName}" is missing in ${JSON.stringify(Object.keys(textures))}`
     );
@@ -54,7 +55,7 @@ export const getTextureNameFromPath = (path: string) => {
   }
 
   return fileName
-    .split(/[-_]{1}/)
+    .split(/[-_]+/)
     .map((word, index) =>
       index === 0 ? word : word.charAt(0).toUpperCase() + word.slice(1)
     )
@@ -62,11 +63,11 @@ export const getTextureNameFromPath = (path: string) => {
 };
 
 export const pixelate = (texture: Texture) => {
+  texture.colorSpace = NoColorSpace;
+  texture.magFilter = NearestFilter;
   texture.minFilter = DeviceDetector.HIGH_END
     ? NearestMipMapLinearFilter
     : NearestFilter;
-  texture.magFilter = NearestFilter;
-  texture.colorSpace = NoColorSpace;
 };
 
 export const loadTextures = async (texturePaths: string[]) => {

@@ -1,11 +1,11 @@
 import { groupBits, System } from 'detect-collisions';
 import { FrontSide, Texture } from 'three';
+import { DeviceDetector } from './detect';
 import { Loader } from './loader';
 import { Direction, Key, State } from './model';
 import { Mouse } from './mouse';
 import { queryParams } from './query-params';
 import { Renderer } from './renderer';
-import { DeviceDetector } from './detect';
 
 export const minLevelHeight = 2;
 
@@ -38,9 +38,13 @@ export const state: State = {
 };
 
 export const materialProps = {
-  transparent: true,
-  alphaTest: 1,
   side: FrontSide
+};
+
+export const alphaMaterialProps = {
+  ...materialProps,
+  transparent: true,
+  alphaTest: 1
 };
 
 export const directions: Direction[] = ['up', 'right', 'down', 'left'];
