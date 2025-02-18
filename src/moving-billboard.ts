@@ -84,14 +84,19 @@ export class MovingBillboard extends Billboard {
   }
 
   protected updateAngle(deltaTime: number) {
-    const scale = this.state.keys.left
-      ? -1
-      : this.state.keys.right
-        ? 1
-        : this.state.mouse.x;
-    if (scale !== 0) {
+    const scaleX =
+      this.state.keys.left || this.state.keys.right
+        ? this.state.mouse.clampX(
+            (this.state.keys.left ? -0.5 : 0.5) * innerWidth,
+            this.state.mouse.getMultiply()
+          )
+        : this.state.mouseDown
+          ? this.state.mouse.x
+          : 0;
+
+    if (scaleX !== 0) {
       this.body.angle = normalizeAngle(
-        this.body.angle + MovingBillboard.ROTATE_SPEED * deltaTime * scale
+        this.body.angle + MovingBillboard.ROTATE_SPEED * deltaTime * scaleX
       );
     }
   }
@@ -105,7 +110,7 @@ export class MovingBillboard extends Billboard {
 
     const hasLeft = 'left' in this.directionsToRows;
     const hasRight = 'right' in this.directionsToRows;
-    if (!hasLeft && !hasRight) return;
+    if (hasLeft && hasRight) return;
 
     const oldScaleX = Math.sign(this.mesh.scale.x);
     const newScaleX = hasLeft ? 1 : -1;
