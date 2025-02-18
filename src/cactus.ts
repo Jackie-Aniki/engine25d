@@ -1,13 +1,12 @@
-import { Billboard } from './billboard';
 import { Level } from './level';
+import { Sprite } from './sprite';
 
-const props = {
+const cactusProps = {
   textureName: 'cactus'
 };
 
-export class Cactus extends Billboard {
+export class Cactus extends Sprite {
   constructor(level: Level, x?: number, y?: number) {
-    super(props);
-    this.spawn(level, x, y);
+    super(cactusProps, level, x, y);
   }
 }

@@ -1,7 +1,7 @@
 import { Billboard } from './billboard';
 import { DynamicBody } from './billboard-body';
 import { Level } from './level';
-import { State, TexturedBillboardProps } from './model';
+import { BillboardProps, State } from './model';
 import { Mouse } from './mouse';
 import { physics } from './state';
 import { normalizeAngle } from './utils';
@@ -17,7 +17,7 @@ export class MovingBillboard extends Billboard {
   declare body: DynamicBody;
 
   constructor(
-    props: TexturedBillboardProps,
+    props: BillboardProps,
     state: State = { keys: {}, mouse: new Mouse() }
   ) {
     super(props);

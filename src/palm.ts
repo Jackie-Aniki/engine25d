@@ -1,14 +1,13 @@
-import { Billboard } from './billboard';
 import { Level } from './level';
+import { Sprite } from './sprite';
 
-const props = {
+const palmProps = {
   textureName: 'palm',
   scale: 3
 };
 
-export class Palm extends Billboard {
+export class Palm extends Sprite {
   constructor(level: Level, x?: number, y?: number) {
-    super(props);
-    this.spawn(level, x, y);
+    super(palmProps, level, x, y);
   }
 }

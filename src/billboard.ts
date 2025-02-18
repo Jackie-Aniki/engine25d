@@ -1,12 +1,7 @@
-import { Mesh, PlaneGeometry, Vector3 } from 'three';
+import { Mesh, MeshBasicMaterial, PlaneGeometry, Vector3 } from 'three';
 import { BodyLike, StaticBody } from './billboard-body';
 import { Level } from './level';
-import {
-  Direction,
-  DirectionsToRows,
-  Material,
-  TexturedBillboardProps
-} from './model';
+import { BillboardProps, Direction, DirectionsToRows } from './model';
 import { directions, floors, state } from './state';
 import { createMaterial, normalizeAngle } from './utils';
 
@@ -20,7 +15,7 @@ export class Billboard {
   frame = 0;
   direction: Direction = 'up';
   directionsToRows: DirectionsToRows;
-  material: Material;
+  material: MeshBasicMaterial;
   mesh: Mesh;
   body!: BodyLike;
   cols: number;
@@ -46,7 +41,7 @@ export class Billboard {
 
   protected _z = 0;
 
-  constructor(props: TexturedBillboardProps) {
+  constructor(props: BillboardProps) {
     this.cols = props.cols || 1;
     this.rows = props.rows || 1;
     this.frameDuration = props.frameDuration || 120;

@@ -1,18 +1,17 @@
 import { Level } from './level';
-import { Direction, TexturedBillboardProps } from './model';
-import { MovingBillboard } from './moving-billboard';
+import { BillboardProps, Direction } from './model';
+import { MovingSprite } from './moving-sprite';
 import { state } from './state';
 import { ViewLevel } from './view-level';
 
-export class Player extends MovingBillboard {
+export class Player extends MovingSprite {
   static readonly DIRECTIONS: Direction[] = ['left', 'right', 'down', 'up'];
 
   readonly isPlayer = true;
   readonly state = state;
 
-  constructor(level: Level, props: TexturedBillboardProps) {
-    super(props, state);
-    this.spawn(level);
+  constructor(level: Level, props: BillboardProps) {
+    super(level, props, state);
 
     if (level instanceof ViewLevel) {
       state.renderer.camera.ready({ level, ref: this });

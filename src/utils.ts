@@ -9,7 +9,7 @@ import {
   Vector3
 } from 'three';
 import { DeviceDetector } from './detect';
-import { CubeDirections, Material } from './model';
+import { CubeDirections } from './model';
 import { alphaMaterialProps, loader, Math_Double_PI, textures } from './state';
 
 export const randomOf = (array: any[]) =>
@@ -28,7 +28,7 @@ export const getMatrix = (position: Vector3, scale: Vector3) => {
 export const createMaterial = (textureName: string, cols = 1, rows = 1) => {
   try {
     const texture = textures[textureName].clone();
-    const material: Material = new MeshBasicMaterial({
+    const material = new MeshBasicMaterial({
       ...alphaMaterialProps,
       map: texture
     });
@@ -44,7 +44,7 @@ export const createMaterial = (textureName: string, cols = 1, rows = 1) => {
       `texture: "${textureName}" is missing in ${JSON.stringify(Object.keys(textures))}`
     );
 
-    return {} as Material;
+    return {} as MeshBasicMaterial;
   }
 };
 

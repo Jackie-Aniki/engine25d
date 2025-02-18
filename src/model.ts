@@ -1,7 +1,4 @@
-import { MeshBasicMaterial, Vector2, Vector3 } from 'three';
 import { Mouse } from './mouse';
-
-export type Material = MeshBasicMaterial & { scale?: Vector3; size?: Vector2 };
 
 export type Direction = 'down' | 'right' | 'up' | 'left';
 
@@ -16,7 +13,7 @@ export interface State extends Record<string, any> {
   mouse: Mouse;
 }
 
-export interface TexturedBillboardProps {
+export interface BillboardProps {
   textureName: string;
   cols?: number;
   rows?: number;

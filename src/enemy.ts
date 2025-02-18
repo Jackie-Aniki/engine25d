@@ -1,8 +1,6 @@
-import { Level } from './level';
-import { TexturedBillboardProps } from './model';
-import { MovingBillboard } from './moving-billboard';
+import { MovingSprite } from './moving-sprite';
 
-export class Enemy extends MovingBillboard {
+export class Enemy extends MovingSprite {
   static readonly MAX_SPEED = 0;
   static readonly MAX_ROTATION = 100;
   static readonly JUMP_CHANCE = 0.001;
@@ -12,11 +10,6 @@ export class Enemy extends MovingBillboard {
 
   speed = Enemy.MAX_SPEED;
   rotation = Enemy.MAX_ROTATION;
-
-  constructor(level: Level, props: TexturedBillboardProps) {
-    super(props);
-    this.spawn(level);
-  }
 
   update(ms = 0) {
     super.update(ms);
