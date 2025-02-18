@@ -42,7 +42,7 @@ export class Mouse extends Vector2 {
     this.y = this.clampY(this.pageY - this.getCenterY(), multiply);
   }
 
-  preventEvent(event: PointerEvent | MouseEvent) {
+  preventEvent(event: Event) {
     event.preventDefault();
   }
 
