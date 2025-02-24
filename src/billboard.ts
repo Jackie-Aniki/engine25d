@@ -59,10 +59,7 @@ export class Billboard {
     const w = this.material.map!.image.width / this.cols;
     const h = this.material.map!.image.height / this.rows;
     const m = Math.max(w, h);
-    this.mesh = new Mesh(
-      new PlaneGeometry((this.scaleX * w) / m, (this.scaleY * h) / m),
-      this.material
-    );
+    this.mesh = this.createMesh((this.scaleX * w) / m, (this.scaleY * h) / m);
 
     state.renderer.scene.add(this.mesh);
     Billboard.billboards.push(this);
@@ -92,6 +89,10 @@ export class Billboard {
 
   getScreenPosition() {
     return state.renderer.camera.getScreenPosition(this.mesh);
+  }
+
+  createMesh(width: number, height: number) {
+    return new Mesh(new PlaneGeometry(width, height), this.material);
   }
 
   protected updateGroup() {

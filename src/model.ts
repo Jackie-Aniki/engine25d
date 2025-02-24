@@ -1,4 +1,7 @@
-import { Mouse } from './mouse';
+import { type Enemy } from './enemy';
+import { type Mouse } from './mouse';
+import { type Player } from './player';
+import { type Renderer } from './renderer';
 
 export type Direction = 'down' | 'right' | 'up' | 'left';
 
@@ -11,6 +14,14 @@ export type CubeDirections = Direction | 'front' | 'back';
 export interface State extends Record<string, any> {
   keys: Record<string, boolean>;
   mouse: Mouse;
+  mouseDown?: boolean;
+}
+
+export interface GameState extends State {
+  started: boolean;
+  renderer: Renderer;
+  player: Player;
+  enemies: Enemy[];
 }
 
 export interface BillboardProps {

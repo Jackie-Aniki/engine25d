@@ -81,7 +81,7 @@
           </ul>
           <h1>Class Player</h1>
         </div>
-        <section class="tsd-panel tsd-hierarchy" data-refl="1538">
+        <section class="tsd-panel tsd-hierarchy" data-refl="1593">
           <h4>
             Hierarchy (<a href="../hierarchy.html#Player">View Summary</a>)
           </h4>
@@ -506,6 +506,17 @@
                       >
                         <use href="../assets/icons.svg#icon-2048"></use></svg
                       ><span>create<wbr />Body</span></a
+                    >
+                    <a
+                      href="Player.html#createmesh"
+                      class="tsd-index-link tsd-is-inherited"
+                      ><svg
+                        class="tsd-kind-icon"
+                        viewBox="0 0 24 24"
+                        aria-label="Method"
+                      >
+                        <use href="../assets/icons.svg#icon-2048"></use></svg
+                      ><span>create<wbr />Mesh</span></a
                     >
                     <a
                       href="Player.html#getdirection"
@@ -1434,9 +1445,9 @@
                 <span class="tsd-kind-property">state</span
                 ><span class="tsd-signature-symbol">:</span>
                 <a
-                  href="../interfaces/State.html"
+                  href="../interfaces/GameState.html"
                   class="tsd-signature-type tsd-kind-interface"
-                  >State</a
+                  >GameState</a
                 ><span class="tsd-signature-symbol"> = state</span>
               </div>
               <aside class="tsd-sources">
@@ -2071,6 +2082,103 @@
                 </li>
               </ul>
             </section>
+            <section class="tsd-panel tsd-member tsd-is-inherited">
+              <a id="createmesh" class="tsd-anchor"></a>
+              <h3 class="tsd-anchor-link">
+                <span>create<wbr />Mesh</span
+                ><a
+                  href="#createmesh"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="../assets/icons.svg#icon-anchor"></use></svg
+                ></a>
+              </h3>
+              <ul class="tsd-signatures tsd-is-inherited">
+                <li class="tsd-is-inherited">
+                  <div class="tsd-signature tsd-anchor-link">
+                    <a id="createmesh-1" class="tsd-anchor"></a
+                    ><span class="tsd-kind-call-signature">createMesh</span
+                    ><span class="tsd-signature-symbol">(</span><br />    <span
+                      class="tsd-kind-parameter"
+                      >width</span
+                    ><span class="tsd-signature-symbol">:</span>
+                    <span class="tsd-signature-type">number</span
+                    ><span class="tsd-signature-symbol">,</span><br />    <span
+                      class="tsd-kind-parameter"
+                      >height</span
+                    ><span class="tsd-signature-symbol">:</span>
+                    <span class="tsd-signature-type">number</span
+                    ><span class="tsd-signature-symbol">,</span><br /><span
+                      class="tsd-signature-symbol"
+                      >)</span
+                    ><span class="tsd-signature-symbol">:</span>
+                    <span class="tsd-signature-type">Mesh</span
+                    ><span class="tsd-signature-symbol">&lt;</span
+                    ><span class="tsd-signature-type">PlaneGeometry</span
+                    ><span class="tsd-signature-symbol">,</span>
+                    <span class="tsd-signature-type">MeshBasicMaterial</span
+                    ><span class="tsd-signature-symbol">,</span>
+                    <span class="tsd-signature-type">Object3DEventMap</span
+                    ><span class="tsd-signature-symbol">&gt;</span
+                    ><a
+                      href="#createmesh-1"
+                      aria-label="Permalink"
+                      class="tsd-anchor-icon"
+                      ><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <use href="../assets/icons.svg#icon-anchor"></use></svg
+                    ></a>
+                  </div>
+                  <div class="tsd-description">
+                    <div class="tsd-parameters">
+                      <h4 class="tsd-parameters-title">Parameters</h4>
+                      <ul class="tsd-parameter-list">
+                        <li>
+                          <span
+                            ><span class="tsd-kind-parameter">width</span>:
+                            <span class="tsd-signature-type">number</span></span
+                          >
+                        </li>
+                        <li>
+                          <span
+                            ><span class="tsd-kind-parameter">height</span>:
+                            <span class="tsd-signature-type">number</span></span
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <h4 class="tsd-returns-title">
+                      Returns <span class="tsd-signature-type">Mesh</span
+                      ><span class="tsd-signature-symbol">&lt;</span
+                      ><span class="tsd-signature-type">PlaneGeometry</span
+                      ><span class="tsd-signature-symbol">,</span>
+                      <span class="tsd-signature-type">MeshBasicMaterial</span
+                      ><span class="tsd-signature-symbol">,</span>
+                      <span class="tsd-signature-type">Object3DEventMap</span
+                      ><span class="tsd-signature-symbol">&gt;</span>
+                    </h4>
+                    <aside class="tsd-sources">
+                      <p>
+                        Inherited from
+                        <a href="MovingSprite.html">MovingSprite</a>.<a
+                          href="MovingSprite.html#createmesh"
+                          >createMesh</a
+                        >
+                      </p>
+                      <ul>
+                        <li>
+                          Defined in
+                          <a
+                            href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L94"
+                            >src/billboard.ts:94</a
+                          >
+                        </li>
+                      </ul>
+                    </aside>
+                  </div>
+                </li>
+              </ul>
+            </section>
             <section class="tsd-panel tsd-member tsd-is-protected">
               <a id="getdirection" class="tsd-anchor"></a>
               <h3 class="tsd-anchor-link">
@@ -2207,8 +2315,8 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L117"
-                            >src/billboard.ts:117</a
+                            href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L118"
+                            >src/billboard.ts:118</a
                           >
                         </li>
                       </ul>
@@ -2339,8 +2447,8 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L140"
-                            >src/billboard.ts:140</a
+                            href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L141"
+                            >src/billboard.ts:141</a
                           >
                         </li>
                       </ul>
@@ -2369,7 +2477,15 @@
                       >getScreenPosition</span
                     ><span class="tsd-signature-symbol">()</span
                     ><span class="tsd-signature-symbol">:</span>
-                    <span class="tsd-signature-type">any</span
+                    <span class="tsd-signature-symbol">{</span>
+                    <span class="tsd-kind-property">x</span
+                    ><span class="tsd-signature-symbol">:</span>
+                    <span class="tsd-signature-type">number</span
+                    ><span class="tsd-signature-symbol">;</span>
+                    <span class="tsd-kind-property">y</span
+                    ><span class="tsd-signature-symbol">:</span>
+                    <span class="tsd-signature-type">number</span>
+                    <span class="tsd-signature-symbol">}</span
                     ><a
                       href="#getscreenposition-1"
                       aria-label="Permalink"
@@ -2380,7 +2496,15 @@
                   </div>
                   <div class="tsd-description">
                     <h4 class="tsd-returns-title">
-                      Returns <span class="tsd-signature-type">any</span>
+                      Returns <span class="tsd-signature-symbol">{</span>
+                      <span class="tsd-kind-property">x</span
+                      ><span class="tsd-signature-symbol">:</span>
+                      <span class="tsd-signature-type">number</span
+                      ><span class="tsd-signature-symbol">;</span>
+                      <span class="tsd-kind-property">y</span
+                      ><span class="tsd-signature-symbol">:</span>
+                      <span class="tsd-signature-type">number</span>
+                      <span class="tsd-signature-symbol">}</span>
                     </h4>
                     <aside class="tsd-sources">
                       <p>
@@ -2394,8 +2518,8 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L93"
-                            >src/billboard.ts:93</a
+                            href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L90"
+                            >src/billboard.ts:90</a
                           >
                         </li>
                       </ul>
@@ -2926,8 +3050,8 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L97"
-                            >src/billboard.ts:97</a
+                            href="https://github.com/Prozi/engine25d/blob/main/src/billboard.ts#L98"
+                            >src/billboard.ts:98</a
                           >
                         </li>
                       </ul>
@@ -3556,6 +3680,14 @@
                     >
                       <use href="../assets/icons.svg#icon-2048"></use></svg
                     ><span>create<wbr />Body</span></a
+                  ><a href="#createmesh" class="tsd-is-inherited"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Method"
+                    >
+                      <use href="../assets/icons.svg#icon-2048"></use></svg
+                    ><span>create<wbr />Mesh</span></a
                   ><a href="#getdirection" class="tsd-is-protected"
                     ><svg
                       class="tsd-kind-icon"

@@ -2,7 +2,7 @@ import { groupBits, System } from 'detect-collisions';
 import { FrontSide, Texture } from 'three';
 import { DeviceDetector } from './detect';
 import { Loader } from './loader';
-import { Direction, Key, State } from './model';
+import { Direction, GameState, Key } from './model';
 import { Mouse } from './mouse';
 import { queryParams } from './query-params';
 
@@ -30,9 +30,13 @@ export const floors = Array.from(
   (_: unknown, power) => groupBits(128 * Math.pow(2, power))
 );
 
-export const state: State = {
+export const state: GameState = {
   keys,
-  mouse
+  mouse,
+  started: false,
+  renderer: {} as any,
+  player: {} as any,
+  enemies: []
 };
 
 export const materialProps = {

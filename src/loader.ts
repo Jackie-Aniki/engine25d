@@ -1,10 +1,16 @@
 import { LoadingManager, Texture, TextureLoader } from 'three';
+import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader.js';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { TGALoader } from 'three/examples/jsm/loaders/TGALoader.js';
 
 export class Loader extends LoadingManager {
+  static readonly DRACO_LOADER_PATH =
+    'https://www.gstatic.com/draco/versioned/decoders/1.5.7/';
+
   textureLoader?: TextureLoader;
-  fbxLoader?: any;
+  gltfLoader?: GLTFLoader;
+  fbxLoader?: FBXLoader;
   tgaLoader?: boolean;
 
   constructor(
@@ -20,12 +26,16 @@ export class Loader extends LoadingManager {
       const extension = path.toLowerCase().split('.').pop();
 
       switch (extension) {
-        case 'tga':
-          if (!this.tgaLoader) {
-            this.tgaLoader = true;
-            this.addHandler(/\.tga$/i, new TGALoader());
+        case 'glb':
+          if (!this.gltfLoader) {
+            const dracoLoader = new DRACOLoader();
+            dracoLoader.setDecoderPath(Loader.DRACO_LOADER_PATH);
+
+            this.gltfLoader = new GLTFLoader();
+            this.gltfLoader.setDRACOLoader(dracoLoader);
           }
-          break;
+
+          return this.gltfLoader.load(path, resolve);
 
         case 'fbx':
           if (!this.fbxLoader) {
@@ -34,13 +44,20 @@ export class Loader extends LoadingManager {
 
           return this.fbxLoader.load(path, resolve);
 
-        default:
-          if (!this.textureLoader) {
-            this.textureLoader = new TextureLoader(this);
+        case 'tga':
+          if (!this.tgaLoader) {
+            this.tgaLoader = true;
+            this.addHandler(/\.tga$/i, new TGALoader());
           }
 
-          return this.textureLoader.load(path, resolve);
+          break;
       }
+
+      if (!this.textureLoader) {
+        this.textureLoader = new TextureLoader(this);
+      }
+
+      return this.textureLoader.load(path, resolve);
     });
   }
 }
