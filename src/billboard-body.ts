@@ -1,4 +1,4 @@
-import { Circle } from 'detect-collisions';
+import { Circle } from 'check2d';
 import { floors, Math_Double_PI } from './state';
 
 export interface BodyLike {

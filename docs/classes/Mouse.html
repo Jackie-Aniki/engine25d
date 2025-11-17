@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="default" lang="en" data-base="..">
+<html class="default" lang="en" data-base="../">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="IE=edge" />
@@ -26,62 +26,70 @@
       document.body.style.display = 'none';
       setTimeout(
         () =>
-          app ? app.showPage() : document.body.style.removeProperty('display'),
+          window.app
+            ? app.showPage()
+            : document.body.style.removeProperty('display'),
         500
       );
     </script>
     <header class="tsd-page-toolbar">
       <div class="tsd-toolbar-contents container">
-        <div class="table-cell" id="tsd-search">
-          <div class="field">
-            <label
-              for="tsd-search-field"
-              class="tsd-widget tsd-toolbar-icon search no-caption"
-              ><svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                aria-hidden="true"
-              >
-                <use href="../assets/icons.svg#icon-search"></use></svg></label
-            ><input type="text" id="tsd-search-field" aria-label="Search" />
+        <a href="../index.html" class="title">engine25d</a>
+        <div id="tsd-toolbar-links"></div>
+        <button id="tsd-search-trigger" class="tsd-widget" aria-label="Search">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            aria-hidden="true"
+          >
+            <use href="../assets/icons.svg#icon-search"></use>
+          </svg>
+        </button>
+        <dialog id="tsd-search" aria-label="Search">
+          <input
+            role="combobox"
+            id="tsd-search-input"
+            aria-controls="tsd-search-results"
+            aria-autocomplete="list"
+            aria-expanded="true"
+            autocapitalize="off"
+            autocomplete="off"
+            placeholder="Search the docs"
+            maxlength="100"
+          />
+          <ul role="listbox" id="tsd-search-results"></ul>
+          <div id="tsd-search-status" aria-live="polite" aria-atomic="true">
+            <div>Preparing search index...</div>
           </div>
-          <div class="field"><div id="tsd-toolbar-links"></div></div>
-          <ul class="results">
-            <li class="state loading">Preparing search index...</li>
-            <li class="state failure">The search index is not available</li>
-          </ul>
-          <a href="../index.html" class="title">engine25d</a>
-        </div>
-        <div class="table-cell" id="tsd-widgets">
-          <a
-            href="#"
-            class="tsd-widget tsd-toolbar-icon menu no-caption"
-            data-toggle="menu"
-            aria-label="Menu"
-            ><svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              aria-hidden="true"
-            >
-              <use href="../assets/icons.svg#icon-menu"></use></svg
-          ></a>
-        </div>
+        </dialog>
+        <a
+          href="#"
+          class="tsd-widget menu"
+          id="tsd-toolbar-menu-trigger"
+          data-toggle="menu"
+          aria-label="Menu"
+          ><svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            aria-hidden="true"
+          >
+            <use href="../assets/icons.svg#icon-menu"></use></svg
+        ></a>
       </div>
     </header>
     <div class="container container-main">
       <div class="col-content">
         <div class="tsd-page-title">
-          <ul class="tsd-breadcrumb">
-            <li><a href="../modules.html">engine25d</a></li>
-            <li><a href="Mouse.html">Mouse</a></li>
+          <ul class="tsd-breadcrumb" aria-label="Breadcrumb">
+            <li><a href="" aria-current="page">Mouse</a></li>
           </ul>
           <h1>Class Mouse</h1>
         </div>
-        <section class="tsd-panel tsd-hierarchy" data-refl="1108">
+        <section class="tsd-panel tsd-hierarchy" data-refl="1122">
           <h4>Hierarchy</h4>
           <ul class="tsd-hierarchy">
             <li class="tsd-hierarchy-item">
@@ -99,7 +107,7 @@
             <li>
               Defined in
               <a
-                href="https://github.com/Prozi/engine25d/blob/main/src/mouse.ts#L4"
+                href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/mouse.ts#L4"
                 >src/mouse.ts:4</a
               >
             </li>
@@ -109,30 +117,23 @@
           <section class="tsd-panel tsd-index-panel">
             <details class="tsd-index-content tsd-accordion" open>
               <summary class="tsd-accordion-summary tsd-index-summary">
-                <h5
-                  class="tsd-index-heading uppercase"
-                  role="button"
-                  aria-expanded="false"
-                  tabindex="0"
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden="true"
                 >
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    aria-hidden="true"
-                  >
-                    <use href="../assets/icons.svg#icon-chevronSmall"></use>
-                  </svg>
-                  Index
-                </h5>
+                  <use href="../assets/icons.svg#icon-chevronDown"></use>
+                </svg>
+                <h5 class="tsd-index-heading uppercase">Index</h5>
               </summary>
               <div class="tsd-accordion-details">
                 <section class="tsd-index-section">
                   <h3 class="tsd-index-heading">Constructors</h3>
                   <div class="tsd-index-list">
                     <a
-                      href="Mouse.html#constructor"
+                      href="#constructor"
                       class="tsd-index-link tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -148,7 +149,7 @@
                   <h3 class="tsd-index-heading">Properties</h3>
                   <div class="tsd-index-list">
                     <a
-                      href="Mouse.html#height"
+                      href="#height"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -159,7 +160,7 @@
                       ><span>height</span></a
                     >
                     <a
-                      href="Mouse.html#isvector2"
+                      href="#isvector2"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -169,7 +170,7 @@
                         <use href="../assets/icons.svg#icon-1024"></use></svg
                       ><span>is<wbr />Vector2</span></a
                     >
-                    <a href="Mouse.html#lastclicktime" class="tsd-index-link"
+                    <a href="#lastclicktime" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -178,26 +179,26 @@
                         <use href="../assets/icons.svg#icon-1024"></use></svg
                       ><span>last<wbr />Click<wbr />Time</span></a
                     >
-                    <a href="Mouse.html#pagex" class="tsd-index-link"
+                    <a href="#pagex" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
                         aria-label="Property"
                       >
                         <use href="../assets/icons.svg#icon-1024"></use></svg
-                      ><span>pageX</span></a
+                      ><span>page<wbr />X</span></a
                     >
-                    <a href="Mouse.html#pagey" class="tsd-index-link"
+                    <a href="#pagey" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
                         aria-label="Property"
                       >
                         <use href="../assets/icons.svg#icon-1024"></use></svg
-                      ><span>pageY</span></a
+                      ><span>page<wbr />Y</span></a
                     >
                     <a
-                      href="Mouse.html#width"
+                      href="#width"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -208,7 +209,7 @@
                       ><span>width</span></a
                     >
                     <a
-                      href="Mouse.html#x"
+                      href="#x"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -219,7 +220,7 @@
                       ><span>x</span></a
                     >
                     <a
-                      href="Mouse.html#y"
+                      href="#y"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -235,7 +236,7 @@
                   <h3 class="tsd-index-heading">Methods</h3>
                   <div class="tsd-index-list">
                     <a
-                      href="Mouse.html#iterator"
+                      href="#iterator"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -246,7 +247,7 @@
                       ><span>[iterator]</span></a
                     >
                     <a
-                      href="Mouse.html#add"
+                      href="#add"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -257,7 +258,7 @@
                       ><span>add</span></a
                     >
                     <a
-                      href="Mouse.html#addscalar"
+                      href="#addscalar"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -268,7 +269,7 @@
                       ><span>add<wbr />Scalar</span></a
                     >
                     <a
-                      href="Mouse.html#addscaledvector"
+                      href="#addscaledvector"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -279,7 +280,7 @@
                       ><span>add<wbr />Scaled<wbr />Vector</span></a
                     >
                     <a
-                      href="Mouse.html#addvectors"
+                      href="#addvectors"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -290,7 +291,7 @@
                       ><span>add<wbr />Vectors</span></a
                     >
                     <a
-                      href="Mouse.html#angle"
+                      href="#angle"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -301,7 +302,7 @@
                       ><span>angle</span></a
                     >
                     <a
-                      href="Mouse.html#angleto"
+                      href="#angleto"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -312,7 +313,7 @@
                       ><span>angle<wbr />To</span></a
                     >
                     <a
-                      href="Mouse.html#applymatrix3"
+                      href="#applymatrix3"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -323,7 +324,7 @@
                       ><span>apply<wbr />Matrix3</span></a
                     >
                     <a
-                      href="Mouse.html#ceil"
+                      href="#ceil"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -334,7 +335,7 @@
                       ><span>ceil</span></a
                     >
                     <a
-                      href="Mouse.html#clamp"
+                      href="#clamp"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -345,7 +346,7 @@
                       ><span>clamp</span></a
                     >
                     <a
-                      href="Mouse.html#clamplength"
+                      href="#clamplength"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -355,7 +356,7 @@
                         <use href="../assets/icons.svg#icon-2048"></use></svg
                       ><span>clamp<wbr />Length</span></a
                     >
-                    <a href="Mouse.html#clampnumber" class="tsd-index-link"
+                    <a href="#clampnumber" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -365,7 +366,7 @@
                       ><span>clamp<wbr />Number</span></a
                     >
                     <a
-                      href="Mouse.html#clampscalar"
+                      href="#clampscalar"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -375,26 +376,26 @@
                         <use href="../assets/icons.svg#icon-2048"></use></svg
                       ><span>clamp<wbr />Scalar</span></a
                     >
-                    <a href="Mouse.html#clampx" class="tsd-index-link"
+                    <a href="#clampx" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
                         aria-label="Method"
                       >
                         <use href="../assets/icons.svg#icon-2048"></use></svg
-                      ><span>clampX</span></a
+                      ><span>clamp<wbr />X</span></a
                     >
-                    <a href="Mouse.html#clampy" class="tsd-index-link"
+                    <a href="#clampy" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
                         aria-label="Method"
                       >
                         <use href="../assets/icons.svg#icon-2048"></use></svg
-                      ><span>clampY</span></a
+                      ><span>clamp<wbr />Y</span></a
                     >
                     <a
-                      href="Mouse.html#clone"
+                      href="#clone"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -405,7 +406,7 @@
                       ><span>clone</span></a
                     >
                     <a
-                      href="Mouse.html#copy"
+                      href="#copy"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -416,7 +417,7 @@
                       ><span>copy</span></a
                     >
                     <a
-                      href="Mouse.html#cross"
+                      href="#cross"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -427,7 +428,7 @@
                       ><span>cross</span></a
                     >
                     <a
-                      href="Mouse.html#distanceto"
+                      href="#distanceto"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -438,7 +439,7 @@
                       ><span>distance<wbr />To</span></a
                     >
                     <a
-                      href="Mouse.html#distancetosquared"
+                      href="#distancetosquared"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -449,7 +450,7 @@
                       ><span>distance<wbr />To<wbr />Squared</span></a
                     >
                     <a
-                      href="Mouse.html#divide"
+                      href="#divide"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -460,7 +461,7 @@
                       ><span>divide</span></a
                     >
                     <a
-                      href="Mouse.html#dividescalar"
+                      href="#dividescalar"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -471,7 +472,7 @@
                       ><span>divide<wbr />Scalar</span></a
                     >
                     <a
-                      href="Mouse.html#dot"
+                      href="#dot"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -482,7 +483,7 @@
                       ><span>dot</span></a
                     >
                     <a
-                      href="Mouse.html#equals"
+                      href="#equals"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -493,7 +494,7 @@
                       ><span>equals</span></a
                     >
                     <a
-                      href="Mouse.html#floor"
+                      href="#floor"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -504,7 +505,7 @@
                       ><span>floor</span></a
                     >
                     <a
-                      href="Mouse.html#fromarray"
+                      href="#fromarray"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -515,7 +516,7 @@
                       ><span>from<wbr />Array</span></a
                     >
                     <a
-                      href="Mouse.html#frombufferattribute"
+                      href="#frombufferattribute"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -525,17 +526,17 @@
                         <use href="../assets/icons.svg#icon-2048"></use></svg
                       ><span>from<wbr />Buffer<wbr />Attribute</span></a
                     >
-                    <a href="Mouse.html#getcentery" class="tsd-index-link"
+                    <a href="#getcentery" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
                         aria-label="Method"
                       >
                         <use href="../assets/icons.svg#icon-2048"></use></svg
-                      ><span>get<wbr />CenterY</span></a
+                      ><span>get<wbr />Center<wbr />Y</span></a
                     >
                     <a
-                      href="Mouse.html#getcomponent"
+                      href="#getcomponent"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -545,7 +546,7 @@
                         <use href="../assets/icons.svg#icon-2048"></use></svg
                       ><span>get<wbr />Component</span></a
                     >
-                    <a href="Mouse.html#getmultiply" class="tsd-index-link"
+                    <a href="#getmultiply" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -555,7 +556,7 @@
                       ><span>get<wbr />Multiply</span></a
                     >
                     <a
-                      href="Mouse.html#length"
+                      href="#length"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -566,7 +567,7 @@
                       ><span>length</span></a
                     >
                     <a
-                      href="Mouse.html#lengthsq"
+                      href="#lengthsq"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -577,7 +578,7 @@
                       ><span>length<wbr />Sq</span></a
                     >
                     <a
-                      href="Mouse.html#lerp"
+                      href="#lerp"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -588,7 +589,7 @@
                       ><span>lerp</span></a
                     >
                     <a
-                      href="Mouse.html#lerpvectors"
+                      href="#lerpvectors"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -599,7 +600,7 @@
                       ><span>lerp<wbr />Vectors</span></a
                     >
                     <a
-                      href="Mouse.html#manhattandistanceto"
+                      href="#manhattandistanceto"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -610,7 +611,7 @@
                       ><span>manhattan<wbr />Distance<wbr />To</span></a
                     >
                     <a
-                      href="Mouse.html#manhattanlength"
+                      href="#manhattanlength"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -621,7 +622,7 @@
                       ><span>manhattan<wbr />Length</span></a
                     >
                     <a
-                      href="Mouse.html#max"
+                      href="#max"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -632,7 +633,7 @@
                       ><span>max</span></a
                     >
                     <a
-                      href="Mouse.html#min"
+                      href="#min"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -643,7 +644,7 @@
                       ><span>min</span></a
                     >
                     <a
-                      href="Mouse.html#multiply"
+                      href="#multiply"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -654,7 +655,7 @@
                       ><span>multiply</span></a
                     >
                     <a
-                      href="Mouse.html#multiplyscalar"
+                      href="#multiplyscalar"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -665,7 +666,7 @@
                       ><span>multiply<wbr />Scalar</span></a
                     >
                     <a
-                      href="Mouse.html#negate"
+                      href="#negate"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -676,7 +677,7 @@
                       ><span>negate</span></a
                     >
                     <a
-                      href="Mouse.html#normalize"
+                      href="#normalize"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -686,7 +687,7 @@
                         <use href="../assets/icons.svg#icon-2048"></use></svg
                       ><span>normalize</span></a
                     >
-                    <a href="Mouse.html#onpointerdown" class="tsd-index-link"
+                    <a href="#onpointerdown" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -695,7 +696,7 @@
                         <use href="../assets/icons.svg#icon-2048"></use></svg
                       ><span>on<wbr />Pointer<wbr />Down</span></a
                     >
-                    <a href="Mouse.html#onpointermove" class="tsd-index-link"
+                    <a href="#onpointermove" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -704,7 +705,7 @@
                         <use href="../assets/icons.svg#icon-2048"></use></svg
                       ><span>on<wbr />Pointer<wbr />Move</span></a
                     >
-                    <a href="Mouse.html#onpointerup" class="tsd-index-link"
+                    <a href="#onpointerup" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -713,7 +714,7 @@
                         <use href="../assets/icons.svg#icon-2048"></use></svg
                       ><span>on<wbr />Pointer<wbr />Up</span></a
                     >
-                    <a href="Mouse.html#preventevent" class="tsd-index-link"
+                    <a href="#preventevent" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -723,7 +724,7 @@
                       ><span>prevent<wbr />Event</span></a
                     >
                     <a
-                      href="Mouse.html#random"
+                      href="#random"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -734,7 +735,7 @@
                       ><span>random</span></a
                     >
                     <a
-                      href="Mouse.html#rotatearound"
+                      href="#rotatearound"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -745,7 +746,7 @@
                       ><span>rotate<wbr />Around</span></a
                     >
                     <a
-                      href="Mouse.html#round"
+                      href="#round"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -756,7 +757,7 @@
                       ><span>round</span></a
                     >
                     <a
-                      href="Mouse.html#roundtozero"
+                      href="#roundtozero"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -767,7 +768,7 @@
                       ><span>round<wbr />To<wbr />Zero</span></a
                     >
                     <a
-                      href="Mouse.html#set"
+                      href="#set"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -778,7 +779,7 @@
                       ><span>set</span></a
                     >
                     <a
-                      href="Mouse.html#setcomponent"
+                      href="#setcomponent"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -789,7 +790,7 @@
                       ><span>set<wbr />Component</span></a
                     >
                     <a
-                      href="Mouse.html#setlength"
+                      href="#setlength"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -800,7 +801,7 @@
                       ><span>set<wbr />Length</span></a
                     >
                     <a
-                      href="Mouse.html#setscalar"
+                      href="#setscalar"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -811,7 +812,7 @@
                       ><span>set<wbr />Scalar</span></a
                     >
                     <a
-                      href="Mouse.html#setx"
+                      href="#setx"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -819,10 +820,10 @@
                         aria-label="Method"
                       >
                         <use href="../assets/icons.svg#icon-2048"></use></svg
-                      ><span>setX</span></a
+                      ><span>set<wbr />X</span></a
                     >
                     <a
-                      href="Mouse.html#sety"
+                      href="#sety"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -830,10 +831,10 @@
                         aria-label="Method"
                       >
                         <use href="../assets/icons.svg#icon-2048"></use></svg
-                      ><span>setY</span></a
+                      ><span>set<wbr />Y</span></a
                     >
                     <a
-                      href="Mouse.html#sub"
+                      href="#sub"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -844,7 +845,7 @@
                       ><span>sub</span></a
                     >
                     <a
-                      href="Mouse.html#subscalar"
+                      href="#subscalar"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -855,7 +856,7 @@
                       ><span>sub<wbr />Scalar</span></a
                     >
                     <a
-                      href="Mouse.html#subvectors"
+                      href="#subvectors"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -866,7 +867,7 @@
                       ><span>sub<wbr />Vectors</span></a
                     >
                     <a
-                      href="Mouse.html#toarray"
+                      href="#toarray"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -876,14 +877,14 @@
                         <use href="../assets/icons.svg#icon-2048"></use></svg
                       ><span>to<wbr />Array</span></a
                     >
-                    <a href="Mouse.html#updatemousexy" class="tsd-index-link"
+                    <a href="#updatemousexy" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
                         aria-label="Method"
                       >
                         <use href="../assets/icons.svg#icon-2048"></use></svg
-                      ><span>update<wbr />MouseXY</span></a
+                      ><span>update<wbr />Mouse<wbr />XY</span></a
                     >
                   </div>
                 </section>
@@ -896,23 +897,20 @@
             class="tsd-accordion-summary"
             data-key="section-Constructors"
           >
-            <h2>
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                aria-hidden="true"
-              >
-                <use href="../assets/icons.svg#icon-chevronDown"></use>
-              </svg>
-              Constructors
-            </h2>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <use href="../assets/icons.svg#icon-chevronDown"></use>
+            </svg>
+            <h2>Constructors</h2>
           </summary>
           <section>
             <section class="tsd-panel tsd-member tsd-is-external">
-              <a id="constructor" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="constructor">
                 <span>constructor</span
                 ><a
                   href="#constructor"
@@ -924,9 +922,11 @@
               </h3>
               <ul class="tsd-signatures tsd-is-external">
                 <li class="tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="constructormouse" class="tsd-anchor"></a
-                    ><span class="tsd-signature-keyword">new</span>
+                  <div
+                    class="tsd-signature tsd-anchor-link"
+                    id="constructormouse"
+                  >
+                    <span class="tsd-signature-keyword">new</span>
                     <span class="tsd-kind-constructor-signature">Mouse</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">x</span
@@ -938,9 +938,7 @@
                     <span class="tsd-signature-type">number</span
                     ><span class="tsd-signature-symbol">)</span
                     ><span class="tsd-signature-symbol">:</span>
-                    <a
-                      href="Mouse.html"
-                      class="tsd-signature-type tsd-kind-class"
+                    <a href="" class="tsd-signature-type tsd-kind-class"
                       >Mouse</a
                     ><a
                       href="#constructormouse"
@@ -972,9 +970,7 @@
                     </div>
                     <h4 class="tsd-returns-title">
                       Returns
-                      <a
-                        href="Mouse.html"
-                        class="tsd-signature-type tsd-kind-class"
+                      <a href="" class="tsd-signature-type tsd-kind-class"
                         >Mouse</a
                       >
                     </h4>
@@ -995,25 +991,22 @@
         </details>
         <details class="tsd-panel-group tsd-member-group tsd-accordion" open>
           <summary class="tsd-accordion-summary" data-key="section-Properties">
-            <h2>
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                aria-hidden="true"
-              >
-                <use href="../assets/icons.svg#icon-chevronDown"></use>
-              </svg>
-              Properties
-            </h2>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <use href="../assets/icons.svg#icon-chevronDown"></use>
+            </svg>
+            <h2>Properties</h2>
           </summary>
           <section>
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="height" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="height">
                 <span>height</span
                 ><a
                   href="#height"
@@ -1041,8 +1034,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="isvector2" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="isvector2">
                 <code class="tsd-tag">Readonly</code
                 ><span>is<wbr />Vector2</span
                 ><a
@@ -1069,8 +1061,7 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member">
-              <a id="lastclicktime" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="lastclicktime">
                 <span>last<wbr />Click<wbr />Time</span
                 ><a
                   href="#lastclicktime"
@@ -1091,7 +1082,7 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/mouse.ts#L7"
+                      href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/mouse.ts#L7"
                       >src/mouse.ts:7</a
                     >
                   </li>
@@ -1099,9 +1090,8 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member">
-              <a id="pagex" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
-                <span>pageX</span
+              <h3 class="tsd-anchor-link" id="pagex">
+                <span>page<wbr />X</span
                 ><a href="#pagex" aria-label="Permalink" class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24" aria-hidden="true">
                     <use href="../assets/icons.svg#icon-anchor"></use></svg
@@ -1118,7 +1108,7 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/mouse.ts#L5"
+                      href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/mouse.ts#L5"
                       >src/mouse.ts:5</a
                     >
                   </li>
@@ -1126,9 +1116,8 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member">
-              <a id="pagey" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
-                <span>pageY</span
+              <h3 class="tsd-anchor-link" id="pagey">
+                <span>page<wbr />Y</span
                 ><a href="#pagey" aria-label="Permalink" class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24" aria-hidden="true">
                     <use href="../assets/icons.svg#icon-anchor"></use></svg
@@ -1145,7 +1134,7 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/mouse.ts#L6"
+                      href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/mouse.ts#L6"
                       >src/mouse.ts:6</a
                     >
                   </li>
@@ -1155,8 +1144,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="width" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="width">
                 <span>width</span
                 ><a href="#width" aria-label="Permalink" class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24" aria-hidden="true">
@@ -1181,8 +1169,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="x" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="x">
                 <span>x</span
                 ><a href="#x" aria-label="Permalink" class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24" aria-hidden="true">
@@ -1196,8 +1183,8 @@
               </div>
               <div class="tsd-comment tsd-typography">
                 <div class="tsd-tag-default">
-                  <h4 class="tsd-anchor-link">
-                    <a id="default" class="tsd-anchor"></a>Default<a
+                  <h4 class="tsd-anchor-link" id="default">
+                    Default<a
                       href="#default"
                       aria-label="Permalink"
                       class="tsd-anchor-icon"
@@ -1222,8 +1209,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="y" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="y">
                 <span>y</span
                 ><a href="#y" aria-label="Permalink" class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24" aria-hidden="true">
@@ -1237,8 +1223,8 @@
               </div>
               <div class="tsd-comment tsd-typography">
                 <div class="tsd-tag-default">
-                  <h4 class="tsd-anchor-link">
-                    <a id="default-1" class="tsd-anchor"></a>Default<a
+                  <h4 class="tsd-anchor-link" id="default-1">
+                    Default<a
                       href="#default-1"
                       aria-label="Permalink"
                       class="tsd-anchor-icon"
@@ -1264,25 +1250,22 @@
         </details>
         <details class="tsd-panel-group tsd-member-group tsd-accordion" open>
           <summary class="tsd-accordion-summary" data-key="section-Methods">
-            <h2>
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                aria-hidden="true"
-              >
-                <use href="../assets/icons.svg#icon-chevronDown"></use>
-              </svg>
-              Methods
-            </h2>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <use href="../assets/icons.svg#icon-chevronDown"></use>
+            </svg>
+            <h2>Methods</h2>
           </summary>
           <section>
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="iterator" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="iterator">
                 <span>[iterator]</span
                 ><a
                   href="#iterator"
@@ -1294,9 +1277,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="iterator-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature"
+                  <div class="tsd-signature tsd-anchor-link" id="iterator-1">
+                    <span class="tsd-kind-call-signature"
                       >&quot;[iterator]&quot;</span
                     ><span class="tsd-signature-symbol">()</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -1325,7 +1307,6 @@
                       ><span class="tsd-signature-type">number</span
                       ><span class="tsd-signature-symbol">&gt;</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.[iterator]</p>
                       <ul>
@@ -1342,8 +1323,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="add" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="add">
                 <span>add</span
                 ><a href="#add" aria-label="Permalink" class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24" aria-hidden="true">
@@ -1352,9 +1332,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="add-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">add</span
+                  <div class="tsd-signature tsd-anchor-link" id="add-1">
+                    <span class="tsd-kind-call-signature">add</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">v</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -1390,7 +1369,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">this</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.add</p>
                       <ul>
@@ -1407,8 +1385,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="addscalar" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="addscalar">
                 <span>add<wbr />Scalar</span
                 ><a
                   href="#addscalar"
@@ -1420,9 +1397,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="addscalar-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">addScalar</span
+                  <div class="tsd-signature tsd-anchor-link" id="addscalar-1">
+                    <span class="tsd-kind-call-signature">addScalar</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">s</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -1458,7 +1434,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">this</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.addScalar</p>
                       <ul>
@@ -1475,8 +1450,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="addscaledvector" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="addscaledvector">
                 <span>add<wbr />Scaled<wbr />Vector</span
                 ><a
                   href="#addscaledvector"
@@ -1488,9 +1462,11 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="addscaledvector-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">addScaledVector</span
+                  <div
+                    class="tsd-signature tsd-anchor-link"
+                    id="addscaledvector-1"
+                  >
+                    <span class="tsd-kind-call-signature">addScaledVector</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">v</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -1536,7 +1512,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">this</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.addScaledVector</p>
                       <ul>
@@ -1553,8 +1528,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="addvectors" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="addvectors">
                 <span>add<wbr />Vectors</span
                 ><a
                   href="#addvectors"
@@ -1566,9 +1540,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="addvectors-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">addVectors</span
+                  <div class="tsd-signature tsd-anchor-link" id="addvectors-1">
+                    <span class="tsd-kind-call-signature">addVectors</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">a</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -1616,7 +1589,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">this</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.addVectors</p>
                       <ul>
@@ -1633,8 +1605,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="angle" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="angle">
                 <span>angle</span
                 ><a href="#angle" aria-label="Permalink" class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24" aria-hidden="true">
@@ -1643,9 +1614,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="angle-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">angle</span
+                  <div class="tsd-signature tsd-anchor-link" id="angle-1">
+                    <span class="tsd-kind-call-signature">angle</span
                     ><span class="tsd-signature-symbol">()</span
                     ><span class="tsd-signature-symbol">:</span>
                     <span class="tsd-signature-type">number</span
@@ -1667,7 +1637,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">number</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.angle</p>
                       <ul>
@@ -1684,8 +1653,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="angleto" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="angleto">
                 <span>angle<wbr />To</span
                 ><a
                   href="#angleto"
@@ -1697,9 +1665,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="angleto-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">angleTo</span
+                  <div class="tsd-signature tsd-anchor-link" id="angleto-1">
+                    <span class="tsd-kind-call-signature">angleTo</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">v</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -1738,7 +1705,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">number</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.angleTo</p>
                       <ul>
@@ -1755,8 +1721,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="applymatrix3" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="applymatrix3">
                 <span>apply<wbr />Matrix3</span
                 ><a
                   href="#applymatrix3"
@@ -1768,9 +1733,11 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="applymatrix3-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">applyMatrix3</span
+                  <div
+                    class="tsd-signature tsd-anchor-link"
+                    id="applymatrix3-1"
+                  >
+                    <span class="tsd-kind-call-signature">applyMatrix3</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">m</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -1809,7 +1776,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">this</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.applyMatrix3</p>
                       <ul>
@@ -1826,8 +1792,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="ceil" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="ceil">
                 <span>ceil</span
                 ><a href="#ceil" aria-label="Permalink" class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24" aria-hidden="true">
@@ -1836,9 +1801,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="ceil-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">ceil</span
+                  <div class="tsd-signature tsd-anchor-link" id="ceil-1">
+                    <span class="tsd-kind-call-signature">ceil</span
                     ><span class="tsd-signature-symbol">()</span
                     ><span class="tsd-signature-symbol">:</span>
                     <span class="tsd-signature-type">this</span
@@ -1860,7 +1824,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">this</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.ceil</p>
                       <ul>
@@ -1877,8 +1840,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="clamp" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="clamp">
                 <span>clamp</span
                 ><a href="#clamp" aria-label="Permalink" class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24" aria-hidden="true">
@@ -1887,9 +1849,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="clamp-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">clamp</span
+                  <div class="tsd-signature tsd-anchor-link" id="clamp-1">
+                    <span class="tsd-kind-call-signature">clamp</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">min</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -1932,7 +1893,6 @@
                           <div class="tsd-comment tsd-typography">
                             <p>the minimum x and y values.</p>
                           </div>
-                          <div class="tsd-comment tsd-typography"></div>
                         </li>
                         <li>
                           <span
@@ -1946,14 +1906,12 @@
                               the maximum x and y values in the desired range.
                             </p>
                           </div>
-                          <div class="tsd-comment tsd-typography"></div>
                         </li>
                       </ul>
                     </div>
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">this</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.clamp</p>
                       <ul>
@@ -1970,8 +1928,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="clamplength" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="clamplength">
                 <span>clamp<wbr />Length</span
                 ><a
                   href="#clamplength"
@@ -1983,9 +1940,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="clamplength-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">clampLength</span
+                  <div class="tsd-signature tsd-anchor-link" id="clamplength-1">
+                    <span class="tsd-kind-call-signature">clampLength</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">min</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -2027,7 +1983,6 @@
                               the minimum value the length will be clamped to.
                             </p>
                           </div>
-                          <div class="tsd-comment tsd-typography"></div>
                         </li>
                         <li>
                           <span
@@ -2039,14 +1994,12 @@
                               the maximum value the length will be clamped to.
                             </p>
                           </div>
-                          <div class="tsd-comment tsd-typography"></div>
                         </li>
                       </ul>
                     </div>
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">this</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.clampLength</p>
                       <ul>
@@ -2061,8 +2014,7 @@
               </ul>
             </section>
             <section class="tsd-panel tsd-member">
-              <a id="clampnumber" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="clampnumber">
                 <span>clamp<wbr />Number</span
                 ><a
                   href="#clampnumber"
@@ -2074,9 +2026,8 @@
               </h3>
               <ul class="tsd-signatures">
                 <li class="">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="clampnumber-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">clampNumber</span
+                  <div class="tsd-signature tsd-anchor-link" id="clampnumber-1">
+                    <span class="tsd-kind-call-signature">clampNumber</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">n</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -2112,7 +2063,7 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/mouse.ts#L19"
+                            href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/mouse.ts#L19"
                             >src/mouse.ts:19</a
                           >
                         </li>
@@ -2125,8 +2076,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="clampscalar" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="clampscalar">
                 <span>clamp<wbr />Scalar</span
                 ><a
                   href="#clampscalar"
@@ -2138,9 +2088,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="clampscalar-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">clampScalar</span
+                  <div class="tsd-signature tsd-anchor-link" id="clampscalar-1">
+                    <span class="tsd-kind-call-signature">clampScalar</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">min</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -2183,7 +2132,6 @@
                               to.
                             </p>
                           </div>
-                          <div class="tsd-comment tsd-typography"></div>
                         </li>
                         <li>
                           <span
@@ -2196,14 +2144,12 @@
                               to.
                             </p>
                           </div>
-                          <div class="tsd-comment tsd-typography"></div>
                         </li>
                       </ul>
                     </div>
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">this</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.clampScalar</p>
                       <ul>
@@ -2218,9 +2164,8 @@
               </ul>
             </section>
             <section class="tsd-panel tsd-member">
-              <a id="clampx" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
-                <span>clampX</span
+              <h3 class="tsd-anchor-link" id="clampx">
+                <span>clamp<wbr />X</span
                 ><a
                   href="#clampx"
                   aria-label="Permalink"
@@ -2231,9 +2176,8 @@
               </h3>
               <ul class="tsd-signatures">
                 <li class="">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="clampx-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">clampX</span
+                  <div class="tsd-signature tsd-anchor-link" id="clampx-1">
+                    <span class="tsd-kind-call-signature">clampX</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">x</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -2279,7 +2223,7 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/mouse.ts#L23"
+                            href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/mouse.ts#L23"
                             >src/mouse.ts:23</a
                           >
                         </li>
@@ -2290,9 +2234,8 @@
               </ul>
             </section>
             <section class="tsd-panel tsd-member">
-              <a id="clampy" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
-                <span>clampY</span
+              <h3 class="tsd-anchor-link" id="clampy">
+                <span>clamp<wbr />Y</span
                 ><a
                   href="#clampy"
                   aria-label="Permalink"
@@ -2303,9 +2246,8 @@
               </h3>
               <ul class="tsd-signatures">
                 <li class="">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="clampy-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">clampY</span
+                  <div class="tsd-signature tsd-anchor-link" id="clampy-1">
+                    <span class="tsd-kind-call-signature">clampY</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">y</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -2351,7 +2293,7 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/mouse.ts#L27"
+                            href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/mouse.ts#L27"
                             >src/mouse.ts:27</a
                           >
                         </li>
@@ -2364,8 +2306,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="clone" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="clone">
                 <span>clone</span
                 ><a href="#clone" aria-label="Permalink" class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24" aria-hidden="true">
@@ -2374,9 +2315,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="clone-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">clone</span
+                  <div class="tsd-signature tsd-anchor-link" id="clone-1">
+                    <span class="tsd-kind-call-signature">clone</span
                     ><span class="tsd-signature-symbol">()</span
                     ><span class="tsd-signature-symbol">:</span>
                     <span class="tsd-signature-type">this</span
@@ -2398,7 +2338,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">this</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.clone</p>
                       <ul>
@@ -2415,8 +2354,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="copy" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="copy">
                 <span>copy</span
                 ><a href="#copy" aria-label="Permalink" class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24" aria-hidden="true">
@@ -2425,9 +2363,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="copy-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">copy</span
+                  <div class="tsd-signature tsd-anchor-link" id="copy-1">
+                    <span class="tsd-kind-call-signature">copy</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">v</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -2463,7 +2400,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">this</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.copy</p>
                       <ul>
@@ -2480,8 +2416,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="cross" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="cross">
                 <span>cross</span
                 ><a href="#cross" aria-label="Permalink" class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24" aria-hidden="true">
@@ -2490,9 +2425,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="cross-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">cross</span
+                  <div class="tsd-signature tsd-anchor-link" id="cross-1">
+                    <span class="tsd-kind-call-signature">cross</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">v</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -2528,7 +2462,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">number</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.cross</p>
                       <ul>
@@ -2545,8 +2478,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="distanceto" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="distanceto">
                 <span>distance<wbr />To</span
                 ><a
                   href="#distanceto"
@@ -2558,9 +2490,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="distanceto-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">distanceTo</span
+                  <div class="tsd-signature tsd-anchor-link" id="distanceto-1">
+                    <span class="tsd-kind-call-signature">distanceTo</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">v</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -2596,7 +2527,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">number</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.distanceTo</p>
                       <ul>
@@ -2613,8 +2543,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="distancetosquared" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="distancetosquared">
                 <span>distance<wbr />To<wbr />Squared</span
                 ><a
                   href="#distancetosquared"
@@ -2626,9 +2555,11 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="distancetosquared-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature"
+                  <div
+                    class="tsd-signature tsd-anchor-link"
+                    id="distancetosquared-1"
+                  >
+                    <span class="tsd-kind-call-signature"
                       >distanceToSquared</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">v</span
@@ -2665,7 +2596,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">number</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.distanceToSquared</p>
                       <ul>
@@ -2682,8 +2612,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="divide" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="divide">
                 <span>divide</span
                 ><a
                   href="#divide"
@@ -2695,9 +2624,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="divide-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">divide</span
+                  <div class="tsd-signature tsd-anchor-link" id="divide-1">
+                    <span class="tsd-kind-call-signature">divide</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">v</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -2733,7 +2661,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">this</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.divide</p>
                       <ul>
@@ -2750,8 +2677,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="dividescalar" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="dividescalar">
                 <span>divide<wbr />Scalar</span
                 ><a
                   href="#dividescalar"
@@ -2763,9 +2689,11 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="dividescalar-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">divideScalar</span
+                  <div
+                    class="tsd-signature tsd-anchor-link"
+                    id="dividescalar-1"
+                  >
+                    <span class="tsd-kind-call-signature">divideScalar</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">s</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -2802,7 +2730,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">this</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.divideScalar</p>
                       <ul>
@@ -2819,8 +2746,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="dot" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="dot">
                 <span>dot</span
                 ><a href="#dot" aria-label="Permalink" class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24" aria-hidden="true">
@@ -2829,9 +2755,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="dot-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">dot</span
+                  <div class="tsd-signature tsd-anchor-link" id="dot-1">
+                    <span class="tsd-kind-call-signature">dot</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">v</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -2867,7 +2792,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">number</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.dot</p>
                       <ul>
@@ -2884,8 +2808,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="equals" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="equals">
                 <span>equals</span
                 ><a
                   href="#equals"
@@ -2897,9 +2820,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="equals-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">equals</span
+                  <div class="tsd-signature tsd-anchor-link" id="equals-1">
+                    <span class="tsd-kind-call-signature">equals</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">v</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -2935,7 +2857,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">boolean</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.equals</p>
                       <ul>
@@ -2952,8 +2873,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="floor" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="floor">
                 <span>floor</span
                 ><a href="#floor" aria-label="Permalink" class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24" aria-hidden="true">
@@ -2962,9 +2882,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="floor-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">floor</span
+                  <div class="tsd-signature tsd-anchor-link" id="floor-1">
+                    <span class="tsd-kind-call-signature">floor</span
                     ><span class="tsd-signature-symbol">()</span
                     ><span class="tsd-signature-symbol">:</span>
                     <span class="tsd-signature-type">this</span
@@ -2986,7 +2905,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">this</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.floor</p>
                       <ul>
@@ -3003,8 +2921,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="fromarray" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="fromarray">
                 <span>from<wbr />Array</span
                 ><a
                   href="#fromarray"
@@ -3016,9 +2933,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="fromarray-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">fromArray</span
+                  <div class="tsd-signature tsd-anchor-link" id="fromarray-1">
+                    <span class="tsd-kind-call-signature">fromArray</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">array</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -3070,7 +2986,6 @@
                           <div class="tsd-comment tsd-typography">
                             <p>the source array or array-like.</p>
                           </div>
-                          <div class="tsd-comment tsd-typography"></div>
                         </li>
                         <li>
                           <span
@@ -3083,14 +2998,12 @@
                               (optional) offset into the array. Default is 0.
                             </p>
                           </div>
-                          <div class="tsd-comment tsd-typography"></div>
                         </li>
                       </ul>
                     </div>
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">this</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.fromArray</p>
                       <ul>
@@ -3107,8 +3020,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="frombufferattribute" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="frombufferattribute">
                 <span>from<wbr />Buffer<wbr />Attribute</span
                 ><a
                   href="#frombufferattribute"
@@ -3120,9 +3032,11 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="frombufferattribute-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature"
+                  <div
+                    class="tsd-signature tsd-anchor-link"
+                    id="frombufferattribute-1"
+                  >
+                    <span class="tsd-kind-call-signature"
                       >fromBufferAttribute</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">attribute</span
@@ -3162,7 +3076,6 @@
                           <div class="tsd-comment tsd-typography">
                             <p>the source attribute.</p>
                           </div>
-                          <div class="tsd-comment tsd-typography"></div>
                         </li>
                         <li>
                           <span
@@ -3172,14 +3085,12 @@
                           <div class="tsd-comment tsd-typography">
                             <p>index in the attribute.</p>
                           </div>
-                          <div class="tsd-comment tsd-typography"></div>
                         </li>
                       </ul>
                     </div>
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">this</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.fromBufferAttribute</p>
                       <ul>
@@ -3194,9 +3105,8 @@
               </ul>
             </section>
             <section class="tsd-panel tsd-member">
-              <a id="getcentery" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
-                <span>get<wbr />CenterY</span
+              <h3 class="tsd-anchor-link" id="getcentery">
+                <span>get<wbr />Center<wbr />Y</span
                 ><a
                   href="#getcentery"
                   aria-label="Permalink"
@@ -3207,9 +3117,8 @@
               </h3>
               <ul class="tsd-signatures">
                 <li class="">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="getcentery-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">getCenterY</span
+                  <div class="tsd-signature tsd-anchor-link" id="getcentery-1">
+                    <span class="tsd-kind-call-signature">getCenterY</span
                     ><span class="tsd-signature-symbol">()</span
                     ><span class="tsd-signature-symbol">:</span>
                     <span class="tsd-signature-type">number</span
@@ -3230,7 +3139,7 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/mouse.ts#L31"
+                            href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/mouse.ts#L31"
                             >src/mouse.ts:31</a
                           >
                         </li>
@@ -3243,8 +3152,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="getcomponent" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="getcomponent">
                 <span>get<wbr />Component</span
                 ><a
                   href="#getcomponent"
@@ -3256,9 +3164,11 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="getcomponent-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">getComponent</span
+                  <div
+                    class="tsd-signature tsd-anchor-link"
+                    id="getcomponent-1"
+                  >
+                    <span class="tsd-kind-call-signature">getComponent</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">index</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -3292,7 +3202,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">number</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.getComponent</p>
                       <ul>
@@ -3307,8 +3216,7 @@
               </ul>
             </section>
             <section class="tsd-panel tsd-member">
-              <a id="getmultiply" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="getmultiply">
                 <span>get<wbr />Multiply</span
                 ><a
                   href="#getmultiply"
@@ -3320,9 +3228,8 @@
               </h3>
               <ul class="tsd-signatures">
                 <li class="">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="getmultiply-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">getMultiply</span
+                  <div class="tsd-signature tsd-anchor-link" id="getmultiply-1">
+                    <span class="tsd-kind-call-signature">getMultiply</span
                     ><span class="tsd-signature-symbol">()</span
                     ><span class="tsd-signature-symbol">:</span>
                     <span class="tsd-signature-type">number</span
@@ -3343,7 +3250,7 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/mouse.ts#L35"
+                            href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/mouse.ts#L35"
                             >src/mouse.ts:35</a
                           >
                         </li>
@@ -3356,8 +3263,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="length" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="length">
                 <span>length</span
                 ><a
                   href="#length"
@@ -3369,9 +3275,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="length-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">length</span
+                  <div class="tsd-signature tsd-anchor-link" id="length-1">
+                    <span class="tsd-kind-call-signature">length</span
                     ><span class="tsd-signature-symbol">()</span
                     ><span class="tsd-signature-symbol">:</span>
                     <span class="tsd-signature-type">number</span
@@ -3390,7 +3295,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">number</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.length</p>
                       <ul>
@@ -3407,8 +3311,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="lengthsq" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="lengthsq">
                 <span>length<wbr />Sq</span
                 ><a
                   href="#lengthsq"
@@ -3420,9 +3323,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="lengthsq-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">lengthSq</span
+                  <div class="tsd-signature tsd-anchor-link" id="lengthsq-1">
+                    <span class="tsd-kind-call-signature">lengthSq</span
                     ><span class="tsd-signature-symbol">()</span
                     ><span class="tsd-signature-symbol">:</span>
                     <span class="tsd-signature-type">number</span
@@ -3441,7 +3343,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">number</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.lengthSq</p>
                       <ul>
@@ -3458,8 +3359,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="lerp" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="lerp">
                 <span>lerp</span
                 ><a href="#lerp" aria-label="Permalink" class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24" aria-hidden="true">
@@ -3468,9 +3368,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="lerp-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">lerp</span
+                  <div class="tsd-signature tsd-anchor-link" id="lerp-1">
+                    <span class="tsd-kind-call-signature">lerp</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">v</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -3511,7 +3410,6 @@
                           <div class="tsd-comment tsd-typography">
                             <p>vector to interpolate towards.</p>
                           </div>
-                          <div class="tsd-comment tsd-typography"></div>
                         </li>
                         <li>
                           <span
@@ -3524,14 +3422,12 @@
                               1].
                             </p>
                           </div>
-                          <div class="tsd-comment tsd-typography"></div>
                         </li>
                       </ul>
                     </div>
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">this</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.lerp</p>
                       <ul>
@@ -3548,8 +3444,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="lerpvectors" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="lerpvectors">
                 <span>lerp<wbr />Vectors</span
                 ><a
                   href="#lerpvectors"
@@ -3561,9 +3456,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="lerpvectors-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">lerpVectors</span
+                  <div class="tsd-signature tsd-anchor-link" id="lerpvectors-1">
+                    <span class="tsd-kind-call-signature">lerpVectors</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">v1</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -3609,7 +3503,6 @@
                           <div class="tsd-comment tsd-typography">
                             <p>the starting vector.</p>
                           </div>
-                          <div class="tsd-comment tsd-typography"></div>
                         </li>
                         <li>
                           <span
@@ -3621,7 +3514,6 @@
                           <div class="tsd-comment tsd-typography">
                             <p>vector to interpolate towards.</p>
                           </div>
-                          <div class="tsd-comment tsd-typography"></div>
                         </li>
                         <li>
                           <span
@@ -3634,14 +3526,12 @@
                               1].
                             </p>
                           </div>
-                          <div class="tsd-comment tsd-typography"></div>
                         </li>
                       </ul>
                     </div>
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">this</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.lerpVectors</p>
                       <ul>
@@ -3658,8 +3548,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="manhattandistanceto" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="manhattandistanceto">
                 <span>manhattan<wbr />Distance<wbr />To</span
                 ><a
                   href="#manhattandistanceto"
@@ -3671,9 +3560,11 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="manhattandistanceto-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature"
+                  <div
+                    class="tsd-signature tsd-anchor-link"
+                    id="manhattandistanceto-1"
+                  >
+                    <span class="tsd-kind-call-signature"
                       >manhattanDistanceTo</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">v</span
@@ -3720,7 +3611,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">number</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.manhattanDistanceTo</p>
                       <ul>
@@ -3737,8 +3627,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="manhattanlength" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="manhattanlength">
                 <span>manhattan<wbr />Length</span
                 ><a
                   href="#manhattanlength"
@@ -3750,9 +3639,11 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="manhattanlength-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">manhattanLength</span
+                  <div
+                    class="tsd-signature tsd-anchor-link"
+                    id="manhattanlength-1"
+                  >
+                    <span class="tsd-kind-call-signature">manhattanLength</span
                     ><span class="tsd-signature-symbol">()</span
                     ><span class="tsd-signature-symbol">:</span>
                     <span class="tsd-signature-type">number</span
@@ -3778,7 +3669,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">number</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.manhattanLength</p>
                       <ul>
@@ -3795,8 +3685,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="max" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="max">
                 <span>max</span
                 ><a href="#max" aria-label="Permalink" class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24" aria-hidden="true">
@@ -3805,9 +3694,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="max-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">max</span
+                  <div class="tsd-signature tsd-anchor-link" id="max-1">
+                    <span class="tsd-kind-call-signature">max</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">v</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -3847,7 +3735,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">this</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.max</p>
                       <ul>
@@ -3864,8 +3751,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="min" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="min">
                 <span>min</span
                 ><a href="#min" aria-label="Permalink" class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24" aria-hidden="true">
@@ -3874,9 +3760,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="min-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">min</span
+                  <div class="tsd-signature tsd-anchor-link" id="min-1">
+                    <span class="tsd-kind-call-signature">min</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">v</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -3916,7 +3801,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">this</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.min</p>
                       <ul>
@@ -3933,8 +3817,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="multiply" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="multiply">
                 <span>multiply</span
                 ><a
                   href="#multiply"
@@ -3946,9 +3829,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="multiply-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">multiply</span
+                  <div class="tsd-signature tsd-anchor-link" id="multiply-1">
+                    <span class="tsd-kind-call-signature">multiply</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">v</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -3984,7 +3866,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">this</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.multiply</p>
                       <ul>
@@ -4001,8 +3882,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="multiplyscalar" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="multiplyscalar">
                 <span>multiply<wbr />Scalar</span
                 ><a
                   href="#multiplyscalar"
@@ -4014,9 +3894,11 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="multiplyscalar-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">multiplyScalar</span
+                  <div
+                    class="tsd-signature tsd-anchor-link"
+                    id="multiplyscalar-1"
+                  >
+                    <span class="tsd-kind-call-signature">multiplyScalar</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">scalar</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -4050,7 +3932,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">this</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.multiplyScalar</p>
                       <ul>
@@ -4067,8 +3948,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="negate" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="negate">
                 <span>negate</span
                 ><a
                   href="#negate"
@@ -4080,9 +3960,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="negate-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">negate</span
+                  <div class="tsd-signature tsd-anchor-link" id="negate-1">
+                    <span class="tsd-kind-call-signature">negate</span
                     ><span class="tsd-signature-symbol">()</span
                     ><span class="tsd-signature-symbol">:</span>
                     <span class="tsd-signature-type">this</span
@@ -4101,7 +3980,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">this</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.negate</p>
                       <ul>
@@ -4118,8 +3996,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="normalize" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="normalize">
                 <span>normalize</span
                 ><a
                   href="#normalize"
@@ -4131,9 +4008,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="normalize-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">normalize</span
+                  <div class="tsd-signature tsd-anchor-link" id="normalize-1">
+                    <span class="tsd-kind-call-signature">normalize</span
                     ><span class="tsd-signature-symbol">()</span
                     ><span class="tsd-signature-symbol">:</span>
                     <span class="tsd-signature-type">this</span
@@ -4152,7 +4028,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">this</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.normalize</p>
                       <ul>
@@ -4167,8 +4042,7 @@
               </ul>
             </section>
             <section class="tsd-panel tsd-member">
-              <a id="onpointerdown" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="onpointerdown">
                 <span>on<wbr />Pointer<wbr />Down</span
                 ><a
                   href="#onpointerdown"
@@ -4180,9 +4054,11 @@
               </h3>
               <ul class="tsd-signatures">
                 <li class="">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="onpointerdown-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">onPointerDown</span
+                  <div
+                    class="tsd-signature tsd-anchor-link"
+                    id="onpointerdown-1"
+                  >
+                    <span class="tsd-kind-call-signature">onPointerDown</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">event</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -4220,7 +4096,7 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/mouse.ts#L49"
+                            href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/mouse.ts#L49"
                             >src/mouse.ts:49</a
                           >
                         </li>
@@ -4231,8 +4107,7 @@
               </ul>
             </section>
             <section class="tsd-panel tsd-member">
-              <a id="onpointermove" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="onpointermove">
                 <span>on<wbr />Pointer<wbr />Move</span
                 ><a
                   href="#onpointermove"
@@ -4244,9 +4119,11 @@
               </h3>
               <ul class="tsd-signatures">
                 <li class="">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="onpointermove-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">onPointerMove</span
+                  <div
+                    class="tsd-signature tsd-anchor-link"
+                    id="onpointermove-1"
+                  >
+                    <span class="tsd-kind-call-signature">onPointerMove</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">event</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -4288,7 +4165,7 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/mouse.ts#L9"
+                            href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/mouse.ts#L9"
                             >src/mouse.ts:9</a
                           >
                         </li>
@@ -4299,8 +4176,7 @@
               </ul>
             </section>
             <section class="tsd-panel tsd-member">
-              <a id="onpointerup" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="onpointerup">
                 <span>on<wbr />Pointer<wbr />Up</span
                 ><a
                   href="#onpointerup"
@@ -4312,9 +4188,8 @@
               </h3>
               <ul class="tsd-signatures">
                 <li class="">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="onpointerup-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">onPointerUp</span
+                  <div class="tsd-signature tsd-anchor-link" id="onpointerup-1">
+                    <span class="tsd-kind-call-signature">onPointerUp</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">event</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -4356,7 +4231,7 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/mouse.ts#L65"
+                            href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/mouse.ts#L65"
                             >src/mouse.ts:65</a
                           >
                         </li>
@@ -4367,8 +4242,7 @@
               </ul>
             </section>
             <section class="tsd-panel tsd-member">
-              <a id="preventevent" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="preventevent">
                 <span>prevent<wbr />Event</span
                 ><a
                   href="#preventevent"
@@ -4380,9 +4254,11 @@
               </h3>
               <ul class="tsd-signatures">
                 <li class="">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="preventevent-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">preventEvent</span
+                  <div
+                    class="tsd-signature tsd-anchor-link"
+                    id="preventevent-1"
+                  >
+                    <span class="tsd-kind-call-signature">preventEvent</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">event</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -4418,7 +4294,7 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/mouse.ts#L45"
+                            href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/mouse.ts#L45"
                             >src/mouse.ts:45</a
                           >
                         </li>
@@ -4431,8 +4307,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="random" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="random">
                 <span>random</span
                 ><a
                   href="#random"
@@ -4444,9 +4319,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="random-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">random</span
+                  <div class="tsd-signature tsd-anchor-link" id="random-1">
+                    <span class="tsd-kind-call-signature">random</span
                     ><span class="tsd-signature-symbol">()</span
                     ><span class="tsd-signature-symbol">:</span>
                     <span class="tsd-signature-type">this</span
@@ -4465,7 +4339,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">this</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.random</p>
                       <ul>
@@ -4482,8 +4355,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="rotatearound" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="rotatearound">
                 <span>rotate<wbr />Around</span
                 ><a
                   href="#rotatearound"
@@ -4495,9 +4367,11 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="rotatearound-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">rotateAround</span
+                  <div
+                    class="tsd-signature tsd-anchor-link"
+                    id="rotatearound-1"
+                  >
+                    <span class="tsd-kind-call-signature">rotateAround</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">center</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -4534,7 +4408,6 @@
                           <div class="tsd-comment tsd-typography">
                             <p>the point around which to rotate.</p>
                           </div>
-                          <div class="tsd-comment tsd-typography"></div>
                         </li>
                         <li>
                           <span
@@ -4544,14 +4417,12 @@
                           <div class="tsd-comment tsd-typography">
                             <p>the angle to rotate, in radians.</p>
                           </div>
-                          <div class="tsd-comment tsd-typography"></div>
                         </li>
                       </ul>
                     </div>
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">this</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.rotateAround</p>
                       <ul>
@@ -4568,8 +4439,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="round" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="round">
                 <span>round</span
                 ><a href="#round" aria-label="Permalink" class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24" aria-hidden="true">
@@ -4578,9 +4448,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="round-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">round</span
+                  <div class="tsd-signature tsd-anchor-link" id="round-1">
+                    <span class="tsd-kind-call-signature">round</span
                     ><span class="tsd-signature-symbol">()</span
                     ><span class="tsd-signature-symbol">:</span>
                     <span class="tsd-signature-type">this</span
@@ -4602,7 +4471,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">this</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.round</p>
                       <ul>
@@ -4619,8 +4487,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="roundtozero" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="roundtozero">
                 <span>round<wbr />To<wbr />Zero</span
                 ><a
                   href="#roundtozero"
@@ -4632,9 +4499,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="roundtozero-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">roundToZero</span
+                  <div class="tsd-signature tsd-anchor-link" id="roundtozero-1">
+                    <span class="tsd-kind-call-signature">roundToZero</span
                     ><span class="tsd-signature-symbol">()</span
                     ><span class="tsd-signature-symbol">:</span>
                     <span class="tsd-signature-type">this</span
@@ -4656,7 +4522,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">this</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.roundToZero</p>
                       <ul>
@@ -4673,8 +4538,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="set" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="set">
                 <span>set</span
                 ><a href="#set" aria-label="Permalink" class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24" aria-hidden="true">
@@ -4683,9 +4547,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="set-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">set</span
+                  <div class="tsd-signature tsd-anchor-link" id="set-1">
+                    <span class="tsd-kind-call-signature">set</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">x</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -4729,7 +4592,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">this</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.set</p>
                       <ul>
@@ -4746,8 +4608,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="setcomponent" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="setcomponent">
                 <span>set<wbr />Component</span
                 ><a
                   href="#setcomponent"
@@ -4759,9 +4620,11 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="setcomponent-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">setComponent</span
+                  <div
+                    class="tsd-signature tsd-anchor-link"
+                    id="setcomponent-1"
+                  >
+                    <span class="tsd-kind-call-signature">setComponent</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">index</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -4805,7 +4668,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">this</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.setComponent</p>
                       <ul>
@@ -4822,8 +4684,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="setlength" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="setlength">
                 <span>set<wbr />Length</span
                 ><a
                   href="#setlength"
@@ -4835,9 +4696,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="setlength-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">setLength</span
+                  <div class="tsd-signature tsd-anchor-link" id="setlength-1">
+                    <span class="tsd-kind-call-signature">setLength</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">length</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -4871,7 +4731,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">this</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.setLength</p>
                       <ul>
@@ -4888,8 +4747,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="setscalar" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="setscalar">
                 <span>set<wbr />Scalar</span
                 ><a
                   href="#setscalar"
@@ -4901,9 +4759,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="setscalar-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">setScalar</span
+                  <div class="tsd-signature tsd-anchor-link" id="setscalar-1">
+                    <span class="tsd-kind-call-signature">setScalar</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">scalar</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -4940,7 +4797,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">this</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.setScalar</p>
                       <ul>
@@ -4957,9 +4813,8 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="setx" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
-                <span>setX</span
+              <h3 class="tsd-anchor-link" id="setx">
+                <span>set<wbr />X</span
                 ><a href="#setx" aria-label="Permalink" class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24" aria-hidden="true">
                     <use href="../assets/icons.svg#icon-anchor"></use></svg
@@ -4967,9 +4822,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="setx-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">setX</span
+                  <div class="tsd-signature tsd-anchor-link" id="setx-1">
+                    <span class="tsd-kind-call-signature">setX</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">x</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -5003,7 +4857,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">this</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.setX</p>
                       <ul>
@@ -5020,9 +4873,8 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="sety" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
-                <span>setY</span
+              <h3 class="tsd-anchor-link" id="sety">
+                <span>set<wbr />Y</span
                 ><a href="#sety" aria-label="Permalink" class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24" aria-hidden="true">
                     <use href="../assets/icons.svg#icon-anchor"></use></svg
@@ -5030,9 +4882,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="sety-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">setY</span
+                  <div class="tsd-signature tsd-anchor-link" id="sety-1">
+                    <span class="tsd-kind-call-signature">setY</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">y</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -5066,7 +4917,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">this</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.setY</p>
                       <ul>
@@ -5083,8 +4933,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="sub" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="sub">
                 <span>sub</span
                 ><a href="#sub" aria-label="Permalink" class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24" aria-hidden="true">
@@ -5093,9 +4942,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="sub-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">sub</span
+                  <div class="tsd-signature tsd-anchor-link" id="sub-1">
+                    <span class="tsd-kind-call-signature">sub</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">v</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -5131,7 +4979,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">this</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.sub</p>
                       <ul>
@@ -5148,8 +4995,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="subscalar" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="subscalar">
                 <span>sub<wbr />Scalar</span
                 ><a
                   href="#subscalar"
@@ -5161,9 +5007,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="subscalar-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">subScalar</span
+                  <div class="tsd-signature tsd-anchor-link" id="subscalar-1">
+                    <span class="tsd-kind-call-signature">subScalar</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">s</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -5197,7 +5042,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">this</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.subScalar</p>
                       <ul>
@@ -5214,8 +5058,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="subvectors" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="subvectors">
                 <span>sub<wbr />Vectors</span
                 ><a
                   href="#subvectors"
@@ -5227,9 +5070,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="subvectors-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">subVectors</span
+                  <div class="tsd-signature tsd-anchor-link" id="subvectors-1">
+                    <span class="tsd-kind-call-signature">subVectors</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">a</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -5277,7 +5119,6 @@
                     <h4 class="tsd-returns-title">
                       Returns <span class="tsd-signature-type">this</span>
                     </h4>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.subVectors</p>
                       <ul>
@@ -5294,8 +5135,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="toarray" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="toarray">
                 <span>to<wbr />Array</span
                 ><a
                   href="#toarray"
@@ -5307,9 +5147,8 @@
               </h3>
               <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="toarray-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">toArray</span
+                  <div class="tsd-signature tsd-anchor-link" id="toarray-1">
+                    <span class="tsd-kind-call-signature">toArray</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">array</span
                     ><span class="tsd-signature-symbol">?:</span>
@@ -5354,7 +5193,6 @@
                               is not provided, a new array will be created.
                             </p>
                           </div>
-                          <div class="tsd-comment tsd-typography"></div>
                         </li>
                         <li>
                           <span
@@ -5365,7 +5203,6 @@
                           <div class="tsd-comment tsd-typography">
                             <p>(optional) optional offset into the array.</p>
                           </div>
-                          <div class="tsd-comment tsd-typography"></div>
                         </li>
                       </ul>
                     </div>
@@ -5374,7 +5211,6 @@
                       ><span class="tsd-signature-symbol">[]</span>
                     </h4>
                     <p>The created or provided array.</p>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.toArray</p>
                       <ul>
@@ -5387,9 +5223,8 @@
                   </div>
                 </li>
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="toarray-2" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">toArray</span
+                  <div class="tsd-signature tsd-anchor-link" id="toarray-2">
+                    <span class="tsd-kind-call-signature">toArray</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">array</span
                     ><span class="tsd-signature-symbol">?:</span>
@@ -5433,7 +5268,6 @@
                               is not provided, a new array will be created.
                             </p>
                           </div>
-                          <div class="tsd-comment tsd-typography"></div>
                         </li>
                         <li>
                           <span
@@ -5444,7 +5278,6 @@
                           <div class="tsd-comment tsd-typography">
                             <p>(optional) optional offset into the array.</p>
                           </div>
-                          <div class="tsd-comment tsd-typography"></div>
                         </li>
                       </ul>
                     </div>
@@ -5453,7 +5286,6 @@
                       <span class="tsd-signature-type">Vector2Tuple</span>
                     </h4>
                     <p>The created or provided array.</p>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.toArray</p>
                       <ul>
@@ -5466,9 +5298,8 @@
                   </div>
                 </li>
                 <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="toarray-3" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">toArray</span
+                  <div class="tsd-signature tsd-anchor-link" id="toarray-3">
+                    <span class="tsd-kind-call-signature">toArray</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">array</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -5514,7 +5345,6 @@
                           <div class="tsd-comment tsd-typography">
                             <p>array-like to store the vector to.</p>
                           </div>
-                          <div class="tsd-comment tsd-typography"></div>
                         </li>
                         <li>
                           <span
@@ -5525,7 +5355,6 @@
                           <div class="tsd-comment tsd-typography">
                             <p>(optional) optional offset into the array.</p>
                           </div>
-                          <div class="tsd-comment tsd-typography"></div>
                         </li>
                       </ul>
                     </div>
@@ -5536,7 +5365,6 @@
                       ><span class="tsd-signature-symbol">&gt;</span>
                     </h4>
                     <p>The provided array-like.</p>
-                    <div class="tsd-comment tsd-typography"></div>
                     <aside class="tsd-sources">
                       <p>Inherited from Vector2.toArray</p>
                       <ul>
@@ -5551,9 +5379,8 @@
               </ul>
             </section>
             <section class="tsd-panel tsd-member">
-              <a id="updatemousexy" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
-                <span>update<wbr />MouseXY</span
+              <h3 class="tsd-anchor-link" id="updatemousexy">
+                <span>update<wbr />Mouse<wbr />XY</span
                 ><a
                   href="#updatemousexy"
                   aria-label="Permalink"
@@ -5564,9 +5391,11 @@
               </h3>
               <ul class="tsd-signatures">
                 <li class="">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="updatemousexy-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">updateMouseXY</span
+                  <div
+                    class="tsd-signature tsd-anchor-link"
+                    id="updatemousexy-1"
+                  >
+                    <span class="tsd-kind-call-signature">updateMouseXY</span
                     ><span class="tsd-signature-symbol">()</span
                     ><span class="tsd-signature-symbol">:</span>
                     <span class="tsd-signature-type">void</span
@@ -5587,7 +5416,7 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/mouse.ts#L39"
+                            href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/mouse.ts#L39"
                             >src/mouse.ts:39</a
                           >
                         </li>
@@ -5605,17 +5434,16 @@
           <div class="tsd-navigation settings">
             <details class="tsd-accordion">
               <summary class="tsd-accordion-summary">
-                <h3>
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    aria-hidden="true"
-                  >
-                    <use href="../assets/icons.svg#icon-chevronDown"></use></svg
-                  >Settings
-                </h3>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <use href="../assets/icons.svg#icon-chevronDown"></use>
+                </svg>
+                <h3>Settings</h3>
               </summary>
               <div class="tsd-accordion-details">
                 <div class="tsd-filter-visibility">
@@ -5733,17 +5561,16 @@
           </div>
           <details open class="tsd-accordion tsd-page-navigation">
             <summary class="tsd-accordion-summary">
-              <h3>
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  aria-hidden="true"
-                >
-                  <use href="../assets/icons.svg#icon-chevronDown"></use></svg
-                >On This Page
-              </h3>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <use href="../assets/icons.svg#icon-chevronDown"></use>
+              </svg>
+              <h3>On This Page</h3>
             </summary>
             <div class="tsd-accordion-details">
               <details open class="tsd-accordion tsd-page-navigation-section">
@@ -5805,7 +5632,7 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>is<wbr />Vector2</span></a
-                  ><a href="#lastclicktime" class=""
+                  ><a href="#lastclicktime"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -5813,22 +5640,22 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>last<wbr />Click<wbr />Time</span></a
-                  ><a href="#pagex" class=""
+                  ><a href="#pagex"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
                       aria-label="Property"
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
-                    ><span>pageX</span></a
-                  ><a href="#pagey" class=""
+                    ><span>page<wbr />X</span></a
+                  ><a href="#pagey"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
                       aria-label="Property"
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
-                    ><span>pageY</span></a
+                    ><span>page<wbr />Y</span></a
                   ><a href="#width" class="tsd-is-inherited tsd-is-external"
                     ><svg
                       class="tsd-kind-icon"
@@ -5968,7 +5795,7 @@
                     >
                       <use href="../assets/icons.svg#icon-2048"></use></svg
                     ><span>clamp<wbr />Length</span></a
-                  ><a href="#clampnumber" class=""
+                  ><a href="#clampnumber"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -5986,22 +5813,22 @@
                     >
                       <use href="../assets/icons.svg#icon-2048"></use></svg
                     ><span>clamp<wbr />Scalar</span></a
-                  ><a href="#clampx" class=""
+                  ><a href="#clampx"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
                       aria-label="Method"
                     >
                       <use href="../assets/icons.svg#icon-2048"></use></svg
-                    ><span>clampX</span></a
-                  ><a href="#clampy" class=""
+                    ><span>clamp<wbr />X</span></a
+                  ><a href="#clampy"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
                       aria-label="Method"
                     >
                       <use href="../assets/icons.svg#icon-2048"></use></svg
-                    ><span>clampY</span></a
+                    ><span>clamp<wbr />Y</span></a
                   ><a href="#clone" class="tsd-is-inherited tsd-is-external"
                     ><svg
                       class="tsd-kind-icon"
@@ -6106,14 +5933,14 @@
                     >
                       <use href="../assets/icons.svg#icon-2048"></use></svg
                     ><span>from<wbr />Buffer<wbr />Attribute</span></a
-                  ><a href="#getcentery" class=""
+                  ><a href="#getcentery"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
                       aria-label="Method"
                     >
                       <use href="../assets/icons.svg#icon-2048"></use></svg
-                    ><span>get<wbr />CenterY</span></a
+                    ><span>get<wbr />Center<wbr />Y</span></a
                   ><a
                     href="#getcomponent"
                     class="tsd-is-inherited tsd-is-external"
@@ -6124,7 +5951,7 @@
                     >
                       <use href="../assets/icons.svg#icon-2048"></use></svg
                     ><span>get<wbr />Component</span></a
-                  ><a href="#getmultiply" class=""
+                  ><a href="#getmultiply"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -6236,7 +6063,7 @@
                     >
                       <use href="../assets/icons.svg#icon-2048"></use></svg
                     ><span>normalize</span></a
-                  ><a href="#onpointerdown" class=""
+                  ><a href="#onpointerdown"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -6244,7 +6071,7 @@
                     >
                       <use href="../assets/icons.svg#icon-2048"></use></svg
                     ><span>on<wbr />Pointer<wbr />Down</span></a
-                  ><a href="#onpointermove" class=""
+                  ><a href="#onpointermove"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -6252,7 +6079,7 @@
                     >
                       <use href="../assets/icons.svg#icon-2048"></use></svg
                     ><span>on<wbr />Pointer<wbr />Move</span></a
-                  ><a href="#onpointerup" class=""
+                  ><a href="#onpointerup"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -6260,7 +6087,7 @@
                     >
                       <use href="../assets/icons.svg#icon-2048"></use></svg
                     ><span>on<wbr />Pointer<wbr />Up</span></a
-                  ><a href="#preventevent" class=""
+                  ><a href="#preventevent"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -6345,7 +6172,7 @@
                       aria-label="Method"
                     >
                       <use href="../assets/icons.svg#icon-2048"></use></svg
-                    ><span>setX</span></a
+                    ><span>set<wbr />X</span></a
                   ><a href="#sety" class="tsd-is-inherited tsd-is-external"
                     ><svg
                       class="tsd-kind-icon"
@@ -6353,7 +6180,7 @@
                       aria-label="Method"
                     >
                       <use href="../assets/icons.svg#icon-2048"></use></svg
-                    ><span>setY</span></a
+                    ><span>set<wbr />Y</span></a
                   ><a href="#sub" class="tsd-is-inherited tsd-is-external"
                     ><svg
                       class="tsd-kind-icon"
@@ -6388,14 +6215,14 @@
                     >
                       <use href="../assets/icons.svg#icon-2048"></use></svg
                     ><span>to<wbr />Array</span></a
-                  ><a href="#updatemousexy" class=""
+                  ><a href="#updatemousexy"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
                       aria-label="Method"
                     >
                       <use href="../assets/icons.svg#icon-2048"></use></svg
-                    ><span>update<wbr />MouseXY</span></a
+                    ><span>update<wbr />Mouse<wbr />XY</span></a
                   >
                 </div>
               </details>

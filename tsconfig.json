@@ -1,18 +1,18 @@
 {
   "compilerOptions": {
-    "types": ["jest", "node"],
+    "types": ["node"],
     "experimentalDecorators": true,
     "esModuleInterop": true,
     "allowJs": true,
     "declaration": true,
     "declarationMap": true,
     "moduleResolution": "node",
-    "target": "es2018",
+    "target": "es2017",
     "module": "none",
     "outDir": "dist",
     "rootDir": "src",
     "skipLibCheck": true
   },
-  "include": ["src/**/*.ts"],
-  "exclude": ["src/**/*.spec.ts"]
+  "include": ["src/*.ts", "src/**/*.ts"],
+  "files": ["src/index.ts"]
 }

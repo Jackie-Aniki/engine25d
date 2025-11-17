@@ -1,4 +1,4 @@
-import { groupBits, System } from 'detect-collisions';
+import { groupBits, System } from 'check2d';
 import { FrontSide, Texture } from 'three';
 import { DeviceDetector } from './detect';
 import { Loader } from './loader';

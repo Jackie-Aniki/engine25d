@@ -28,7 +28,7 @@ export class ViewLevel extends Level {
       ocean?: () => Ocean;
       skybox?: () => Skybox;
       canvas?: HTMLCanvasElement;
-    }
+    } = {}
   ) {
     super();
 

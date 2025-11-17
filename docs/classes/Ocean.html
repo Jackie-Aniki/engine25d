@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="default" lang="en" data-base="..">
+<html class="default" lang="en" data-base="../">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="IE=edge" />
@@ -26,58 +26,66 @@
       document.body.style.display = 'none';
       setTimeout(
         () =>
-          app ? app.showPage() : document.body.style.removeProperty('display'),
+          window.app
+            ? app.showPage()
+            : document.body.style.removeProperty('display'),
         500
       );
     </script>
     <header class="tsd-page-toolbar">
       <div class="tsd-toolbar-contents container">
-        <div class="table-cell" id="tsd-search">
-          <div class="field">
-            <label
-              for="tsd-search-field"
-              class="tsd-widget tsd-toolbar-icon search no-caption"
-              ><svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                aria-hidden="true"
-              >
-                <use href="../assets/icons.svg#icon-search"></use></svg></label
-            ><input type="text" id="tsd-search-field" aria-label="Search" />
+        <a href="../index.html" class="title">engine25d</a>
+        <div id="tsd-toolbar-links"></div>
+        <button id="tsd-search-trigger" class="tsd-widget" aria-label="Search">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            aria-hidden="true"
+          >
+            <use href="../assets/icons.svg#icon-search"></use>
+          </svg>
+        </button>
+        <dialog id="tsd-search" aria-label="Search">
+          <input
+            role="combobox"
+            id="tsd-search-input"
+            aria-controls="tsd-search-results"
+            aria-autocomplete="list"
+            aria-expanded="true"
+            autocapitalize="off"
+            autocomplete="off"
+            placeholder="Search the docs"
+            maxlength="100"
+          />
+          <ul role="listbox" id="tsd-search-results"></ul>
+          <div id="tsd-search-status" aria-live="polite" aria-atomic="true">
+            <div>Preparing search index...</div>
           </div>
-          <div class="field"><div id="tsd-toolbar-links"></div></div>
-          <ul class="results">
-            <li class="state loading">Preparing search index...</li>
-            <li class="state failure">The search index is not available</li>
-          </ul>
-          <a href="../index.html" class="title">engine25d</a>
-        </div>
-        <div class="table-cell" id="tsd-widgets">
-          <a
-            href="#"
-            class="tsd-widget tsd-toolbar-icon menu no-caption"
-            data-toggle="menu"
-            aria-label="Menu"
-            ><svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              aria-hidden="true"
-            >
-              <use href="../assets/icons.svg#icon-menu"></use></svg
-          ></a>
-        </div>
+        </dialog>
+        <a
+          href="#"
+          class="tsd-widget menu"
+          id="tsd-toolbar-menu-trigger"
+          data-toggle="menu"
+          aria-label="Menu"
+          ><svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            aria-hidden="true"
+          >
+            <use href="../assets/icons.svg#icon-menu"></use></svg
+        ></a>
       </div>
     </header>
     <div class="container container-main">
       <div class="col-content">
         <div class="tsd-page-title">
-          <ul class="tsd-breadcrumb">
-            <li><a href="../modules.html">engine25d</a></li>
-            <li><a href="Ocean.html">Ocean</a></li>
+          <ul class="tsd-breadcrumb" aria-label="Breadcrumb">
+            <li><a href="" aria-current="page">Ocean</a></li>
           </ul>
           <h1>Class Ocean</h1>
         </div>
@@ -86,7 +94,7 @@
             <li>
               Defined in
               <a
-                href="https://github.com/Prozi/engine25d/blob/main/src/ocean.ts#L20"
+                href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/ocean.ts#L20"
                 >src/ocean.ts:20</a
               >
             </li>
@@ -96,29 +104,22 @@
           <section class="tsd-panel tsd-index-panel">
             <details class="tsd-index-content tsd-accordion" open>
               <summary class="tsd-accordion-summary tsd-index-summary">
-                <h5
-                  class="tsd-index-heading uppercase"
-                  role="button"
-                  aria-expanded="false"
-                  tabindex="0"
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden="true"
                 >
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    aria-hidden="true"
-                  >
-                    <use href="../assets/icons.svg#icon-chevronSmall"></use>
-                  </svg>
-                  Index
-                </h5>
+                  <use href="../assets/icons.svg#icon-chevronDown"></use>
+                </svg>
+                <h5 class="tsd-index-heading uppercase">Index</h5>
               </summary>
               <div class="tsd-accordion-details">
                 <section class="tsd-index-section">
                   <h3 class="tsd-index-heading">Constructors</h3>
                   <div class="tsd-index-list">
-                    <a href="Ocean.html#constructor" class="tsd-index-link"
+                    <a href="#constructor" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -132,7 +133,7 @@
                 <section class="tsd-index-section">
                   <h3 class="tsd-index-heading">Properties</h3>
                   <div class="tsd-index-list">
-                    <a href="Ocean.html#animations" class="tsd-index-link"
+                    <a href="#animations" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -141,7 +142,7 @@
                         <use href="../assets/icons.svg#icon-1024"></use></svg
                       ><span>animations</span></a
                     >
-                    <a href="Ocean.html#cols" class="tsd-index-link"
+                    <a href="#cols" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -150,7 +151,7 @@
                         <use href="../assets/icons.svg#icon-1024"></use></svg
                       ><span>cols</span></a
                     >
-                    <a href="Ocean.html#mesh" class="tsd-index-link"
+                    <a href="#mesh" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -159,7 +160,7 @@
                         <use href="../assets/icons.svg#icon-1024"></use></svg
                       ><span>mesh</span></a
                     >
-                    <a href="Ocean.html#repeat" class="tsd-index-link"
+                    <a href="#repeat" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -168,7 +169,7 @@
                         <use href="../assets/icons.svg#icon-1024"></use></svg
                       ><span>repeat</span></a
                     >
-                    <a href="Ocean.html#rows" class="tsd-index-link"
+                    <a href="#rows" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -177,9 +178,7 @@
                         <use href="../assets/icons.svg#icon-1024"></use></svg
                       ><span>rows</span></a
                     >
-                    <a
-                      href="Ocean.html#starttime"
-                      class="tsd-index-link tsd-is-protected"
+                    <a href="#starttime" class="tsd-index-link tsd-is-protected"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -188,7 +187,7 @@
                         <use href="../assets/icons.svg#icon-1024"></use></svg
                       ><span>start<wbr />Time</span></a
                     >
-                    <a href="Ocean.html#deep_water_z" class="tsd-index-link"
+                    <a href="#deep_water_z" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -197,7 +196,7 @@
                         <use href="../assets/icons.svg#icon-1024"></use></svg
                       ><span>DEEP_<wbr />WATER_<wbr />Z</span></a
                     >
-                    <a href="Ocean.html#shallow_water" class="tsd-index-link"
+                    <a href="#shallow_water" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -212,7 +211,7 @@
                   <h3 class="tsd-index-heading">Methods</h3>
                   <div class="tsd-index-list">
                     <a
-                      href="Ocean.html#createdeepwater"
+                      href="#createdeepwater"
                       class="tsd-index-link tsd-is-protected"
                       ><svg
                         class="tsd-kind-icon"
@@ -223,7 +222,7 @@
                       ><span>create<wbr />Deep<wbr />Water</span></a
                     >
                     <a
-                      href="Ocean.html#createshallowwater"
+                      href="#createshallowwater"
                       class="tsd-index-link tsd-is-protected"
                       ><svg
                         class="tsd-kind-icon"
@@ -233,7 +232,7 @@
                         <use href="../assets/icons.svg#icon-2048"></use></svg
                       ><span>create<wbr />Shallow<wbr />Water</span></a
                     >
-                    <a href="Ocean.html#onresize" class="tsd-index-link"
+                    <a href="#onresize" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -242,7 +241,7 @@
                         <use href="../assets/icons.svg#icon-2048"></use></svg
                       ><span>on<wbr />Resize</span></a
                     >
-                    <a href="Ocean.html#update" class="tsd-index-link"
+                    <a href="#update" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -262,23 +261,20 @@
             class="tsd-accordion-summary"
             data-key="section-Constructors"
           >
-            <h2>
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                aria-hidden="true"
-              >
-                <use href="../assets/icons.svg#icon-chevronDown"></use>
-              </svg>
-              Constructors
-            </h2>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <use href="../assets/icons.svg#icon-chevronDown"></use>
+            </svg>
+            <h2>Constructors</h2>
           </summary>
           <section>
             <section class="tsd-panel tsd-member">
-              <a id="constructor" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="constructor">
                 <span>constructor</span
                 ><a
                   href="#constructor"
@@ -290,9 +286,11 @@
               </h3>
               <ul class="tsd-signatures">
                 <li class="">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="constructorocean" class="tsd-anchor"></a
-                    ><span class="tsd-signature-keyword">new</span>
+                  <div
+                    class="tsd-signature tsd-anchor-link"
+                    id="constructorocean"
+                  >
+                    <span class="tsd-signature-keyword">new</span>
                     <span class="tsd-kind-constructor-signature">Ocean</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">texture</span
@@ -304,9 +302,7 @@
                     <span class="tsd-signature-type">number</span
                     ><span class="tsd-signature-symbol">)</span
                     ><span class="tsd-signature-symbol">:</span>
-                    <a
-                      href="Ocean.html"
-                      class="tsd-signature-type tsd-kind-class"
+                    <a href="" class="tsd-signature-type tsd-kind-class"
                       >Ocean</a
                     ><a
                       href="#constructorocean"
@@ -341,9 +337,7 @@
                     </div>
                     <h4 class="tsd-returns-title">
                       Returns
-                      <a
-                        href="Ocean.html"
-                        class="tsd-signature-type tsd-kind-class"
+                      <a href="" class="tsd-signature-type tsd-kind-class"
                         >Ocean</a
                       >
                     </h4>
@@ -352,7 +346,7 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/ocean.ts#L39"
+                            href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/ocean.ts#L39"
                             >src/ocean.ts:39</a
                           >
                         </li>
@@ -366,23 +360,20 @@
         </details>
         <details class="tsd-panel-group tsd-member-group tsd-accordion" open>
           <summary class="tsd-accordion-summary" data-key="section-Properties">
-            <h2>
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                aria-hidden="true"
-              >
-                <use href="../assets/icons.svg#icon-chevronDown"></use>
-              </svg>
-              Properties
-            </h2>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <use href="../assets/icons.svg#icon-chevronDown"></use>
+            </svg>
+            <h2>Properties</h2>
           </summary>
           <section>
             <section class="tsd-panel tsd-member">
-              <a id="animations" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="animations">
                 <span>animations</span
                 ><a
                   href="#animations"
@@ -394,15 +385,17 @@
               </h3>
               <div class="tsd-signature">
                 <span class="tsd-kind-property">animations</span
-                ><span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-symbol">(</span
+                ><span class="tsd-signature-symbol">:</span> (<span
+                  class="tsd-signature-symbol"
+                  >(</span
                 ><span class="tsd-kind-parameter">time</span
                 ><span class="tsd-signature-symbol">:</span>
                 <span class="tsd-signature-type">number</span
                 ><span class="tsd-signature-symbol">)</span>
                 <span class="tsd-signature-symbol">=&gt;</span>
-                <span class="tsd-signature-type">void</span
-                ><span class="tsd-signature-symbol">[]</span
+                <span class="tsd-signature-type">void</span>)<span
+                  class="tsd-signature-symbol"
+                  >[]</span
                 ><span class="tsd-signature-symbol"> = []</span>
               </div>
               <aside class="tsd-sources">
@@ -410,7 +403,7 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/ocean.ts#L30"
+                      href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/ocean.ts#L30"
                       >src/ocean.ts:30</a
                     >
                   </li>
@@ -418,8 +411,7 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member">
-              <a id="cols" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="cols">
                 <code class="tsd-tag">Readonly</code><span>cols</span
                 ><a href="#cols" aria-label="Permalink" class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24" aria-hidden="true">
@@ -436,7 +428,7 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/ocean.ts#L34"
+                      href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/ocean.ts#L34"
                       >src/ocean.ts:34</a
                     >
                   </li>
@@ -444,8 +436,7 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member">
-              <a id="mesh" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="mesh">
                 <code class="tsd-tag">Readonly</code><span>mesh</span
                 ><a href="#mesh" aria-label="Permalink" class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24" aria-hidden="true">
@@ -466,7 +457,7 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/ocean.ts#L32"
+                      href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/ocean.ts#L32"
                       >src/ocean.ts:32</a
                     >
                   </li>
@@ -474,8 +465,7 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member">
-              <a id="repeat" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="repeat">
                 <code class="tsd-tag">Readonly</code><span>repeat</span
                 ><a
                   href="#repeat"
@@ -495,7 +485,7 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/ocean.ts#L33"
+                      href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/ocean.ts#L33"
                       >src/ocean.ts:33</a
                     >
                   </li>
@@ -503,8 +493,7 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member">
-              <a id="rows" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="rows">
                 <code class="tsd-tag">Readonly</code><span>rows</span
                 ><a href="#rows" aria-label="Permalink" class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24" aria-hidden="true">
@@ -521,7 +510,7 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/ocean.ts#L35"
+                      href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/ocean.ts#L35"
                       >src/ocean.ts:35</a
                     >
                   </li>
@@ -529,8 +518,7 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member tsd-is-protected">
-              <a id="starttime" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="starttime">
                 <code class="tsd-tag">Protected</code
                 ><span>start<wbr />Time</span
                 ><a
@@ -552,7 +540,7 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/ocean.ts#L37"
+                      href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/ocean.ts#L37"
                       >src/ocean.ts:37</a
                     >
                   </li>
@@ -560,8 +548,7 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member">
-              <a id="deep_water_z" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="deep_water_z">
                 <code class="tsd-tag">Static</code>
                 <code class="tsd-tag">Readonly</code
                 ><span>DEEP_<wbr />WATER_<wbr />Z</span
@@ -583,7 +570,7 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/ocean.ts#L21"
+                      href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/ocean.ts#L21"
                       >src/ocean.ts:21</a
                     >
                   </li>
@@ -591,8 +578,7 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member">
-              <a id="shallow_water" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="shallow_water">
                 <code class="tsd-tag">Static</code>
                 <code class="tsd-tag">Readonly</code
                 ><span>SHALLOW_<wbr />WATER</span
@@ -642,7 +628,7 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/ocean.ts#L22"
+                      href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/ocean.ts#L22"
                       >src/ocean.ts:22</a
                     >
                   </li>
@@ -653,23 +639,20 @@
         </details>
         <details class="tsd-panel-group tsd-member-group tsd-accordion" open>
           <summary class="tsd-accordion-summary" data-key="section-Methods">
-            <h2>
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                aria-hidden="true"
-              >
-                <use href="../assets/icons.svg#icon-chevronDown"></use>
-              </svg>
-              Methods
-            </h2>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <use href="../assets/icons.svg#icon-chevronDown"></use>
+            </svg>
+            <h2>Methods</h2>
           </summary>
           <section>
             <section class="tsd-panel tsd-member tsd-is-protected">
-              <a id="createdeepwater" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="createdeepwater">
                 <code class="tsd-tag">Protected</code
                 ><span>create<wbr />Deep<wbr />Water</span
                 ><a
@@ -682,9 +665,11 @@
               </h3>
               <ul class="tsd-signatures tsd-is-protected">
                 <li class="">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="createdeepwater-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">createDeepWater</span
+                  <div
+                    class="tsd-signature tsd-anchor-link"
+                    id="createdeepwater-1"
+                  >
+                    <span class="tsd-kind-call-signature">createDeepWater</span
                     ><span class="tsd-signature-symbol">(</span><br />    <span
                       class="tsd-kind-parameter"
                       >texture</span
@@ -739,7 +724,7 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/ocean.ts#L70"
+                            href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/ocean.ts#L70"
                             >src/ocean.ts:70</a
                           >
                         </li>
@@ -750,8 +735,7 @@
               </ul>
             </section>
             <section class="tsd-panel tsd-member tsd-is-protected">
-              <a id="createshallowwater" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="createshallowwater">
                 <code class="tsd-tag">Protected</code
                 ><span>create<wbr />Shallow<wbr />Water</span
                 ><a
@@ -764,9 +748,11 @@
               </h3>
               <ul class="tsd-signatures tsd-is-protected">
                 <li class="">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="createshallowwater-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature"
+                  <div
+                    class="tsd-signature tsd-anchor-link"
+                    id="createshallowwater-1"
+                  >
+                    <span class="tsd-kind-call-signature"
                       >createShallowWater</span
                     ><span class="tsd-signature-symbol">(</span><br />    <span
                       class="tsd-kind-parameter"
@@ -822,7 +808,7 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/ocean.ts#L98"
+                            href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/ocean.ts#L98"
                             >src/ocean.ts:98</a
                           >
                         </li>
@@ -833,8 +819,7 @@
               </ul>
             </section>
             <section class="tsd-panel tsd-member">
-              <a id="onresize" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="onresize">
                 <span>on<wbr />Resize</span
                 ><a
                   href="#onresize"
@@ -846,9 +831,8 @@
               </h3>
               <ul class="tsd-signatures">
                 <li class="">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="onresize-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">onResize</span
+                  <div class="tsd-signature tsd-anchor-link" id="onresize-1">
+                    <span class="tsd-kind-call-signature">onResize</span
                     ><span class="tsd-signature-symbol">()</span
                     ><span class="tsd-signature-symbol">:</span>
                     <span class="tsd-signature-type">void</span
@@ -869,7 +853,7 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/ocean.ts#L65"
+                            href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/ocean.ts#L65"
                             >src/ocean.ts:65</a
                           >
                         </li>
@@ -880,8 +864,7 @@
               </ul>
             </section>
             <section class="tsd-panel tsd-member">
-              <a id="update" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="update">
                 <span>update</span
                 ><a
                   href="#update"
@@ -893,9 +876,8 @@
               </h3>
               <ul class="tsd-signatures">
                 <li class="">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="update-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">update</span
+                  <div class="tsd-signature tsd-anchor-link" id="update-1">
+                    <span class="tsd-kind-call-signature">update</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">ms</span
                     ><span class="tsd-signature-symbol">?:</span>
@@ -934,7 +916,7 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/ocean.ts#L57"
+                            href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/ocean.ts#L57"
                             >src/ocean.ts:57</a
                           >
                         </li>
@@ -952,17 +934,16 @@
           <div class="tsd-navigation settings">
             <details class="tsd-accordion">
               <summary class="tsd-accordion-summary">
-                <h3>
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    aria-hidden="true"
-                  >
-                    <use href="../assets/icons.svg#icon-chevronDown"></use></svg
-                  >Settings
-                </h3>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <use href="../assets/icons.svg#icon-chevronDown"></use>
+                </svg>
+                <h3>Settings</h3>
               </summary>
               <div class="tsd-accordion-details">
                 <div class="tsd-filter-visibility">
@@ -1080,17 +1061,16 @@
           </div>
           <details open class="tsd-accordion tsd-page-navigation">
             <summary class="tsd-accordion-summary">
-              <h3>
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  aria-hidden="true"
-                >
-                  <use href="../assets/icons.svg#icon-chevronDown"></use></svg
-                >On This Page
-              </h3>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <use href="../assets/icons.svg#icon-chevronDown"></use>
+              </svg>
+              <h3>On This Page</h3>
             </summary>
             <div class="tsd-accordion-details">
               <details open class="tsd-accordion tsd-page-navigation-section">
@@ -1109,7 +1089,7 @@
                   >Constructors
                 </summary>
                 <div>
-                  <a href="#constructor" class=""
+                  <a href="#constructor"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -1136,7 +1116,7 @@
                   >Properties
                 </summary>
                 <div>
-                  <a href="#animations" class=""
+                  <a href="#animations"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -1144,7 +1124,7 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>animations</span></a
-                  ><a href="#cols" class=""
+                  ><a href="#cols"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -1152,7 +1132,7 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>cols</span></a
-                  ><a href="#mesh" class=""
+                  ><a href="#mesh"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -1160,7 +1140,7 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>mesh</span></a
-                  ><a href="#repeat" class=""
+                  ><a href="#repeat"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -1168,7 +1148,7 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>repeat</span></a
-                  ><a href="#rows" class=""
+                  ><a href="#rows"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -1184,7 +1164,7 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>start<wbr />Time</span></a
-                  ><a href="#deep_water_z" class=""
+                  ><a href="#deep_water_z"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -1192,7 +1172,7 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>DEEP_<wbr />WATER_<wbr />Z</span></a
-                  ><a href="#shallow_water" class=""
+                  ><a href="#shallow_water"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -1235,7 +1215,7 @@
                     >
                       <use href="../assets/icons.svg#icon-2048"></use></svg
                     ><span>create<wbr />Shallow<wbr />Water</span></a
-                  ><a href="#onresize" class=""
+                  ><a href="#onresize"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -1243,7 +1223,7 @@
                     >
                       <use href="../assets/icons.svg#icon-2048"></use></svg
                     ><span>on<wbr />Resize</span></a
-                  ><a href="#update" class=""
+                  ><a href="#update"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"

@@ -95,8 +95,9 @@ export class Billboard {
   createMesh(textureName: string) {
     try {
       const material = createMaterial(textureName, this.cols, this.rows);
-      const w = material.map!.image.width / this.cols;
-      const h = material.map!.image.height / this.rows;
+      const image = material.map!.image as { width: number; height: number };
+      const w = image.width / this.cols;
+      const h = image.height / this.rows;
       const max = Math.max(w, h);
       const width = (this.scaleX * w) / max;
       const height = (this.scaleY * h) / max;

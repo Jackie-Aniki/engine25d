@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="default" lang="en" data-base="..">
+<html class="default" lang="en" data-base="../">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="IE=edge" />
@@ -26,58 +26,66 @@
       document.body.style.display = 'none';
       setTimeout(
         () =>
-          app ? app.showPage() : document.body.style.removeProperty('display'),
+          window.app
+            ? app.showPage()
+            : document.body.style.removeProperty('display'),
         500
       );
     </script>
     <header class="tsd-page-toolbar">
       <div class="tsd-toolbar-contents container">
-        <div class="table-cell" id="tsd-search">
-          <div class="field">
-            <label
-              for="tsd-search-field"
-              class="tsd-widget tsd-toolbar-icon search no-caption"
-              ><svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                aria-hidden="true"
-              >
-                <use href="../assets/icons.svg#icon-search"></use></svg></label
-            ><input type="text" id="tsd-search-field" aria-label="Search" />
+        <a href="../index.html" class="title">engine25d</a>
+        <div id="tsd-toolbar-links"></div>
+        <button id="tsd-search-trigger" class="tsd-widget" aria-label="Search">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            aria-hidden="true"
+          >
+            <use href="../assets/icons.svg#icon-search"></use>
+          </svg>
+        </button>
+        <dialog id="tsd-search" aria-label="Search">
+          <input
+            role="combobox"
+            id="tsd-search-input"
+            aria-controls="tsd-search-results"
+            aria-autocomplete="list"
+            aria-expanded="true"
+            autocapitalize="off"
+            autocomplete="off"
+            placeholder="Search the docs"
+            maxlength="100"
+          />
+          <ul role="listbox" id="tsd-search-results"></ul>
+          <div id="tsd-search-status" aria-live="polite" aria-atomic="true">
+            <div>Preparing search index...</div>
           </div>
-          <div class="field"><div id="tsd-toolbar-links"></div></div>
-          <ul class="results">
-            <li class="state loading">Preparing search index...</li>
-            <li class="state failure">The search index is not available</li>
-          </ul>
-          <a href="../index.html" class="title">engine25d</a>
-        </div>
-        <div class="table-cell" id="tsd-widgets">
-          <a
-            href="#"
-            class="tsd-widget tsd-toolbar-icon menu no-caption"
-            data-toggle="menu"
-            aria-label="Menu"
-            ><svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              aria-hidden="true"
-            >
-              <use href="../assets/icons.svg#icon-menu"></use></svg
-          ></a>
-        </div>
+        </dialog>
+        <a
+          href="#"
+          class="tsd-widget menu"
+          id="tsd-toolbar-menu-trigger"
+          data-toggle="menu"
+          aria-label="Menu"
+          ><svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            aria-hidden="true"
+          >
+            <use href="../assets/icons.svg#icon-menu"></use></svg
+        ></a>
       </div>
     </header>
     <div class="container container-main">
       <div class="col-content">
         <div class="tsd-page-title">
-          <ul class="tsd-breadcrumb">
-            <li><a href="../modules.html">engine25d</a></li>
-            <li><a href="BillboardProps.html">BillboardProps</a></li>
+          <ul class="tsd-breadcrumb" aria-label="Breadcrumb">
+            <li><a href="" aria-current="page">BillboardProps</a></li>
           </ul>
           <h1>Interface BillboardProps</h1>
         </div>
@@ -86,55 +94,58 @@
           <span class="tsd-kind-interface">BillboardProps</span>
           <span class="tsd-signature-symbol">{</span><br />    <a
             class="tsd-kind-property"
-            href="BillboardProps.html#cols"
+            href="#cols"
             >cols</a
           ><span class="tsd-signature-symbol">?:</span>
           <span class="tsd-signature-type">number</span
           ><span class="tsd-signature-symbol">;</span><br />    <a
             class="tsd-kind-property"
-            href="BillboardProps.html#directionstorows"
+            href="#directionstorows"
             >directionsToRows</a
           ><span class="tsd-signature-symbol">?:</span>
-          <span class="tsd-signature-type">Partial</span
+          <a
+            href="../types/DirectionsToRows.html"
+            class="tsd-signature-type tsd-kind-type-alias"
+            >DirectionsToRows</a
           ><span class="tsd-signature-symbol">;</span><br />    <a
             class="tsd-kind-property"
-            href="BillboardProps.html#frameduration"
+            href="#frameduration"
             >frameDuration</a
           ><span class="tsd-signature-symbol">?:</span>
           <span class="tsd-signature-type">number</span
           ><span class="tsd-signature-symbol">;</span><br />    <a
             class="tsd-kind-property"
-            href="BillboardProps.html#rows"
+            href="#rows"
             >rows</a
           ><span class="tsd-signature-symbol">?:</span>
           <span class="tsd-signature-type">number</span
           ><span class="tsd-signature-symbol">;</span><br />    <a
             class="tsd-kind-property"
-            href="BillboardProps.html#scale"
+            href="#scale"
             >scale</a
           ><span class="tsd-signature-symbol">?:</span>
           <span class="tsd-signature-type">number</span
           ><span class="tsd-signature-symbol">;</span><br />    <a
             class="tsd-kind-property"
-            href="BillboardProps.html#scalex"
+            href="#scalex"
             >scaleX</a
           ><span class="tsd-signature-symbol">?:</span>
           <span class="tsd-signature-type">number</span
           ><span class="tsd-signature-symbol">;</span><br />    <a
             class="tsd-kind-property"
-            href="BillboardProps.html#scaley"
+            href="#scaley"
             >scaleY</a
           ><span class="tsd-signature-symbol">?:</span>
           <span class="tsd-signature-type">number</span
           ><span class="tsd-signature-symbol">;</span><br />    <a
             class="tsd-kind-property"
-            href="BillboardProps.html#texturename"
+            href="#texturename"
             >textureName</a
           ><span class="tsd-signature-symbol">:</span>
           <span class="tsd-signature-type">string</span
           ><span class="tsd-signature-symbol">;</span><br />    <a
             class="tsd-kind-property"
-            href="BillboardProps.html#totalframes"
+            href="#totalframes"
             >totalFrames</a
           ><span class="tsd-signature-symbol">?:</span>
           <span class="tsd-signature-type">number</span
@@ -148,7 +159,7 @@
             <li>
               Defined in
               <a
-                href="https://github.com/Prozi/engine25d/blob/main/src/model.ts#L27"
+                href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/model.ts#L27"
                 >src/model.ts:27</a
               >
             </li>
@@ -158,29 +169,22 @@
           <section class="tsd-panel tsd-index-panel">
             <details class="tsd-index-content tsd-accordion" open>
               <summary class="tsd-accordion-summary tsd-index-summary">
-                <h5
-                  class="tsd-index-heading uppercase"
-                  role="button"
-                  aria-expanded="false"
-                  tabindex="0"
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden="true"
                 >
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    aria-hidden="true"
-                  >
-                    <use href="../assets/icons.svg#icon-chevronSmall"></use>
-                  </svg>
-                  Index
-                </h5>
+                  <use href="../assets/icons.svg#icon-chevronDown"></use>
+                </svg>
+                <h5 class="tsd-index-heading uppercase">Index</h5>
               </summary>
               <div class="tsd-accordion-details">
                 <section class="tsd-index-section">
                   <h3 class="tsd-index-heading">Properties</h3>
                   <div class="tsd-index-list">
-                    <a href="BillboardProps.html#cols" class="tsd-index-link"
+                    <a href="#cols" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -189,9 +193,7 @@
                         <use href="../assets/icons.svg#icon-1024"></use></svg
                       ><span>cols?</span></a
                     >
-                    <a
-                      href="BillboardProps.html#directionstorows"
-                      class="tsd-index-link"
+                    <a href="#directionstorows" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -200,9 +202,7 @@
                         <use href="../assets/icons.svg#icon-1024"></use></svg
                       ><span>directions<wbr />To<wbr />Rows?</span></a
                     >
-                    <a
-                      href="BillboardProps.html#frameduration"
-                      class="tsd-index-link"
+                    <a href="#frameduration" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -211,7 +211,7 @@
                         <use href="../assets/icons.svg#icon-1024"></use></svg
                       ><span>frame<wbr />Duration?</span></a
                     >
-                    <a href="BillboardProps.html#rows" class="tsd-index-link"
+                    <a href="#rows" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -220,7 +220,7 @@
                         <use href="../assets/icons.svg#icon-1024"></use></svg
                       ><span>rows?</span></a
                     >
-                    <a href="BillboardProps.html#scale" class="tsd-index-link"
+                    <a href="#scale" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -229,27 +229,25 @@
                         <use href="../assets/icons.svg#icon-1024"></use></svg
                       ><span>scale?</span></a
                     >
-                    <a href="BillboardProps.html#scalex" class="tsd-index-link"
+                    <a href="#scalex" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
                         aria-label="Property"
                       >
                         <use href="../assets/icons.svg#icon-1024"></use></svg
-                      ><span>scaleX?</span></a
+                      ><span>scale<wbr />X?</span></a
                     >
-                    <a href="BillboardProps.html#scaley" class="tsd-index-link"
+                    <a href="#scaley" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
                         aria-label="Property"
                       >
                         <use href="../assets/icons.svg#icon-1024"></use></svg
-                      ><span>scaleY?</span></a
+                      ><span>scale<wbr />Y?</span></a
                     >
-                    <a
-                      href="BillboardProps.html#texturename"
-                      class="tsd-index-link"
+                    <a href="#texturename" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -258,9 +256,7 @@
                         <use href="../assets/icons.svg#icon-1024"></use></svg
                       ><span>texture<wbr />Name</span></a
                     >
-                    <a
-                      href="BillboardProps.html#totalframes"
-                      class="tsd-index-link"
+                    <a href="#totalframes" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -277,23 +273,20 @@
         </section>
         <details class="tsd-panel-group tsd-member-group tsd-accordion" open>
           <summary class="tsd-accordion-summary" data-key="section-Properties">
-            <h2>
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                aria-hidden="true"
-              >
-                <use href="../assets/icons.svg#icon-chevronDown"></use>
-              </svg>
-              Properties
-            </h2>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <use href="../assets/icons.svg#icon-chevronDown"></use>
+            </svg>
+            <h2>Properties</h2>
           </summary>
           <section>
             <section class="tsd-panel tsd-member">
-              <a id="cols" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="cols">
                 <code class="tsd-tag">Optional</code><span>cols</span
                 ><a href="#cols" aria-label="Permalink" class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24" aria-hidden="true">
@@ -310,7 +303,7 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/model.ts#L29"
+                      href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/model.ts#L29"
                       >src/model.ts:29</a
                     >
                   </li>
@@ -318,8 +311,7 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member">
-              <a id="directionstorows" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="directionstorows">
                 <code class="tsd-tag">Optional</code
                 ><span>directions<wbr />To<wbr />Rows</span
                 ><a
@@ -333,14 +325,18 @@
               <div class="tsd-signature">
                 <span class="tsd-kind-property">directionsToRows</span
                 ><span class="tsd-signature-symbol">?:</span>
-                <span class="tsd-signature-type">Partial</span>
+                <a
+                  href="../types/DirectionsToRows.html"
+                  class="tsd-signature-type tsd-kind-type-alias"
+                  >DirectionsToRows</a
+                >
               </div>
               <aside class="tsd-sources">
                 <ul>
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/model.ts#L33"
+                      href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/model.ts#L33"
                       >src/model.ts:33</a
                     >
                   </li>
@@ -348,8 +344,7 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member">
-              <a id="frameduration" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="frameduration">
                 <code class="tsd-tag">Optional</code
                 ><span>frame<wbr />Duration</span
                 ><a
@@ -370,7 +365,7 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/model.ts#L32"
+                      href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/model.ts#L32"
                       >src/model.ts:32</a
                     >
                   </li>
@@ -378,8 +373,7 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member">
-              <a id="rows" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="rows">
                 <code class="tsd-tag">Optional</code><span>rows</span
                 ><a href="#rows" aria-label="Permalink" class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24" aria-hidden="true">
@@ -396,7 +390,7 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/model.ts#L30"
+                      href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/model.ts#L30"
                       >src/model.ts:30</a
                     >
                   </li>
@@ -404,8 +398,7 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member">
-              <a id="scale" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="scale">
                 <code class="tsd-tag">Optional</code><span>scale</span
                 ><a href="#scale" aria-label="Permalink" class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24" aria-hidden="true">
@@ -422,7 +415,7 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/model.ts#L34"
+                      href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/model.ts#L34"
                       >src/model.ts:34</a
                     >
                   </li>
@@ -430,9 +423,8 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member">
-              <a id="scalex" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
-                <code class="tsd-tag">Optional</code><span>scaleX</span
+              <h3 class="tsd-anchor-link" id="scalex">
+                <code class="tsd-tag">Optional</code><span>scale<wbr />X</span
                 ><a
                   href="#scalex"
                   aria-label="Permalink"
@@ -451,7 +443,7 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/model.ts#L35"
+                      href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/model.ts#L35"
                       >src/model.ts:35</a
                     >
                   </li>
@@ -459,9 +451,8 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member">
-              <a id="scaley" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
-                <code class="tsd-tag">Optional</code><span>scaleY</span
+              <h3 class="tsd-anchor-link" id="scaley">
+                <code class="tsd-tag">Optional</code><span>scale<wbr />Y</span
                 ><a
                   href="#scaley"
                   aria-label="Permalink"
@@ -480,7 +471,7 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/model.ts#L36"
+                      href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/model.ts#L36"
                       >src/model.ts:36</a
                     >
                   </li>
@@ -488,8 +479,7 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member">
-              <a id="texturename" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="texturename">
                 <span>texture<wbr />Name</span
                 ><a
                   href="#texturename"
@@ -509,7 +499,7 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/model.ts#L28"
+                      href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/model.ts#L28"
                       >src/model.ts:28</a
                     >
                   </li>
@@ -517,8 +507,7 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member">
-              <a id="totalframes" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="totalframes">
                 <code class="tsd-tag">Optional</code
                 ><span>total<wbr />Frames</span
                 ><a
@@ -539,7 +528,7 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/model.ts#L31"
+                      href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/model.ts#L31"
                       >src/model.ts:31</a
                     >
                   </li>
@@ -554,17 +543,16 @@
           <div class="tsd-navigation settings">
             <details class="tsd-accordion">
               <summary class="tsd-accordion-summary">
-                <h3>
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    aria-hidden="true"
-                  >
-                    <use href="../assets/icons.svg#icon-chevronDown"></use></svg
-                  >Settings
-                </h3>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <use href="../assets/icons.svg#icon-chevronDown"></use>
+                </svg>
+                <h3>Settings</h3>
               </summary>
               <div class="tsd-accordion-details">
                 <div class="tsd-filter-visibility">
@@ -682,17 +670,16 @@
           </div>
           <details open class="tsd-accordion tsd-page-navigation">
             <summary class="tsd-accordion-summary">
-              <h3>
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  aria-hidden="true"
-                >
-                  <use href="../assets/icons.svg#icon-chevronDown"></use></svg
-                >On This Page
-              </h3>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <use href="../assets/icons.svg#icon-chevronDown"></use>
+              </svg>
+              <h3>On This Page</h3>
             </summary>
             <div class="tsd-accordion-details">
               <details open class="tsd-accordion tsd-page-navigation-section">
@@ -711,7 +698,7 @@
                   >Properties
                 </summary>
                 <div>
-                  <a href="#cols" class=""
+                  <a href="#cols"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -719,7 +706,7 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>cols</span></a
-                  ><a href="#directionstorows" class=""
+                  ><a href="#directionstorows"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -727,7 +714,7 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>directions<wbr />To<wbr />Rows</span></a
-                  ><a href="#frameduration" class=""
+                  ><a href="#frameduration"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -735,7 +722,7 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>frame<wbr />Duration</span></a
-                  ><a href="#rows" class=""
+                  ><a href="#rows"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -743,7 +730,7 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>rows</span></a
-                  ><a href="#scale" class=""
+                  ><a href="#scale"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -751,23 +738,23 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>scale</span></a
-                  ><a href="#scalex" class=""
+                  ><a href="#scalex"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
                       aria-label="Property"
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
-                    ><span>scaleX</span></a
-                  ><a href="#scaley" class=""
+                    ><span>scale<wbr />X</span></a
+                  ><a href="#scaley"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
                       aria-label="Property"
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
-                    ><span>scaleY</span></a
-                  ><a href="#texturename" class=""
+                    ><span>scale<wbr />Y</span></a
+                  ><a href="#texturename"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -775,7 +762,7 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>texture<wbr />Name</span></a
-                  ><a href="#totalframes" class=""
+                  ><a href="#totalframes"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"

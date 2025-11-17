@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="default" lang="en" data-base="..">
+<html class="default" lang="en" data-base="../">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="IE=edge" />
@@ -26,62 +26,70 @@
       document.body.style.display = 'none';
       setTimeout(
         () =>
-          app ? app.showPage() : document.body.style.removeProperty('display'),
+          window.app
+            ? app.showPage()
+            : document.body.style.removeProperty('display'),
         500
       );
     </script>
     <header class="tsd-page-toolbar">
       <div class="tsd-toolbar-contents container">
-        <div class="table-cell" id="tsd-search">
-          <div class="field">
-            <label
-              for="tsd-search-field"
-              class="tsd-widget tsd-toolbar-icon search no-caption"
-              ><svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                aria-hidden="true"
-              >
-                <use href="../assets/icons.svg#icon-search"></use></svg></label
-            ><input type="text" id="tsd-search-field" aria-label="Search" />
+        <a href="../index.html" class="title">engine25d</a>
+        <div id="tsd-toolbar-links"></div>
+        <button id="tsd-search-trigger" class="tsd-widget" aria-label="Search">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            aria-hidden="true"
+          >
+            <use href="../assets/icons.svg#icon-search"></use>
+          </svg>
+        </button>
+        <dialog id="tsd-search" aria-label="Search">
+          <input
+            role="combobox"
+            id="tsd-search-input"
+            aria-controls="tsd-search-results"
+            aria-autocomplete="list"
+            aria-expanded="true"
+            autocapitalize="off"
+            autocomplete="off"
+            placeholder="Search the docs"
+            maxlength="100"
+          />
+          <ul role="listbox" id="tsd-search-results"></ul>
+          <div id="tsd-search-status" aria-live="polite" aria-atomic="true">
+            <div>Preparing search index...</div>
           </div>
-          <div class="field"><div id="tsd-toolbar-links"></div></div>
-          <ul class="results">
-            <li class="state loading">Preparing search index...</li>
-            <li class="state failure">The search index is not available</li>
-          </ul>
-          <a href="../index.html" class="title">engine25d</a>
-        </div>
-        <div class="table-cell" id="tsd-widgets">
-          <a
-            href="#"
-            class="tsd-widget tsd-toolbar-icon menu no-caption"
-            data-toggle="menu"
-            aria-label="Menu"
-            ><svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              aria-hidden="true"
-            >
-              <use href="../assets/icons.svg#icon-menu"></use></svg
-          ></a>
-        </div>
+        </dialog>
+        <a
+          href="#"
+          class="tsd-widget menu"
+          id="tsd-toolbar-menu-trigger"
+          data-toggle="menu"
+          aria-label="Menu"
+          ><svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            aria-hidden="true"
+          >
+            <use href="../assets/icons.svg#icon-menu"></use></svg
+        ></a>
       </div>
     </header>
     <div class="container container-main">
       <div class="col-content">
         <div class="tsd-page-title">
-          <ul class="tsd-breadcrumb">
-            <li><a href="../modules.html">engine25d</a></li>
-            <li><a href="Loader.html">Loader</a></li>
+          <ul class="tsd-breadcrumb" aria-label="Breadcrumb">
+            <li><a href="" aria-current="page">Loader</a></li>
           </ul>
           <h1>Class Loader</h1>
         </div>
-        <section class="tsd-panel tsd-hierarchy" data-refl="1007">
+        <section class="tsd-panel tsd-hierarchy" data-refl="1009">
           <h4>Hierarchy</h4>
           <ul class="tsd-hierarchy">
             <li class="tsd-hierarchy-item">
@@ -99,7 +107,7 @@
             <li>
               Defined in
               <a
-                href="https://github.com/Prozi/engine25d/blob/main/src/loader.ts#L7"
+                href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/loader.ts#L7"
                 >src/loader.ts:7</a
               >
             </li>
@@ -109,29 +117,22 @@
           <section class="tsd-panel tsd-index-panel">
             <details class="tsd-index-content tsd-accordion" open>
               <summary class="tsd-accordion-summary tsd-index-summary">
-                <h5
-                  class="tsd-index-heading uppercase"
-                  role="button"
-                  aria-expanded="false"
-                  tabindex="0"
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden="true"
                 >
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    aria-hidden="true"
-                  >
-                    <use href="../assets/icons.svg#icon-chevronSmall"></use>
-                  </svg>
-                  Index
-                </h5>
+                  <use href="../assets/icons.svg#icon-chevronDown"></use>
+                </svg>
+                <h5 class="tsd-index-heading uppercase">Index</h5>
               </summary>
               <div class="tsd-accordion-details">
                 <section class="tsd-index-section">
                   <h3 class="tsd-index-heading">Constructors</h3>
                   <div class="tsd-index-list">
-                    <a href="Loader.html#constructor" class="tsd-index-link"
+                    <a href="#constructor" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -145,7 +146,40 @@
                 <section class="tsd-index-section">
                   <h3 class="tsd-index-heading">Properties</h3>
                   <div class="tsd-index-list">
-                    <a href="Loader.html#fbxloader" class="tsd-index-link"
+                    <a
+                      href="#abort"
+                      class="tsd-index-link tsd-is-inherited tsd-is-external"
+                      ><svg
+                        class="tsd-kind-icon"
+                        viewBox="0 0 24 24"
+                        aria-label="Property"
+                      >
+                        <use href="../assets/icons.svg#icon-1024"></use></svg
+                      ><span>abort</span></a
+                    >
+                    <a
+                      href="#abortcontroller"
+                      class="tsd-index-link tsd-is-inherited tsd-is-external"
+                      ><svg
+                        class="tsd-kind-icon"
+                        viewBox="0 0 24 24"
+                        aria-label="Property"
+                      >
+                        <use href="../assets/icons.svg#icon-1024"></use></svg
+                      ><span>abort<wbr />Controller</span></a
+                    >
+                    <a
+                      href="#addhandler"
+                      class="tsd-index-link tsd-is-inherited tsd-is-external"
+                      ><svg
+                        class="tsd-kind-icon"
+                        viewBox="0 0 24 24"
+                        aria-label="Property"
+                      >
+                        <use href="../assets/icons.svg#icon-1024"></use></svg
+                      ><span>add<wbr />Handler</span></a
+                    >
+                    <a href="#fbxloader" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -154,7 +188,18 @@
                         <use href="../assets/icons.svg#icon-1024"></use></svg
                       ><span>fbx<wbr />Loader?</span></a
                     >
-                    <a href="Loader.html#gltfloader" class="tsd-index-link"
+                    <a
+                      href="#gethandler"
+                      class="tsd-index-link tsd-is-inherited tsd-is-external"
+                      ><svg
+                        class="tsd-kind-icon"
+                        viewBox="0 0 24 24"
+                        aria-label="Property"
+                      >
+                        <use href="../assets/icons.svg#icon-1024"></use></svg
+                      ><span>get<wbr />Handler</span></a
+                    >
+                    <a href="#gltfloader" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -164,7 +209,40 @@
                       ><span>gltf<wbr />Loader?</span></a
                     >
                     <a
-                      href="Loader.html#onerror"
+                      href="#itemend"
+                      class="tsd-index-link tsd-is-inherited tsd-is-external"
+                      ><svg
+                        class="tsd-kind-icon"
+                        viewBox="0 0 24 24"
+                        aria-label="Property"
+                      >
+                        <use href="../assets/icons.svg#icon-1024"></use></svg
+                      ><span>item<wbr />End</span></a
+                    >
+                    <a
+                      href="#itemerror"
+                      class="tsd-index-link tsd-is-inherited tsd-is-external"
+                      ><svg
+                        class="tsd-kind-icon"
+                        viewBox="0 0 24 24"
+                        aria-label="Property"
+                      >
+                        <use href="../assets/icons.svg#icon-1024"></use></svg
+                      ><span>item<wbr />Error</span></a
+                    >
+                    <a
+                      href="#itemstart"
+                      class="tsd-index-link tsd-is-inherited tsd-is-external"
+                      ><svg
+                        class="tsd-kind-icon"
+                        viewBox="0 0 24 24"
+                        aria-label="Property"
+                      >
+                        <use href="../assets/icons.svg#icon-1024"></use></svg
+                      ><span>item<wbr />Start</span></a
+                    >
+                    <a
+                      href="#onerror"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -175,7 +253,7 @@
                       ><span>on<wbr />Error</span></a
                     >
                     <a
-                      href="Loader.html#onload"
+                      href="#onload"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -186,7 +264,7 @@
                       ><span>on<wbr />Load</span></a
                     >
                     <a
-                      href="Loader.html#onprogress"
+                      href="#onprogress"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -197,7 +275,7 @@
                       ><span>on<wbr />Progress</span></a
                     >
                     <a
-                      href="Loader.html#onstart"
+                      href="#onstart"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
@@ -205,9 +283,42 @@
                         aria-label="Property"
                       >
                         <use href="../assets/icons.svg#icon-1024"></use></svg
-                      ><span>on<wbr />Start?</span></a
+                      ><span>on<wbr />Start</span></a
                     >
-                    <a href="Loader.html#textureloader" class="tsd-index-link"
+                    <a
+                      href="#removehandler"
+                      class="tsd-index-link tsd-is-inherited tsd-is-external"
+                      ><svg
+                        class="tsd-kind-icon"
+                        viewBox="0 0 24 24"
+                        aria-label="Property"
+                      >
+                        <use href="../assets/icons.svg#icon-1024"></use></svg
+                      ><span>remove<wbr />Handler</span></a
+                    >
+                    <a
+                      href="#resolveurl"
+                      class="tsd-index-link tsd-is-inherited tsd-is-external"
+                      ><svg
+                        class="tsd-kind-icon"
+                        viewBox="0 0 24 24"
+                        aria-label="Property"
+                      >
+                        <use href="../assets/icons.svg#icon-1024"></use></svg
+                      ><span>resolve<wbr />URL</span></a
+                    >
+                    <a
+                      href="#seturlmodifier"
+                      class="tsd-index-link tsd-is-inherited tsd-is-external"
+                      ><svg
+                        class="tsd-kind-icon"
+                        viewBox="0 0 24 24"
+                        aria-label="Property"
+                      >
+                        <use href="../assets/icons.svg#icon-1024"></use></svg
+                      ><span>set<wbr />URL<wbr />Modifier</span></a
+                    >
+                    <a href="#textureloader" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -216,7 +327,7 @@
                         <use href="../assets/icons.svg#icon-1024"></use></svg
                       ><span>texture<wbr />Loader?</span></a
                     >
-                    <a href="Loader.html#tgaloader" class="tsd-index-link"
+                    <a href="#tgaloader" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -225,9 +336,7 @@
                         <use href="../assets/icons.svg#icon-1024"></use></svg
                       ><span>tga<wbr />Loader?</span></a
                     >
-                    <a
-                      href="Loader.html#draco_loader_path"
-                      class="tsd-index-link"
+                    <a href="#draco_loader_path" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -241,62 +350,7 @@
                 <section class="tsd-index-section">
                   <h3 class="tsd-index-heading">Methods</h3>
                   <div class="tsd-index-list">
-                    <a
-                      href="Loader.html#addhandler"
-                      class="tsd-index-link tsd-is-inherited tsd-is-external"
-                      ><svg
-                        class="tsd-kind-icon"
-                        viewBox="0 0 24 24"
-                        aria-label="Method"
-                      >
-                        <use href="../assets/icons.svg#icon-2048"></use></svg
-                      ><span>add<wbr />Handler</span></a
-                    >
-                    <a
-                      href="Loader.html#gethandler"
-                      class="tsd-index-link tsd-is-inherited tsd-is-external"
-                      ><svg
-                        class="tsd-kind-icon"
-                        viewBox="0 0 24 24"
-                        aria-label="Method"
-                      >
-                        <use href="../assets/icons.svg#icon-2048"></use></svg
-                      ><span>get<wbr />Handler</span></a
-                    >
-                    <a
-                      href="Loader.html#itemend"
-                      class="tsd-index-link tsd-is-inherited tsd-is-external"
-                      ><svg
-                        class="tsd-kind-icon"
-                        viewBox="0 0 24 24"
-                        aria-label="Method"
-                      >
-                        <use href="../assets/icons.svg#icon-2048"></use></svg
-                      ><span>item<wbr />End</span></a
-                    >
-                    <a
-                      href="Loader.html#itemerror"
-                      class="tsd-index-link tsd-is-inherited tsd-is-external"
-                      ><svg
-                        class="tsd-kind-icon"
-                        viewBox="0 0 24 24"
-                        aria-label="Method"
-                      >
-                        <use href="../assets/icons.svg#icon-2048"></use></svg
-                      ><span>item<wbr />Error</span></a
-                    >
-                    <a
-                      href="Loader.html#itemstart"
-                      class="tsd-index-link tsd-is-inherited tsd-is-external"
-                      ><svg
-                        class="tsd-kind-icon"
-                        viewBox="0 0 24 24"
-                        aria-label="Method"
-                      >
-                        <use href="../assets/icons.svg#icon-2048"></use></svg
-                      ><span>item<wbr />Start</span></a
-                    >
-                    <a href="Loader.html#load" class="tsd-index-link"
+                    <a href="#load" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
@@ -304,39 +358,6 @@
                       >
                         <use href="../assets/icons.svg#icon-2048"></use></svg
                       ><span>load</span></a
-                    >
-                    <a
-                      href="Loader.html#removehandler"
-                      class="tsd-index-link tsd-is-inherited tsd-is-external"
-                      ><svg
-                        class="tsd-kind-icon"
-                        viewBox="0 0 24 24"
-                        aria-label="Method"
-                      >
-                        <use href="../assets/icons.svg#icon-2048"></use></svg
-                      ><span>remove<wbr />Handler</span></a
-                    >
-                    <a
-                      href="Loader.html#resolveurl"
-                      class="tsd-index-link tsd-is-inherited tsd-is-external"
-                      ><svg
-                        class="tsd-kind-icon"
-                        viewBox="0 0 24 24"
-                        aria-label="Method"
-                      >
-                        <use href="../assets/icons.svg#icon-2048"></use></svg
-                      ><span>resolveURL</span></a
-                    >
-                    <a
-                      href="Loader.html#seturlmodifier"
-                      class="tsd-index-link tsd-is-inherited tsd-is-external"
-                      ><svg
-                        class="tsd-kind-icon"
-                        viewBox="0 0 24 24"
-                        aria-label="Method"
-                      >
-                        <use href="../assets/icons.svg#icon-2048"></use></svg
-                      ><span>setURLModifier</span></a
                     >
                   </div>
                 </section>
@@ -349,23 +370,20 @@
             class="tsd-accordion-summary"
             data-key="section-Constructors"
           >
-            <h2>
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                aria-hidden="true"
-              >
-                <use href="../assets/icons.svg#icon-chevronDown"></use>
-              </svg>
-              Constructors
-            </h2>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <use href="../assets/icons.svg#icon-chevronDown"></use>
+            </svg>
+            <h2>Constructors</h2>
           </summary>
           <section>
             <section class="tsd-panel tsd-member">
-              <a id="constructor" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="constructor">
                 <span>constructor</span
                 ><a
                   href="#constructor"
@@ -377,9 +395,11 @@
               </h3>
               <ul class="tsd-signatures">
                 <li class="">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="constructorloader" class="tsd-anchor"></a
-                    ><span class="tsd-signature-keyword">new</span>
+                  <div
+                    class="tsd-signature tsd-anchor-link"
+                    id="constructorloader"
+                  >
+                    <span class="tsd-signature-keyword">new</span>
                     <span class="tsd-kind-constructor-signature">Loader</span
                     ><span class="tsd-signature-symbol">(</span><br />    <span
                       class="tsd-kind-parameter"
@@ -422,9 +442,7 @@
                       class="tsd-signature-symbol"
                       >)</span
                     ><span class="tsd-signature-symbol">:</span>
-                    <a
-                      href="Loader.html"
-                      class="tsd-signature-type tsd-kind-class"
+                    <a href="" class="tsd-signature-type tsd-kind-class"
                       >Loader</a
                     ><a
                       href="#constructorloader"
@@ -485,9 +503,7 @@
                     </div>
                     <h4 class="tsd-returns-title">
                       Returns
-                      <a
-                        href="Loader.html"
-                        class="tsd-signature-type tsd-kind-class"
+                      <a href="" class="tsd-signature-type tsd-kind-class"
                         >Loader</a
                       >
                     </h4>
@@ -497,7 +513,7 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/loader.ts#L16"
+                            href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/loader.ts#L16"
                             >src/loader.ts:16</a
                           >
                         </li>
@@ -511,23 +527,113 @@
         </details>
         <details class="tsd-panel-group tsd-member-group tsd-accordion" open>
           <summary class="tsd-accordion-summary" data-key="section-Properties">
-            <h2>
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                aria-hidden="true"
-              >
-                <use href="../assets/icons.svg#icon-chevronDown"></use>
-              </svg>
-              Properties
-            </h2>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <use href="../assets/icons.svg#icon-chevronDown"></use>
+            </svg>
+            <h2>Properties</h2>
           </summary>
           <section>
+            <section
+              class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
+            >
+              <h3 class="tsd-anchor-link" id="abort">
+                <span>abort</span
+                ><a href="#abort" aria-label="Permalink" class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="../assets/icons.svg#icon-anchor"></use></svg
+                ></a>
+              </h3>
+              <div class="tsd-signature">
+                <span class="tsd-kind-property">abort</span
+                ><span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-symbol">()</span>
+                <span class="tsd-signature-symbol">=&gt;</span>
+                <span class="tsd-signature-type">this</span>
+              </div>
+              <aside class="tsd-sources">
+                <p>Inherited from LoadingManager.abort</p>
+                <ul>
+                  <li>
+                    Defined in
+                    node_modules/@types/three/src/loaders/LoadingManager.d.ts:68
+                  </li>
+                </ul>
+              </aside>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
+            >
+              <h3 class="tsd-anchor-link" id="abortcontroller">
+                <span>abort<wbr />Controller</span
+                ><a
+                  href="#abortcontroller"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="../assets/icons.svg#icon-anchor"></use></svg
+                ></a>
+              </h3>
+              <div class="tsd-signature">
+                <span class="tsd-kind-property">abortController</span
+                ><span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">AbortController</span>
+              </div>
+              <aside class="tsd-sources">
+                <p>Inherited from LoadingManager.abortController</p>
+                <ul>
+                  <li>
+                    Defined in
+                    node_modules/@types/three/src/loaders/LoadingManager.d.ts:43
+                  </li>
+                </ul>
+              </aside>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
+            >
+              <h3 class="tsd-anchor-link" id="addhandler">
+                <span>add<wbr />Handler</span
+                ><a
+                  href="#addhandler"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="../assets/icons.svg#icon-anchor"></use></svg
+                ></a>
+              </h3>
+              <div class="tsd-signature">
+                <span class="tsd-kind-property">addHandler</span
+                ><span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-symbol">(</span
+                ><span class="tsd-kind-parameter">regex</span
+                ><span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">RegExp</span
+                ><span class="tsd-signature-symbol">,</span>
+                <span class="tsd-kind-parameter">loader</span
+                ><span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">Loader</span
+                ><span class="tsd-signature-symbol">)</span>
+                <span class="tsd-signature-symbol">=&gt;</span>
+                <span class="tsd-signature-type">this</span>
+              </div>
+              <aside class="tsd-sources">
+                <p>Inherited from LoadingManager.addHandler</p>
+                <ul>
+                  <li>
+                    Defined in
+                    node_modules/@types/three/src/loaders/LoadingManager.d.ts:64
+                  </li>
+                </ul>
+              </aside>
+            </section>
             <section class="tsd-panel tsd-member">
-              <a id="fbxloader" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="fbxloader">
                 <code class="tsd-tag">Optional</code
                 ><span>fbx<wbr />Loader</span
                 ><a
@@ -548,16 +654,54 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/loader.ts#L13"
+                      href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/loader.ts#L13"
                       >src/loader.ts:13</a
                     >
                   </li>
                 </ul>
               </aside>
             </section>
+            <section
+              class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
+            >
+              <h3 class="tsd-anchor-link" id="gethandler">
+                <span>get<wbr />Handler</span
+                ><a
+                  href="#gethandler"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="../assets/icons.svg#icon-anchor"></use></svg
+                ></a>
+              </h3>
+              <div class="tsd-signature">
+                <span class="tsd-kind-property">getHandler</span
+                ><span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-symbol">(</span
+                ><span class="tsd-kind-parameter">file</span
+                ><span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span
+                ><span class="tsd-signature-symbol">)</span>
+                <span class="tsd-signature-symbol">=&gt;</span>
+                <span class="tsd-signature-type">Loader</span
+                ><span class="tsd-signature-symbol">&lt;</span
+                ><span class="tsd-signature-type">unknown</span
+                ><span class="tsd-signature-symbol">,</span>
+                <span class="tsd-signature-type">string</span
+                ><span class="tsd-signature-symbol">&gt;</span>
+              </div>
+              <aside class="tsd-sources">
+                <p>Inherited from LoadingManager.getHandler</p>
+                <ul>
+                  <li>
+                    Defined in
+                    node_modules/@types/three/src/loaders/LoadingManager.d.ts:66
+                  </li>
+                </ul>
+              </aside>
+            </section>
             <section class="tsd-panel tsd-member">
-              <a id="gltfloader" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="gltfloader">
                 <code class="tsd-tag">Optional</code
                 ><span>gltf<wbr />Loader</span
                 ><a
@@ -578,7 +722,7 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/loader.ts#L12"
+                      href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/loader.ts#L12"
                       >src/loader.ts:12</a
                     >
                   </li>
@@ -588,8 +732,109 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="onerror" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="itemend">
+                <span>item<wbr />End</span
+                ><a
+                  href="#itemend"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="../assets/icons.svg#icon-anchor"></use></svg
+                ></a>
+              </h3>
+              <div class="tsd-signature">
+                <span class="tsd-kind-property">itemEnd</span
+                ><span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-symbol">(</span
+                ><span class="tsd-kind-parameter">url</span
+                ><span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span
+                ><span class="tsd-signature-symbol">)</span>
+                <span class="tsd-signature-symbol">=&gt;</span>
+                <span class="tsd-signature-type">void</span>
+              </div>
+              <aside class="tsd-sources">
+                <p>Inherited from LoadingManager.itemEnd</p>
+                <ul>
+                  <li>
+                    Defined in
+                    node_modules/@types/three/src/loaders/LoadingManager.d.ts:46
+                  </li>
+                </ul>
+              </aside>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
+            >
+              <h3 class="tsd-anchor-link" id="itemerror">
+                <span>item<wbr />Error</span
+                ><a
+                  href="#itemerror"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="../assets/icons.svg#icon-anchor"></use></svg
+                ></a>
+              </h3>
+              <div class="tsd-signature">
+                <span class="tsd-kind-property">itemError</span
+                ><span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-symbol">(</span
+                ><span class="tsd-kind-parameter">url</span
+                ><span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span
+                ><span class="tsd-signature-symbol">)</span>
+                <span class="tsd-signature-symbol">=&gt;</span>
+                <span class="tsd-signature-type">void</span>
+              </div>
+              <aside class="tsd-sources">
+                <p>Inherited from LoadingManager.itemError</p>
+                <ul>
+                  <li>
+                    Defined in
+                    node_modules/@types/three/src/loaders/LoadingManager.d.ts:47
+                  </li>
+                </ul>
+              </aside>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
+            >
+              <h3 class="tsd-anchor-link" id="itemstart">
+                <span>item<wbr />Start</span
+                ><a
+                  href="#itemstart"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="../assets/icons.svg#icon-anchor"></use></svg
+                ></a>
+              </h3>
+              <div class="tsd-signature">
+                <span class="tsd-kind-property">itemStart</span
+                ><span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-symbol">(</span
+                ><span class="tsd-kind-parameter">url</span
+                ><span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span
+                ><span class="tsd-signature-symbol">)</span>
+                <span class="tsd-signature-symbol">=&gt;</span>
+                <span class="tsd-signature-type">void</span>
+              </div>
+              <aside class="tsd-sources">
+                <p>Inherited from LoadingManager.itemStart</p>
+                <ul>
+                  <li>
+                    Defined in
+                    node_modules/@types/three/src/loaders/LoadingManager.d.ts:45
+                  </li>
+                </ul>
+              </aside>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
+            >
+              <h3 class="tsd-anchor-link" id="onerror">
                 <span>on<wbr />Error</span
                 ><a
                   href="#onerror"
@@ -617,7 +862,7 @@
                 </p>
               </div>
               <div class="tsd-type-declaration">
-                <h4>Type declaration</h4>
+                <h4>Type Declaration</h4>
                 <ul class="tsd-parameters">
                   <li class="tsd-parameter-signature">
                     <ul class="tsd-signatures tsd-is-external">
@@ -644,7 +889,6 @@
                               <div class="tsd-comment tsd-typography">
                                 <p>The url of the item that errored.</p>
                               </div>
-                              <div class="tsd-comment tsd-typography"></div>
                             </li>
                           </ul>
                         </div>
@@ -656,13 +900,12 @@
                   </li>
                 </ul>
               </div>
-              <div class="tsd-comment tsd-typography"></div>
               <aside class="tsd-sources">
                 <p>Inherited from LoadingManager.onError</p>
                 <ul>
                   <li>
                     Defined in
-                    node_modules/@types/three/src/loaders/LoadingManager.d.ts:43
+                    node_modules/@types/three/src/loaders/LoadingManager.d.ts:41
                   </li>
                 </ul>
               </aside>
@@ -670,8 +913,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="onload" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="onload">
                 <span>on<wbr />Load</span
                 ><a
                   href="#onload"
@@ -694,13 +936,12 @@
                   function with empty body.
                 </p>
               </div>
-              <div class="tsd-comment tsd-typography"></div>
               <aside class="tsd-sources">
                 <p>Inherited from LoadingManager.onLoad</p>
                 <ul>
                   <li>
                     Defined in
-                    node_modules/@types/three/src/loaders/LoadingManager.d.ts:27
+                    node_modules/@types/three/src/loaders/LoadingManager.d.ts:25
                   </li>
                 </ul>
               </aside>
@@ -708,8 +949,7 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="onprogress" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="onprogress">
                 <span>on<wbr />Progress</span
                 ><a
                   href="#onprogress"
@@ -745,7 +985,7 @@
                 </p>
               </div>
               <div class="tsd-type-declaration">
-                <h4>Type declaration</h4>
+                <h4>Type Declaration</h4>
                 <ul class="tsd-parameters">
                   <li class="tsd-parameter-signature">
                     <ul class="tsd-signatures tsd-is-external">
@@ -780,7 +1020,6 @@
                               <div class="tsd-comment tsd-typography">
                                 <p>The url of the item just loaded.</p>
                               </div>
-                              <div class="tsd-comment tsd-typography"></div>
                             </li>
                             <li>
                               <span
@@ -794,7 +1033,6 @@
                                   The number of items already loaded so far.
                                 </p>
                               </div>
-                              <div class="tsd-comment tsd-typography"></div>
                             </li>
                             <li>
                               <span
@@ -806,7 +1044,6 @@
                               <div class="tsd-comment tsd-typography">
                                 <p>The total amount of items to be loaded.</p>
                               </div>
-                              <div class="tsd-comment tsd-typography"></div>
                             </li>
                           </ul>
                         </div>
@@ -818,13 +1055,12 @@
                   </li>
                 </ul>
               </div>
-              <div class="tsd-comment tsd-typography"></div>
               <aside class="tsd-sources">
                 <p>Inherited from LoadingManager.onProgress</p>
                 <ul>
                   <li>
                     Defined in
-                    node_modules/@types/three/src/loaders/LoadingManager.d.ts:36
+                    node_modules/@types/three/src/loaders/LoadingManager.d.ts:34
                   </li>
                 </ul>
               </aside>
@@ -832,9 +1068,8 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="onstart" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
-                <code class="tsd-tag">Optional</code><span>on<wbr />Start</span
+              <h3 class="tsd-anchor-link" id="onstart">
+                <span>on<wbr />Start</span
                 ><a
                   href="#onstart"
                   aria-label="Permalink"
@@ -845,7 +1080,7 @@
               </h3>
               <div class="tsd-signature">
                 <span class="tsd-kind-property">onStart</span
-                ><span class="tsd-signature-symbol">?:</span>
+                ><span class="tsd-signature-symbol">:</span>
                 <span class="tsd-signature-symbol">(</span
                 ><span class="tsd-kind-parameter">url</span
                 ><span class="tsd-signature-symbol">:</span>
@@ -866,7 +1101,7 @@
                 <p>Will be called when loading of an item starts.</p>
               </div>
               <div class="tsd-type-declaration">
-                <h4>Type declaration</h4>
+                <h4>Type Declaration</h4>
                 <ul class="tsd-parameters">
                   <li class="tsd-parameter-signature">
                     <ul class="tsd-signatures tsd-is-external">
@@ -901,7 +1136,6 @@
                               <div class="tsd-comment tsd-typography">
                                 <p>The url of the item that started loading.</p>
                               </div>
-                              <div class="tsd-comment tsd-typography"></div>
                             </li>
                             <li>
                               <span
@@ -915,7 +1149,6 @@
                                   The number of items already loaded so far.
                                 </p>
                               </div>
-                              <div class="tsd-comment tsd-typography"></div>
                             </li>
                             <li>
                               <span
@@ -927,7 +1160,6 @@
                               <div class="tsd-comment tsd-typography">
                                 <p>The total amount of items to be loaded.</p>
                               </div>
-                              <div class="tsd-comment tsd-typography"></div>
                             </li>
                           </ul>
                         </div>
@@ -939,20 +1171,236 @@
                   </li>
                 </ul>
               </div>
-              <div class="tsd-comment tsd-typography"></div>
               <aside class="tsd-sources">
                 <p>Inherited from LoadingManager.onStart</p>
                 <ul>
                   <li>
                     Defined in
-                    node_modules/@types/three/src/loaders/LoadingManager.d.ts:21
+                    node_modules/@types/three/src/loaders/LoadingManager.d.ts:19
+                  </li>
+                </ul>
+              </aside>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
+            >
+              <h3 class="tsd-anchor-link" id="removehandler">
+                <span>remove<wbr />Handler</span
+                ><a
+                  href="#removehandler"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="../assets/icons.svg#icon-anchor"></use></svg
+                ></a>
+              </h3>
+              <div class="tsd-signature">
+                <span class="tsd-kind-property">removeHandler</span
+                ><span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-symbol">(</span
+                ><span class="tsd-kind-parameter">regex</span
+                ><span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">RegExp</span
+                ><span class="tsd-signature-symbol">)</span>
+                <span class="tsd-signature-symbol">=&gt;</span>
+                <span class="tsd-signature-type">this</span>
+              </div>
+              <aside class="tsd-sources">
+                <p>Inherited from LoadingManager.removeHandler</p>
+                <ul>
+                  <li>
+                    Defined in
+                    node_modules/@types/three/src/loaders/LoadingManager.d.ts:65
+                  </li>
+                </ul>
+              </aside>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
+            >
+              <h3 class="tsd-anchor-link" id="resolveurl">
+                <span>resolve<wbr />URL</span
+                ><a
+                  href="#resolveurl"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="../assets/icons.svg#icon-anchor"></use></svg
+                ></a>
+              </h3>
+              <div class="tsd-signature">
+                <span class="tsd-kind-property">resolveURL</span
+                ><span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-symbol">(</span
+                ><span class="tsd-kind-parameter">url</span
+                ><span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span
+                ><span class="tsd-signature-symbol">)</span>
+                <span class="tsd-signature-symbol">=&gt;</span>
+                <span class="tsd-signature-type">string</span>
+              </div>
+              <div class="tsd-comment tsd-typography">
+                <p>
+                  Given a URL, uses the URL modifier callback (if any) and
+                  returns a resolved URL. If no URL modifier is set, returns the
+                  original URL.
+                </p>
+              </div>
+              <div class="tsd-type-declaration">
+                <h4>Type Declaration</h4>
+                <ul class="tsd-parameters">
+                  <li class="tsd-parameter-signature">
+                    <ul class="tsd-signatures tsd-is-external">
+                      <li class="tsd-signature">
+                        <span class="tsd-signature-symbol">(</span
+                        ><span class="tsd-kind-parameter">url</span
+                        ><span class="tsd-signature-symbol">:</span>
+                        <span class="tsd-signature-type">string</span
+                        ><span class="tsd-signature-symbol">)</span
+                        ><span class="tsd-signature-symbol">:</span>
+                        <span class="tsd-signature-type">string</span>
+                      </li>
+                      <li class="tsd-description">
+                        <div class="tsd-parameters">
+                          <h4 class="tsd-parameters-title">Parameters</h4>
+                          <ul class="tsd-parameter-list">
+                            <li>
+                              <span
+                                ><span class="tsd-kind-parameter">url</span>:
+                                <span class="tsd-signature-type"
+                                  >string</span
+                                ></span
+                              >
+                              <div class="tsd-comment tsd-typography">
+                                <p>the url to load</p>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                        <h4 class="tsd-returns-title">
+                          Returns <span class="tsd-signature-type">string</span>
+                        </h4>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <aside class="tsd-sources">
+                <p>Inherited from LoadingManager.resolveURL</p>
+                <ul>
+                  <li>
+                    Defined in
+                    node_modules/@types/three/src/loaders/LoadingManager.d.ts:54
+                  </li>
+                </ul>
+              </aside>
+            </section>
+            <section
+              class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
+            >
+              <h3 class="tsd-anchor-link" id="seturlmodifier">
+                <span>set<wbr />URL<wbr />Modifier</span
+                ><a
+                  href="#seturlmodifier"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="../assets/icons.svg#icon-anchor"></use></svg
+                ></a>
+              </h3>
+              <div class="tsd-signature">
+                <span class="tsd-kind-property">setURLModifier</span
+                ><span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-symbol">(</span
+                ><span class="tsd-kind-parameter">callback</span
+                ><span class="tsd-signature-symbol">?:</span>
+                <span class="tsd-signature-symbol">(</span
+                ><span class="tsd-kind-parameter">url</span
+                ><span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span
+                ><span class="tsd-signature-symbol">)</span>
+                <span class="tsd-signature-symbol">=&gt;</span>
+                <span class="tsd-signature-type">string</span
+                ><span class="tsd-signature-symbol">)</span>
+                <span class="tsd-signature-symbol">=&gt;</span>
+                <span class="tsd-signature-type">this</span>
+              </div>
+              <div class="tsd-comment tsd-typography">
+                <p>
+                  If provided, the callback will be passed each resource URL
+                  before a request is sent. The callback may return the original
+                  URL, or a new URL to override loading behavior. This behavior
+                  can be used to load assets from .ZIP files, drag-and-drop
+                  APIs, and Data URIs.
+                </p>
+              </div>
+              <div class="tsd-type-declaration">
+                <h4>Type Declaration</h4>
+                <ul class="tsd-parameters">
+                  <li class="tsd-parameter-signature">
+                    <ul class="tsd-signatures tsd-is-external">
+                      <li class="tsd-signature">
+                        <span class="tsd-signature-symbol">(</span
+                        ><span class="tsd-kind-parameter">callback</span
+                        ><span class="tsd-signature-symbol">?:</span>
+                        <span class="tsd-signature-symbol">(</span
+                        ><span class="tsd-kind-parameter">url</span
+                        ><span class="tsd-signature-symbol">:</span>
+                        <span class="tsd-signature-type">string</span
+                        ><span class="tsd-signature-symbol">)</span>
+                        <span class="tsd-signature-symbol">=&gt;</span>
+                        <span class="tsd-signature-type">string</span
+                        ><span class="tsd-signature-symbol">)</span
+                        ><span class="tsd-signature-symbol">:</span>
+                        <span class="tsd-signature-type">this</span>
+                      </li>
+                      <li class="tsd-description">
+                        <div class="tsd-parameters">
+                          <h4 class="tsd-parameters-title">Parameters</h4>
+                          <ul class="tsd-parameter-list">
+                            <li>
+                              <span
+                                ><code class="tsd-tag">Optional</code
+                                ><span class="tsd-kind-parameter">callback</span
+                                >: <span class="tsd-signature-symbol">(</span
+                                ><span class="tsd-kind-parameter">url</span
+                                ><span class="tsd-signature-symbol">:</span>
+                                <span class="tsd-signature-type">string</span
+                                ><span class="tsd-signature-symbol">)</span>
+                                <span class="tsd-signature-symbol">=&gt;</span>
+                                <span class="tsd-signature-type"
+                                  >string</span
+                                ></span
+                              >
+                              <div class="tsd-comment tsd-typography">
+                                <p>
+                                  URL modifier callback. Called with url
+                                  argument, and must return resolvedURL.
+                                </p>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                        <h4 class="tsd-returns-title">
+                          Returns <span class="tsd-signature-type">this</span>
+                        </h4>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <aside class="tsd-sources">
+                <p>Inherited from LoadingManager.setURLModifier</p>
+                <ul>
+                  <li>
+                    Defined in
+                    node_modules/@types/three/src/loaders/LoadingManager.d.ts:62
                   </li>
                 </ul>
               </aside>
             </section>
             <section class="tsd-panel tsd-member">
-              <a id="textureloader" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="textureloader">
                 <code class="tsd-tag">Optional</code
                 ><span>texture<wbr />Loader</span
                 ><a
@@ -973,7 +1421,7 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/loader.ts#L11"
+                      href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/loader.ts#L11"
                       >src/loader.ts:11</a
                     >
                   </li>
@@ -981,8 +1429,7 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member">
-              <a id="tgaloader" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="tgaloader">
                 <code class="tsd-tag">Optional</code
                 ><span>tga<wbr />Loader</span
                 ><a
@@ -1003,7 +1450,7 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/loader.ts#L14"
+                      href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/loader.ts#L14"
                       >src/loader.ts:14</a
                     >
                   </li>
@@ -1011,8 +1458,7 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member">
-              <a id="draco_loader_path" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="draco_loader_path">
                 <code class="tsd-tag">Static</code>
                 <code class="tsd-tag">Readonly</code
                 ><span>DRACO_<wbr />LOADER_<wbr />PATH</span
@@ -1039,7 +1485,7 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Prozi/engine25d/blob/main/src/loader.ts#L8"
+                      href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/loader.ts#L8"
                       >src/loader.ts:8</a
                     >
                   </li>
@@ -1050,353 +1496,20 @@
         </details>
         <details class="tsd-panel-group tsd-member-group tsd-accordion" open>
           <summary class="tsd-accordion-summary" data-key="section-Methods">
-            <h2>
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                aria-hidden="true"
-              >
-                <use href="../assets/icons.svg#icon-chevronDown"></use>
-              </svg>
-              Methods
-            </h2>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <use href="../assets/icons.svg#icon-chevronDown"></use>
+            </svg>
+            <h2>Methods</h2>
           </summary>
           <section>
-            <section
-              class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
-            >
-              <a id="addhandler" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
-                <span>add<wbr />Handler</span
-                ><a
-                  href="#addhandler"
-                  aria-label="Permalink"
-                  class="tsd-anchor-icon"
-                  ><svg viewBox="0 0 24 24" aria-hidden="true">
-                    <use href="../assets/icons.svg#icon-anchor"></use></svg
-                ></a>
-              </h3>
-              <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
-                <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="addhandler-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">addHandler</span
-                    ><span class="tsd-signature-symbol">(</span
-                    ><span class="tsd-kind-parameter">regex</span
-                    ><span class="tsd-signature-symbol">:</span>
-                    <span class="tsd-signature-type">RegExp</span
-                    ><span class="tsd-signature-symbol">,</span>
-                    <span class="tsd-kind-parameter">loader</span
-                    ><span class="tsd-signature-symbol">:</span>
-                    <span class="tsd-signature-type">Loader</span
-                    ><span class="tsd-signature-symbol">)</span
-                    ><span class="tsd-signature-symbol">:</span>
-                    <span class="tsd-signature-type">this</span
-                    ><a
-                      href="#addhandler-1"
-                      aria-label="Permalink"
-                      class="tsd-anchor-icon"
-                      ><svg viewBox="0 0 24 24" aria-hidden="true">
-                        <use href="../assets/icons.svg#icon-anchor"></use></svg
-                    ></a>
-                  </div>
-                  <div class="tsd-description">
-                    <div class="tsd-parameters">
-                      <h4 class="tsd-parameters-title">Parameters</h4>
-                      <ul class="tsd-parameter-list">
-                        <li>
-                          <span
-                            ><span class="tsd-kind-parameter">regex</span>:
-                            <span class="tsd-signature-type">RegExp</span></span
-                          >
-                        </li>
-                        <li>
-                          <span
-                            ><span class="tsd-kind-parameter">loader</span>:
-                            <span class="tsd-signature-type">Loader</span></span
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                    <h4 class="tsd-returns-title">
-                      Returns <span class="tsd-signature-type">this</span>
-                    </h4>
-                    <aside class="tsd-sources">
-                      <p>Inherited from LoadingManager.addHandler</p>
-                      <ul>
-                        <li>
-                          Defined in
-                          node_modules/@types/three/src/loaders/LoadingManager.d.ts:66
-                        </li>
-                      </ul>
-                    </aside>
-                  </div>
-                </li>
-              </ul>
-            </section>
-            <section
-              class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
-            >
-              <a id="gethandler" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
-                <span>get<wbr />Handler</span
-                ><a
-                  href="#gethandler"
-                  aria-label="Permalink"
-                  class="tsd-anchor-icon"
-                  ><svg viewBox="0 0 24 24" aria-hidden="true">
-                    <use href="../assets/icons.svg#icon-anchor"></use></svg
-                ></a>
-              </h3>
-              <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
-                <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="gethandler-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">getHandler</span
-                    ><span class="tsd-signature-symbol">(</span
-                    ><span class="tsd-kind-parameter">file</span
-                    ><span class="tsd-signature-symbol">:</span>
-                    <span class="tsd-signature-type">string</span
-                    ><span class="tsd-signature-symbol">)</span
-                    ><span class="tsd-signature-symbol">:</span>
-                    <span class="tsd-signature-type">Loader</span
-                    ><span class="tsd-signature-symbol">&lt;</span
-                    ><span class="tsd-signature-type">unknown</span
-                    ><span class="tsd-signature-symbol">,</span>
-                    <span class="tsd-signature-type">string</span
-                    ><span class="tsd-signature-symbol">&gt;</span
-                    ><a
-                      href="#gethandler-1"
-                      aria-label="Permalink"
-                      class="tsd-anchor-icon"
-                      ><svg viewBox="0 0 24 24" aria-hidden="true">
-                        <use href="../assets/icons.svg#icon-anchor"></use></svg
-                    ></a>
-                  </div>
-                  <div class="tsd-description">
-                    <div class="tsd-parameters">
-                      <h4 class="tsd-parameters-title">Parameters</h4>
-                      <ul class="tsd-parameter-list">
-                        <li>
-                          <span
-                            ><span class="tsd-kind-parameter">file</span>:
-                            <span class="tsd-signature-type">string</span></span
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                    <h4 class="tsd-returns-title">
-                      Returns <span class="tsd-signature-type">Loader</span
-                      ><span class="tsd-signature-symbol">&lt;</span
-                      ><span class="tsd-signature-type">unknown</span
-                      ><span class="tsd-signature-symbol">,</span>
-                      <span class="tsd-signature-type">string</span
-                      ><span class="tsd-signature-symbol">&gt;</span>
-                    </h4>
-                    <aside class="tsd-sources">
-                      <p>Inherited from LoadingManager.getHandler</p>
-                      <ul>
-                        <li>
-                          Defined in
-                          node_modules/@types/three/src/loaders/LoadingManager.d.ts:68
-                        </li>
-                      </ul>
-                    </aside>
-                  </div>
-                </li>
-              </ul>
-            </section>
-            <section
-              class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
-            >
-              <a id="itemend" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
-                <span>item<wbr />End</span
-                ><a
-                  href="#itemend"
-                  aria-label="Permalink"
-                  class="tsd-anchor-icon"
-                  ><svg viewBox="0 0 24 24" aria-hidden="true">
-                    <use href="../assets/icons.svg#icon-anchor"></use></svg
-                ></a>
-              </h3>
-              <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
-                <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="itemend-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">itemEnd</span
-                    ><span class="tsd-signature-symbol">(</span
-                    ><span class="tsd-kind-parameter">url</span
-                    ><span class="tsd-signature-symbol">:</span>
-                    <span class="tsd-signature-type">string</span
-                    ><span class="tsd-signature-symbol">)</span
-                    ><span class="tsd-signature-symbol">:</span>
-                    <span class="tsd-signature-type">void</span
-                    ><a
-                      href="#itemend-1"
-                      aria-label="Permalink"
-                      class="tsd-anchor-icon"
-                      ><svg viewBox="0 0 24 24" aria-hidden="true">
-                        <use href="../assets/icons.svg#icon-anchor"></use></svg
-                    ></a>
-                  </div>
-                  <div class="tsd-description">
-                    <div class="tsd-parameters">
-                      <h4 class="tsd-parameters-title">Parameters</h4>
-                      <ul class="tsd-parameter-list">
-                        <li>
-                          <span
-                            ><span class="tsd-kind-parameter">url</span>:
-                            <span class="tsd-signature-type">string</span></span
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                    <h4 class="tsd-returns-title">
-                      Returns <span class="tsd-signature-type">void</span>
-                    </h4>
-                    <aside class="tsd-sources">
-                      <p>Inherited from LoadingManager.itemEnd</p>
-                      <ul>
-                        <li>
-                          Defined in
-                          node_modules/@types/three/src/loaders/LoadingManager.d.ts:61
-                        </li>
-                      </ul>
-                    </aside>
-                  </div>
-                </li>
-              </ul>
-            </section>
-            <section
-              class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
-            >
-              <a id="itemerror" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
-                <span>item<wbr />Error</span
-                ><a
-                  href="#itemerror"
-                  aria-label="Permalink"
-                  class="tsd-anchor-icon"
-                  ><svg viewBox="0 0 24 24" aria-hidden="true">
-                    <use href="../assets/icons.svg#icon-anchor"></use></svg
-                ></a>
-              </h3>
-              <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
-                <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="itemerror-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">itemError</span
-                    ><span class="tsd-signature-symbol">(</span
-                    ><span class="tsd-kind-parameter">url</span
-                    ><span class="tsd-signature-symbol">:</span>
-                    <span class="tsd-signature-type">string</span
-                    ><span class="tsd-signature-symbol">)</span
-                    ><span class="tsd-signature-symbol">:</span>
-                    <span class="tsd-signature-type">void</span
-                    ><a
-                      href="#itemerror-1"
-                      aria-label="Permalink"
-                      class="tsd-anchor-icon"
-                      ><svg viewBox="0 0 24 24" aria-hidden="true">
-                        <use href="../assets/icons.svg#icon-anchor"></use></svg
-                    ></a>
-                  </div>
-                  <div class="tsd-description">
-                    <div class="tsd-parameters">
-                      <h4 class="tsd-parameters-title">Parameters</h4>
-                      <ul class="tsd-parameter-list">
-                        <li>
-                          <span
-                            ><span class="tsd-kind-parameter">url</span>:
-                            <span class="tsd-signature-type">string</span></span
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                    <h4 class="tsd-returns-title">
-                      Returns <span class="tsd-signature-type">void</span>
-                    </h4>
-                    <aside class="tsd-sources">
-                      <p>Inherited from LoadingManager.itemError</p>
-                      <ul>
-                        <li>
-                          Defined in
-                          node_modules/@types/three/src/loaders/LoadingManager.d.ts:62
-                        </li>
-                      </ul>
-                    </aside>
-                  </div>
-                </li>
-              </ul>
-            </section>
-            <section
-              class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
-            >
-              <a id="itemstart" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
-                <span>item<wbr />Start</span
-                ><a
-                  href="#itemstart"
-                  aria-label="Permalink"
-                  class="tsd-anchor-icon"
-                  ><svg viewBox="0 0 24 24" aria-hidden="true">
-                    <use href="../assets/icons.svg#icon-anchor"></use></svg
-                ></a>
-              </h3>
-              <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
-                <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="itemstart-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">itemStart</span
-                    ><span class="tsd-signature-symbol">(</span
-                    ><span class="tsd-kind-parameter">url</span
-                    ><span class="tsd-signature-symbol">:</span>
-                    <span class="tsd-signature-type">string</span
-                    ><span class="tsd-signature-symbol">)</span
-                    ><span class="tsd-signature-symbol">:</span>
-                    <span class="tsd-signature-type">void</span
-                    ><a
-                      href="#itemstart-1"
-                      aria-label="Permalink"
-                      class="tsd-anchor-icon"
-                      ><svg viewBox="0 0 24 24" aria-hidden="true">
-                        <use href="../assets/icons.svg#icon-anchor"></use></svg
-                    ></a>
-                  </div>
-                  <div class="tsd-description">
-                    <div class="tsd-parameters">
-                      <h4 class="tsd-parameters-title">Parameters</h4>
-                      <ul class="tsd-parameter-list">
-                        <li>
-                          <span
-                            ><span class="tsd-kind-parameter">url</span>:
-                            <span class="tsd-signature-type">string</span></span
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                    <h4 class="tsd-returns-title">
-                      Returns <span class="tsd-signature-type">void</span>
-                    </h4>
-                    <aside class="tsd-sources">
-                      <p>Inherited from LoadingManager.itemStart</p>
-                      <ul>
-                        <li>
-                          Defined in
-                          node_modules/@types/three/src/loaders/LoadingManager.d.ts:60
-                        </li>
-                      </ul>
-                    </aside>
-                  </div>
-                </li>
-              </ul>
-            </section>
             <section class="tsd-panel tsd-member">
-              <a id="load" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
+              <h3 class="tsd-anchor-link" id="load">
                 <span>load</span
                 ><a href="#load" aria-label="Permalink" class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24" aria-hidden="true">
@@ -1405,9 +1518,8 @@
               </h3>
               <ul class="tsd-signatures">
                 <li class="">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="load-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">load</span
+                  <div class="tsd-signature tsd-anchor-link" id="load-1">
+                    <span class="tsd-kind-call-signature">load</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">path</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -1449,237 +1561,9 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Prozi/engine25d/blob/main/src/loader.ts#L24"
+                            href="https://github.com/Jackie-Aniki/engine25d/blob/main/src/loader.ts#L24"
                             >src/loader.ts:24</a
                           >
-                        </li>
-                      </ul>
-                    </aside>
-                  </div>
-                </li>
-              </ul>
-            </section>
-            <section
-              class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
-            >
-              <a id="removehandler" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
-                <span>remove<wbr />Handler</span
-                ><a
-                  href="#removehandler"
-                  aria-label="Permalink"
-                  class="tsd-anchor-icon"
-                  ><svg viewBox="0 0 24 24" aria-hidden="true">
-                    <use href="../assets/icons.svg#icon-anchor"></use></svg
-                ></a>
-              </h3>
-              <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
-                <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="removehandler-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">removeHandler</span
-                    ><span class="tsd-signature-symbol">(</span
-                    ><span class="tsd-kind-parameter">regex</span
-                    ><span class="tsd-signature-symbol">:</span>
-                    <span class="tsd-signature-type">RegExp</span
-                    ><span class="tsd-signature-symbol">)</span
-                    ><span class="tsd-signature-symbol">:</span>
-                    <span class="tsd-signature-type">this</span
-                    ><a
-                      href="#removehandler-1"
-                      aria-label="Permalink"
-                      class="tsd-anchor-icon"
-                      ><svg viewBox="0 0 24 24" aria-hidden="true">
-                        <use href="../assets/icons.svg#icon-anchor"></use></svg
-                    ></a>
-                  </div>
-                  <div class="tsd-description">
-                    <div class="tsd-parameters">
-                      <h4 class="tsd-parameters-title">Parameters</h4>
-                      <ul class="tsd-parameter-list">
-                        <li>
-                          <span
-                            ><span class="tsd-kind-parameter">regex</span>:
-                            <span class="tsd-signature-type">RegExp</span></span
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                    <h4 class="tsd-returns-title">
-                      Returns <span class="tsd-signature-type">this</span>
-                    </h4>
-                    <aside class="tsd-sources">
-                      <p>Inherited from LoadingManager.removeHandler</p>
-                      <ul>
-                        <li>
-                          Defined in
-                          node_modules/@types/three/src/loaders/LoadingManager.d.ts:67
-                        </li>
-                      </ul>
-                    </aside>
-                  </div>
-                </li>
-              </ul>
-            </section>
-            <section
-              class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
-            >
-              <a id="resolveurl" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
-                <span>resolveURL</span
-                ><a
-                  href="#resolveurl"
-                  aria-label="Permalink"
-                  class="tsd-anchor-icon"
-                  ><svg viewBox="0 0 24 24" aria-hidden="true">
-                    <use href="../assets/icons.svg#icon-anchor"></use></svg
-                ></a>
-              </h3>
-              <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
-                <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="resolveurl-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">resolveURL</span
-                    ><span class="tsd-signature-symbol">(</span
-                    ><span class="tsd-kind-parameter">url</span
-                    ><span class="tsd-signature-symbol">:</span>
-                    <span class="tsd-signature-type">string</span
-                    ><span class="tsd-signature-symbol">)</span
-                    ><span class="tsd-signature-symbol">:</span>
-                    <span class="tsd-signature-type">string</span
-                    ><a
-                      href="#resolveurl-1"
-                      aria-label="Permalink"
-                      class="tsd-anchor-icon"
-                      ><svg viewBox="0 0 24 24" aria-hidden="true">
-                        <use href="../assets/icons.svg#icon-anchor"></use></svg
-                    ></a>
-                  </div>
-                  <div class="tsd-description">
-                    <div class="tsd-comment tsd-typography">
-                      <p>
-                        Given a URL, uses the URL modifier callback (if any) and
-                        returns a resolved URL. If no URL modifier is set,
-                        returns the original URL.
-                      </p>
-                    </div>
-                    <div class="tsd-parameters">
-                      <h4 class="tsd-parameters-title">Parameters</h4>
-                      <ul class="tsd-parameter-list">
-                        <li>
-                          <span
-                            ><span class="tsd-kind-parameter">url</span>:
-                            <span class="tsd-signature-type">string</span></span
-                          >
-                          <div class="tsd-comment tsd-typography">
-                            <p>the url to load</p>
-                          </div>
-                          <div class="tsd-comment tsd-typography"></div>
-                        </li>
-                      </ul>
-                    </div>
-                    <h4 class="tsd-returns-title">
-                      Returns <span class="tsd-signature-type">string</span>
-                    </h4>
-                    <div class="tsd-comment tsd-typography"></div>
-                    <aside class="tsd-sources">
-                      <p>Inherited from LoadingManager.resolveURL</p>
-                      <ul>
-                        <li>
-                          Defined in
-                          node_modules/@types/three/src/loaders/LoadingManager.d.ts:58
-                        </li>
-                      </ul>
-                    </aside>
-                  </div>
-                </li>
-              </ul>
-            </section>
-            <section
-              class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
-            >
-              <a id="seturlmodifier" class="tsd-anchor"></a>
-              <h3 class="tsd-anchor-link">
-                <span>setURLModifier</span
-                ><a
-                  href="#seturlmodifier"
-                  aria-label="Permalink"
-                  class="tsd-anchor-icon"
-                  ><svg viewBox="0 0 24 24" aria-hidden="true">
-                    <use href="../assets/icons.svg#icon-anchor"></use></svg
-                ></a>
-              </h3>
-              <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
-                <li class="tsd-is-inherited tsd-is-external">
-                  <div class="tsd-signature tsd-anchor-link">
-                    <a id="seturlmodifier-1" class="tsd-anchor"></a
-                    ><span class="tsd-kind-call-signature">setURLModifier</span
-                    ><span class="tsd-signature-symbol">(</span
-                    ><span class="tsd-kind-parameter">callback</span
-                    ><span class="tsd-signature-symbol">?:</span>
-                    <span class="tsd-signature-symbol">(</span
-                    ><span class="tsd-kind-parameter">url</span
-                    ><span class="tsd-signature-symbol">:</span>
-                    <span class="tsd-signature-type">string</span
-                    ><span class="tsd-signature-symbol">)</span>
-                    <span class="tsd-signature-symbol">=&gt;</span>
-                    <span class="tsd-signature-type">string</span
-                    ><span class="tsd-signature-symbol">)</span
-                    ><span class="tsd-signature-symbol">:</span>
-                    <span class="tsd-signature-type">this</span
-                    ><a
-                      href="#seturlmodifier-1"
-                      aria-label="Permalink"
-                      class="tsd-anchor-icon"
-                      ><svg viewBox="0 0 24 24" aria-hidden="true">
-                        <use href="../assets/icons.svg#icon-anchor"></use></svg
-                    ></a>
-                  </div>
-                  <div class="tsd-description">
-                    <div class="tsd-comment tsd-typography">
-                      <p>
-                        If provided, the callback will be passed each resource
-                        URL before a request is sent. The callback may return
-                        the original URL, or a new URL to override loading
-                        behavior. This behavior can be used to load assets from
-                        .ZIP files, drag-and-drop APIs, and Data URIs.
-                      </p>
-                    </div>
-                    <div class="tsd-parameters">
-                      <h4 class="tsd-parameters-title">Parameters</h4>
-                      <ul class="tsd-parameter-list">
-                        <li>
-                          <span
-                            ><code class="tsd-tag">Optional</code
-                            ><span class="tsd-kind-parameter">callback</span>:
-                            <span class="tsd-signature-symbol">(</span
-                            ><span class="tsd-kind-parameter">url</span
-                            ><span class="tsd-signature-symbol">:</span>
-                            <span class="tsd-signature-type">string</span
-                            ><span class="tsd-signature-symbol">)</span>
-                            <span class="tsd-signature-symbol">=&gt;</span>
-                            <span class="tsd-signature-type">string</span></span
-                          >
-                          <div class="tsd-comment tsd-typography">
-                            <p>
-                              URL modifier callback. Called with url argument,
-                              and must return resolvedURL.
-                            </p>
-                          </div>
-                          <div class="tsd-comment tsd-typography"></div>
-                        </li>
-                      </ul>
-                    </div>
-                    <h4 class="tsd-returns-title">
-                      Returns <span class="tsd-signature-type">this</span>
-                    </h4>
-                    <div class="tsd-comment tsd-typography"></div>
-                    <aside class="tsd-sources">
-                      <p>Inherited from LoadingManager.setURLModifier</p>
-                      <ul>
-                        <li>
-                          Defined in
-                          node_modules/@types/three/src/loaders/LoadingManager.d.ts:51
                         </li>
                       </ul>
                     </aside>
@@ -1695,17 +1579,16 @@
           <div class="tsd-navigation settings">
             <details class="tsd-accordion">
               <summary class="tsd-accordion-summary">
-                <h3>
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    aria-hidden="true"
-                  >
-                    <use href="../assets/icons.svg#icon-chevronDown"></use></svg
-                  >Settings
-                </h3>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <use href="../assets/icons.svg#icon-chevronDown"></use>
+                </svg>
+                <h3>Settings</h3>
               </summary>
               <div class="tsd-accordion-details">
                 <div class="tsd-filter-visibility">
@@ -1823,17 +1706,16 @@
           </div>
           <details open class="tsd-accordion tsd-page-navigation">
             <summary class="tsd-accordion-summary">
-              <h3>
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  aria-hidden="true"
-                >
-                  <use href="../assets/icons.svg#icon-chevronDown"></use></svg
-                >On This Page
-              </h3>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <use href="../assets/icons.svg#icon-chevronDown"></use>
+              </svg>
+              <h3>On This Page</h3>
             </summary>
             <div class="tsd-accordion-details">
               <details open class="tsd-accordion tsd-page-navigation-section">
@@ -1852,7 +1734,7 @@
                   >Constructors
                 </summary>
                 <div>
-                  <a href="#constructor" class=""
+                  <a href="#constructor"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -1879,7 +1761,35 @@
                   >Properties
                 </summary>
                 <div>
-                  <a href="#fbxloader" class=""
+                  <a href="#abort" class="tsd-is-inherited tsd-is-external"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Property"
+                    >
+                      <use href="../assets/icons.svg#icon-1024"></use></svg
+                    ><span>abort</span></a
+                  ><a
+                    href="#abortcontroller"
+                    class="tsd-is-inherited tsd-is-external"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Property"
+                    >
+                      <use href="../assets/icons.svg#icon-1024"></use></svg
+                    ><span>abort<wbr />Controller</span></a
+                  ><a
+                    href="#addhandler"
+                    class="tsd-is-inherited tsd-is-external"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Property"
+                    >
+                      <use href="../assets/icons.svg#icon-1024"></use></svg
+                    ><span>add<wbr />Handler</span></a
+                  ><a href="#fbxloader"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -1887,7 +1797,17 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>fbx<wbr />Loader</span></a
-                  ><a href="#gltfloader" class=""
+                  ><a
+                    href="#gethandler"
+                    class="tsd-is-inherited tsd-is-external"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Property"
+                    >
+                      <use href="../assets/icons.svg#icon-1024"></use></svg
+                    ><span>get<wbr />Handler</span></a
+                  ><a href="#gltfloader"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -1895,6 +1815,30 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>gltf<wbr />Loader</span></a
+                  ><a href="#itemend" class="tsd-is-inherited tsd-is-external"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Property"
+                    >
+                      <use href="../assets/icons.svg#icon-1024"></use></svg
+                    ><span>item<wbr />End</span></a
+                  ><a href="#itemerror" class="tsd-is-inherited tsd-is-external"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Property"
+                    >
+                      <use href="../assets/icons.svg#icon-1024"></use></svg
+                    ><span>item<wbr />Error</span></a
+                  ><a href="#itemstart" class="tsd-is-inherited tsd-is-external"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Property"
+                    >
+                      <use href="../assets/icons.svg#icon-1024"></use></svg
+                    ><span>item<wbr />Start</span></a
                   ><a href="#onerror" class="tsd-is-inherited tsd-is-external"
                     ><svg
                       class="tsd-kind-icon"
@@ -1929,7 +1873,37 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>on<wbr />Start</span></a
-                  ><a href="#textureloader" class=""
+                  ><a
+                    href="#removehandler"
+                    class="tsd-is-inherited tsd-is-external"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Property"
+                    >
+                      <use href="../assets/icons.svg#icon-1024"></use></svg
+                    ><span>remove<wbr />Handler</span></a
+                  ><a
+                    href="#resolveurl"
+                    class="tsd-is-inherited tsd-is-external"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Property"
+                    >
+                      <use href="../assets/icons.svg#icon-1024"></use></svg
+                    ><span>resolve<wbr />URL</span></a
+                  ><a
+                    href="#seturlmodifier"
+                    class="tsd-is-inherited tsd-is-external"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Property"
+                    >
+                      <use href="../assets/icons.svg#icon-1024"></use></svg
+                    ><span>set<wbr />URL<wbr />Modifier</span></a
+                  ><a href="#textureloader"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -1937,7 +1911,7 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>texture<wbr />Loader</span></a
-                  ><a href="#tgaloader" class=""
+                  ><a href="#tgaloader"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -1945,7 +1919,7 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>tga<wbr />Loader</span></a
-                  ><a href="#draco_loader_path" class=""
+                  ><a href="#draco_loader_path"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -1972,49 +1946,7 @@
                   >Methods
                 </summary>
                 <div>
-                  <a href="#addhandler" class="tsd-is-inherited tsd-is-external"
-                    ><svg
-                      class="tsd-kind-icon"
-                      viewBox="0 0 24 24"
-                      aria-label="Method"
-                    >
-                      <use href="../assets/icons.svg#icon-2048"></use></svg
-                    ><span>add<wbr />Handler</span></a
-                  ><a
-                    href="#gethandler"
-                    class="tsd-is-inherited tsd-is-external"
-                    ><svg
-                      class="tsd-kind-icon"
-                      viewBox="0 0 24 24"
-                      aria-label="Method"
-                    >
-                      <use href="../assets/icons.svg#icon-2048"></use></svg
-                    ><span>get<wbr />Handler</span></a
-                  ><a href="#itemend" class="tsd-is-inherited tsd-is-external"
-                    ><svg
-                      class="tsd-kind-icon"
-                      viewBox="0 0 24 24"
-                      aria-label="Method"
-                    >
-                      <use href="../assets/icons.svg#icon-2048"></use></svg
-                    ><span>item<wbr />End</span></a
-                  ><a href="#itemerror" class="tsd-is-inherited tsd-is-external"
-                    ><svg
-                      class="tsd-kind-icon"
-                      viewBox="0 0 24 24"
-                      aria-label="Method"
-                    >
-                      <use href="../assets/icons.svg#icon-2048"></use></svg
-                    ><span>item<wbr />Error</span></a
-                  ><a href="#itemstart" class="tsd-is-inherited tsd-is-external"
-                    ><svg
-                      class="tsd-kind-icon"
-                      viewBox="0 0 24 24"
-                      aria-label="Method"
-                    >
-                      <use href="../assets/icons.svg#icon-2048"></use></svg
-                    ><span>item<wbr />Start</span></a
-                  ><a href="#load" class=""
+                  <a href="#load"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -2022,36 +1954,6 @@
                     >
                       <use href="../assets/icons.svg#icon-2048"></use></svg
                     ><span>load</span></a
-                  ><a
-                    href="#removehandler"
-                    class="tsd-is-inherited tsd-is-external"
-                    ><svg
-                      class="tsd-kind-icon"
-                      viewBox="0 0 24 24"
-                      aria-label="Method"
-                    >
-                      <use href="../assets/icons.svg#icon-2048"></use></svg
-                    ><span>remove<wbr />Handler</span></a
-                  ><a
-                    href="#resolveurl"
-                    class="tsd-is-inherited tsd-is-external"
-                    ><svg
-                      class="tsd-kind-icon"
-                      viewBox="0 0 24 24"
-                      aria-label="Method"
-                    >
-                      <use href="../assets/icons.svg#icon-2048"></use></svg
-                    ><span>resolveURL</span></a
-                  ><a
-                    href="#seturlmodifier"
-                    class="tsd-is-inherited tsd-is-external"
-                    ><svg
-                      class="tsd-kind-icon"
-                      viewBox="0 0 24 24"
-                      aria-label="Method"
-                    >
-                      <use href="../assets/icons.svg#icon-2048"></use></svg
-                    ><span>setURLModifier</span></a
                   >
                 </div>
               </details>

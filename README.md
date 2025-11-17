@@ -1,3 +1,13 @@
+# engine 2.5D
+
+## three.js based game engine
+
+<img alt="https://legacyofpain.app" src="https://pietal.dev/screenshot/legacy-of-pain-app.webp" width="50%" />
+
+**https://legacyofpain.app**
+
+### example usage
+
 ```ts
 import {
   addEventListeners,
@@ -5,6 +15,7 @@ import {
   loadTextures,
   Player,
   state,
+  textures,
   ViewLevel
 } from 'engine25d';
 
@@ -26,9 +37,14 @@ export const start = async () => {
     }
   };
 
-  state.player = new Player(level, props);
-  state.enemies = Array.from({ length: 64 }, () => new Enemy(level, props));
+  state.player = new Player({ level, ...props });
+  state.enemies = Array.from(
+    { length: 64 },
+    () => new Enemy({ level, ...props })
+  );
 
   addEventListeners();
 };
+
+start();
 ```
