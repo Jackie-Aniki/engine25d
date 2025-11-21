@@ -1,13 +1,13 @@
 import { Level } from './level'
 import { Sprite } from './sprite'
 
-const palmProps = {
-  textureName: 'palm',
+export const treeProps = {
+  textureName: 'tree',
   scale: 3
 }
 
-export class Palm extends Sprite {
+export class Tree extends Sprite {
   constructor(level: Level, x?: number, y?: number) {
-    super(palmProps, level, x, y)
+    super(treeProps, level, x, y)
   }
 }
