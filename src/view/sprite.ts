@@ -14,7 +14,7 @@ export class Sprite extends Billboard {
 
   velocity = 0
   state: State
-  declare body: DynamicBody
+  body: DynamicBody
 
   constructor(
     props: BillboardProps,

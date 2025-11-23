@@ -17,18 +17,52 @@ import {
 } from '../state'
 import { DeviceDetector } from './detect-mobile'
 
+export const loadTextures = async (texturePaths: string[]) => {
+  const promises = texturePaths.map((texturePath) => loader.load(texturePath))
+  const resolved = await Promise.all(promises)
+
+  texturePaths.forEach((texturePath, index) => {
+    const textureName = getTextureName(texturePath)
+    const texture = resolved[index]
+
+    pixelate(texture)
+    loadedTextures[textureName] = texture
+  })
+
+  return resolved
+}
+
+export const pixelate = (texture: Texture) => {
+  texture.colorSpace = NoColorSpace
+  texture.magFilter = NearestFilter
+  texture.minFilter = DeviceDetector.HIGH_END
+    ? NearestMipMapLinearFilter
+    : NearestFilter
+}
+
+export const normalizeAngle = (angle: number) =>
+  (Math_Double_PI + angle) % Math_Double_PI
+
+export const normalize = (n: number) => Math.min(1, Math.max(-1, n))
+
 export const randomOf = (array: any[]) =>
   array[Math.floor(Math.random() * array.length)]
 
-export const getMatrix = (position: Vector3, scale: Vector3) => {
-  const matrix = new Matrix4()
-  const quaternion = new Quaternion()
-  const offset = new Vector3(0.5, 0.5, 0.5)
+export const distanceSq = (a: Vector3, b: Vector3) => {
+  const x = a.x - b.x
+  const y = a.z - b.z
 
-  matrix.compose(position.add(offset), quaternion, scale)
-
-  return matrix
+  return x * x + y * y
 }
+
+export const mapCubeTextures = <T>({
+  left,
+  right,
+  up,
+  down,
+  front,
+  back
+}: Record<CubeDirections, T>): T[] => [left, right, up, down, front, back]
 
 export const createMaterial = (textureName: string, cols = 1, rows = 1) => {
   try {
@@ -67,49 +101,12 @@ export const getTextureName = (path: string) => {
     .join('')
 }
 
-export const pixelate = (texture: Texture) => {
-  texture.colorSpace = NoColorSpace
-  texture.magFilter = NearestFilter
-  texture.minFilter = DeviceDetector.HIGH_END
-    ? NearestMipMapLinearFilter
-    : NearestFilter
-}
+export const getMatrix = (position: Vector3, scale: Vector3) => {
+  const matrix = new Matrix4()
+  const quaternion = new Quaternion()
+  const offset = new Vector3(0.5, 0.5, 0.5)
 
-export const loadTextures = async (texturePaths: string[]) => {
-  const promises = texturePaths.map((texturePath) => loader.load(texturePath))
-  const resolved = await Promise.all(promises)
+  matrix.compose(position.add(offset), quaternion, scale)
 
-  texturePaths.forEach((texturePath, index) => {
-    const textureName = getTextureName(texturePath)
-    const texture = resolved[index]
-
-    pixelate(texture)
-    loadedTextures[textureName] = texture
-  })
-
-  return resolved
-}
-
-export const normalizeAngle = (angle: number) =>
-  (Math_Double_PI + angle) % Math_Double_PI
-
-export const mapCubeTextures = <T>({
-  left,
-  right,
-  up,
-  down,
-  front,
-  back
-}: Record<CubeDirections, T>): T[] => [left, right, up, down, front, back]
-
-export const normalize = (n: number) => Math.min(1, Math.max(-1, n))
-
-export const randomFrom = <T>(elements: T[]) =>
-  elements[Math.floor(Math.random() * elements.length)]
-
-export const distanceSq = (a: Vector3, b: Vector3) => {
-  const x = a.x - b.x
-  const y = a.z - b.z
-
-  return x * x + y * y
+  return matrix
 }

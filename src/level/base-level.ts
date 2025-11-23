@@ -8,7 +8,7 @@ export abstract class BaseLevel {
   static readonly COLS = DeviceDetector.HIGH_END ? 48 : 24
   static readonly ROWS = DeviceDetector.HIGH_END ? 48 : 24
 
-  heights: number[][] = []
+  readonly heights: number[][] = []
 
   constructor() {
     this.heights = Array.from({ length: maxLevelHeight + minLevelHeight }, () =>
@@ -28,24 +28,14 @@ export abstract class BaseLevel {
       .map((arrays) => arrays.map((value) => Math.max(0, value)))
   }
 
-  getXY(col: number, row: number) {
-    return {
-      x: col - BaseLevel.COLS / 2,
-      y: row - BaseLevel.ROWS / 2
-    }
+  getFloor(x: number, y: number) {
+    const posX = Math.floor(x + BaseLevel.COLS / 2)
+    const posY = Math.floor(y + BaseLevel.ROWS / 2)
+
+    return this.heights[posX]?.[posY] || 0
   }
 
-  setColliderAt(col: number, row: number, height: number) {
-    const { x, y } = this.getXY(col, row)
-    for (let floor = 0; floor < height; floor++) {
-      physics.createBox({ x, y }, 1, 1, {
-        isStatic: true,
-        group: floors[floor]
-      })
-    }
-  }
-
-  forEachHeight(
+  protected forEachHeight(
     heights = this.heights,
     iterator: (col: number, row: number, height: number) => void
   ) {
@@ -56,13 +46,6 @@ export abstract class BaseLevel {
         }
       })
     })
-  }
-
-  getFloor(x: number, y: number) {
-    const posX = Math.floor(x + BaseLevel.COLS / 2)
-    const posY = Math.floor(y + BaseLevel.ROWS / 2)
-
-    return this.heights[posX]?.[posY] || 0
   }
 
   protected createHeights(
@@ -81,5 +64,22 @@ export abstract class BaseLevel {
     const { _map: heights } = map
 
     return heights
+  }
+
+  protected getXY(col: number, row: number) {
+    return {
+      x: col - BaseLevel.COLS / 2,
+      y: row - BaseLevel.ROWS / 2
+    }
+  }
+
+  protected setColliderAt(col: number, row: number, height: number) {
+    const { x, y } = this.getXY(col, row)
+    for (let floor = 0; floor < height; floor++) {
+      physics.createBox({ x, y }, 1, 1, {
+        isStatic: true,
+        group: floors[floor]
+      })
+    }
   }
 }

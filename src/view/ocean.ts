@@ -29,13 +29,11 @@ export class Ocean {
     renderOrder: 1
   }
 
-  animations: Array<(time: number) => void> = []
-
   readonly mesh = new Group()
-  readonly repeat: number
-  readonly cols: number
-  readonly rows: number
-
+  protected readonly animations: Array<(time: number) => void> = []
+  protected readonly repeat: number
+  protected readonly cols: number
+  protected readonly rows: number
   protected startTime = Date.now()
 
   constructor(texture: Texture, repeat = 1.1) {
@@ -52,16 +50,16 @@ export class Ocean {
     state.renderer.add(this)
   }
 
+  onResize() {
+    const scale = Camera.getFar()
+    this.mesh.scale.set(scale, scale, scale)
+  }
+
   update(ms = 0) {
     const { x, y } = state.renderer.camera?.target?.body || { x: 0, y: 0 }
 
     this.mesh.position.set(x, Ocean.DEEP_WATER_Z, y)
     this.animations.forEach((animation) => animation(ms))
-  }
-
-  onResize() {
-    const scale = state.renderer.camera.far / Camera.far
-    this.mesh.scale.set(scale, scale, scale)
   }
 
   protected createDeepWater(texture: Texture) {
@@ -104,7 +102,7 @@ export class Ocean {
         time: { value: 0 },
         cameraX: { value: 0 },
         cameraY: { value: 0 },
-        cameraFar: { value: Camera.far },
+        cameraFar: { value: Camera.FAR },
         waveSpeed: { value: waveSpeed },
         waveHeight: { value: waveHeight },
         waveTime: { value: waveTime },

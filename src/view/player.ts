@@ -42,7 +42,7 @@ export class Player extends Sprite {
     super({ ...Player.DEFAULT_PROPS, level, ...props }, state)
 
     state.player = this
-    state.renderer.ready({ level, target: this })
+    state.renderer.set({ level, target: this })
   }
 
   update(ms: number) {

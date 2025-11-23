@@ -99,7 +99,7 @@ export class Billboard {
     return state.renderer.camera.getScreenPosition(this.mesh)
   }
 
-  createMesh(textureName: string) {
+  protected createMesh(textureName: string) {
     try {
       const material = createMaterial(textureName, this.cols, this.rows)
       const image = material.map!.image as { width: number; height: number }
@@ -117,11 +117,6 @@ export class Billboard {
     }
   }
 
-  protected updateGroup() {
-    this.body.group =
-      floors[Math.round((this.z - Billboard.compensateGroupZ) * 2)]
-  }
-
   protected createBody(x: number, y: number) {
     return new StaticBody(x, y)
   }
@@ -137,8 +132,9 @@ export class Billboard {
     this.mesh.position.set(x, this.z, y)
   }
 
-  protected getFloorZ({ x, y } = this.body) {
-    return this.level ? this.level.getFloor(x, y) / 2 : 0
+  protected updateGroup() {
+    this.body.group =
+      floors[Math.round((this.z - Billboard.compensateGroupZ) * 2)]
   }
 
   protected updateTexture() {
@@ -174,5 +170,9 @@ export class Billboard {
       this.totalFrames * this.invCols -
       ((this.directionsToRows[direction] ?? this.directionsToRows.default) || 0)
     )
+  }
+
+  protected getFloorZ({ x, y } = this.body) {
+    return this.level ? this.level.getFloor(x, y) / 2 : 0
   }
 }

@@ -9,14 +9,13 @@ import {
   WebGLRenderer,
   WebGLRendererParameters
 } from 'three'
-import { Level } from '../level'
 import { state } from '../state'
 import { DeviceDetector } from '../utils/detect-mobile'
 import { queryParams } from '../utils/query-params'
-import { Billboard } from '../view/billboard'
 import { Ocean } from '../view/ocean'
 import { Skybox, SkyboxProps } from '../view/skybox'
 import { Camera } from './camera'
+import { SetProps } from '../model'
 
 export interface RendererProps {
   canvas?: HTMLCanvasElement
@@ -25,19 +24,19 @@ export interface RendererProps {
 }
 
 export interface RendererChild {
-  mesh: Object3D
-  update: (ms: number) => void
+  readonly mesh: Object3D
+  readonly update: (ms: number) => void
 }
 
 export class Renderer extends WebGLRenderer {
   static backgroundColor = 0x44ccf0
 
   readonly children: RendererChild[] = []
+  readonly animations: Array<(time: number) => void> = []
 
   now = Date.now()
   scene = new Scene()
   camera = new Camera()
-  animations: Array<(time: number) => void> = []
 
   stats?: Stats
   ocean?: Ocean
@@ -96,18 +95,26 @@ export class Renderer extends WebGLRenderer {
     this.children.push(child)
   }
 
-  ready({ level, target }: { level: Level; target: Billboard }) {
+  onResize() {
+    this.setSize(innerWidth, innerHeight)
+    this.camera.onResize(innerWidth, innerHeight)
+    this.ocean?.onResize()
+    this.scene.fog = this.createFog()
+
+    this.render(this.scene, this.camera)
+  }
+
+  set({ level, target }: SetProps) {
     this.scene.clear()
     this.scene.add(level.mesh)
     this.children.forEach((child) => {
       this.scene.add(child.mesh)
     })
 
-    this.camera.setLevelFloor(level)
-    this.camera.setTarget(target)
+    this.camera.set({ level, target })
   }
 
-  animation() {
+  protected animation() {
     const now = Date.now()
     const ms = Math.min(50, now - this.now) // max 3 frame lag allowed = 20 fps
     if (!ms) return
@@ -123,15 +130,6 @@ export class Renderer extends WebGLRenderer {
     this.camera.update(ms)
     this.ocean?.update(ms)
     this.now = now
-
-    this.render(this.scene, this.camera)
-  }
-
-  onResize() {
-    this.setSize(innerWidth, innerHeight)
-    this.camera.onResize(innerWidth, innerHeight)
-    this.ocean?.onResize()
-    this.scene.fog = this.createFog()
 
     this.render(this.scene, this.camera)
   }
