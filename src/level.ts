@@ -24,6 +24,9 @@ export class Level extends AbstractLevel {
   static readonly BUSH_CHANCE = 0.25
   static readonly TREE_CHANCE = 0.1
   static readonly TREE_HEIGHT_START = 3
+  static readonly SIDES = 'sides.webp'
+  static readonly FLOOR = 'floor.webp'
+  static readonly OCEAN = 'ocean.webp'
 
   mesh: Box
   bushesHeights = this.createHeights(
@@ -32,9 +35,6 @@ export class Level extends AbstractLevel {
     Level.BUSHES_FILL,
     Level.BUSHES_ITERATIONS
   )
-  static readonly SIDES = 'sides.webp'
-  static readonly FLOOR = 'floor.webp'
-  static readonly OCEAN = 'ocean.webp'
 
   static async create(canvas?: HTMLCanvasElement): Promise<Level> {
     const [sides, floor, ocean] = await loadTextures([

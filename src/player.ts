@@ -41,12 +41,8 @@ export class Player extends Sprite {
   constructor({ level, ...props }: BillboardProps) {
     super({ level, ...playerProps, ...props }, state)
 
-    if (level instanceof Level) {
-      state.renderer.camera.ready({ level, ref: this })
-      state.renderer.scene.add(level.mesh)
-    }
-
     state.player = this
+    state.renderer.ready({ level, target: this })
   }
 
   update(ms: number) {

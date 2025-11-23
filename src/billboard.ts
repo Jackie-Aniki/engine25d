@@ -13,7 +13,6 @@ import { directions, floors, state } from './state'
 import { createMaterial, normalizeAngle } from './utils'
 
 export class Billboard {
-  static billboards: Billboard[] = []
   static compensateGroupZ = 0.2
 
   protected static tempVector = new Vector3()
@@ -75,10 +74,8 @@ export class Billboard {
     this.centerOffset = -0.2 + this.scaleY / 3
     this.mesh = this.createMesh(textureName)
 
-    state.renderer.scene.add(this.mesh)
-    Billboard.billboards.push(this)
-
     this.spawn(level, x, y)
+    state.renderer.add(this)
   }
 
   update(_ms: number): void {
@@ -134,8 +131,8 @@ export class Billboard {
     x = (Math.random() - 0.5) * (AbstractLevel.COLS * 0.5),
     y = (Math.random() - 0.5) * (AbstractLevel.ROWS * 0.5)
   ) {
-    this.body = this.createBody(x, y)
     this.level = level
+    this.body = this.createBody(x, y)
     this.z = this.getFloorZ()
     this.mesh.position.set(x, this.z, y)
   }

@@ -3,6 +3,7 @@ import {
   Color,
   Fog,
   LinearSRGBColorSpace,
+  Object3D,
   Scene,
   Texture,
   WebGLRenderer,
@@ -15,6 +16,7 @@ import { Ocean } from './ocean'
 import { queryParams } from './query-params'
 import { Skybox, SkyboxProps } from './skybox'
 import { state } from './state'
+import { Level } from './level'
 
 export interface RendererProps {
   canvas?: HTMLCanvasElement
@@ -22,8 +24,24 @@ export interface RendererProps {
   skybox?: SkyboxProps
 }
 
+export interface RendererChild {
+  mesh: Object3D
+  update: (ms: number) => void
+}
+
 export class Renderer extends WebGLRenderer {
   static backgroundColor = 0x44ccf0
+
+  readonly children: RendererChild[] = []
+
+  now = Date.now()
+  scene = new Scene()
+  camera = new Camera()
+  animations: Array<(time: number) => void> = []
+
+  stats?: Stats
+  ocean?: Ocean
+  skybox?: Skybox
 
   static create({ canvas, ocean, skybox }: RendererProps): Renderer {
     if (!state.renderer) {
@@ -41,14 +59,6 @@ export class Renderer extends WebGLRenderer {
     return state.renderer
   }
 
-  now = Date.now()
-  scene = new Scene()
-  camera = new Camera()
-  animations: Array<(time: number) => void> = []
-  stats?: Stats
-  ocean?: Ocean
-  skybox?: Skybox
-
   constructor(canvas?: HTMLCanvasElement) {
     const props: WebGLRendererParameters = {
       antialias: DeviceDetector.HIGH_END,
@@ -61,17 +71,13 @@ export class Renderer extends WebGLRenderer {
 
     super(props)
     this.outputColorSpace = LinearSRGBColorSpace
-
     this.scene.background = new Color(Renderer.backgroundColor)
+
     this.onResize()
     window.addEventListener('resize', () => this.onResize())
 
     if ('fps' in queryParams) {
       this.stats = new Stats(this)
-    }
-
-    if (!this.domElement.parentElement) {
-      document.body.appendChild(this.domElement)
     }
 
     const animationFrame = () => this.animation()
@@ -80,6 +86,25 @@ export class Renderer extends WebGLRenderer {
     } else {
       this.setAnimationLoop(animationFrame)
     }
+
+    if (!this.domElement.parentElement) {
+      document.body.appendChild(this.domElement)
+    }
+  }
+
+  add(child: RendererChild) {
+    this.children.push(child)
+  }
+
+  ready({ level, target }: { level: Level; target: Billboard }) {
+    this.scene.clear()
+    this.scene.add(level.mesh)
+    this.children.forEach((child) => {
+      this.scene.add(child.mesh)
+    })
+
+    this.camera.setLevelFloor(level)
+    this.camera.setTarget(target)
   }
 
   animation() {
@@ -87,12 +112,18 @@ export class Renderer extends WebGLRenderer {
     const ms = Math.min(50, now - this.now) // max 3 frame lag allowed = 20 fps
     if (!ms) return
 
-    this.animations.forEach((animation) => animation(ms))
-    this.camera.update(ms)
-    Billboard.billboards.forEach((billboard) => billboard.update(ms))
+    this.animations.forEach((animation) => {
+      animation(ms)
+    })
 
+    this.children.forEach((child) => {
+      child.update(ms)
+    })
+
+    this.camera.update(ms)
     this.ocean?.update(ms)
     this.now = now
+
     this.render(this.scene, this.camera)
   }
 
@@ -101,6 +132,7 @@ export class Renderer extends WebGLRenderer {
     this.camera.onResize(innerWidth, innerHeight)
     this.ocean?.onResize()
     this.scene.fog = this.createFog()
+
     this.render(this.scene, this.camera)
   }
 

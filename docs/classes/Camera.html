@@ -89,7 +89,7 @@
           </ul>
           <h1>Class Camera</h1>
         </div>
-        <section class="tsd-panel tsd-hierarchy" data-refl="1315">
+        <section class="tsd-panel tsd-hierarchy" data-refl="1327">
           <h4>Hierarchy</h4>
           <ul class="tsd-hierarchy">
             <li class="tsd-hierarchy-item">
@@ -533,15 +533,6 @@
                         <use href="../assets/icons.svg#icon-1024"></use></svg
                       ><span>receive<wbr />Shadow</span></a
                     >
-                    <a href="#ref" class="tsd-index-link"
-                      ><svg
-                        class="tsd-kind-icon"
-                        viewBox="0 0 24 24"
-                        aria-label="Property"
-                      >
-                        <use href="../assets/icons.svg#icon-1024"></use></svg
-                      ><span>ref?</span></a
-                    >
                     <a
                       href="#renderorder"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
@@ -574,6 +565,15 @@
                       >
                         <use href="../assets/icons.svg#icon-1024"></use></svg
                       ><span>scale</span></a
+                    >
+                    <a href="#target" class="tsd-index-link"
+                      ><svg
+                        class="tsd-kind-icon"
+                        viewBox="0 0 24 24"
+                        aria-label="Property"
+                      >
+                        <use href="../assets/icons.svg#icon-1024"></use></svg
+                      ><span>target?</span></a
                     >
                     <a
                       href="#type"
@@ -918,6 +918,15 @@
                         <use href="../assets/icons.svg#icon-2048"></use></svg
                       ><span>dispatch<wbr />Event</span></a
                     >
+                    <a href="#getcameraposition" class="tsd-index-link"
+                      ><svg
+                        class="tsd-kind-icon"
+                        viewBox="0 0 24 24"
+                        aria-label="Method"
+                      >
+                        <use href="../assets/icons.svg#icon-2048"></use></svg
+                      ><span>get<wbr />Camera<wbr />Position</span></a
+                    >
                     <a
                       href="#getdistanceto"
                       class="tsd-index-link tsd-is-protected"
@@ -1198,15 +1207,6 @@
                         <use href="../assets/icons.svg#icon-2048"></use></svg
                       ><span>raycast</span></a
                     >
-                    <a href="#ready" class="tsd-index-link"
-                      ><svg
-                        class="tsd-kind-icon"
-                        viewBox="0 0 24 24"
-                        aria-label="Method"
-                      >
-                        <use href="../assets/icons.svg#icon-2048"></use></svg
-                      ><span>ready</span></a
-                    >
                     <a
                       href="#remove"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
@@ -1317,23 +1317,14 @@
                         <use href="../assets/icons.svg#icon-2048"></use></svg
                       ><span>set<wbr />Lens</span></a
                     >
-                    <a href="#setlevel" class="tsd-index-link"
+                    <a href="#setlevelfloor" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
                         viewBox="0 0 24 24"
                         aria-label="Method"
                       >
                         <use href="../assets/icons.svg#icon-2048"></use></svg
-                      ><span>set<wbr />Level</span></a
-                    >
-                    <a href="#setref" class="tsd-index-link"
-                      ><svg
-                        class="tsd-kind-icon"
-                        viewBox="0 0 24 24"
-                        aria-label="Method"
-                      >
-                        <use href="../assets/icons.svg#icon-2048"></use></svg
-                      ><span>set<wbr />Ref</span></a
+                      ><span>set<wbr />Level<wbr />Floor</span></a
                     >
                     <a
                       href="#setrotationfromaxisangle"
@@ -1384,6 +1375,15 @@
                       ><span
                         >set<wbr />Rotation<wbr />From<wbr />Quaternion</span
                       ></a
+                    >
+                    <a href="#settarget" class="tsd-index-link"
+                      ><svg
+                        class="tsd-kind-icon"
+                        viewBox="0 0 24 24"
+                        aria-label="Method"
+                      >
+                        <use href="../assets/icons.svg#icon-2048"></use></svg
+                      ><span>set<wbr />Target</span></a
                     >
                     <a
                       href="#setviewoffset"
@@ -2068,8 +2068,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/Jackie-Aniki/make3d/blob/main/src/camera.ts#L21"
-                      >src/camera.ts:21</a
+                      href="https://github.com/Jackie-Aniki/make3d/blob/main/src/camera.ts#L20"
+                      >src/camera.ts:20</a
                     >
                   </li>
                 </ul>
@@ -3535,33 +3535,6 @@
                 </ul>
               </aside>
             </section>
-            <section class="tsd-panel tsd-member">
-              <h3 class="tsd-anchor-link" id="ref">
-                <code class="tsd-tag">Optional</code><span>ref</span
-                ><a href="#ref" aria-label="Permalink" class="tsd-anchor-icon"
-                  ><svg viewBox="0 0 24 24" aria-hidden="true">
-                    <use href="../assets/icons.svg#icon-anchor"></use></svg
-                ></a>
-              </h3>
-              <div class="tsd-signature">
-                <span class="tsd-kind-property">ref</span
-                ><span class="tsd-signature-symbol">?:</span>
-                <a href="Player.html" class="tsd-signature-type tsd-kind-class"
-                  >Player</a
-                >
-              </div>
-              <aside class="tsd-sources">
-                <ul>
-                  <li>
-                    Defined in
-                    <a
-                      href="https://github.com/Jackie-Aniki/make3d/blob/main/src/camera.ts#L20"
-                      >src/camera.ts:20</a
-                    >
-                  </li>
-                </ul>
-              </aside>
-            </section>
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
@@ -3721,6 +3694,38 @@
                   <li>
                     Defined in
                     node_modules/@types/three/src/core/Object3D.d.ts:175
+                  </li>
+                </ul>
+              </aside>
+            </section>
+            <section class="tsd-panel tsd-member">
+              <h3 class="tsd-anchor-link" id="target">
+                <code class="tsd-tag">Optional</code><span>target</span
+                ><a
+                  href="#target"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="../assets/icons.svg#icon-anchor"></use></svg
+                ></a>
+              </h3>
+              <div class="tsd-signature">
+                <span class="tsd-kind-property">target</span
+                ><span class="tsd-signature-symbol">?:</span>
+                <a
+                  href="Billboard.html"
+                  class="tsd-signature-type tsd-kind-class"
+                  >Billboard</a
+                >
+              </div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/Jackie-Aniki/make3d/blob/main/src/camera.ts#L21"
+                      >src/camera.ts:21</a
+                    >
                   </li>
                 </ul>
               </aside>
@@ -5576,6 +5581,139 @@
                 </li>
               </ul>
             </section>
+            <section class="tsd-panel tsd-member">
+              <h3 class="tsd-anchor-link" id="getcameraposition">
+                <span>get<wbr />Camera<wbr />Position</span
+                ><a
+                  href="#getcameraposition"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="../assets/icons.svg#icon-anchor"></use></svg
+                ></a>
+              </h3>
+              <ul class="tsd-signatures">
+                <li class="">
+                  <div
+                    class="tsd-signature tsd-anchor-link"
+                    id="getcameraposition-1"
+                  >
+                    <span class="tsd-kind-call-signature"
+                      >getCameraPosition</span
+                    ><span class="tsd-signature-symbol">(</span><br />    <span
+                      class="tsd-kind-parameter"
+                      >__namedParameters</span
+                    ><span class="tsd-signature-symbol">?:</span>
+                    <span class="tsd-signature-symbol">{</span>
+                    <span class="tsd-kind-property">angle</span
+                    ><span class="tsd-signature-symbol">?:</span>
+                    <span class="tsd-signature-type">number</span
+                    ><span class="tsd-signature-symbol">;</span>
+                    <span class="tsd-kind-property">x</span
+                    ><span class="tsd-signature-symbol">?:</span>
+                    <span class="tsd-signature-type">number</span
+                    ><span class="tsd-signature-symbol">;</span>
+                    <span class="tsd-kind-property">y</span
+                    ><span class="tsd-signature-symbol">?:</span>
+                    <span class="tsd-signature-type">number</span>
+                    <span class="tsd-signature-symbol">}</span
+                    ><span class="tsd-signature-symbol">,</span><br />    <span
+                      class="tsd-kind-parameter"
+                      >z</span
+                    ><span class="tsd-signature-symbol">?:</span>
+                    <span class="tsd-signature-type">number</span
+                    ><span class="tsd-signature-symbol">,</span><br /><span
+                      class="tsd-signature-symbol"
+                      >)</span
+                    ><span class="tsd-signature-symbol">:</span>
+                    <span class="tsd-signature-symbol">{</span>
+                    <span class="tsd-kind-property">height</span
+                    ><span class="tsd-signature-symbol">:</span>
+                    <span class="tsd-signature-type">number</span
+                    ><span class="tsd-signature-symbol">;</span>
+                    <span class="tsd-kind-property">x</span
+                    ><span class="tsd-signature-symbol">:</span>
+                    <span class="tsd-signature-type">number</span
+                    ><span class="tsd-signature-symbol">;</span>
+                    <span class="tsd-kind-property">y</span
+                    ><span class="tsd-signature-symbol">:</span>
+                    <span class="tsd-signature-type">number</span>
+                    <span class="tsd-signature-symbol">}</span
+                    ><a
+                      href="#getcameraposition-1"
+                      aria-label="Permalink"
+                      class="tsd-anchor-icon"
+                      ><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <use href="../assets/icons.svg#icon-anchor"></use></svg
+                    ></a>
+                  </div>
+                  <div class="tsd-description">
+                    <div class="tsd-parameters">
+                      <h4 class="tsd-parameters-title">Parameters</h4>
+                      <ul class="tsd-parameter-list">
+                        <li>
+                          <span
+                            ><span class="tsd-kind-parameter"
+                              >__namedParameters</span
+                            >: <span class="tsd-signature-symbol">{</span>
+                            <span class="tsd-kind-property">angle</span
+                            ><span class="tsd-signature-symbol">?:</span>
+                            <span class="tsd-signature-type">number</span
+                            ><span class="tsd-signature-symbol">;</span>
+                            <span class="tsd-kind-property">x</span
+                            ><span class="tsd-signature-symbol">?:</span>
+                            <span class="tsd-signature-type">number</span
+                            ><span class="tsd-signature-symbol">;</span>
+                            <span class="tsd-kind-property">y</span
+                            ><span class="tsd-signature-symbol">?:</span>
+                            <span class="tsd-signature-type">number</span>
+                            <span class="tsd-signature-symbol">}</span
+                            ><span class="tsd-signature-symbol">
+                              = {}</span
+                            ></span
+                          >
+                        </li>
+                        <li>
+                          <span
+                            ><span class="tsd-kind-parameter">z</span>:
+                            <span class="tsd-signature-type">number</span
+                            ><span class="tsd-signature-symbol">
+                              = 0</span
+                            ></span
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <h4 class="tsd-returns-title">
+                      Returns <span class="tsd-signature-symbol">{</span>
+                      <span class="tsd-kind-property">height</span
+                      ><span class="tsd-signature-symbol">:</span>
+                      <span class="tsd-signature-type">number</span
+                      ><span class="tsd-signature-symbol">;</span>
+                      <span class="tsd-kind-property">x</span
+                      ><span class="tsd-signature-symbol">:</span>
+                      <span class="tsd-signature-type">number</span
+                      ><span class="tsd-signature-symbol">;</span>
+                      <span class="tsd-kind-property">y</span
+                      ><span class="tsd-signature-symbol">:</span>
+                      <span class="tsd-signature-type">number</span>
+                      <span class="tsd-signature-symbol">}</span>
+                    </h4>
+                    <aside class="tsd-sources">
+                      <ul>
+                        <li>
+                          Defined in
+                          <a
+                            href="https://github.com/Jackie-Aniki/make3d/blob/main/src/camera.ts#L45"
+                            >src/camera.ts:45</a
+                          >
+                        </li>
+                      </ul>
+                    </aside>
+                  </div>
+                </li>
+              </ul>
+            </section>
             <section class="tsd-panel tsd-member tsd-is-protected">
               <h3 class="tsd-anchor-link" id="getdistanceto">
                 <code class="tsd-tag">Protected</code
@@ -5632,8 +5770,8 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Jackie-Aniki/make3d/blob/main/src/camera.ts#L115"
-                            >src/camera.ts:115</a
+                            href="https://github.com/Jackie-Aniki/make3d/blob/main/src/camera.ts#L98"
+                            >src/camera.ts:98</a
                           >
                         </li>
                       </ul>
@@ -5907,8 +6045,8 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Jackie-Aniki/make3d/blob/main/src/camera.ts#L39"
-                            >src/camera.ts:39</a
+                            href="https://github.com/Jackie-Aniki/make3d/blob/main/src/camera.ts#L41"
+                            >src/camera.ts:41</a
                           >
                         </li>
                       </ul>
@@ -6495,8 +6633,8 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Jackie-Aniki/make3d/blob/main/src/camera.ts#L98"
-                            >src/camera.ts:98</a
+                            href="https://github.com/Jackie-Aniki/make3d/blob/main/src/camera.ts#L85"
+                            >src/camera.ts:85</a
                           >
                         </li>
                       </ul>
@@ -8153,8 +8291,8 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Jackie-Aniki/make3d/blob/main/src/camera.ts#L33"
-                            >src/camera.ts:33</a
+                            href="https://github.com/Jackie-Aniki/make3d/blob/main/src/camera.ts#L35"
+                            >src/camera.ts:35</a
                           >
                         </li>
                       </ul>
@@ -8301,94 +8439,6 @@
                         <li>
                           Defined in
                           node_modules/@types/three/src/core/Object3D.d.ts:610
-                        </li>
-                      </ul>
-                    </aside>
-                  </div>
-                </li>
-              </ul>
-            </section>
-            <section class="tsd-panel tsd-member">
-              <h3 class="tsd-anchor-link" id="ready">
-                <span>ready</span
-                ><a href="#ready" aria-label="Permalink" class="tsd-anchor-icon"
-                  ><svg viewBox="0 0 24 24" aria-hidden="true">
-                    <use href="../assets/icons.svg#icon-anchor"></use></svg
-                ></a>
-              </h3>
-              <ul class="tsd-signatures">
-                <li class="">
-                  <div class="tsd-signature tsd-anchor-link" id="ready-1">
-                    <span class="tsd-kind-call-signature">ready</span
-                    ><span class="tsd-signature-symbol">(</span
-                    ><span class="tsd-kind-parameter">__namedParameters</span
-                    ><span class="tsd-signature-symbol">:</span>
-                    <span class="tsd-signature-symbol">{</span>
-                    <span class="tsd-kind-property">level</span
-                    ><span class="tsd-signature-symbol">:</span>
-                    <a
-                      href="Level.html"
-                      class="tsd-signature-type tsd-kind-class"
-                      >Level</a
-                    ><span class="tsd-signature-symbol">;</span>
-                    <span class="tsd-kind-property">ref</span
-                    ><span class="tsd-signature-symbol">:</span>
-                    <a
-                      href="Player.html"
-                      class="tsd-signature-type tsd-kind-class"
-                      >Player</a
-                    >
-                    <span class="tsd-signature-symbol">}</span
-                    ><span class="tsd-signature-symbol">)</span
-                    ><span class="tsd-signature-symbol">:</span>
-                    <span class="tsd-signature-type">void</span
-                    ><a
-                      href="#ready-1"
-                      aria-label="Permalink"
-                      class="tsd-anchor-icon"
-                      ><svg viewBox="0 0 24 24" aria-hidden="true">
-                        <use href="../assets/icons.svg#icon-anchor"></use></svg
-                    ></a>
-                  </div>
-                  <div class="tsd-description">
-                    <div class="tsd-parameters">
-                      <h4 class="tsd-parameters-title">Parameters</h4>
-                      <ul class="tsd-parameter-list">
-                        <li>
-                          <span
-                            ><span class="tsd-kind-parameter"
-                              >__namedParameters</span
-                            >: <span class="tsd-signature-symbol">{</span>
-                            <span class="tsd-kind-property">level</span
-                            ><span class="tsd-signature-symbol">:</span>
-                            <a
-                              href="Level.html"
-                              class="tsd-signature-type tsd-kind-class"
-                              >Level</a
-                            ><span class="tsd-signature-symbol">;</span>
-                            <span class="tsd-kind-property">ref</span
-                            ><span class="tsd-signature-symbol">:</span>
-                            <a
-                              href="Player.html"
-                              class="tsd-signature-type tsd-kind-class"
-                              >Player</a
-                            >
-                            <span class="tsd-signature-symbol">}</span></span
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                    <h4 class="tsd-returns-title">
-                      Returns <span class="tsd-signature-type">void</span>
-                    </h4>
-                    <aside class="tsd-sources">
-                      <ul>
-                        <li>
-                          Defined in
-                          <a
-                            href="https://github.com/Jackie-Aniki/make3d/blob/main/src/camera.ts#L27"
-                            >src/camera.ts:27</a
-                          >
                         </li>
                       </ul>
                     </aside>
@@ -9312,10 +9362,10 @@
               </ul>
             </section>
             <section class="tsd-panel tsd-member">
-              <h3 class="tsd-anchor-link" id="setlevel">
-                <span>set<wbr />Level</span
+              <h3 class="tsd-anchor-link" id="setlevelfloor">
+                <span>set<wbr />Level<wbr />Floor</span
                 ><a
-                  href="#setlevel"
+                  href="#setlevelfloor"
                   aria-label="Permalink"
                   class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24" aria-hidden="true">
@@ -9324,8 +9374,11 @@
               </h3>
               <ul class="tsd-signatures">
                 <li class="">
-                  <div class="tsd-signature tsd-anchor-link" id="setlevel-1">
-                    <span class="tsd-kind-call-signature">setLevel</span
+                  <div
+                    class="tsd-signature tsd-anchor-link"
+                    id="setlevelfloor-1"
+                  >
+                    <span class="tsd-kind-call-signature">setLevelFloor</span
                     ><span class="tsd-signature-symbol">(</span
                     ><span class="tsd-kind-parameter">level</span
                     ><span class="tsd-signature-symbol">:</span>
@@ -9337,7 +9390,7 @@
                     ><span class="tsd-signature-symbol">:</span>
                     <span class="tsd-signature-type">void</span
                     ><a
-                      href="#setlevel-1"
+                      href="#setlevelfloor-1"
                       aria-label="Permalink"
                       class="tsd-anchor-icon"
                       ><svg viewBox="0 0 24 24" aria-hidden="true">
@@ -9368,75 +9421,8 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Jackie-Aniki/make3d/blob/main/src/camera.ts#L43"
-                            >src/camera.ts:43</a
-                          >
-                        </li>
-                      </ul>
-                    </aside>
-                  </div>
-                </li>
-              </ul>
-            </section>
-            <section class="tsd-panel tsd-member">
-              <h3 class="tsd-anchor-link" id="setref">
-                <span>set<wbr />Ref</span
-                ><a
-                  href="#setref"
-                  aria-label="Permalink"
-                  class="tsd-anchor-icon"
-                  ><svg viewBox="0 0 24 24" aria-hidden="true">
-                    <use href="../assets/icons.svg#icon-anchor"></use></svg
-                ></a>
-              </h3>
-              <ul class="tsd-signatures">
-                <li class="">
-                  <div class="tsd-signature tsd-anchor-link" id="setref-1">
-                    <span class="tsd-kind-call-signature">setRef</span
-                    ><span class="tsd-signature-symbol">(</span
-                    ><span class="tsd-kind-parameter">ref</span
-                    ><span class="tsd-signature-symbol">:</span>
-                    <a
-                      href="Player.html"
-                      class="tsd-signature-type tsd-kind-class"
-                      >Player</a
-                    ><span class="tsd-signature-symbol">)</span
-                    ><span class="tsd-signature-symbol">:</span>
-                    <span class="tsd-signature-type">void</span
-                    ><a
-                      href="#setref-1"
-                      aria-label="Permalink"
-                      class="tsd-anchor-icon"
-                      ><svg viewBox="0 0 24 24" aria-hidden="true">
-                        <use href="../assets/icons.svg#icon-anchor"></use></svg
-                    ></a>
-                  </div>
-                  <div class="tsd-description">
-                    <div class="tsd-parameters">
-                      <h4 class="tsd-parameters-title">Parameters</h4>
-                      <ul class="tsd-parameter-list">
-                        <li>
-                          <span
-                            ><span class="tsd-kind-parameter">ref</span>:
-                            <a
-                              href="Player.html"
-                              class="tsd-signature-type tsd-kind-class"
-                              >Player</a
-                            ></span
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                    <h4 class="tsd-returns-title">
-                      Returns <span class="tsd-signature-type">void</span>
-                    </h4>
-                    <aside class="tsd-sources">
-                      <ul>
-                        <li>
-                          Defined in
-                          <a
-                            href="https://github.com/Jackie-Aniki/make3d/blob/main/src/camera.ts#L47"
-                            >src/camera.ts:47</a
+                            href="https://github.com/Jackie-Aniki/make3d/blob/main/src/camera.ts#L27"
+                            >src/camera.ts:27</a
                           >
                         </li>
                       </ul>
@@ -9810,6 +9796,73 @@
                         <li>
                           Defined in
                           node_modules/@types/three/src/core/Object3D.d.ts:417
+                        </li>
+                      </ul>
+                    </aside>
+                  </div>
+                </li>
+              </ul>
+            </section>
+            <section class="tsd-panel tsd-member">
+              <h3 class="tsd-anchor-link" id="settarget">
+                <span>set<wbr />Target</span
+                ><a
+                  href="#settarget"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="../assets/icons.svg#icon-anchor"></use></svg
+                ></a>
+              </h3>
+              <ul class="tsd-signatures">
+                <li class="">
+                  <div class="tsd-signature tsd-anchor-link" id="settarget-1">
+                    <span class="tsd-kind-call-signature">setTarget</span
+                    ><span class="tsd-signature-symbol">(</span
+                    ><span class="tsd-kind-parameter">target</span
+                    ><span class="tsd-signature-symbol">:</span>
+                    <a
+                      href="Billboard.html"
+                      class="tsd-signature-type tsd-kind-class"
+                      >Billboard</a
+                    ><span class="tsd-signature-symbol">)</span
+                    ><span class="tsd-signature-symbol">:</span>
+                    <span class="tsd-signature-type">void</span
+                    ><a
+                      href="#settarget-1"
+                      aria-label="Permalink"
+                      class="tsd-anchor-icon"
+                      ><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <use href="../assets/icons.svg#icon-anchor"></use></svg
+                    ></a>
+                  </div>
+                  <div class="tsd-description">
+                    <div class="tsd-parameters">
+                      <h4 class="tsd-parameters-title">Parameters</h4>
+                      <ul class="tsd-parameter-list">
+                        <li>
+                          <span
+                            ><span class="tsd-kind-parameter">target</span>:
+                            <a
+                              href="Billboard.html"
+                              class="tsd-signature-type tsd-kind-class"
+                              >Billboard</a
+                            ></span
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <h4 class="tsd-returns-title">
+                      Returns <span class="tsd-signature-type">void</span>
+                    </h4>
+                    <aside class="tsd-sources">
+                      <ul>
+                        <li>
+                          Defined in
+                          <a
+                            href="https://github.com/Jackie-Aniki/make3d/blob/main/src/camera.ts#L31"
+                            >src/camera.ts:31</a
+                          >
                         </li>
                       </ul>
                     </aside>
@@ -10788,8 +10841,8 @@
                         <li>
                           Defined in
                           <a
-                            href="https://github.com/Jackie-Aniki/make3d/blob/main/src/camera.ts#L51"
-                            >src/camera.ts:51</a
+                            href="https://github.com/Jackie-Aniki/make3d/blob/main/src/camera.ts#L61"
+                            >src/camera.ts:61</a
                           >
                         </li>
                       </ul>
@@ -11703,14 +11756,6 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>receive<wbr />Shadow</span></a
-                  ><a href="#ref"
-                    ><svg
-                      class="tsd-kind-icon"
-                      viewBox="0 0 24 24"
-                      aria-label="Property"
-                    >
-                      <use href="../assets/icons.svg#icon-1024"></use></svg
-                    ><span>ref</span></a
                   ><a
                     href="#renderorder"
                     class="tsd-is-inherited tsd-is-external"
@@ -11737,6 +11782,14 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>scale</span></a
+                  ><a href="#target"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Property"
+                    >
+                      <use href="../assets/icons.svg#icon-1024"></use></svg
+                    ><span>target</span></a
                   ><a href="#type" class="tsd-is-inherited tsd-is-external"
                     ><svg
                       class="tsd-kind-icon"
@@ -12045,6 +12098,14 @@
                     >
                       <use href="../assets/icons.svg#icon-2048"></use></svg
                     ><span>dispatch<wbr />Event</span></a
+                  ><a href="#getcameraposition"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Method"
+                    >
+                      <use href="../assets/icons.svg#icon-2048"></use></svg
+                    ><span>get<wbr />Camera<wbr />Position</span></a
                   ><a href="#getdistanceto" class="tsd-is-protected"
                     ><svg
                       class="tsd-kind-icon"
@@ -12293,14 +12354,6 @@
                     >
                       <use href="../assets/icons.svg#icon-2048"></use></svg
                     ><span>raycast</span></a
-                  ><a href="#ready"
-                    ><svg
-                      class="tsd-kind-icon"
-                      viewBox="0 0 24 24"
-                      aria-label="Method"
-                    >
-                      <use href="../assets/icons.svg#icon-2048"></use></svg
-                    ><span>ready</span></a
                   ><a href="#remove" class="tsd-is-inherited tsd-is-external"
                     ><svg
                       class="tsd-kind-icon"
@@ -12391,22 +12444,14 @@
                     >
                       <use href="../assets/icons.svg#icon-2048"></use></svg
                     ><span>set<wbr />Lens</span></a
-                  ><a href="#setlevel"
+                  ><a href="#setlevelfloor"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
                       aria-label="Method"
                     >
                       <use href="../assets/icons.svg#icon-2048"></use></svg
-                    ><span>set<wbr />Level</span></a
-                  ><a href="#setref"
-                    ><svg
-                      class="tsd-kind-icon"
-                      viewBox="0 0 24 24"
-                      aria-label="Method"
-                    >
-                      <use href="../assets/icons.svg#icon-2048"></use></svg
-                    ><span>set<wbr />Ref</span></a
+                    ><span>set<wbr />Level<wbr />Floor</span></a
                   ><a
                     href="#setrotationfromaxisangle"
                     class="tsd-is-inherited tsd-is-external"
@@ -12451,6 +12496,14 @@
                     ><span
                       >set<wbr />Rotation<wbr />From<wbr />Quaternion</span
                     ></a
+                  ><a href="#settarget"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Method"
+                    >
+                      <use href="../assets/icons.svg#icon-2048"></use></svg
+                    ><span>set<wbr />Target</span></a
                   ><a
                     href="#setviewoffset"
                     class="tsd-is-inherited tsd-is-external"

@@ -1,8 +1,8 @@
 import { Object3D, PerspectiveCamera, Quaternion, Vector3 } from 'three'
 import { DeviceDetector } from './detect'
 import { Level } from './level'
-import { Player } from './player'
 import { Math_Half_PI } from './state'
+import { Billboard } from './billboard'
 
 export class Camera extends PerspectiveCamera {
   static readonly DISTANCE = 1.5
@@ -17,17 +17,19 @@ export class Camera extends PerspectiveCamera {
   static near = 0.1
   static far = DeviceDetector.HIGH_END ? 32 : 24
 
-  ref?: Player
   distance = Camera.DISTANCE
+  target?: Billboard
 
   constructor(fov = Camera.fov, near = Camera.near, far = Camera.far) {
     super(fov, innerWidth / innerHeight, near, far)
   }
 
-  ready({ level, ref }: { level: Level; ref: Player }) {
-    this.setLevel(level)
-    this.setRef(ref)
-    this.update()
+  setLevelFloor(level: Level) {
+    this.getFloor = (x, y) => level.getFloor(x, y)
+  }
+
+  setTarget(target: Billboard) {
+    this.target = target
   }
 
   onResize(width: number, height: number) {
@@ -40,49 +42,35 @@ export class Camera extends PerspectiveCamera {
     return 0
   }
 
-  setLevel(level: Level) {
-    this.getFloor = (x, y) => level.getFloor(x, y)
-  }
+  getCameraPosition({ x = 0, y = 0, angle = 0 } = {}, z = 0) {
+    const adjustedAngle = -angle + Math_Half_PI
+    const offsetX = Math.sin(adjustedAngle) * this.distance
+    const offsetY = Math.cos(adjustedAngle) * this.distance
 
-  setRef(ref: Player) {
-    this.ref = ref
+    const cameraX = x - offsetX
+    const cameraY = y - offsetY
+    const height = Math.max(z, this.getFloor(cameraX, cameraY) / 2)
+
+    return {
+      x: cameraX,
+      y: cameraY,
+      height
+    }
   }
 
   update(ms = 0) {
-    if (!this.ref) return
-    const { body, z, mesh } = this.ref
-    const angle = -body.angle + Math_Half_PI
+    if (!this.target) return
 
-    // Przesunięcie kamery względem gracza
-    const offsetX = Math.sin(angle) * this.distance
-    const offsetY = Math.cos(angle) * this.distance
-    const cameraX = body.x - offsetX
-    const cameraY = body.y - offsetY
-
-    // Wyliczenie wysokości kamery
-    const cameraHeight = this.getFloor(cameraX, cameraY) / 2
-    const cameraZ = Math.max(cameraHeight, z)
-
-    // Pozycja docelowa kamery
-    const targetPosition = Camera.targetVector.set(
-      cameraX,
-      Camera.HEIGHT + cameraZ,
-      cameraY
-    )
-
-    // Punkt, na który kamera patrzy (trochę niżej niż środek gracza)
-    const lookAtPosition = Camera.lookAtVector.set(
-      body.x,
-      Camera.HEIGHT + z * 0.5,
-      body.y
-    )
+    const { body, mesh } = this.target
+    const { x, y, height } = this.getCameraPosition(body, this.target.z)
+    const lookHeight = height / 2 + Camera.HEIGHT
+    const targetPosition = Camera.targetVector.set(x, height + Camera.HEIGHT, y)
+    const lookAtPosition = Camera.lookAtVector.set(body.x, lookHeight, body.y)
 
     if (ms) {
       const lerpFactor = ms * Camera.LERP_RATIO
-      // Płynne przesunięcie pozycji kamery
       this.position.lerp(targetPosition, lerpFactor)
 
-      // Płynna interpolacja rotacji
       Camera.tempQuaternion.copy(this.quaternion)
       Camera.tempQuaternion.slerp(mesh.quaternion, lerpFactor)
       this.rotation.setFromQuaternion(Camera.tempQuaternion)
@@ -91,23 +79,18 @@ export class Camera extends PerspectiveCamera {
       this.quaternion.copy(mesh.quaternion)
     }
 
-    // Ustawienie kierunku patrzenia kamery
     this.lookAt(lookAtPosition)
   }
 
   getScreenPosition(target: Object3D) {
-    // Pobranie pozycji gracza w świecie
     target.getWorldPosition(Camera.targetVector)
-
-    // Przekształcenie na współrzędne NDC (od -1 do 1)
     Camera.targetVector.project(this)
 
-    // Przekształcenie na współrzędne ekranu (piksele)
     const halfWidth = innerWidth / 2
     const halfHeight = innerHeight / 2
 
     const screenX = Camera.targetVector.x * halfWidth + halfWidth
-    const screenY = -Camera.targetVector.y * halfHeight + halfHeight // Inwersja Y, bo w WebGL (0,0) jest w środku
+    const screenY = -Camera.targetVector.y * halfHeight + halfHeight
 
     return { x: screenX, y: screenY }
   }

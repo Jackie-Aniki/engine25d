@@ -34,27 +34,22 @@ export class Ocean {
   protected startTime = Date.now()
 
   constructor(texture: Texture, repeat = 1.1) {
-    this.repeat = repeat
-    this.cols = Ocean.COLS * repeat
-    this.rows = Ocean.ROWS * repeat
-
     texture.wrapS = RepeatWrapping
     texture.wrapT = RepeatWrapping
 
+    this.repeat = repeat
+    this.cols = Ocean.COLS * repeat
+    this.rows = Ocean.ROWS * repeat
     this.mesh.add(this.createDeepWater(texture))
+    this.mesh.add(this.createShallowWater(texture))
+
     this.onResize()
-
-    state.renderer.scene.add(this.mesh)
-
-    setTimeout(() => {
-      this.mesh.add(this.createShallowWater(texture))
-    })
+    state.renderer.add(this)
   }
 
   update(ms = 0) {
-    if (!state.renderer.camera.ref) return
+    const { x, y } = state.renderer.camera?.target?.body || { x: 0, y: 0 }
 
-    const { x, y } = state.renderer.camera.ref.body
     this.mesh.position.set(x, Ocean.DEEP_WATER_Z, y)
     this.animations.forEach((animation) => animation(ms))
   }
