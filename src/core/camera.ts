@@ -44,7 +44,6 @@ export class Camera extends PerspectiveCamera {
     if (ms) {
       const lerpFactor = ms * Camera.LERP_RATIO
       this.position.lerp(target.position, lerpFactor)
-
       Camera.tempQuaternion.copy(this.quaternion)
       Camera.tempQuaternion.slerp(target.quaternion, lerpFactor)
       this.rotation.setFromQuaternion(Camera.tempQuaternion)
@@ -77,13 +76,12 @@ export class Camera extends PerspectiveCamera {
     return 0
   }
 
-  protected getCameraPosition({ x = 0, y = 0, angle = 0 } = {}, z = 0) {
+  protected getCameraPosition({ x = 0, y = 0, angle = 0 } = {}, height = 0) {
     const adjustedAngle = -angle + Math_Half_PI
     const offsetX = Math.sin(adjustedAngle) * this.distance
     const offsetY = Math.cos(adjustedAngle) * this.distance
     const cameraX = x - offsetX
     const cameraY = y - offsetY
-    const height = Math.max(z, this.getFloor(cameraX, cameraY) / 2)
 
     return {
       x: cameraX,
@@ -97,12 +95,17 @@ export class Camera extends PerspectiveCamera {
 
     const { body } = this.target
     const { x, y, height } = this.getCameraPosition(body, this.target.z)
+
+    const floorHeight = this.getFloor(x, y) / 2
+    const positionHeight = Math.max(floorHeight, height) + Camera.HEIGHT
+    const position = Camera.targetVector.set(x, positionHeight, y)
+
     const lookHeight = height / 2 + Camera.HEIGHT
-    const quaternion = this.target.mesh.quaternion
-    const position = Camera.targetVector.set(x, height + Camera.HEIGHT, y)
     const lookAt = Camera.lookAtVector.set(body.x, lookHeight, body.y)
 
-    return { quaternion, position, lookAt }
+    const quaternion = this.target.mesh.quaternion
+
+    return { position, lookAt, quaternion }
   }
 
   protected setLevelFloor(level: Level) {
