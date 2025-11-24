@@ -4,18 +4,21 @@ import { BillboardCreateProps } from './billboard'
 import { Sprite } from './sprite'
 
 export class NPC extends Sprite {
-  protected static readonly MAX_SPEED = 0
-  protected static readonly MAX_ROTATION = 100
-  protected static readonly JUMP_CHANCE = 0.001
-  protected static readonly ROTATE_CHANCE = 0.03
-
-  static override async create(
+  /**
+   * create npc
+   */
+  static async create<T = NPC>(
     level: Level,
     props: BillboardCreateProps,
     Class: any = NPC
   ) {
-    return Sprite.create(level, props, Class)
+    return Sprite.create<T>(level, props, Class)
   }
+
+  protected static readonly MAX_SPEED = 0
+  protected static readonly MAX_ROTATION = 100
+  protected static readonly JUMP_CHANCE = 0.001
+  protected static readonly ROTATE_CHANCE = 0.03
 
   protected speed = NPC.MAX_SPEED
   protected rotation = NPC.MAX_ROTATION

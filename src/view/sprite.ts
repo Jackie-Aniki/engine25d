@@ -7,18 +7,21 @@ import { normalizeAngle } from '../utils/view-utils'
 import { Billboard, BillboardCreateProps } from './billboard'
 
 export class Sprite extends Billboard {
-  protected static readonly MOVE_SPEED = 0.05
-  protected static readonly ROTATE_SPEED = 3
-  protected static readonly GRAVITY = 0.005
-  protected static readonly JUMP_SPEED = 0.075
-
-  static override async create(
+  /**
+   * create sprite
+   */
+  static async create<T = Sprite>(
     level: Level,
     props: BillboardCreateProps,
     Class: any = Sprite
   ) {
-    return Billboard.create(level, props, Class)
+    return Billboard.create<T>(level, props, Class)
   }
+
+  protected static readonly MOVE_SPEED = 0.05
+  protected static readonly ROTATE_SPEED = 3
+  protected static readonly GRAVITY = 0.005
+  protected static readonly JUMP_SPEED = 0.075
 
   body: DynamicBody
 

@@ -5,6 +5,10 @@ import { DeviceDetector } from '../utils/detect-mobile'
 import { Billboard } from '../view/billboard'
 
 export class Camera extends PerspectiveCamera {
+  static getFar() {
+    return state.renderer.camera.far / Camera.FAR
+  }
+
   static readonly DISTANCE = 1.5
   static readonly FAR = DeviceDetector.HIGH_END ? 32 : 16
 
@@ -15,10 +19,6 @@ export class Camera extends PerspectiveCamera {
   protected static readonly targetVector = new Vector3(0, Camera.HEIGHT, 0)
   protected static readonly lookAtVector = new Vector3(0, Camera.HEIGHT, 0)
   protected static readonly tempQuaternion = new Quaternion()
-
-  static getFar() {
-    return state.renderer.camera.far / Camera.FAR
-  }
 
   target?: Billboard
 

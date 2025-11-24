@@ -23,6 +23,19 @@ export interface BillboardCreateProps
 }
 
 export class Billboard {
+  /**
+   * create billboard
+   */
+  static async create<T = Billboard>(
+    level: Level,
+    { texture, ...props }: BillboardCreateProps,
+    Class: any = Billboard
+  ) {
+    await loadTextures([texture])
+    const textureName = getTextureName(texture)
+    return new Class({ level, textureName, ...props }) as T
+  }
+
   protected static compensateGroupZ = 0.2
   protected static tempVector = new Vector3()
   protected static tempVectorDivide = new Vector3(2, 2, 2)
@@ -44,16 +57,6 @@ export class Billboard {
   protected scaleX: number
   protected scaleY: number
   protected level?: Level
-
-  static async create(
-    level: Level,
-    { texture, ...props }: BillboardCreateProps,
-    Class: any = Billboard
-  ) {
-    await loadTextures([texture])
-    const textureName = getTextureName(texture)
-    return new Class({ level, textureName, ...props })
-  }
 
   get z() {
     return this._z

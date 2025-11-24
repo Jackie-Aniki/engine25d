@@ -20,23 +20,9 @@ export interface LevelProps<T = Texture> extends LevelCreateProps<T> {
 }
 
 export class Level extends BaseLevel {
-  static TREE_TEXTURE = Tree.DEFAULT_PROPS.textureName
-  static BUSH_TEXTURE = Bush.DEFAULT_PROPS.textureName
-
-  protected static readonly SIDES = 'sides.webp'
-  protected static readonly FLOOR = 'floor.webp'
-  protected static readonly OCEAN = 'ocean.webp'
-  protected static readonly TREE_FILL = 0.5
-  protected static readonly TREE_CHANCE = 0.25
-  protected static readonly TREE_HEIGHT_START = 2
-  protected static readonly TREE_ITERATIONS = 2
-  protected static readonly BUSH_FILL = 0.35
-  protected static readonly BUSH_CHANCE = 0.6
-  protected static readonly BUSH_HEIGHT_START = 1
-  protected static readonly BUSH_ITERATIONS = 1
-
-  mesh: BoxMesh
-
+  /**
+   * create level
+   */
   static async create(
     canvas?: HTMLCanvasElement,
     {
@@ -62,6 +48,23 @@ export class Level extends BaseLevel {
       })
     })
   }
+
+  static TREE_TEXTURE = Tree.DEFAULT_PROPS.textureName
+  static BUSH_TEXTURE = Bush.DEFAULT_PROPS.textureName
+
+  protected static readonly SIDES = 'sides.webp'
+  protected static readonly FLOOR = 'floor.webp'
+  protected static readonly OCEAN = 'ocean.webp'
+  protected static readonly TREE_FILL = 0.5
+  protected static readonly TREE_CHANCE = 0.25
+  protected static readonly TREE_HEIGHT_START = 2
+  protected static readonly TREE_ITERATIONS = 2
+  protected static readonly BUSH_FILL = 0.35
+  protected static readonly BUSH_CHANCE = 0.6
+  protected static readonly BUSH_HEIGHT_START = 1
+  protected static readonly BUSH_ITERATIONS = 1
+
+  mesh: BoxMesh
 
   constructor(
     { textures, canvas, ocean, skybox }: LevelProps,

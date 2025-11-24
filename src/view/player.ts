@@ -10,6 +10,17 @@ export interface PlayerProps
 }
 
 export class Player extends Sprite {
+  /**
+   * create player
+   */
+  static async create<T = Player>(
+    level: Level,
+    props: BillboardCreateProps = { texture: 'player.webp' },
+    Class: any = Player
+  ) {
+    return Sprite.create<T>(level, props, Class)
+  }
+
   static readonly DIRECTIONS: Direction[] = ['left', 'right', 'down', 'up']
   static readonly DEFAULT_PROPS = {
     textureName: 'player',
@@ -23,14 +34,6 @@ export class Player extends Sprite {
       up: 2,
       right: 3
     }
-  }
-
-  static override async create(
-    level: Level,
-    props: BillboardCreateProps = { texture: 'player.webp' },
-    Class: any = Player
-  ) {
-    return Sprite.create(level, props, Class)
   }
 
   readonly state: SpriteState

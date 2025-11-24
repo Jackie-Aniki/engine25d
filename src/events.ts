@@ -26,25 +26,6 @@ export const setKey = (value: boolean) => {
 }
 
 export class Events {
-  protected static readonly keyDown = setKey(true)
-  protected static readonly keyUp = setKey(false)
-  protected static readonly click = mouse.onPointerDown.bind(mouse)
-  protected static readonly release = mouse.onPointerUp.bind(mouse)
-  protected static readonly move = mouse.onPointerMove.bind(mouse)
-  protected static readonly cancel = mouse.preventEvent.bind(mouse)
-  protected static readonly events = {
-    pointerdown: Events.click,
-    pointermove: Events.move,
-    pointerup: Events.release,
-    touchstart: Events.cancel,
-    touchend: Events.cancel,
-    touchmove: Events.cancel,
-    dragstart: Events.cancel,
-    contextmenu: Events.cancel
-  }
-
-  protected static eventListenersAdded = false
-
   static addEventListeners() {
     if (Events.eventListenersAdded) return
     Events.eventListenersAdded = true
@@ -69,4 +50,23 @@ export class Events {
     window.removeEventListener('keydown', Events.keyDown)
     window.removeEventListener('keyup', Events.keyUp)
   }
+
+  protected static readonly keyDown = setKey(true)
+  protected static readonly keyUp = setKey(false)
+  protected static readonly click = mouse.onPointerDown.bind(mouse)
+  protected static readonly release = mouse.onPointerUp.bind(mouse)
+  protected static readonly move = mouse.onPointerMove.bind(mouse)
+  protected static readonly cancel = mouse.preventEvent.bind(mouse)
+  protected static readonly events = {
+    pointerdown: Events.click,
+    pointermove: Events.move,
+    pointerup: Events.release,
+    touchstart: Events.cancel,
+    touchend: Events.cancel,
+    touchmove: Events.cancel,
+    dragstart: Events.cancel,
+    contextmenu: Events.cancel
+  }
+
+  protected static eventListenersAdded = false
 }
