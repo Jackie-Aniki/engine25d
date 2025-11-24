@@ -70,6 +70,7 @@ export class Renderer extends WebGLRenderer {
     super(props)
     this.outputColorSpace = LinearSRGBColorSpace
     this.scene.background = new Color(Renderer.backgroundColor)
+    this.createFog()
 
     this.onResize()
     window.addEventListener('resize', () => this.onResize())
@@ -95,12 +96,12 @@ export class Renderer extends WebGLRenderer {
   }
 
   onResize() {
-    this.setSize(innerWidth, innerHeight)
-    this.camera.onResize(innerWidth, innerHeight)
-    this.ocean?.onResize()
-    this.scene.fog = this.createFog()
-
-    this.render(this.scene, this.camera)
+    setTimeout(() => {
+      this.setSize(innerWidth, innerHeight)
+      this.camera.onResize(innerWidth, innerHeight)
+      this.ocean?.onResize()
+      this.render(this.scene, this.camera)
+    })
   }
 
   set({ level, target }: SetProps) {
@@ -135,7 +136,6 @@ export class Renderer extends WebGLRenderer {
 
   protected createFog() {
     const far = this.camera.far - Camera.DISTANCE
-
     return new Fog(Renderer.backgroundColor, far * 0.8, far)
   }
 }
