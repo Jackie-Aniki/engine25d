@@ -1,12 +1,17 @@
 # make3d
 
-## 3d retro boomer game engine
+# [<img src="https://img.shields.io/npm/dw/make3d.svg?style=for-the-badge&color=success" alt="npm downloads per week" />](https://www.npmjs.com/package/make3d) @ [<img src="https://img.shields.io/npm/v/make3d?style=for-the-badge&color=success" alt="npm version" />](https://www.npmjs.com/package/make3d?activeTab=versions)
 
-<img alt="https://legacyofpain.app" src="https://pietal.dev/screenshot/legacy-of-pain-app.webp" width="50%" />
+Game FrameWork for JavaScript 3D WebGL Games. 
 
-https://legacyofpain.app
+* efficient and mobile friendly drawing ✔️ (threejs)
+* efficient collision detection ✔️ (make2d)
 
 ## demo
+
+https://jackie-aniki.github.io/make3d/demo/
+
+## demo code
 
 ```ts
 import { Level, Player } from 'make3d'
@@ -16,7 +21,7 @@ Level.create().then(Player.create)
 
 ## docs
 
-https://jackie-aniki.github.io/make3d/
+https://jackie-aniki.github.io/make3d/hierarchy.html
 
 ## license
 
