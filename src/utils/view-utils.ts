@@ -3,7 +3,6 @@ import {
   MeshBasicMaterial,
   NearestFilter,
   NearestMipMapLinearFilter,
-  NoColorSpace,
   Quaternion,
   Texture,
   Vector3
@@ -32,7 +31,9 @@ export const loadTextures = async (texturePaths: string[]) => {
 }
 
 export const pixelate = (texture: Texture) => {
-  texture.colorSpace = NoColorSpace
+  texture.anisotropy = 1
+  texture.unpackAlignment = 1
+  texture.matrixAutoUpdate = false
   texture.magFilter = NearestFilter
   texture.minFilter = NearestMipMapLinearFilter
 }

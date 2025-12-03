@@ -1,10 +1,4 @@
-import {
-  Mesh,
-  MeshBasicMaterial,
-  Object3D,
-  PlaneGeometry,
-  Vector3
-} from 'three'
+import { Mesh, Object3D, PlaneGeometry, Texture, Vector3 } from 'three'
 import { StaticBody } from '../body/static-body'
 import { Camera } from '../core/camera'
 import { type Level } from '../level'
@@ -174,8 +168,9 @@ export class Billboard {
         : [this.mesh.material]
 
       materials.forEach((material) => {
-        if (material instanceof MeshBasicMaterial) {
-          material.map?.offset.set(x * this.invCols, y * this.invRows)
+        if (material.map instanceof Texture) {
+          material.map.offset.set(x * this.invCols, y * this.invRows)
+          material.map.updateMatrix()
         }
       })
     }

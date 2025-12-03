@@ -71329,7 +71329,9 @@ const loadTextures = async (texturePaths) => {
     return resolved;
 };
 const pixelate = (texture) => {
-    texture.colorSpace = NoColorSpace;
+    texture.anisotropy = 1;
+    texture.unpackAlignment = 1;
+    texture.matrixAutoUpdate = false;
     texture.magFilter = NearestFilter;
     texture.minFilter = NearestMipMapLinearFilter;
 };
@@ -71416,7 +71418,7 @@ class Renderer extends WebGLRenderer {
             canvas,
             powerPreference: 'high-performance',
             preserveDrawingBuffer: true,
-            antialias: true,
+            antialias: true
         });
         this.scene = new Scene();
         this.camera = new Camera();
@@ -71453,7 +71455,7 @@ class Renderer extends WebGLRenderer {
         }
     }
     onResize() {
-        requestAnimationFrame(() => {
+        setTimeout(() => {
             this.setSize(innerWidth, innerHeight);
             this.camera.onResize(innerWidth, innerHeight);
             this.render(this.scene, this.camera);
@@ -71579,8 +71581,9 @@ class Billboard {
                 ? this.mesh.material
                 : [this.mesh.material];
             materials.forEach((material) => {
-                if (material instanceof MeshBasicMaterial) {
-                    material.map?.offset.set(x * this.invCols, y * this.invRows);
+                if (material.map instanceof Texture) {
+                    material.map.offset.set(x * this.invCols, y * this.invRows);
+                    material.map.updateMatrix();
                 }
             });
         }

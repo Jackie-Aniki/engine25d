@@ -103,7 +103,7 @@ export class Renderer extends WebGLRenderer {
   }
 
   protected onResize() {
-    requestAnimationFrame(() => {
+    setTimeout(() => {
       this.setSize(innerWidth, innerHeight)
       this.camera.onResize(innerWidth, innerHeight)
       this.render(this.scene, this.camera)
