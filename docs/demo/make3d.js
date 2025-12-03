@@ -69650,7 +69650,7 @@ DeviceDetector.LOW_END = DeviceDetector.IS_MOBILE || DeviceDetector.IS_TV || 'lo
 DeviceDetector.HIGH_END = !DeviceDetector.LOW_END;
 
 const minLevelHeight = DeviceDetector.HIGH_END ? 2 : 1;
-const maxLevelHeight = 'height' in queryParams ? Number(queryParams.height) : 8;
+const maxLevelHeight = 'height' in queryParams ? Number(queryParams.height) : 6;
 const waterZ = 0.5;
 const doubleClickTime = 400;
 const keys = {};
@@ -71224,7 +71224,7 @@ class Ocean {
         const mesh = new Mesh(geometry, material);
         mesh.setRotationFromAxisAngle(new Vector3(1, 0, 0), -Math_Half_PI);
         mesh.scale.set(scale, scale, scale);
-        mesh.position.set(0, 0, 0);
+        mesh.position.set(0, -0.25, 0);
         mesh.renderOrder = 0;
         this.animations.push(() => {
             map.offset.set((this.mesh.position.x * 0.5) % 1, 1 - ((this.mesh.position.z * 0.5) % 1));
@@ -71232,7 +71232,7 @@ class Ocean {
         return mesh;
     }
     createShallowWater(texture) {
-        const { opacity, renderOrder, waveSize, waveSpeed, waveHeight } = Ocean.SHALLOW_WATER;
+        const { opacity, waveLength, strength } = Ocean.SHALLOW_WATER;
         const radius = Math.hypot(this.cols, this.rows) / 2;
         const geometry = new CircleGeometry(radius);
         const map = texture.clone();
@@ -71243,16 +71243,14 @@ class Ocean {
                 cameraX: { value: 0 },
                 cameraY: { value: 0 },
                 cameraFar: { value: Camera.FAR },
-                waveSpeed: { value: waveSpeed },
-                waveHeight: { value: waveHeight },
-                waveSize: { value: waveSize },
+                waveLength: { value: waveLength },
                 map: { value: map },
-                opacity: { value: opacity }
+                opacity: { value: opacity },
+                strength: { value: strength }
             },
             vertexShader: `
         uniform float time;
-        uniform float waveSpeed;
-        uniform float waveHeight;
+        uniform float waveLength;
         uniform float cameraFar;
         uniform float cameraX;
         uniform float cameraY;
@@ -71261,25 +71259,21 @@ class Ocean {
         varying vec2 vUv;
       
         void main() {
-          vec3 pos = position;
-          wave = sin((pos.x + pos.y) * 0.1 + time * waveSpeed);
+          wave = sin((position.y + time) * waveLength);
           vUv = uv * cameraFar + vec2(cameraX, cameraY);
-          pos.z = wave * waveHeight;
-          gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
         }
       `,
             fragmentShader: `
         uniform sampler2D map;
-        uniform float time;
-        uniform float waveSize;
         uniform float opacity;
-        uniform float cameraY;
+        uniform float strength;
 
         varying float wave;
         varying vec2 vUv;
       
         void main() {
-          vec2 repeatedUV = mod(vUv + vec2(0, wave * waveSize), 1.0);
+          vec2 repeatedUV = mod(vUv + vec2(0.0, wave * strength), 1.0);
           vec4 color = texture2D(map, repeatedUV);
           gl_FragColor = vec4(color.rgb, opacity);
         }
@@ -71287,8 +71281,8 @@ class Ocean {
         });
         const mesh = new Mesh(geometry, material);
         mesh.setRotationFromAxisAngle(new Vector3(1, 0, 0), -Math_Half_PI);
-        mesh.position.set(0, Ocean.SHALLOW_WATER.waveHeight * 1.1, 0);
-        mesh.renderOrder = renderOrder;
+        mesh.position.set(0, 0, 0);
+        mesh.renderOrder = 1;
         this.animations.push((ms) => {
             material.uniforms.time.value =
                 (material.uniforms.time.value + ms * 0.0001) % 1000;
@@ -71303,10 +71297,8 @@ Ocean.ROWS = BaseLevel.ROWS;
 Ocean.DEEP_WATER_Z = -0.2;
 Ocean.SHALLOW_WATER = {
     opacity: 0.7,
-    waveSize: 1,
-    waveSpeed: 0.5,
-    waveHeight: 0.05,
-    renderOrder: 1
+    waveLength: 0.12,
+    strength: 0.8,
 };
 
 const loadTextures = async (texturePaths) => {

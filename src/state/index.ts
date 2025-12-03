@@ -8,7 +8,7 @@ import { queryParams } from '../utils/query-params'
 export const minLevelHeight = DeviceDetector.HIGH_END ? 2 : 1
 
 export const maxLevelHeight =
-  'height' in queryParams ? Number(queryParams.height) : 8
+  'height' in queryParams ? Number(queryParams.height) : 6
 
 export const waterZ = 0.5
 
