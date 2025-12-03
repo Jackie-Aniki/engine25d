@@ -159,6 +159,7 @@ export class Billboard {
     y = (Math.random() - 0.5) * (BaseLevel.ROWS * 0.5)
   ) {
     this.body = this.createBody(x, y, level)
+    console.log(x, this.body.z, y)
     this.mesh.position.set(x, this.body.z, y)
   }
 

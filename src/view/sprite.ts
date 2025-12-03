@@ -38,7 +38,6 @@ export class Sprite extends Billboard {
   ) {
     super(props)
     this.state = state
-    this.spawn(props.level)
   }
 
   update(ms: number) {

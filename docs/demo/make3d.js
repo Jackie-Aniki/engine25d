@@ -71415,7 +71415,8 @@ class Renderer extends WebGLRenderer {
         super({
             canvas,
             powerPreference: 'high-performance',
-            antialias: true
+            preserveDrawingBuffer: true,
+            antialias: true,
         });
         this.scene = new Scene();
         this.camera = new Camera();
@@ -71479,6 +71480,7 @@ Renderer.backgroundColor = 0x44ccf0;
 
 class StaticBody {
     constructor(x, y, level) {
+        this.z = 0;
         this.angle = 0;
         this.userData = { level };
         this.setPosition(x, y);
@@ -71564,6 +71566,7 @@ class Billboard {
     }
     spawn(level, x = (Math.random() - 0.5) * (BaseLevel.COLS * 0.5), y = (Math.random() - 0.5) * (BaseLevel.ROWS * 0.5)) {
         this.body = this.createBody(x, y, level);
+        console.log(x, this.body.z, y);
         this.mesh.position.set(x, this.body.z, y);
     }
     updateTexture() {
@@ -71631,7 +71634,8 @@ class DynamicBody extends Circle {
                 this.setPosition(this.x - dx, this.y - dy);
                 b.setPosition(b.x + dx * 2, b.y + dy * 2);
             }
-            if (b.isStatic && AbstractBody.getFloor(this, b.x, b.y) / 2 - this.z <= 0.5) {
+            if (b.isStatic &&
+                AbstractBody.getFloor(this, b.x, b.y) / 2 - this.z <= 0.5) {
                 onCollide?.();
             }
         });
@@ -71652,7 +71656,6 @@ class Sprite extends Billboard {
         this.clickTimeout = 0;
         this.velocity = 0;
         this.state = state;
-        this.spawn(props.level);
     }
     update(ms) {
         const deltaTime = ms * 0.001;
@@ -71928,7 +71931,7 @@ class Level extends BaseLevel {
         return mesh;
     }
     createTrees() {
-        if (Level.TREE in loadedTextures) {
+        if (getTextureName(Level.TREE) in loadedTextures) {
             const treeHeights = Level.createMatrix({
                 fill: Level.TREE_FILL,
                 iterations: Level.TREE_ITERATIONS
@@ -71945,7 +71948,7 @@ class Level extends BaseLevel {
         }
     }
     createBushes() {
-        if (Level.BUSH in loadedTextures) {
+        if (getTextureName(Level.BUSH) in loadedTextures) {
             const bushesHeights = Level.createMatrix({
                 cols: Level.COLS * 2,
                 rows: Level.ROWS * 2,

@@ -2,7 +2,12 @@ import { Texture, Vector3 } from 'three'
 import { Renderer } from '../core/renderer'
 import { Events } from '../events'
 import { loadedTextures, state } from '../state'
-import { getMatrix, loadTextures, mapCubeTextures } from '../utils/view-utils'
+import {
+  getMatrix,
+  getTextureName,
+  loadTextures,
+  mapCubeTextures
+} from '../utils/view-utils'
 import { Bush } from '../view/bush'
 import { SkyboxProps } from '../view/skybox'
 import { Tree } from '../view/tree'
@@ -93,7 +98,7 @@ export class Level extends BaseLevel {
   }
 
   protected createTrees() {
-    if (Level.TREE in loadedTextures) {
+    if (getTextureName(Level.TREE) in loadedTextures) {
       const treeHeights = Level.createMatrix({
         fill: Level.TREE_FILL,
         iterations: Level.TREE_ITERATIONS
@@ -114,7 +119,7 @@ export class Level extends BaseLevel {
   }
 
   protected createBushes() {
-    if (Level.BUSH in loadedTextures) {
+    if (getTextureName(Level.BUSH) in loadedTextures) {
       const bushesHeights = Level.createMatrix({
         cols: Level.COLS * 2,
         rows: Level.ROWS * 2,

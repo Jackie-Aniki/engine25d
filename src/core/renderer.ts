@@ -58,6 +58,7 @@ export class Renderer extends WebGLRenderer {
     super({
       canvas,
       powerPreference: 'high-performance',
+      preserveDrawingBuffer: true,
       antialias: true
     })
 

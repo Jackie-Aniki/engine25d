@@ -3,10 +3,10 @@ import { BaseBody, BodyUserData } from '../model'
 import { AbstractBody } from './abstract-body'
 
 export class StaticBody implements BaseBody {
+  group!: number
   x!: number
   y!: number
-  z!: number
-  group!: number
+  z = 0
   angle = 0
   userData: BodyUserData
 
@@ -18,7 +18,6 @@ export class StaticBody implements BaseBody {
   setPosition(x: number, y: number) {
     this.x = x
     this.y = y
-
     AbstractBody.onSetPosition(this)
 
     return this
