@@ -62,19 +62,22 @@ export const mapCubeTextures = <T>({
   back
 }: Record<CubeDirections, T>): T[] => [left, right, up, down, front, back]
 
+const materials: Record<string, MeshBasicMaterial> = {}
+
 export const createMaterial = (textureName: string, cols = 1, rows = 1) => {
   try {
-    const texture = loadedTextures[textureName].clone()
-    const material = new MeshBasicMaterial({
-      ...alphaMaterialProps,
-      map: texture
-    })
+    if (!materials[textureName]) {
+      if (cols > 1 || rows > 1) {
+        loadedTextures[textureName].repeat.set(1 / cols, 1 / rows)
+      }
 
-    if (cols > 1 || rows > 1) {
-      texture.repeat.set(1 / cols, 1 / rows)
+      materials[textureName] = new MeshBasicMaterial({
+        ...alphaMaterialProps,
+        map: loadedTextures[textureName]
+      })
     }
 
-    return material
+    return materials[textureName]
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (_error: unknown) {
     console.error(

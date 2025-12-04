@@ -43,14 +43,9 @@ export class Ocean {
     this.animations.forEach((animation) => animation(ms))
   }
 
-  protected createWater(
-    texture: Texture,
-    level = 0,
-    opacity = level ? 0.7 : 1
-  ) {
+  protected createWater(map: Texture, level = 0, opacity = level ? 0.7 : 1) {
     const radius = Math.hypot(this.cols, this.rows) / 2
     const geometry = new CircleGeometry(radius)
-    const map = texture.clone()
     const material = new MeshBasicMaterial({
       ...alphaMaterialProps,
       alphaTest: opacity,

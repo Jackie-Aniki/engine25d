@@ -69659,7 +69659,7 @@ const defaultNPCsCount = 'limit' in queryParams
     ? Number(queryParams.limit)
     : DeviceDetector.HIGH_END
         ? 64
-        : 24;
+        : 48;
 
 class Mouse extends Vector2 {
     constructor() {
@@ -71099,8 +71099,8 @@ class AbstractLevel {
     }
 }
 AbstractLevel.STEP = 0.25;
-AbstractLevel.COLS = DeviceDetector.HIGH_END ? 48 : 24;
-AbstractLevel.ROWS = DeviceDetector.HIGH_END ? 48 : 24;
+AbstractLevel.COLS = DeviceDetector.HIGH_END ? 32 : 24;
+AbstractLevel.ROWS = DeviceDetector.HIGH_END ? 32 : 24;
 AbstractLevel.FILL = 0.5;
 AbstractLevel.ITERATIONS = 4;
 
@@ -71124,10 +71124,9 @@ class Ocean {
         this.mesh.position.set(x, Ocean.DEEP_WATER_Z, y);
         this.animations.forEach((animation) => animation(ms));
     }
-    createWater(texture, level = 0, opacity = level ? 0.7 : 1) {
+    createWater(map, level = 0, opacity = level ? 0.7 : 1) {
         const radius = Math.hypot(this.cols, this.rows) / 2;
         const geometry = new CircleGeometry(radius);
-        const map = texture.clone();
         const material = new MeshBasicMaterial({
             ...alphaMaterialProps,
             alphaTest: opacity,
@@ -71178,17 +71177,19 @@ const distanceSq = (a, b) => {
     return x * x + y * y;
 };
 const mapCubeTextures = ({ left, right, up, down, front, back }) => [left, right, up, down, front, back];
+const materials = {};
 const createMaterial = (textureName, cols = 1, rows = 1) => {
     try {
-        const texture = loadedTextures[textureName].clone();
-        const material = new MeshBasicMaterial({
-            ...alphaMaterialProps,
-            map: texture
-        });
-        if (cols > 1 || rows > 1) {
-            texture.repeat.set(1 / cols, 1 / rows);
+        if (!materials[textureName]) {
+            if (cols > 1 || rows > 1) {
+                loadedTextures[textureName].repeat.set(1 / cols, 1 / rows);
+            }
+            materials[textureName] = new MeshBasicMaterial({
+                ...alphaMaterialProps,
+                map: loadedTextures[textureName]
+            });
         }
-        return material;
+        return materials[textureName];
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
     }
     catch (_error) {

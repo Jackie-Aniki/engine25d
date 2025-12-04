@@ -53,4 +53,4 @@ export const defaultNPCsCount =
     ? Number(queryParams.limit)
     : DeviceDetector.HIGH_END
       ? 64
-      : 24
+      : 48
