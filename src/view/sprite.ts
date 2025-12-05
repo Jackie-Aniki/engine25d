@@ -21,9 +21,8 @@ export class Sprite extends Billboard {
   static readonly SPIN_SPEED = 0.06
   static readonly MOVE_SPEED = 0.1
   static readonly FALL_SPEED = 0.13
-
   static readonly CLICK_DURATION = 100
-  static readonly CLICK_PREVENT = 500
+  static readonly CLICK_PREVENT = 400
 
   declare readonly body: DynamicBody
 

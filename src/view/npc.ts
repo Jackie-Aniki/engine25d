@@ -18,9 +18,9 @@ export class NPC extends Sprite {
     return (1 + Math.random()) * 0.1
   }
 
-  protected static readonly MAX_SPEED = 0
-  protected static readonly MAX_ROTATION = 100
-  protected static readonly DEFAULT_COUNT =
+  static readonly MAX_SPEED = 0
+  static readonly MAX_ROTATION = 100
+  static readonly DEFAULT_COUNT =
     'limit' in queryParams
       ? Number(queryParams.limit)
       : DeviceDetector.HIGH_END
@@ -32,7 +32,7 @@ export class NPC extends Sprite {
   protected props = {
     SLOW_SPEED: NPC.randomProp(),
     SPIN_CHANCE: NPC.randomProp(),
-    JUMP_CHANCE: NPC.randomProp()
+    JUMP_CHANCE: NPC.randomProp() * 0.1
   }
 
   update(scale: number) {

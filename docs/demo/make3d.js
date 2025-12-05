@@ -71679,7 +71679,7 @@ Sprite.SPIN_SPEED = 0.06;
 Sprite.MOVE_SPEED = 0.1;
 Sprite.FALL_SPEED = 0.13;
 Sprite.CLICK_DURATION = 100;
-Sprite.CLICK_PREVENT = 500;
+Sprite.CLICK_PREVENT = 400;
 
 class Player extends Sprite {
     static async create(level, props = { texture: 'player.webp' }, Class = Player) {
@@ -71732,7 +71732,7 @@ class NPC extends Sprite {
         this.props = {
             SLOW_SPEED: NPC.randomProp(),
             SPIN_CHANCE: NPC.randomProp(),
-            JUMP_CHANCE: NPC.randomProp()
+            JUMP_CHANCE: NPC.randomProp() * 0.1
         };
     }
     static async create(level, props, Class = NPC) {
