@@ -32,7 +32,7 @@ export class NPC extends Sprite {
   protected props = {
     SLOW_SPEED: NPC.randomProp(),
     SPIN_CHANCE: NPC.randomProp(),
-    JUMP_CHANCE: NPC.randomProp() * 0.1
+    JUMP_CHANCE: NPC.randomProp() * 0.25
   }
 
   update(scale: number) {

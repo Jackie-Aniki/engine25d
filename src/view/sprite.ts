@@ -32,15 +32,13 @@ export class Sprite extends Billboard {
   protected velocity = 0
   protected state: SpriteState
 
-  constructor(
-    props: BillboardProps,
-    state: SpriteState = { keys: {}, mouse: new Mouse() }
-  ) {
+  constructor(props: BillboardProps, state?: SpriteState) {
     super(props)
-    this.state = state
+    this.state = state || { keys: {}, mouse: new Mouse() }
   }
 
   update(scale: number) {
+    super.update(scale)
     this.updateFall(scale)
 
     const gear = this.getGear()
@@ -50,9 +48,6 @@ export class Sprite extends Billboard {
       this.updateMove(scale * gear)
       this.updateAnimation(scale)
     }
-
-    // update mesh
-    super.update(scale)
   }
 
   jump() {

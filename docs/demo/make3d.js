@@ -71548,14 +71548,15 @@ class Sprite extends Billboard {
     static async create(level, props, Class = Sprite) {
         return Billboard.create(level, props, Class);
     }
-    constructor(props, state = { keys: {}, mouse: new Mouse() }) {
+    constructor(props, state) {
         super(props);
         this.clickTime = 0;
         this.clickTimeout = 0;
         this.velocity = 0;
-        this.state = state;
+        this.state = state || { keys: {}, mouse: new Mouse() };
     }
     update(scale) {
+        super.update(scale);
         this.updateFall(scale);
         const gear = this.getGear();
         const { left, right } = this.state.keys;
@@ -71564,8 +71565,6 @@ class Sprite extends Billboard {
             this.updateMove(scale * gear);
             this.updateAnimation(scale);
         }
-        // update mesh
-        super.update(scale);
     }
     jump() {
         if (Date.now() - this.clickTime > Sprite.CLICK_PREVENT) {
@@ -71732,7 +71731,7 @@ class NPC extends Sprite {
         this.props = {
             SLOW_SPEED: NPC.randomProp(),
             SPIN_CHANCE: NPC.randomProp(),
-            JUMP_CHANCE: NPC.randomProp() * 0.1
+            JUMP_CHANCE: NPC.randomProp() * 0.25
         };
     }
     static async create(level, props, Class = NPC) {
