@@ -12,7 +12,7 @@
     "target": "es2020",
     "module": "es2020",
     "outDir": "dist",
-    "types": ["check2d", "pixi-stats", "rot-js", "sat", "three"]
+    "types": ["check2d", "pixi-stats", "rot-js", "three"]
   },
   "files": ["src/index.ts"],
   "include": ["src/**/*.ts"],

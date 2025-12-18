@@ -639,6 +639,11 @@
   dependencies:
     undici-types "~7.16.0"
 
+"@types/rbush@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@types/rbush/-/rbush-4.0.0.tgz#b327bf54952e9c924ea6702c36904c2ce1d47f35"
+  integrity sha512-+N+2H39P8X+Hy1I5mC6awlTX54k3FhiUmvt7HWzGJZvF+syUAAxP/stwppS8JE84YHqFgRMv6fCy31202CMFxQ==
+
 "@types/resolve@1.20.2":
   version "1.20.2"
   resolved "https://registry.yarnpkg.com/@types/resolve/-/resolve-1.20.2.tgz#97d26e00cd4a0423b4af620abecf3e6f442b7975"
@@ -944,11 +949,12 @@ chalk@^4.0.0:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
 
-check2d@^9.36.0:
-  version "9.36.0"
-  resolved "https://registry.yarnpkg.com/check2d/-/check2d-9.36.0.tgz#e89d337b0b035031cc0858615d953b75ae795a2b"
-  integrity sha512-hXSExwin2QRPmMFdZqK0HlYCDl8xU9WrCVmI2WNReb9K1bhgOfZyHyyWDoJoDjLjKJKJkWsLj4d2fie043O/Nw==
+check2d@^9.36.3:
+  version "9.36.3"
+  resolved "https://registry.yarnpkg.com/check2d/-/check2d-9.36.3.tgz#8ecb9c24a0f0f77e81c3260411679a7a40a0aae7"
+  integrity sha512-MHbrO/+YdrkA5P0gX7Jxe3z/SeeC2yXEPEf6C/7EIWzyeF/PgzIcGzvnbiqilsWXLZd/g5bNZ1/tYDZztNqR9Q==
   dependencies:
+    "@types/rbush" "^4.0.0"
     "@types/sat" "^0.0.35"
     poly-decomp-es "^0.4.2"
     sat "^0.9.0"
@@ -1931,10 +1937,10 @@ picomatch@^4.0.2, picomatch@^4.0.3:
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-4.0.3.tgz#796c76136d1eead715db1e7bad785dedd695a042"
   integrity sha512-5gTmgEY/sqK6gFXLIsQNH19lWb4ebPDLA4SdLP7dsWkIXHWlG66oPuVvXSGFPppYZz8ZDZq0dYYrbHfBCVUb1Q==
 
-pixi-stats@^5.1.5:
-  version "5.1.5"
-  resolved "https://registry.yarnpkg.com/pixi-stats/-/pixi-stats-5.1.5.tgz#af18582d433cb43e93e3f4b0786e58aab44ed6b1"
-  integrity sha512-xkqMHjl2fCqMyn3nh1MPpbc010PC8mrEOVqB+BBfI8stC7CBjWpbGLAXvwdPBINJIg9l/s+Xj4IzdKWFdJDWUA==
+pixi-stats@^5.1.7:
+  version "5.1.7"
+  resolved "https://registry.yarnpkg.com/pixi-stats/-/pixi-stats-5.1.7.tgz#b9802e6f7063bb36b801fc96a4453b6fd33fbaca"
+  integrity sha512-h0FQnZfGPuTg5rVKkCbWD1aLni7sVn+ZaRIzoUsNZzK8FyXI2xARBiILOK76KKjhzS9rAJcneUpXOvzo+wIM2Q==
 
 poly-decomp-es@^0.4.2:
   version "0.4.2"
