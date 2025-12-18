@@ -55040,7 +55040,7 @@ function requireStatsPanel () {
 	        this.bg = bg;
 	        this.name = name;
 	        this.statStorage = statStorage;
-	        this.statStorage.addCallback(this.update);
+	        this.statStorage.addCallback(this.update.bind(this));
 	        const canvas = document.createElement('canvas');
 	        canvas.width = stats_constants_1.WIDTH;
 	        canvas.height = stats_constants_1.HEIGHT;
@@ -55085,7 +55085,7 @@ function requireStatsPanel () {
 	        if (!this.statStorage) {
 	            return;
 	        }
-	        this.statStorage.removeCallback(this.update);
+	        this.statStorage.removeCallback(this.update.bind(this));
 	        this.statStorage = null;
 	        this.context = null;
 	        if (this.dom) {
