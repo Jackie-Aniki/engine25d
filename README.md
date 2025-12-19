@@ -18,7 +18,7 @@ It focuses on providing **game-oriented primitives** (levels, players, NPCs, phy
 
 ## demo
 
-👉 https://nenjack.github.io/make3d/demo/
+👉 https://nenjack.github.io/make3d/demo/?fps
 
 ---
 
@@ -52,8 +52,8 @@ make3d exposes a focused set of modules, grouped by responsibility:
 
 ### core
 
-- **AbstractLevel** – base class for custom levels
-- **Level** – main game level abstraction
+- **BaseLevel** – base class for custom levels
+- **Level** – main game level ready to use
 
 ### rendering
 
@@ -72,15 +72,15 @@ make3d exposes a focused set of modules, grouped by responsibility:
 
 ### physics
 
+- **physics** – shared physics instance (powered by check2d)
 - **DynamicBody** – movable physics body
 - **StaticBody** – static physics body
 - **AbstractBody** – base physics body
-- **physics** – shared physics instance (powered by check2d)
 
 ### input
 
-- **Mouse** – mouse input handler
 - **mouse** – shared mouse instance
+- **Mouse** – mouse input handler
 
 ### state & events
 
@@ -94,9 +94,9 @@ make3d exposes a focused set of modules, grouped by responsibility:
 
 ### environment & debug
 
+- **getQueryParams** – get query params from current url
 - **Debug** – debug helpers
 - **DeviceDetector** – device detection
-- **getQueryParams** – get query params from current url
 
 ---
 
@@ -118,7 +118,3 @@ yarn add make3d
 ## license
 
 MIT
-
-```
-
-```
